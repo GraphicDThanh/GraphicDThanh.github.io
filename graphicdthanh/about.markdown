@@ -4,15 +4,23 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+## BeautyOnCode Blog
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+Hi my friend,
 
+I'm Thanh, a web developer. 
+My official blog at [BeautyOnCode][official-blog], written in Vietnamese.
 
-[jekyll-organization]: https://github.com/jekyll
+I am learning to write tech blog in English at this new domain, [chickytech.link][origin-link].
+
+I built this [github page][github-page] with jekyll, then link the domain `<username>.github.io` to the domain on Route 53 of AWS.
+
+If you want to start a blog without cost on hosting and write content in markdown then you could try this way.
+
+Connect with me on [Linkedin][linkedin]
+
+[official-blog]: http://beautyoncode.com/
+[origin-link]: http://www.chickytech.link/
+[github-page]: https://docs.github.com/en/pages
+[linkedin]: https://www.linkedin.com/in/graphicdthanh/
