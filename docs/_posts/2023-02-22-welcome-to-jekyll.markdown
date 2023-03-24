@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Welcome to ChickTech.link!"
-date:   2023-03-10 10:00:00 +0700
+title:  "Welcome to BeautyOnCode!"
+date:   2023-03-24 10:00:00 +0700
 categories: welcome
 ---
 
