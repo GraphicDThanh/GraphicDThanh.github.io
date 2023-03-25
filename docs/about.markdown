@@ -25,6 +25,8 @@ Here is place she writes on the journey.
 
 BeautyOnCode.
 
+![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/12/Circle-Logo.png?w=200&ssl=1)
+![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/12/logo-rec.png?w=500&ssl=1)
 
 > Read more about the meaning of the name BeautyOnCode [here (vietnamese)](https://beautyoncode.com/gioi-thieu/).
 
