@@ -5,16 +5,6 @@
 layout: home
 ---
 
-Welcome to BeautyOnCode!
+[BeautyOnCode](beautyoncode.online) is a "little garden online" exploring the programming world.
 
-[BeautyOnCode](beautyoncode.online) is an online "little garden" to explore the programming world.
-
-Read [intro](/docs/_posts/2023-02-22-welcome-to-jekyll.markdown)
-
-Visit Vietnamese at [beautyoncode.com](http://beautyoncode.com/)
-
-Subscribe to receive blog emails [here](https://bit.ly/3un9YiW).
-
-Wishing you a happy day!
-
-BeautyOnCode.
+You could read the [intro](/welcome/2023/03/24/welcome-to-jekyll.html) and visit [origin blog](http://beautyoncode.com/) in vietnamese. Enjoy reading!
