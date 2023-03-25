@@ -16,7 +16,7 @@
 ### Run app
 - Go to app directory
 ```bash
-cd graphicdthanh
+cd docs
 ```
 
 - build the site on local
@@ -27,7 +27,7 @@ bundle exec jekyll serve
 - Go `http://127.0.0.1:4000/` to see the site
 
 
-### Init app note:
+### Init app:
 > Do follow guide on jekyll ([here](https://jekyllrb.com/docs/))
 
 - install jekyll and bundler gems
