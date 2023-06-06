@@ -1,55 +1,35 @@
 # GraphicDThanh Blog
+> This github pages use [jekyll](https://jekyllrb.com/docs/installation/)
 
-> This github pages use jekyll
-
-## [prerequisites](https://jekyllrb.com/docs/installation/): 
-  - `>` Ruby v2.5.0: check by `ruby -v`
-  - RubyGems: check by `gem -v`
-  - GCC and Make: check by `gcc -v`, `g++ -v`, `make -v`
-
-    If have error on gem not found, add config PATH to shell `~/.zshrc`
-    ```bash
-    export GEM_PATH="$HOME/.gem/ruby/2.6.0/bin"
-    export PATH="$GEM_PATH:$PATH"
-    ```
-
+## Run App
+### Install gem 
+```bash
+$ cd docs
+$ bundle install
+```
 ### Run app
-- Go to app directory
-```bash
-cd docs
+```
+$ bundle exec jekyll serve
 ```
 
-- build the site on local
+Access blog by http://127.0.0.1:4000/
+
+## Set Up Your New App
+> Note: this app use approach create separate env of ruby instead of use global. ([ref](https://collectionbuilder.github.io/cb-docs/docs/software/ruby_mac/))
+
+### Set up a separate Ruby development environment with rbenv
+
 ```bash
-bundle exec jekyll serve
+$ brew update
+$ brew install rbenv
+$ rbenv init
+$ eval "$(rbenv init - zsh)" > ~/.zshrc
+$ rbenv install 3.1.4
+$ rbenv local 3.1.4
+rbenv rehash
 ```
 
-- Go `http://127.0.0.1:4000/` to see the site
-
-
-### Init app:
-> Do follow guide on jekyll ([here](https://jekyllrb.com/docs/))
-
-- install jekyll and bundler gems
-
-  ```bash
-  gem -user-install install jekyll bundler
-  which jekyll
-  ```
-
-- create new Jekyll site
-  ```bash
-  jekyll new graphicdthanh
-  ```
-
-- change into new directory
-  ```bash
-  cd graphicdthanh
-  ```
-
-- build the site on local
-  ```bash
-  bundle exec jekyll serve
-  ```
-
-- go `http://127.0.0.1:4000/` to see the site
+### Install gem
+```bash
+$ bundle install
+```
