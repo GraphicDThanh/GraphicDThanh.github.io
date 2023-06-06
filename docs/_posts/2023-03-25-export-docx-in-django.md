@@ -8,7 +8,7 @@ categories: django, export
 ![](/assets/img/export-django/export-docx-in-django.png)
 
 
-Exporing file is a commonly used feature that allows users to retrieve their data. 
+Exporting file is a commonly used feature that allows users to retrieve their data. 
 
 Throughout this series, I will outline various methods for exporting files in a Django application. The exported file formats may include `docx`, `csv`, `zip`, or `pdf`.
 
@@ -122,7 +122,7 @@ The current export result is shown below:
 
 Essentially, I can export a docx file with content in it. 
 
-To begin with, I simply add the content within a paragraphs:
+To begin with, I simply add the content within a paragraph:
 
 ```python
 # add paragraph for html content
