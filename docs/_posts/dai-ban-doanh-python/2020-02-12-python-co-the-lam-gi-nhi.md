@@ -2,14 +2,13 @@
 layout: post
 title:  "Python có thể dùng để làm gì nhỉ?"
 date:   2020-02-12 10:00:00 +0700
-categories: python, dai-ban-doanh-python
+categories: python dai-ban-doanh-python
 ---
 
-![](/assets/img/python/What-can-I-do-with-Python..png)
+![](/assets/images/2020/12/2020-12-python-co-the-lam-gi-nhi-cover.png)
 
 
-Chào mừng mọi người đến với bài post đầu tiên của phần “Lượn lờ cùng Python” của series “[Khám phá Đại Bản Doanh Python](https://beautyoncode.com/kham-pha-dai-ban-doanh-python-se-ri-au-vo-vieu/)”
-(Overview của series nằm ở [đây](https://beautyoncode.com/kham-pha-dai-ban-doanh-python-se-ri-au-vo-vieu/))
+Chào mừng mọi người đến với bài post đầu tiên của phần “Lượn lờ cùng Python” của series “[Khám phá Đại Bản Doanh Python](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/07/dai-ban-doanh-python-series-overview.html)”
 
 Lượn lờ mang nghĩa như cưỡi ngựa xem hoa vậy đó. Với mình thì học gì đó không phải cứ nhảy vô code liền, mà mình muốn tìm hiểu cái ngữ cảnh gắn với thứ mình học một xíu, ví dụ như cái mình học có thể dùng để làm gì, học Python thì tìm việc ở những vị trí nào, hay những ai đã thành công cùng nó rồi, hay với một người mới hoàn toàn thì mình nên bắt đầu từ đâu, ...
 
@@ -18,11 +17,11 @@ Các câu hỏi mang tính chất định hướng như vậy mình thấy là r
 Trong phần này, tụi mình sẽ cùng nhau dạo quanh quanh những phần ngoài lề trước khi tấn công vào các kiến thức Python cơ bản và nâng cao ở phần tiếp theo.
 
 ***Mình sẽ đi tìm hiểu những câu hỏi sau trong “Lượn lờ cùng Python”:***
-- **[Python có thể dùng để làm gì nhỉ?](https://beautyoncode.com/khong-biet-python-co-the-dung-de-lam-gi-nhi%e2%80%8b/)**
+- **[Python có thể dùng để làm gì nhỉ?](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/02/12/python-co-the-lam-gi-nhi.html)**
 
-- [Ai đã thành công cùng Python?](https://beautyoncode.com/ai-da-thanh-cong-cung-python/)
+- [Ai đã thành công cùng Python?](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/03/11/ai-da-thanh-cong-cung-python.html)
 
-- [Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?](https://beautyoncode.com/bat-dau-voi-python/)
+- [Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/06/bat-dau-voi-python.html)
 
 Những nội dung trong bài series này từ “**Đại bản doanh Python**” [python.org](python.org), mình viết bằng ngôn ngữ của mình kèm theo những tài liệu khác mà mình thấy liên quan và hữu ích cho chủ đề của bài.
 
@@ -156,4 +155,4 @@ Trong chương này, mình đã cùng tìm hiểu những lĩnh vực ứng dụ
 
 Như mình, hiện mình đang làm việc ở vị trí là Python Developer, cụ thể hơn là mình đang làm bên Backend, sử dụng Python, Django để xây dựng API cho ứng dụng web.
 
-Ở bài viết sau, là câu hỏi tiếp theo “[Ai đã thành công cùng Python?](https://beautyoncode.com/ai-da-thanh-cong-cung-python/)”
+Ở bài viết sau, là câu hỏi tiếp theo “[Ai đã thành công cùng Python?](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/03/11/ai-da-thanh-cong-cung-python.html)”
