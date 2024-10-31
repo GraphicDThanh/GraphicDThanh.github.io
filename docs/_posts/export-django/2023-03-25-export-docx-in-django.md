@@ -5,7 +5,7 @@ date:   2023-03-25 10:00:00 +0700
 categories: django, export
 ---
 
-![](/assets/img/export-django/export-docx-in-django.png)
+![](/assets/images/2023/03/2023-03-export-docx-in-django-cover.png)
 
 
 Exporting file is a commonly used feature that allows users to retrieve their data. 
@@ -114,8 +114,7 @@ document = self.build_document()
 
 The current export result is shown below:
 
-![](/assets/img/export-django/docx/export-docx-basic.webp)
-
+![](/assets/images/2023/03/2023-03-export-docx-in-django-img-1-basic.webp)
 
 
 ## Advance - build html content
@@ -131,7 +130,7 @@ document.add_paragraph("<p>Nice to see Prep note 2</p><ul><li>Prep note 2 conten
 
 However, there was a strange display as following:
 
-![](/assets/img/export-django/docx/export-docx-issue-html.webp)
+![](/assets/images/2023/03/2023-03-export-docx-in-django-img-2-issue-html.webp)
 
 I need to find a way to convert HTML content to plain text while preserving basic formatting such as italics, bolding, and bullet points. Here's an example:
 
@@ -220,7 +219,7 @@ def build_document(self):
 ```
 
 Here's the resulting docx file from the HTML content:
-![](/assets/img/export-django/docx/export-docx-html.webp)
+![](/assets/images/2023/03/2023-03-export-docx-in-django-img-3-export-docx-html.webpp)
 
 
 ## Unit Test

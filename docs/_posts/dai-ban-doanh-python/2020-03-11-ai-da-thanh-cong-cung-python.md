@@ -5,17 +5,19 @@ date:   2020-03-11 10:00:00 +0700
 categories: python, dai-ban-doanh-python
 ---
 
-Chào mừng mọi người đến với bài post thứ hai của phần “Lượn lờ cùng Python” của series “[Khám phá Đại Bản Doanh Python](https://beautyoncode.com/category/toi-hoc-code/python/dai-ban-doanh-python/)”(Overview của series nằm ở [đây](https://beautyoncode.com/kham-pha-dai-ban-doanh-python-se-ri-au-vo-vieu/) ạ)
+![](/assets/images/2020/03/2020-03-ai-da-thanh-cong-cung-python-cover.png)
+
+Chào mừng mọi người đến với bài post thứ hai của phần “Lượn lờ cùng Python” của series “[Khám phá Đại Bản Doanh Python](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/07/dai-ban-doanh-python-series-overview.html)”
 
 ## Mở bài
 Trong phần này, tụi mình sẽ cùng nhau dạo quanh quanh những phần ngoài lề trước khi tấn công vào document ở những phần tiếp theo nhé. 
 Mình sẽ đi trả lời nhưng câu hỏi sau trong “**Lượn lờ cùng Python**”:
 
-♣ [Python có thể dùng để làm gì nhỉ?](https://beautyoncode.com/khong-biet-python-co-the-dung-de-lam-gi-nhi%e2%80%8b/)
+♣ [Python có thể dùng để làm gì nhỉ?](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/02/12/python-co-the-lam-gi-nhi.html)
 
-♣ [Ai đã thành công cùng Python? ](https://beautyoncode.com/ai-da-thanh-cong-cung-python/)(bài hôm ni)
+♣ [Ai đã thành công cùng Python? ](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/03/11/ai-da-thanh-cong-cung-python.html)
 
-♣ [Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?](https://beautyoncode.com/bat-dau-voi-python/)
+♣ [Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020)
 
 Những nội dung trong bài series này từ “Đại bản doanh Python” python.org, mình viết bằng ngôn ngữ của mình kèm theo những tài liệu khác mà mình thấy liên quan và hữu ích cho chủ đề của bài.
 Bài dưới đây sẽ đi trả lời câu hỏi “**Ai đã thành công cùng Python?**” nằm trong mục “Success Stories” nha.
@@ -27,7 +29,7 @@ Bài dưới đây sẽ đi trả lời câu hỏi “**Ai đã thành công cù
 Trong phần “[Success Stories](https://www.python.org/success-stories/)“, là những câu chuyện thành công cùng Python, bao gồm nhiều chủ đề khác nhau như “**Web Development**”, “**Scientific**”, “**Business**”, “Education”, “Goverment”, “Engineering”, “Art”. 
 
 Bạn cũng có thể thêm câu chuyện ở mình với “Submit Yours” đó.
-![](https://beautyoncode.com/wp-content/uploads/2020/01/Screen-Shot-2020-01-03-at-6.21.34-PM.png)
+![](/assets/images/2020/03/2020-03-ai-da-thanh-cong-cung-python-1.png)
 Ba chủ đề được in đậm có nhiều câu chuyện nhất, mình chọn mỗi chủ đề một câu chuyện với vài tóm tắt.
 
 ### [Web Development] [Building an open-source and cross-platform Azure CLI with Python](https://www.python.org/success-stories/building-an-open-source-and-cross-platform-azure-cli-with-python/)
@@ -83,4 +85,4 @@ Thực ra thì có quá trời câu chuyện thành công với Python ngoài ki
 
 Giờ đến lượt tụi mình viết câu chuyện của chính mình đó. Nhưng trước hết, phải học đã rồi nói chuyện tiếp nhé :”>
 
-Ở bài viết sau, mình sẽ tiếp tục khám phá câu hỏi [“Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?”](https://beautyoncode.com/bat-dau-voi-python/) cùng phần “Getting Started“.
+Ở bài viết sau, mình sẽ tiếp tục khám phá câu hỏi [“Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?”](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/02/bat-dau-voi-python.htnl) cùng phần “Getting Started“.

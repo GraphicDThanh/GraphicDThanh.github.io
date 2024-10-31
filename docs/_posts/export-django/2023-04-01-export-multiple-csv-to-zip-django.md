@@ -5,7 +5,7 @@ date:   2023-04-01 10:00:00 +0700
 categories: django, export
 ---
 
-![](/assets/img/export-django/export-zip-multiple-csv-files.png)
+![](/assets/images/2023/04/2023-04-export-multiple-csv-to-zip-django-cover.png)
 
 In this next installment of the Django export series, I will be demonstrating how to create a `zip` file containing multiple CSV files. Throughout the post, we will explore various methods, providing you with a range of options to consider for your own project.
 

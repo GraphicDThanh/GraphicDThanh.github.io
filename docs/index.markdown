@@ -4,12 +4,11 @@
 
 layout: home
 ---
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/12/Circle-Logo.png?w=200&ssl=1)
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/12/logo-rec.png?w=500&ssl=1)
+![](/assets/images/2022/12/2022-12-logo-blog-with-slogan.webp)
 
 
-[BeautyOnCode](beautyoncode.online) is a "little garden online" exploring the programming world.
+[BeautyOnCode](https://graphicdthanh.github.io/) is a "little garden online" exploring the programming world.
 
-You could read the [intro](/intro/2023/03/24/welcome.html) and visit [origin blog](http://beautyoncode.com/) in vietnamese. 
+You could read the [intro](/intro/2023/03/24/welcome.html).
 
-Enjoy reading!
+BeautyOnCode.

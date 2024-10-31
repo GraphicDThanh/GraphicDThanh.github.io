@@ -154,4 +154,4 @@ Mình viết tới đây mình mình trở thành fan hâm mộ chính thức c�
 
 #### Kết bài
 Bài viết hôm nay tạm dừng ở đây ha, cám ơn các bác ghé nhà em chơi.
-Ở bài viết sau, mình sẽ cùng “[Chiếc máy tính PI](https://beautyoncode.com/the-python-interpreter/)” cùng phần The Python Tutorial nhé.
+Ở bài viết sau, mình sẽ cùng “[Chiếc máy tính PI](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/05/20/chiec-may-tinh-PI.html)” cùng phần The Python Tutorial nhé.
