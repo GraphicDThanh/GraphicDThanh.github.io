@@ -4,7 +4,4 @@
 
 layout: home
 ---
-![](/assets/images/2022/12/2022-12-logo-blog-with-slogan.webp)
-
-
 Welcome to a 'little garden' where we plant seeds of knowledge in the programming world.
