@@ -8,7 +8,3 @@ layout: home
 
 
 [BeautyOnCode](https://graphicdthanh.github.io/) is a "little garden online" exploring the programming world.
-
-You could read the [intro](/intro/2023/03/24/welcome.html).
-
-BeautyOnCode.
