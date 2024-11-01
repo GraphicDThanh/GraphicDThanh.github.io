@@ -4,11 +4,4 @@
 
 layout: home
 ---
-![](/assets/images/2022/12/2022-12-logo-blog-with-slogan.webp)
-
-
-[BeautyOnCode](https://graphicdthanh.github.io/) is a "little garden online" exploring the programming world.
-
-You could read the [intro](/intro/2023/03/24/welcome.html).
-
-BeautyOnCode.
+Welcome to a 'little garden' where we plant seeds of knowledge in the programming world.
