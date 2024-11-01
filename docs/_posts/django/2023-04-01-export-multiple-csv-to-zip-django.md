@@ -2,7 +2,7 @@
 layout: post
 title: "Export Multiple CSVs file into a ZIP in Django Application"
 date:   2023-04-01 10:00:00 +0700
-categories: django, export
+categories: django
 ---
 
 ![](/assets/images/2023/04/2023-04-export-multiple-csv-to-zip-django-cover.png)
@@ -36,7 +36,7 @@ Our objective is to export a zip file that contains several CSV files, each one 
 As is typical when creating a download API, we will create a view that only allows the GET method.
 
 ```python
-import csv, io, zipfile 
+import csv, io, zipfile
 from wsgiref.util import FileWrapper
 from django.http import StreamingHttpResponse
 from rest_framework.views import APIView
@@ -44,7 +44,7 @@ from rest_framework.views import APIView
 class ExportZip(APIView):
     def get(self):
         csv_datas = self.build_multiple_csv_files()
-        
+
         temp_file = io.BytesIO()
         with zipfile.ZipFile(
              temp_file, "w", zipfile.ZIP_DEFLATED
@@ -58,8 +58,8 @@ class ExportZip(APIView):
                 )
 
         temp_file.seek(0)
-        
-        # put them to streaming content response 
+
+        # put them to streaming content response
         # within zip content_type
         response = StreamingHttpResponse(
             FileWrapper(temp_file),
@@ -80,8 +80,8 @@ The [`zipfile.ZipFile`](https://docs.python.org/3/library/zipfile.html#zipfile.Z
 
 ```python
 class zipfile.ZipFile(
-    file, mode='r', compression=ZIP_STORED, 
-    allowZip64=True, compresslevel=None, 
+    file, mode='r', compression=ZIP_STORED,
+    allowZip64=True, compresslevel=None,
     *, strict_timestamps=True
 )
 ```
@@ -100,7 +100,7 @@ Within the context manager, we write the CSV content file to the zip `temp_file_
 
 ```python
 ZipFile.writestr(
-    zinfo_or_arcname, data, 
+    zinfo_or_arcname, data,
     compress_type=None, compresslevel=None
 )
 ```
@@ -129,45 +129,45 @@ class ExportLibraries(APIView):
         "name": "Name",
         "library": "Library Name"
     }
-    
+
     def get(self):
         ...
         return response
 
     def build_multiple_csv_files(self, libraries, books):
         csv_files = []
-        
+
         for library in libraries.iterator():
             mem_file = io.StringIO()
             writer = csv.DictWriter(
                 mem_file, fieldnames=self.header_data.keys()
             )
             writer.writerow(self.header_data)
-            
+
             books_in_library = books.filter(libraries__in=[library.id])
             for book in books_in_library:
                 book_row = self.build_book_row(book, library)
                 writer.writerow(book_row)
-            
+
             mem_file.seek(0)
-            
+
             csv_files.append({
                 "library_name": library.name,
                 "csv_file": mem_file
             })
-            
+
         return csv_files
-    
+
     def build_book_row(self, book, library):
         row = self.header_data.copy()
-        
+
         row["name"] = book.name
         row["library"] = library.name
-        
+
         return row
 ```
 
-Reviewing the code above, we iterate over all libraries and construct a CSV file for each one. This is achieved by initializing a writer object using `csv.DictWriter()` and the keys from `header_data`. 
+Reviewing the code above, we iterate over all libraries and construct a CSV file for each one. This is achieved by initializing a writer object using `csv.DictWriter()` and the keys from `header_data`.
 
 Here is an example of what `header_data` might look like:
 

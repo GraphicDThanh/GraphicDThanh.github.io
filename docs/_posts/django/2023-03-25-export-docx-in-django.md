@@ -2,13 +2,13 @@
 layout: post
 title:  "Export a docx file in Django application"
 date:   2023-03-25 10:00:00 +0700
-categories: django, export
+categories: django
 ---
 
 ![](/assets/images/2023/03/2023-03-export-docx-in-django-cover.png)
 
 
-Exporting file is a commonly used feature that allows users to retrieve their data. 
+Exporting file is a commonly used feature that allows users to retrieve their data.
 
 Throughout this series, I will outline various methods for exporting files in a Django application. The exported file formats may include `docx`, `csv`, `zip`, or `pdf`.
 
@@ -16,7 +16,7 @@ In this initial post of the series, I will introduce the process of exporting a 
 
 ## python-docx
 ### Introduction
-`python-dox` is a Python library for creating and updating Microsoft Word (`.docx`) files. 
+`python-dox` is a Python library for creating and updating Microsoft Word (`.docx`) files.
 
 Please checkout the [official documentation](https://python-docx.readthedocs.io/en/latest/) here.
 
@@ -49,15 +49,15 @@ class ExportDocx(APIView):
         # save document info
         buffer = io.BytesIO()
         # save your memory stream
-        document.save(buffer) 
-        # rewind the stream to a file 
-        buffer.seek(0)  
+        document.save(buffer)
+        # rewind the stream to a file
+        buffer.seek(0)
 
-        # put them to streaming content response 
+        # put them to streaming content response
         # within docx content_type
         response = StreamingHttpResponse(
             # use the stream's content
-            streaming_content=buffer,  
+            streaming_content=buffer,
             content_type='application/vnd.openxmlformats-officedocument.wordprocessingm'
         )
 
@@ -67,9 +67,9 @@ class ExportDocx(APIView):
         return response
 ```
 
-Once we have created an empty document, the next step is to save it and send it to the response. 
+Once we have created an empty document, the next step is to save it and send it to the response.
 
-`python-docx` provides a `document.save()` method that acceps a stream instead of a file name. 
+`python-docx` provides a `document.save()` method that acceps a stream instead of a file name.
 
 We can initialize an `io.BytesIO()` object to store the document information and then send that to the user.
 
@@ -88,7 +88,7 @@ As an example, I have created a `build_document()` method which builds all the c
 
 ```python
 def build_document(self):
-    document = Document() 
+    document = Document()
 
     # add a header
     document.add_heading("This is a header")
@@ -102,7 +102,7 @@ def build_document(self):
     run.italic = True
     run.add_text("text will have italic style")
     run.add_break()
-    
+
     return document
 ```
 
@@ -119,7 +119,7 @@ The current export result is shown below:
 
 ## Advance - build html content
 
-Essentially, I can export a docx file with content in it. 
+Essentially, I can export a docx file with content in it.
 
 To begin with, I simply add the content within a paragraph:
 
@@ -212,7 +212,7 @@ def build_document(self):
     run.italic = True
     run.add_text("text will have italic style")
     run.add_break()
-    
+
     # with html content, call method add_paragraph_and_feed tui build content
     html_content = "<p>Nice to see Prep note 2</p><ul><li>Prep note 2 content 1</li><li>Prep note 2 content 2</li></ul>"
     doc_html_parser.add_paragraph_and_feed(html_content)
@@ -242,7 +242,7 @@ def test_export_docx_general(self):
     import pdb;pdb.set_trace()
 ```
 
-By using `import pdb;pdb.set_trace()` after making the `GET` request in the unit test, I am able to inspect the current data. 
+By using `import pdb;pdb.set_trace()` after making the `GET` request in the unit test, I am able to inspect the current data.
 
 Here is an example of what it looks like:
 
@@ -293,7 +293,7 @@ def build_document(self):
     doc_html_parser.add_paragraph_and_feed(html_content)
 ```
 
-My solution was to directly call this function for testing on a mocked view. 
+My solution was to directly call this function for testing on a mocked view.
 
 Here's how it appears in the test function:
 
@@ -363,8 +363,7 @@ def test_build_document_for_docx(self):
     assert {None} == {item.bold for item in paragraphs[0].runs}
 ```
 
-Exporting files in a Django app is a fascinating process, and Python has several libraries that are useful for handling content formats. 
+Exporting files in a Django app is a fascinating process, and Python has several libraries that are useful for handling content formats.
 
+## Final word
 In this article, we discussed a straightforward example of exporting docx files within a Django app.
-
-If you found this helpful, please consider buying me a coffee at the following [link](https://ko-fi.com/beautyoncode).
