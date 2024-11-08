@@ -3,6 +3,7 @@ layout: post
 title:  "Python có thể dùng để làm gì nhỉ?"
 date:   2020-02-12 10:00:00 +0700
 categories: python dai-ban-doanh-python
+author: thanh
 ---
 
 ![](/assets/images/2020/12/2020-12-python-co-the-lam-gi-nhi-cover.png)
