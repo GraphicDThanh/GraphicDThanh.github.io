@@ -5,8 +5,10 @@ date:   2020-06-03 10:00:00 +0700
 categories: python, dai-ban-doanh-python
 ---
 
+![](/assets/images/2020/06/2020-06-dieu-khien-luong-du-lieu-python-cover.webp)
+
 ## Mở bài
-Chào mừng mọi người đến với bài post tiếp theo của phần [“The Python Tutorial”](https://beautyoncode.com/the-python-interpreter/) của series [“Khám phá Đại Bản Doanh Python”](https://beautyoncode.com/dai-ban-doanh-python-series-overview/). 
+Chào mừng mọi người đến với bài post tiếp theo của phần [“The Python Tutorial”](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/05/chiec-may-tinh-PI.html) của series [“Khám phá Đại Bản Doanh Python”](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/07/dai-ban-doanh-python-series-overview.html).
 
 The Python Tutorial mang đến những khái niệm và các tính năng cơ bản nhất của Python và cú pháp của nó.
 
@@ -20,18 +22,18 @@ Những nội dung trong bài series này từ chủ yếu mình lấy từ pyth
 
 Lệnh **if, else** hẳn là nhóm lệnh rẽ nhánh phổ biến nhất quả đất rồi, nó đại diện cho câu thần chú “Nếu … thì” của chúng ta. Nhưng không phải một nếu một thì là được, thế giới này phức tạp lắm, cho nên có khi phải nhiều nếu nhiều thì mới xong, thế là nhóm lệnh combo **if … elif … elif … … else** ra đời, nhóm lệnh này tương tự “switch … case” trong javascript vậy.
 
-Còn với vòng lặp, đã có lệnh **for**, bạn có thể lặp qua từng phần tử trong một danh sách(list) hay một bộ từ điển(dict), thậm chí có thể lặp qua một chuỗi(string) và làm việc với từng phần tử của nó. 
+Còn với vòng lặp, đã có lệnh **for**, bạn có thể lặp qua từng phần tử trong một danh sách(list) hay một bộ từ điển(dict), thậm chí có thể lặp qua một chuỗi(string) và làm việc với từng phần tử của nó.
 
 Tuy nhiên, khi lặp qua các giá trị mang tính chất reference như **dict, list**(không biết dùng chữ chi chỗ ni, giống kiểu dữ liệu ref tới một vị trí data trong js ấy) thì việc thay đổi giá trị của từng phần tử sẽ ảnh hưởng tới giá trị ban đầu cho nên người ta khuyến khích mình hãy tạo ra một bản copy mà xài, hoặc khởi tạo một giá trị mới để lưu những thay đổi thì hơn.
 
 Mời bạn xem một ví dụ bên dưới:
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2020/02/Screen-Shot-2020-04-06-at-9.55.29-PM.png?w=948&ssl=1)
+![](/assets/images/2020/06/2020-06-dieu-khien-luong-du-lieu-python-image-1-vd.webp)
 
-Bên cạnh đó, có một function tiện lợi hay dùng để lặp qua chuỗi các số, đó là hàm **range()**. 
+Bên cạnh đó, có một function tiện lợi hay dùng để lặp qua chuỗi các số, đó là hàm **range()**.
 
 Theo mặc định, **range(number)** sẽ lặp qua từ **0** đến **number**, với bước lặp mặc định tăng thêm 1.
 
-– Nếu bạn muốn bắt đầu từ một số khác 0, có thể viết **range(start_number, end_number)** như range(3, 5). 
+– Nếu bạn muốn bắt đầu từ một số khác 0, có thể viết **range(start_number, end_number)** như range(3, 5).
 
 – Nếu bạn muốn một bước lặp khác 1, hãy đổi thông số thứ 3 thành giá trị bước lặp, ví dụ, range(0, 10, 3) sẽ lặp qua 0, 3, 6, 9.
 
@@ -39,7 +41,7 @@ Trước đây, người ta thường kết hợp range() và len() để lặp 
 
 nhưng sau này hay dùng hàm **enumerate()** thì tiện lợi hơn.
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2020/02/Screen-Shot-2020-04-06-at-10.08.21-PM.png?w=455&ssl=1)
+![](/assets/images/2020/06/2020-06-dieu-khien-luong-du-lieu-python-image-2-enumerate.webp)
 
 Với range(), nó là một object thuộc class “range”, và là một generator(cái có thể loop qua đó) chứ không phải là list như bạn nghĩ, muốn nó thành list bạn phải dùng list convert nó qua mới được hen.
 
@@ -47,7 +49,7 @@ Với range(), nó là một object thuộc class “range”, và là một gen
 
 Đã có vòng lặp thì hẳn là phải có cách nào đó để nhảy ra ngoài vòng lặp đó, hay tiếp tục lặp qua phần tử khác mà không cần đọc cho hết code của phần tử này, **break** và **continue** giúp bạn làm những chuyện đó. Ở Python có cái lạ, là else có thể đi cùng với for nữa.
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2020/02/Screen-Shot-2020-04-06-at-10.38.24-PM.png?w=650&ssl=1)
+![](/assets/images/2020/06/2020-06-dieu-khien-luong-du-lieu-python-image-3-break-continue-else.webp)
 
 Còn lệnh **pass**, nó đại diện cho sự “không làm gì cả”, “lơ đi”, nó có ích khi mình viết structure cho app, đặt tên class, function thoả mái rồi thêm pass ở phần body thì sẽ không có báo lỗi syntax đâu.
 
@@ -73,7 +75,7 @@ tham số reminder có giá trị mặc định là “Please try again”
 
 Lưu ý: giá trị mặc định chỉ được gán một lần, do đó khi giá trị này được gán bằng những loại mutable object(có thể thay đổi được) như list, dict hay class instance thì sẽ dễ gây hiểu lầm như ví dụ sau:
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/02/Screen-Shot-2020-04-08-at-9.05.46-PM.png?w=772&ssl=1)
+![](/assets/images/2020/06/2020-06-dieu-khien-luong-du-lieu-python-image-4-default-arg.webp)
 
 #### Đối số từ khoá(Keyword Arguments)
 
@@ -81,11 +83,11 @@ Theo mặc định, các giá trị truyền theo thứ tự của đối số t
 
 Đối số từ khoá có dạng **kwarg=value**, dùng từ khoá để định nghĩa giá trị truyền vào thuộc đối số nào mà không cần quan tâm tới thứ tự của nó.
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/02/Screen-Shot-2020-04-08-at-9.48.52-PM.png?w=723&ssl=1)
+![](/assets/images/2020/06/2020-06-dieu-khien-luong-du-lieu-python-image-5-keyword-arg.webp)
 
 Đối số theo vị trí phải đứng trước đối số theo từ khoá
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2020/02/Screen-Shot-2020-04-08-at-9.51.29-PM.png?w=585&ssl=1)
+![](/assets/images/2020/06/2020-06-dieu-khien-luong-du-lieu-python-image-6-arg-position.webp)
 
 Khi quá nhiều đối số, ta có thể sử dụng * hoặc ** kèm tên cho đối số đại diện, ví dụ `def bananashop(kind, *args, **kwargs)`.
 Đối số đại diện là một list các đối số(tìm hiểu thêm bên dưới phần đối số là một danh sách).
@@ -94,9 +96,9 @@ Khi quá nhiều đối số, ta có thể sử dụng * hoặc ** kèm tên cho
 
 Vì đối số của một function có thể theo vị trí hoặc là theo từ khoá và cả hai loại này có thể ở riêng hoặc ở chung trong cùng một function. Cho nên thiết lập một công thức chung, để từ đó có thể nhìn vào và biết đâu là đối số theo vị trí, đâu là đối số từ khoá, và đâu là có thể một trong hai theo công thức sau:
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2020/02/Screen-Shot-2020-04-14-at-10.45.55-PM.png?w=542&ssl=1)
+![](/assets/images/2020/06/2020-06-dieu-khien-luong-du-lieu-python-image-7-arg.webp)
 
-Ở đây, / và * là không bắt buộc. Nếu được sử dụng, những đối số đặt biệt này chỉ ra cách mà các giá trị được truyền vào hàm: 
+Ở đây, / và * là không bắt buộc. Nếu được sử dụng, những đối số đặt biệt này chỉ ra cách mà các giá trị được truyền vào hàm:
 
 → **position only**: chỉ gồm đối số chỉ vị trí
 
@@ -108,19 +110,19 @@ Vì đối số của một function có thể theo vị trí hoặc là theo t�
 
 Dưới đây là hàm có đối số tuỳ ý, có thể là đối số vị trí hay đối số từ khoá đều cho phép:
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/02/Screen-Shot-2020-04-14-at-11.01.05-PM.png?fit=739%2C194&ssl=1)
+![](/assets/images/2020/06/2020-06-dieu-khien-luong-du-lieu-python-image-8-special-args.webp)
 
 Dưới đây là hàm chỉ cho phép đối số vị trí tham gia, định nghĩa bằng từ khoá đặt biệt / và đối số đứng trước nó:
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2020/02/Screen-Shot-2020-04-14-at-11.01.25-PM.png?w=736&ssl=1)
+![](/assets/images/2020/06/2020-06-dieu-khien-luong-du-lieu-python-image-9-special-args.webp)
 
 Dưới đây là hàm chỉ cho phép đối số từ khoá tham gia, định nghĩa bằng từ khoá đặt biệt * và đối số đứng sau nó:
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/02/Screen-Shot-2020-04-14-at-11.01.43-PM.png?w=736&ssl=1)
+![](/assets/images/2020/06/2020-06-dieu-khien-luong-du-lieu-python-image-10-special-args.webp)
 
 Cuối cùng là hàm cho phép cả 3 loại(chỉ cho phép đối số vị trí, chỉ cho phép đối số từ khoá, cho phép cả hai loại) tham gia và phân chia cụ thể bằng hai từ khoá đặt biệt /, *
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2020/02/Screen-Shot-2020-04-14-at-11.02.05-PM.png?w=738&ssl=1)
+![](/assets/images/2020/06/2020-06-dieu-khien-luong-du-lieu-python-image-11-special-args.webp)
 
 Tóm lại, hãy ghi nhớ công thức định nghĩa hàm trong Python:
 
@@ -142,11 +144,11 @@ def f(pos1, pos2, /, pos_or_kwd, *, kwd1, kwd2):
 
 ```
 def write_multiple_items(file, separator, *args):
-       file.write(separator.join(args)
+       file.write(separator.join(args))
 ```
 
 Thông thường, đối số này được đặt cuối danh sách và trong trường hợp phía sau nó còn những đối số khác thì đó phải là đối số từ khoá.
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2020/02/Screen-Shot-2020-04-15-at-10.58.14-PM.png?w=1272&ssl=1)
+![](/assets/images/2020/06/2020-06-dieu-khien-luong-du-lieu-python-image-12-args.webp)
 
 #### Giải nén một danh sách đối số
 
@@ -154,11 +156,11 @@ Thông thường, đối số này được đặt cuối danh sách và trong t
 
 **Ví dụ1**: function range() cần hai đối số start và stop, nhưng args là một list nên ta unpacking nó bằng * khi dùng với range
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2020/02/Screen-Shot-2020-04-15-at-11.12.55-PM.png?w=1266&ssl=1)
+![](/assets/images/2020/06/2020-06-dieu-khien-luong-du-lieu-python-image-13-args.webp)
 
 **Ví dụ 2**: unpacking một dictionary với key là đối số từ khoá và value là giá trị truyền vào bằng **
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2020/02/Screen-Shot-2020-04-15-at-11.17.17-PM.png?w=1272&ssl=1)
+![](/assets/images/2020/06/2020-06-dieu-khien-luong-du-lieu-python-image-14-args.webp)
 
 #### Biểu thức lambda
 
@@ -166,7 +168,7 @@ Bên cạnh cách định nghĩa hàm bằng **def**, có thể dùng từ khoá
 
 lambda function thường được dùng khi cần định nghĩa những function nằm lồng trong function khác một cách nhanh chóng, ví dụ như gán key nằm trong function sort với lambda function.
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/02/Screen-Shot-2020-04-15-at-11.25.20-PM.png?w=1270&ssl=1)
+![](/assets/images/2020/06/2020-06-dieu-khien-luong-du-lieu-python-image-15-lambda.webp)
 
 #### Docstrings của hàm
 
@@ -202,7 +204,7 @@ Trong Python, PEP8 rất phổ biến như là một hướng dẫn về cách v
 
 → Chú thích nên đặt ngay trên dòng được chú thích, sử dụng docstring định nghĩa ý nghĩa của hàm và các thông tin liên quan
 
-→ Khoảng trắng được sử dụng xong quanh các toán tử và phía sau dấu , cho dễ đọc 
+→ Khoảng trắng được sử dụng xong quanh các toán tử và phía sau dấu , cho dễ đọc
 
 → Tên class đặt dạng **UpperCamelCase** và tên function, method trong class đặt dạng **lowercase_with_underscores**. Luôn dùng self là tên của param đầu tiên của method trong class
 
@@ -216,4 +218,4 @@ Ngày nào cũng làm việc với Python, ngày nào cũng dùng control flow c
 
 Hôm ni các bạn cùng mình học Python đến đây thôi nhé, những nội dung này toàn là kiến thức cơ bản của Python mà mình vừa đọc vừa viết để luôn tiện ôn bài luôn hihi.
 
-Ở bài viết sau, mình sẽ đi học tiếp về [cấu trúc dữ liệu của Python](https://beautyoncode.com/data-structure-in-python/) nằm trong “**The Python Tutorial**” thuộc sê ri tào lao vĩ đại “Khám phá Đại Bản Doanh Python” nha.
+Ở bài viết sau, mình sẽ đi học tiếp về [cấu trúc dữ liệu của Python](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/06/cau-truc-du-lieu-python.html) nằm trong “**The Python Tutorial**” thuộc sê ri tào lao vĩ đại “Khám phá Đại Bản Doanh Python” nha.
