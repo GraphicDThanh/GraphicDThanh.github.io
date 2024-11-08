@@ -9,15 +9,22 @@ $ bundle install
 ```
 ### Run app
 ```
-$ bundle exec jekyll serve
+$ bundle exec jekyll serve 
+```
+
+```
+$ bundle exec jekyll serve --livereload
 ```
 
 Access blog by http://127.0.0.1:4000/
 
 ## Set Up Your New App
-> Note: this app use approach create separate env of ruby instead of use global. ([ref](https://collectionbuilder.github.io/cb-docs/docs/software/ruby_mac/))
+> Note: this app use approach create separate env of ruby instead of use global. (
+> [ref](https://collectionbuilder.github.io/cb-docs/docs/software/ruby_mac/)
+> [ref](https://jekyllrb.com/docs/installation/)
+> )
 
-### Set up a separate Ruby development environment with rbenv
+### Set up a separate Ruby development environment with `rbenv`
 
 ```bash
 $ brew update

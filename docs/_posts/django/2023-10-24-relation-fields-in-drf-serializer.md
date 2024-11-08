@@ -3,6 +3,7 @@ layout: post
 title:  "Relation fields in Django Rest Framework Serializer"
 date:   2023-10-24 10:00:00 +0700
 categories: django
+author: thanh
 ---
 
 ![](/assets/images/2023/10/2023-10-relation-fields-in-drf-serializer-cover.png)
