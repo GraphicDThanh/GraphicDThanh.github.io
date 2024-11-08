@@ -4,8 +4,8 @@ title:  "Chiếc máy tính PI(Python Interpreter)"
 date:   2020-05-20 10:00:00 +0700
 categories: python, dai-ban-doanh-python
 ---
-
-Chào mừng mọi người đến với phần [“The Python Tutorial”](https://beautyoncode.com/the-python-interpreter/) của series “Khám phá Đại Bản Doanh Python”. The Python Tutorial mang đến những khái niệm và các tính năng cơ bản nhất của Python và cú pháp của nó.
+![](/assets/images/2020/05/2020-05-chiec-may-tinh-PI-cover.jpg)
+Chào mừng mọi người đến với phần [“The Python Tutorial”](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/05/chiec-may-tinh-PI.html) của series “Khám phá Đại Bản Doanh Python”. The Python Tutorial mang đến những khái niệm và các tính năng cơ bản nhất của Python và cú pháp của nó.
 
 Những nội dung trong bài series này từ chủ yếu mình lấy từ python.org rồi viết lại theo ngôn ngữ của mình.
 
@@ -15,7 +15,7 @@ Những nội dung trong bài series này từ chủ yếu mình lấy từ pyth
 
 → Bạn là một là lập trình viên và đang làm việc với một số thư viện như C/C++/Java nhưng thấy chu trình ghi, biên dịch, kiểm tra rồi lại biên dịch riết rồi thấy chán vì nó chậm quá, rồi  bạn muốn tìm một bạn nào đó ngon lành và có thể mở rộng nó trên phần tiếp theo của dự án mình đang làm mà chạy nhanh hơn.
 
-**Thứ bạn cần là Py*thon đó, vì Python có thể giúp bạn:***
+**Thứ bạn cần là Python đó, vì Python có thể giúp bạn:***
 
 → Viết tập script shell Unix hay batch files cho Windows để hoàn thành một công việc nào đó như là duyệt qua các files, thay đổi văn bản, …
 
@@ -46,11 +46,11 @@ Có mấy cách giúp mình có thể gọi bạn này lên:
 
 – Ở MacOS: Gõ python3 ở Terminal
 
-Sau khi gọi được python interpreter lên, bạn sẽ thấy bạn đang ở primary prompt với ba dấu >>>, còn ba dấu … là thể hiện bạn đang ở secondary prompt, nơi những câu lệnh được tiếp tục viết. 
+Sau khi gọi được python interpreter lên, bạn sẽ thấy bạn đang ở primary prompt với ba dấu >>>, còn ba dấu … là thể hiện bạn đang ở secondary prompt, nơi những câu lệnh được tiếp tục viết.
 
 Vì python phân biệt nhóm lệnh bằng tab đầu dòng nên với dấu … của nội dung trong nhóm lệnh nhớ tab vào nhé.
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2020/02/Screen-Shot-2020-03-09-at-1.32.46-PM-e1583735700747.png?resize=768%2C286&ssl=1)
+![](/assets/images/2020/05/2020-05-chiec-may-tinh-PI-image-1-pi.webp)
 
 ### Xài Python như một chiếc máy tính nhỏ
 
@@ -66,17 +66,17 @@ Số trong Python:
 
 Python hỗ trợ: số nguyên(int), số thực(float), số thập phân(decimal), phân số(fraction), số phức(complex), …
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/elementor/thumbs/Screen-Shot-2020-03-09-at-1.52.05-PM-omaync66qk94qw87xo2sn5h42elbs1kijwo1se855y.png?w=640&ssl=1)
+![](/assets/images/2020/05/2020-05-chiec-may-tinh-PI-image-2-number.webp)
 
 #### Chuỗi(string)
 
-Trong Python, string được bọc bởi dấu ngáy đơn ‘ hoặc dấu nháy kép “. Khi chuỗi có nhiều dòng nó được bọc bởi cặp ba dấu nháy đơn hoặc cặp ba dấu nháy kép.
+Trong Python, string được bọc bởi dấu ngáy đơn ‘ hoặc dấu nháy kép “. Khi chuỗi có nhiều dòng nó được bọc bởi cặp ba dấu nháy đơn hoặc cặp ba dấu nháy kép.
 
 Ký tự đặt biệt có thể escape với dấu \, ví dụ \n trong string thể hiện sự xuống dòng.
 
 Khi gọi print() với chuỗi, thì chuỗi sẽ được in kèm định dạng của nó, ví dụ print(‘a\nb’) sẽ in ra \n là xuống dòng. Muốn print không kèm định dạng, thêm r trước dấu nháy đầu tiên thể hiện print raw string .
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/02/Screen-Shot-2020-03-17-at-8.50.45-PM.png?resize=768%2C592&ssl=1)
+![](/assets/images/2020/05/2020-05-chiec-may-tinh-PI-image-3-string.webp)
 
 → Hai chuỗi có thể nối nhau bằng toán tử (+) hoặc hai chuỗi(literals – không chứa variable, phép toán) đứng gần nhau sẽ tự động nối vào nhau, ví dụ: ‘Py’ ‘thon’ sẽ nối thành ‘Python’
 
@@ -89,11 +89,11 @@ Built-in function len() dùng cho chuỗi trả ra chiều dài của chuỗi đ
 
 → Chuỗi trong Python là kiểu data immutable(bất biến, không thể thay đổi), do đó không thể gán giá trị cho chuỗi theo index, ví dụ: a = ‘abc’, không thể gán a[0] = ‘x’.
 
-→ Chuỗi còn hỗ trợ slicing(cắt thành chuỗi con) với : , ví dụ: a = ‘abcde’ thì a[2:4] là ‘cd’, start là a[2] luôn luôn được lấy, end là a[4] luôn luôn bị loại. a[2] là ‘c’, a[4] là ‘e’. 
+→ Chuỗi còn hỗ trợ slicing(cắt thành chuỗi con) với : , ví dụ: a = ‘abcde’ thì a[2:4] là ‘cd’, start là a[2] luôn luôn được lấy, end là a[4] luôn luôn bị loại. a[2] là ‘c’, a[4] là ‘e’.
 
-Khi start không có [:2] thì nó lấy default là 0, khi end không có [2:] thì nó lấy end là chiều dài của chuỗi đang được sử dụng. Điều này đảm bảo a[:i] + a[i:] = a. 
+Khi start không có [:2] thì nó lấy default là 0, khi end không có [2:] thì nó lấy end là chiều dài của chuỗi đang được sử dụng. Điều này đảm bảo a[:i] + a[i:] = a.
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2020/02/Screen-Shot-2020-03-17-at-10.55.46-PM.png?resize=768%2C777&ssl=1)
+![](/assets/images/2020/05/2020-05-chiec-may-tinh-PI-image-4-string-2.webp)
 
 #### Danh sách(list)
 
@@ -115,7 +115,7 @@ List là mutable type, cho nên có thể thay đổi nội dung của bạn ấ
 
 Ngoài ra, list có thể chứa nhiều list khác gọi là nested lists
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2020/02/Screen-Shot-2020-03-17-at-11.14.12-PM.png?resize=768%2C638&ssl=1)
+![](/assets/images/2020/05/2020-05-chiec-may-tinh-PI-image-4-list.webp)
 
 ### Lập trình cùng Python
 
@@ -125,13 +125,13 @@ Như mình có thể gán nhiều biến cùng lúc, ví dụ: a, b = 2, 3 thì 
 
 Rồi mình có thể dùng vòng lặp for, while để duyệt qua các sequences types(list, string, set, dict, …), nội dung trong vòng lặp sẽ quy định bằng khoảng cách là một tab.
 
-Hoặc mình có thể viết những điều kiện với các dấu <, >, ==, <=, >=, != 
+Hoặc mình có thể viết những điều kiện với các dấu <, >, ==, <=, >=, !=
 
 print function giúp mình in ra các giá trị để kiểm tra nữa
 
 Từ những điều trên, bạn có thể viết một chương trình đơn giản rồi đấy.
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2020/02/Screen-Shot-2020-03-17-at-11.22.15-PM.png?resize=768%2C187&ssl=1)
+![](/assets/images/2020/05/2020-05-chiec-may-tinh-PI-image-6-fibonanci.webp)
 
 Hôm nay, tụi mình cùng tìm hiểu Python đến đây thôi.
 

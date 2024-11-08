@@ -5,153 +5,132 @@ date:   2020-04-08 10:00:00 +0700
 categories: python, dai-ban-doanh-python
 ---
 
-Trong trang ni, đại bản doanh Python cho tụi mình nhiều nguồn khá chất lượng, mời các bạn ghé chơi, nhưng cũng có những nguồn hết hạn rồi, cũ rồi. Do đó, trong post này mình chỉ giới thiệu những xịn xò nhất theo mình thôi. 
+![](docs/assets/images/2020/02/2020-02-bat-dau-voi-python-cover.webp)
 
-## Podcast
+Chào mừng mọi người đến với bài post thứ ba của phần “Lượn lờ cùng Python” của series [“Khám phá Đại Bản Doanh Python“](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/07/dai-ban-doanh-python-series-overview.html)
 
-Podcast là gì ấy nhỉ? Nó là một bản trình bày bằng âm thanh mà bạn có thể tải hoặc phát từ Internet, chỉ đơn giản vậy thôi.
 
-Mình mê podcast dữ lắm, mê cái thể loại nghe tâm tình, cập nhật kiến thức hay đơn giản vì là cái cảm giác được tương tác với người chứ không phải với máy. Thật chứ code với làm online riết rồi làm dự án qua chat channel, các tools quản lý, liên lạc bằng email, … làm mình nhớ giọng con người đến lạ. 
+Trong phần này, tụi mình sẽ cùng nhau dạo quanh quanh những phần ngoài lề trước khi tấn công vào document ở những phần tiếp theo nhé.
 
-Tiêu chí của mình cũng đơn giản lắm, đầu tiên là cái trang nhìn được mắt tí, host cũng dễ thương tí, càng nhiều năng lượng tích cực càng tốt, có sub nữa thì đứa ngu tiếng Anh như mình mới càng yêu thích hơn. 
+Mình sẽ đi trả lời nhưng câu hỏi sau trong “Lượn lờ cùng Python”:
 
-Còn nội dung thì do trình độ mình có hạn nên mình thấy cái nào mà dễ dễ hiểu mình xem trước, cho nên có khi không hợp gu với tất cả mọi người, nếu ai muốn xem hết thì nhớ vô trang av để tìm kiếm thêm nha.
 
-Hai bạn podcast hay ho có thể kể đến:
-#### [Talk Python To Me Podcast](https://talkpython.fm/)
+♣ [Python có thể dùng để làm gì nhỉ?](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/02/python-co-the-lam-gi-nhi.html)
 
-**Vài thông tin nhỏ:**
+♣ [Ai đã thành công cùng Python?](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/03/ai-da-thanh-cong-cung-python.html)
 
-– Host là Michael Kennedy, founder của Talk Python To Me, quê ở Portland, OR. Ông còn phát triển nhiều khoá học Python trực tiếp mang tên Talk Python Training. Michael là một doanh nhân, cha của ba cô con gái, là chồng, là người luôn học hỏi và là một giáo viên.
+♣ Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu? (bài hôm ni)
 
-– Podcast Take Python To Me bắt đầu từ 3/2015, bài ra hàng tuần với các chủ đề liên quan đến Python, cũng như những chủ đề khác như MongoDB, AngularJS, DevOps. Mỗi bài post là một cuộc trò chuyện với những khách mời là các chuyên gia trong ngành.
 
-**Mấy cái mình ưng nhứt:**
+Những nội dung trong bài series này từ “Đại bản doanh Python” python.org, mình viết bằng ngôn ngữ của mình kèm theo những tài liệu khác mà mình thấy liên quan và hữu ích cho chủ đề của bài.
 
-– Giọng chú host khá dễ nghe, nhiều năng lượng tích cực.
+Bài dưới đây sẽ đi trả lời câu hỏi “Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?” nằm trong mục [“Getting Started”](https://www.python.org/about/gettingstarted/) nha
 
-– Trong bảng Episodes có cột Guests nơi ghi rõ tên những người được mời trong từng bài.
+## Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?
+Dô dô, dô ngay và luôn, không đợi chờ gì nữa, học Python ngay thôi, lương nghìn lẻ một đô đang chờ ahihi
 
-– Podcast ni có transcript và được ghi theo thời gian. Vừa update kiến thức, vừa nghe tiếng anh với đọc sub cho quen, khó quá mình bỏ qua Google Dịch cho hiểu cũng được nữa.
-#### [The Python Podcast.__init__](https://www.pythonpodcast.com/)
+Ở phần “Bắt đầu với Python” này, gồm những nội dung chính sau:
 
-**Vài thông tin nhỏ:**
+– Python là gì thế ạ?
 
-– Host là Tobias Macey là một kỹ sư chuyên tận tâm với kinh nghiệm nhiều năm trong nhiều lĩnh vực. Hiện lãnh đạo và quản lý nhóm Technical Operations của MIT Open Learning, nơi anh thiết kế và xây dựng cơ sở hạ tầng đám mây để truy cập trực tuyến vào hệ thống giáo dục của cộng đồng MIT toàn cầu. Ngoài ra anh cũng là chủ của Boundlass Notions, LLC nơi anh thiết kế, đánh giá, triển khai cơ sở hạ tầng dữ liệu và tự động hoá điện toán đám mây. Ngoài Podcast.__init__ thì “Data Engineering Podcast” là nơi anh khám phá những thách thức mới mà các kỹ sư về dữ liệu(data engineer) hay đối mặt và đưa ra nhiều cách giải quyết.
+– Cách lượm Python về và chơi thử
 
-– Podcast.__init__ bắt đầu từ 3/2014, mỗi tuần một tập, mang đến những câu chuyện về những người làm cộng đồng Python trở nên tuyệt vời, cung cấp nhiều thông tin hữu ích về những dự án, những nền tảng, và các bài thực hành mà các kỹ sư(lập trình viên), các lãnh đạo, các nhà khoa học dữ liệu cần biết để học hỏi và phát triển sự nghiệp.
+– Chơi thử rồi, giờ là học thiệt nghe
 
-– Các chủ đề đa dạng bao gồm: khoa học dữ liệu(data science), DevOps, ứng dụng web(web application), nghiên cứu khoa học, mã nguồn mở, khoa học máy tính(machine learning), …
+– Tìm kiếm những ứng dụng làm sẵn
 
-**Mấy cái mình ưng nhứt:**
+– Hỏi han thường gặp
 
-– Podcast này có transcript đó mọi người, cái này ưng nhất với người có ngôn ngữ hạn chế như mình. Vừa nghe vừa theo dõi sub thì level tiếng Anh sẽ lên đó, cố lên, à nhớ bật follow chỗ transcript nghe.
+Đi thôi mấy mọi người ơi!
 
-– Podcast này có chỉnh tốc độ nghe nữa, mình có thể nghe chậm hơn nếu theo không kịp. 
+## Python là gì thế ạ?
 
-– Trang ni ít quảng cáo, vô cái là bấm nghe được liền.
+Python là ngôn ngữ lập trình hướng đối tượng, có thể so sánh với Perl, Ruby, Scheme hoặc Java
 
-## Videos
+**Các tính năng đáng chú ý:**
 
-Trong phần này, python official website giới thiệu 2 nguồn, đó là: pyvideo.org và một kênh youtube channel pycon08.
+♥ Cú pháp tao nhã, dễ đọc dễ viết
 
-Về pycon08, kênh này khá cũ(11 năm trước) và nội dung cũng như chất lượng thời điểm đó không được tốt lắm nên mình xin phép không giới thiệu gì nhiều.
+♥ Viết chương trình một phát là có thể chạy liền
 
-Thứ mình thích là *[pyvideo.org](https://pyvideo.org/)*, đây quả là một nguồn đáng đồng tiền bát gạo, cơ mà nó là **free** đó mấy bác ơi!
+♥ Thư viện chuẩn hỗ trợ các tác vụ phổ biến như kết nối server, tìm kiếm với các biểu thức(regular expression), đọc và chỉnh sửa file
 
-Ở đây có một lượng video về python phải gọi là khổng lồ, mười mấy nghìn video, trong số đó gồm nhiều videos đến từ hơn 400 sự kiện về Python trên toàn thế giới. 
+♥ Dễ dàng kiểm thử các đoạn code ngắn với Python interactive mode
 
-Xịn chưa xịn chưa, vô coi đi!
+♥ Có thể thêm các mô đun khác được viết bằng ngôn ngữ khác như C, C++. Có thể nhúng vào ứng dụng khác để tạo giao diện sử dụng
 
-Mình thích cái cột thống kê bên trái của pyvideo.org lắm, nó cho phép mình đến nơi mình cần đến ngay lập tức. 
+♥ Chạy trên đa nền tảng: Mac OS X, Linux, Windows, Unix. Miễn phí tải xuống, miễn phí sử dụng
 
-*Bạn đang tìm kiếm gì?*
-**Videos từ những sự kiện gần nhất**
+**Các tính năng đáng chú ý về ngôn ngữ:**
 
-→  [PyData Austin 2019](https://pyvideo.org/events/pydata-austin-2019.html)(34 videos)
+♥ Nhiều kiểu dữ liệu: number(floating point, complex, and unlimited-length long integers), string (both ASCII and Unicode), lists(danh sách), and dictionaries(từ điển). Kiểu dữ liệu động và mạnh mẽ, trộn các loại dữ liệu khác nhau sẽ báo lỗi ngay(như cộng string với number)
 
-→  [PyData New York City 2019(2014 – 2019)](https://pyvideo.org/events/pydata-new-york-city-2019.html)(70 videos)
+♥ Hỗ trợ lập trình hướng đối tượng với lớp(classes) và nhiều lớp kế thừa(multi inheritances).
 
-→  [PyCon SE 2019](https://pyvideo.org/events/pycon-se-2019.html)(32 videos)
+♥ Code có thể nhóm thành các mô-đun, các gói. Bộ nhớ được quản lý tự động. Có hỗ trợ xử lý lỗi sạch đẹp
 
-([Danh sách các sự kiện ở đây](https://pyvideo.org/events.html))
+♥ Python chứa các tính năng nâng cao của một ngôn ngữ lập trình như list comprehensions và generators
 
-**Videos từ những diễn giả tích cực nhất**
+## Cách lượm Python về chơi thử
+Để lượm được Python về và chơi thử, mình phải cài đặt cái trình thông dịch của bạn ấy – Python Interpreter, đây là chương trình có thể đọc code Python và chạy. Ngoài ra, bạn ấy còn có kèm theo nhiều tài liệu có thể giúp mình hiểu hơn về Python nữa.
 
-→ [Russell Keith-Magee](https://pyvideo.org/speaker/russell-keith-magee.html)(67 videos)
+Thường thì Mac và Linux sẽ được tích hợp Python sẵn rồi, nhưng đó là bản lỗi thời rồi(Python 2.x), cho nên mình cần phải cập nhật lên bản mới(Python 3.x)(vui lòng kiểm tra ở trang Downloads này nhé).
 
-→ [James Powell](https://pyvideo.org/speaker/james-powell.html)(48 videos)
+Sau khi cài được python version 3 rồi, mình vô command line gõ “python” hoặc “python3” là đã được vô chế độ chơi thử cùng Python Interpreter rồi đó.
 
-→ [Kevin Markham](https://pyvideo.org/speaker/kevin-markham.html)(43 videos)
+Vô đây chỉ là chơi thử thấy liền kết quả thôi, còn nếu bạn muốn lưu code lại và chỉnh sửa thì mình cần có IDE hoặc Code Editor để mở file đó, bạn có thể bắt đầu với Thony(một chương trình tích hợp sẵn Python Interpreter và IDE bundles), khá đơn giản và nhẹ nữa.
 
-→ [Dustin Ingram](https://pyvideo.org/speaker/dustin-ingram.html)(42 videos)
+(Bonus)
 
-→ [Andrew Godwin](https://pyvideo.org/speaker/andrew-godwin.html)(42 videos)
+Nếu bạn đang tìm kiếm một IDEs hay Text Editors để xài với Python, thì python.org cũng có nguyên hai list to bự chảng cho bạn tham khảo luôn:
 
-**Hay video từ những tags được nhiều người quan tâm nhất**
+ ⇒ [IDEs Python](https://wiki.python.org/moin/IntegratedDevelopmentEnvironments) giới thiệu tên, nền tảng, lần cuối cập nhật và vài thông tin chính của IDE
 
-→ [lightning talks](https://pyvideo.org/tag/lightning-talks/)(459 videos)
+⇒ [Python Editors](https://wiki.python.org/moin/PythonEditors) giới thiệu tên, nền tảng, viết bằng ngôn ngữ gì, giấy phép nào, và vài thông tin chính của editor
 
-→ [talk](https://pyvideo.org/tag/talk/)(360 videos)
+Mình tạt qua giới thiệu cái IDEs với cái Code Editors xí nếu bạn chưa rõ thì đọc thêm nhé
 
-→ [tutorial](https://pyvideo.org/tag/tutorial/)(292 videos)
+**IDEs** là môi trường lập trình cung cấp những tính năng như mã hoá, biên dịch, gỡ lỗi, thực thi, tự động điền vào(autocomplete), các thư viện trong cùng một nơi giúp các tác vụ trở nên đơn giản và dễ dàng hơn
 
-→ [django](https://pyvideo.org/tag/django/)(219 videos)
+Các IDEs phổ biến có thể kể đến: **PyCharm, Spyder, PyDev, Idle, Wing, Eric Python, Rodeo, Thonny**
 
-→ [python](https://pyvideo.org/tag/python/)(197 videos)
+Trong khi đó, Code editors là một nền tảng để chỉnh và sửa mã nguồn, phổ biến dùng với Python có thể kể đến: Sublime text, Atom, Vim, Visual Studio Code
 
-Đây thực sự là một nguồn tư liệu media khổng lồ và có giá trị. 
+Bạn có thể xem qua những python IDE, code editors ở article này, có giới thiệu những features chính, ưu điểm, nhược điểm để mình lựa cái dùng cho phù hợp.
 
-*Đội ơn bác “Đại Bản Doanh Python”.*
+## Chơi thử rồi, giờ là học thiệt nghe
+Lựa được nơi code rồi, mình bắt tay vô code thôi. Á nhầm, mình phải đọc mấy cái hướng dẫn(tutorial) trước, rồi code theo xem nó chạy thế nào chớ. Về hướng dẫn thì có 2 hướng chính nè:
 
-Mình hi vọng mọi người cũng như mình sẽ chú trọng đến những thứ giá trị như thế này nhiều hơn nữa, thay vì lên Google và Youtube mà tìm kiếm rồi những sản phẩm được quảng cáo đập thẳng vô mặt, tụi nó hay thiệt đó, cơ mà tốn kém cũng không ít đâu các bác ạ.
+Mới học lập trình, hãy đi cùng [Beginner Guide – Non Programmer](https://wiki.python.org/moin/BeginnersGuide/NonProgrammers)
 
-<hr>
+Có tí kinh nghiệm lập trình rồi, thì đi cùng [Beginner Guide – Programmer](https://wiki.python.org/moin/BeginnersGuide/NonProgrammers)
 
-### Bonus
+Trong mỗi hướng dẫn, đều gồm những mục như giới thiệu sách phù hợp cho từng đối tượng, các tutorials và các websites, các khoá học tương tác, tài liệu giành cho người nghiên cứu khoa học, các videos và tools.
 
-Trong quá trình tìm hiểu mình thấy nguồn này khá hay ho, kiểu hay không chịu nổi, không thể không lưu lại ở đâu đó, nên để đỡ vô phần bonus ni.
+Mình thấy bên Non Programmer thì các khoá học tương tác được xếp trước những tài nguyên khác chắc là muốn người bắt đầu tương tác làm quen Python trước.
 
-### [sentdex](https://www.youtube.com/user/sentdex)
+Còn bên Programmer thì là hai link review những khoá học tốt nhất giành cho Python để nắm bắt nhanh nhất, nàm trên top có [“Google Python’s class”](https://developers.google.com/edu/python/)(miễn phí) và  khóa “Complete Python Bootcamp: Go from zero to hero in Python 3” từ Udemy(có phí).
 
-Đây là một channel hướng dẫn lập trình Python đồ sộ nhất mà mình được thấy, cả channel có khoảng 1000 videos và đa số hướng dẫn về Python, từ năm 2012 đến nay. Anh này người Mỹ và nói tiếng Anh giọng Mỹ rất dễ nghe.
+Bên cạnh đó, khi cần tìm kiếm thêm thông tin gì về Python thì [online documentation](https://docs.python.org/3/) là nơi bạn cần ghé. Ngoài ra, cũng có [Python tutorial](https://docs.python.org/3/tutorial/) học những thứ cơ bản nhất và giúp mình bắt đầu với Python, mình sẽ cùng học tutorial này trong những bài blog tiếp theo.
 
-Tại đây không những có dạy về Python cơ bản, mà còn nhiều nội dung liên quan đến ứng dụng Python vào những lĩnh vực khác nhau như là: machine learning, tài chính, phân tích dữ liệu, robot, phát triển web, trò chơi …
+Sau khi học và viết những thứ cơ bản rồi, đã đến lúc bạn nên tìm hiểu thêm về Syntax Python cùng series [“The Python Language Reference”](https://docs.python.org/3/reference/) và những thư viện chuẩn của Python với [“The Python Standard Library“](https://docs.python.org/3/library/#the-python-standard-library).
 
-**Dưới đây là những series phổ biến nhất:**
+Bạn có muốn biết những recipes(công thức) và patterns(mô hình) phổ biến trong Python, hãy ghé [“ActiveState Python Cookbook”](http://code.activestate.com/recipes/langs/python/) để xem.
 
-- Learning programing with Python(15 videos)
-[Learning programing with Python](https://www.youtube.com/watch?v=eXBD2bB9-RA&list=PLQVvvaa0QuDeAams7fkdcwOGBpGdHpXln)
+## Tìm kiếm những ứng dụng có sẵn
+Nếu bạn muốn tìm kiếm những mô đun, package hay những ứng dụng được viết bằng Python rồi để tham khảo hay dùng trong ứng dựng của mình, thì nơi đầu tiên có thể ghé kiếm thử là [PyPI](https://pypi.org/) – kho packages viết bằng Python sẽ tìm kiếm được những source code tốt nhất hoặc đơn giản chỉ cần hỏi thăm bác Google với những từ khoá như là “python package”, “python example”, “python recipes”, … là được rồi.
 
-- Django Web Development with Python(12 videos)
-[Django Web Development with Python](https://www.youtube.com/watch?v=yD0_1DPmfKM&list=PLQVvvaa0QuDe9nqlirjacLkBYdgc2inh3)
+Nếu vẫn không tìm được thứ bạn cần, ngại gì không hỏi một câu trên Stackoverflow hay bất cứ ai bạn biết là họ biết nhiều Python hơn bạn nhỉ ^^.
 
-- Machine Learning with Python(72 videos)
-[Machine Learning with Python](https://www.youtube.com/watch?v=OGxgnH8y2NM&list=PLQVvvaa0QuDfKTOs3Keq_kaG2P55YRn5v)
+## Hỏi han thường gặp
+Nếu bạn có câu hỏi nào về Python, thử kiểm tra trong phần [“Hỏi han thường gặp”](https://docs.python.org/3/faq/) thử xem người ta đã trả lời chưa nhé.
 
-– Deep Learning with Python, TensorFlow, and Keras tutorial(11 videos)
-[](https://www.youtube.com/watch?v=wQ8BIBpya2k&list=PLQVvvaa0QuDfhTox0AjmQ6tvTgMBZBEXN)
+Bonus cho bạn [top câu hỏi Python trên StackOverflow](https://stackoverflow.com/questions/tagged/python?sort=MostVotes&edited=true) nè.
 
-– Data Analysis w/ Python 3 and Pandas(6 videos)
-[](https://www.youtube.com/watch?v=nLw1RNvfElg&list=PLQVvvaa0QuDfSfqQuee6K8opKtZsh7sA9)
+Đây là bài cuối của phần “Lượn lờ cùng Python” rồi.
 
-– PyGame with Python 3 Game Development(29 videos)
-[](https://www.youtube.com/watch?v=ujOTNg17LjI&list=PLQVvvaa0QuDdLkP8MrOXLe_rKuf6r80KO)
+Tụi mình đã đi qua đám này hẳn mình đã hiểu cái độ quan trọng của Python và háo hức cho hành trình tiếp theo rồi đó.
 
-– Python Programming for Finance(28 videos)
-[](https://www.youtube.com/watch?v=2BrpKpWwT2A&list=PLQVvvaa0QuDcOdF96TBtRtuQksErCEBYZ)
+Tiếp đến, mình sẽ gặm qua phần khó ăn nhất “Documentation”
 
-– NLTK with Python 3 for Natural Language Processing(21 videos)
-[](https://www.youtube.com/watch?v=FLZvOKSCkxY&list=PLQVvvaa0QuDf2JswnfiGkliBInZnIC4HL)
-
-– Practical Flask Web Development Tutorials(35 videos)
-[](https://www.youtube.com/watch?v=Lv1fv-HmkQo&list=PLQVvvaa0QuDc_owjTbIY4rbgXOFkUYOUB)
-
-– Matplotlib Tutorial Series – Graphing in Python(32 videos)
-[](https://www.youtube.com/watch?v=q7Bo_J8x_dw&list=PLQVvvaa0QuDfefDfXb9Yf0la1fPDKluPF)
-
-Mình viết tới đây mình mình trở thành fan hâm mộ chính thức của sentdex rồi các bạn ạ, một resource quá đáng để chia sẻ phải không!
-
-#### Kết bài
-Bài viết hôm nay tạm dừng ở đây ha, cám ơn các bác ghé nhà em chơi.
-Ở bài viết sau, mình sẽ cùng “[Chiếc máy tính PI](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/05/20/chiec-may-tinh-PI.html)” cùng phần The Python Tutorial nhé.
+Thực ra mình cũng ngán mấy cái documentation dữ lắm, cho nên mình không dại dột chi mà chui vô liền cái document lắm chữ đâu. Mình thấy ở đây còn có nhiều sự lựa chọn khác có vẻ dễ thương hơn nhiều, đó là [“Audio/Visual Talks”](https://www.python.org/doc/av/) và [“Beginner Guide“](https://wiki.python.org/moin/BeginnersGuide). Phần ni gọi tên là “Làm quen kết bạn với Python” cho nó thân thiện ha.
