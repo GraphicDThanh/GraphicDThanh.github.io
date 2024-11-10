@@ -45,3 +45,7 @@ $ bundle install
 - Image name: `YYYY-MM-post-slug-img##.jpg`
 - Example: 2020-07-dai-ban-doanh-python-series-overview-cover.jpg
 - Folder: `assets/images/2020/07`
+
+## Theme
+- https://mmistakes.github.io/minimal-mistakes/docs/structure/
+- 
