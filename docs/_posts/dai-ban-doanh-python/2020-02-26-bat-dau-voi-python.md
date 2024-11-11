@@ -1,11 +1,17 @@
 ---
-layout: post
-title:  "Tài liệu học và nghiên cứu Python"
-date:   2020-04-08 10:00:00 +0700
-categories: python, dai-ban-doanh-python
+title: "Tài liệu học và nghiên cứu Python"
+header:
+  teaser: /assets/images/2020/02/2020-02-bat-dau-voi-python-cover.webp
+  og_image: /assets/images/2020/02/2020-02-bat-dau-voi-python-cover.webp
+excerpt_separator: <!--more-->
+categories:
+  - Đại Bản Doanh Python
+tags:
+  - python
+last_modified_at: 2020-02-26T15:12:19-04:00
 ---
 
-![](docs/assets/images/2020/02/2020-02-bat-dau-voi-python-cover.webp)
+![](/assets/images/2020/02/2020-02-bat-dau-voi-python-cover.webp)
 
 Chào mừng mọi người đến với bài post thứ ba của phần “Lượn lờ cùng Python” của series [“Khám phá Đại Bản Doanh Python“](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/07/dai-ban-doanh-python-series-overview.html)
 

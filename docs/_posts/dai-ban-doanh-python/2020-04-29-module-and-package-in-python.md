@@ -1,8 +1,14 @@
 ---
-layout: post
-title:  "Mô đun và Gói trong Python"
-date:   2020-04-29 10:00:00 +0700
-categories: python, dai-ban-doanh-python
+title: "Mô đun và Gói trong Python"
+header:
+  teaser: /assets/images/2020/04/2020-08-tai-lieu-hoc-va-nghien-cuu-python-cover.webp
+  og_image: /assets/images/2020/04/2020-08-tai-lieu-hoc-va-nghien-cuu-python-cover.webp
+excerpt_separator: <!--more-->
+categories:
+  - Đại Bản Doanh Python
+tags:
+  - python
+last_modified_at: 2020-04-29T15:12:19-04:00
 ---
 
 Chào mừng mọi người đến với bài tiếp theo của phần “The Python Tutorial” của series “Khám phá Đại Bản Doanh Python“.
@@ -37,7 +43,7 @@ Lưu ý nhỏ: Đến đây, mình đã cần sử dụng đến trình soạn t
 
 Nạp mô-đun vào đâu để sử dụng? Là nạp vào mô-đun khác hoặc nạp vào khi mình đang ở trong trình thông dịch PI như ví dụ trên đây.
 
-Khi mình nạp một mô-đun, các thành phần của nó sẽ được khởi tạo. 
+Khi mình nạp một mô-đun, các thành phần của nó sẽ được khởi tạo.
 
 Mỗi mô-đun như một cái gói bọc hết các giá trị được khởi tạo của nó trong đó, do đó khi cần dùng mình phải trỏ từ tên mô-đun vào lấy các thành phần khác. Ví dụ, bạn muốn dùng biến “name” trong module “person”, thì nó là: “person.name”
 
@@ -58,9 +64,9 @@ Có nhiều cách nạp mô-đun và các thành phần của nó:
 → **Nạp mô-đun và sử dụng với tên khác với “as“**: from person import full_name as name
 
    Hàm full_name được kết nối với tên thay thế là “name”, nên gọi name chính là gọi full_name
-   
+
    ### Cách cập nhật nội dung của mô-đun
-   
+
    Khi làm việc với mô-đun trong PI, đôi khi mình sửa code nhưng không thấy kết quả được cập nhật, đó là do nội dung mô-đun bạn nạp trước đây vẫn tồn tại và bạn cần tải lại mô-đun để có nội dung mới nhất.
 
 #### Có hai cách cập nhật nội dung của mô-đun:
@@ -70,7 +76,7 @@ Có nhiều cách nạp mô-đun và các thành phần của nó:
 
 **Cách 2: gọi đến mô-đun importlib và gọi lệnh để reload mô-đun mình cần**
 
->   import importlib; importlib.reload(<mô-đun>) 
+>   import importlib; importlib.reload(<mô-đun>)
 
 ![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2020/06/reload-inside-PI.gif?fit=910%2C678&ssl=1)
 
@@ -86,17 +92,17 @@ Ngoài cách vào trình thông dịch PI, nạp mô-đun mà gọi lệnh thự
 
 Kết quả của lệnh trên sẽ là: Total 5
 
-Gọi vậy thì mô-đun sẽ được thực thi như khi bạn import nó vào mô-đun khác. 
+Gọi vậy thì mô-đun sẽ được thực thi như khi bạn import nó vào mô-đun khác.
 
 Điều khác duy nhất khi thực thi bằng lệnh “python” là tên __name__ của mô-đun sẽ được gán với giá trị __main__.
 
 Bạn để ý chỗ ni xíu, vì khúc này liên quan tới một câu lệnh mình hay dùng mà hỏng hiểu tại sao, câu lệnh đó là:
 
 > if __name__ == “__main__”:
-> 
+>
 >     # code thực thi đặt vào đây
 
-Bạn có thấy câu lệnh ni quen không? Nếu bạn từng học qua Python hẳn bạn đã gặp rồi. 
+Bạn có thấy câu lệnh ni quen không? Nếu bạn từng học qua Python hẳn bạn đã gặp rồi.
 
 Người ta hay bỏ câu lệnh như vậy vào chương trình để mần chi nhỉ?
 
@@ -108,7 +114,7 @@ Bạn thấy chỗ ni hay hông? Mình thấy siêu hay luôn, vì khúc ni trư
 
 #### Python tìm mô-đun ở đâu?
 
-Khi làm việc với mô-đun, bạn có thể sẽ gặp lỗi không tìm thấy mô-đun như thế này. 
+Khi làm việc với mô-đun, bạn có thể sẽ gặp lỗi không tìm thấy mô-đun như thế này.
 
 ![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2020/06/Screen-Shot-2020-06-17-at-6.32.15-PM.png?w=1288&ssl=1)
 
@@ -178,7 +184,7 @@ Lưu ý nhỏ là dir() không list ra được những hàm và giá trị đư
 
 ## Gói
 
-Gói(package) là một nhóm các mô-đun khác nhau. Nó tương tự như thư mục chứa nhiều tệp tin vậy, nhưng cần phải đăng ký nhẹ với python để nó biết đó là gói, bằng cách thêm file __init.py__ là python biết mình khởi tạo gói. 
+Gói(package) là một nhóm các mô-đun khác nhau. Nó tương tự như thư mục chứa nhiều tệp tin vậy, nhưng cần phải đăng ký nhẹ với python để nó biết đó là gói, bằng cách thêm file __init.py__ là python biết mình khởi tạo gói.
 
 Một gói cũng có thể chứa nhiều gói con khác nằm bên trong nó.
 
@@ -204,7 +210,7 @@ Chắc bạn không hiểu đâu, để mình ví dụ nè:
 
 – Thứ mình cần đang ở “utils.py” là mô-đun của gói “calculators”
 
-=> Do đó, gói chung gần nhất của hai bạn này là “calculators”, vì bạn ni bọc bạn “casio_fx9570“. 
+=> Do đó, gói chung gần nhất của hai bạn này là “calculators”, vì bạn ni bọc bạn “casio_fx9570“.
 
 Cho nên, mình sẽ import từ thằng cha, cụ thể là trong “casio_fx9570/total.py” cần:
 
@@ -254,7 +260,7 @@ Cú pháp **“import A.B.C”**, thì:
 
 Thường thường, __init__.py là một tệp rỗng, tuy nhiên __init__.py cũng có thể dùng để chứa code khởi tạo cho gói đó hoặc dùng để gán biến __all__ , thể hiện khi import với * thì sẽ có những mô-đun nào được nạp. Nếu biến này không được gán, python hiểu là tất cả các mô-đun trong gói đều được nạp khi gọi import với *.
 
-Ví dụ, trong gói calculators gán trong file __init__.py: 
+Ví dụ, trong gói calculators gán trong file __init__.py:
 
 > __all__ = [“utils”]
 
@@ -262,16 +268,16 @@ thì khi gọi “from calculators import *” sẽ có mô-đun “utils” đ�
 _______________________________________________________________________________________________________________________________________
 Nội dung bài mô-đun trong Python Tutorial đến đây tạm hết rồi, cám ơn mọi người đã đọc.
 
-Hôm nay mình tìm được một bản dịch The Python Tutorial qua tiếng Việt khá đầy đủ, bản dịch này của cộng đồng python Việt Nam, nó ở [đây](https://tutorial.pythonvietnam.info/). Mọi người ghé đọc nhé, nội dung rất đầy đủ, kiểu như dịch từng chữ trong bản gốc ra luôn ấy, chứ không phải kiểu học hiểu ý rồi viết lại như mình. 
+Hôm nay mình tìm được một bản dịch The Python Tutorial qua tiếng Việt khá đầy đủ, bản dịch này của cộng đồng python Việt Nam, nó ở [đây](https://tutorial.pythonvietnam.info/). Mọi người ghé đọc nhé, nội dung rất đầy đủ, kiểu như dịch từng chữ trong bản gốc ra luôn ấy, chứ không phải kiểu học hiểu ý rồi viết lại như mình.
 
 Đọc bản dịch này làm mình cảm thấy thật là hổ thẹn với những thứ mình viết ra ở bài này và những bài trước. Và mình phân vân không biết có nên viết tiếp về ba phần chính còn lại của tutorial này là: “Đầu vào và đầu ra”, “Lỗi và các ngoại lệ”, “Lớp” hay không nữa vì bản dịch rất đầy đủ rồi.
 
-Nghĩ từ chiều tới tối thì mình đã đưa ra quyết định là sẽ tiếp tục viết ba bài còn lại cho hoàn thành nội dung của The Python Tutorial theo ngôn ngữ của BeautyOnCode. 
+Nghĩ từ chiều tới tối thì mình đã đưa ra quyết định là sẽ tiếp tục viết ba bài còn lại cho hoàn thành nội dung của The Python Tutorial theo ngôn ngữ của BeautyOnCode.
 
-Thực sự là mình không có dịch hết nội dung của sê-ri, mình đọc làm và viết lại, hay gọi nôm na là thổi hồn và chút hài hước theo ngôn ngữ dân dã vô cái đám kiến thức khá là khô khan này. 
+Thực sự là mình không có dịch hết nội dung của sê-ri, mình đọc làm và viết lại, hay gọi nôm na là thổi hồn và chút hài hước theo ngôn ngữ dân dã vô cái đám kiến thức khá là khô khan này.
 
 Với mình, học xong, hiểu rồi, viết lại tốn khá là nhiều thời gian, nhưng càng làm mình lại càng thấm, mình thấy yêu thương từng câu từ, từng hình ảnh, demo, từng đoạn code mà mình viết và lập trình không còn khô khan nữa.
 
 Mình lảm nhảm đến đây cũng tạm rồi hehe, chốt lại là có bản dịch đó, mọi người cứ vào đọc cho gọn, còn mình cứ tiếp tục học và viết theo cách của mình thôi à.
 
-Thay lời tạm biệt, gửi bạn một bài blog của RealPython “[Python Modules and Packages: Introduction](https://realpython.com/python-modules-packages)” rất đầy đủ và bổ ích <3 
+Thay lời tạm biệt, gửi bạn một bài blog của RealPython “[Python Modules and Packages: Introduction](https://realpython.com/python-modules-packages)” rất đầy đủ và bổ ích <3

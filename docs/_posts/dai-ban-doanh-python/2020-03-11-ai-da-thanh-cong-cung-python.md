@@ -1,8 +1,14 @@
 ---
-layout: post
-title:  "Ai đã thành công cùng Python?"
-date:   2020-03-11 10:00:00 +0700
-categories: python, dai-ban-doanh-python
+title: "Ai đã thành công cùng Python?"
+header:
+  teaser: /assets/images/2020/03/2020-03-ai-da-thanh-cong-cung-python-cover.png
+  og_image: /assets/images/2020/03/2020-03-ai-da-thanh-cong-cung-python-cover.png
+excerpt_separator: <!--more-->
+categories:
+  - Đại Bản Doanh Python
+tags:
+  - python
+last_modified_at: 2020-03-11T15:12:19-04:00
 ---
 
 ![](/assets/images/2020/03/2020-03-ai-da-thanh-cong-cung-python-cover.png)
@@ -10,7 +16,7 @@ categories: python, dai-ban-doanh-python
 Chào mừng mọi người đến với bài post thứ hai của phần “Lượn lờ cùng Python” của series “[Khám phá Đại Bản Doanh Python](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/07/dai-ban-doanh-python-series-overview.html)”
 
 ## Mở bài
-Trong phần này, tụi mình sẽ cùng nhau dạo quanh quanh những phần ngoài lề trước khi tấn công vào document ở những phần tiếp theo nhé. 
+Trong phần này, tụi mình sẽ cùng nhau dạo quanh quanh những phần ngoài lề trước khi tấn công vào document ở những phần tiếp theo nhé.
 Mình sẽ đi trả lời nhưng câu hỏi sau trong “**Lượn lờ cùng Python**”:
 
 ♣ [Python có thể dùng để làm gì nhỉ?](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/02/12/python-co-the-lam-gi-nhi.html)
@@ -26,7 +32,7 @@ Bài dưới đây sẽ đi trả lời câu hỏi “**Ai đã thành công cù
 ### Những ai đã thành công cùng Python?
 
 
-Trong phần “[Success Stories](https://www.python.org/success-stories/)“, là những câu chuyện thành công cùng Python, bao gồm nhiều chủ đề khác nhau như “**Web Development**”, “**Scientific**”, “**Business**”, “Education”, “Goverment”, “Engineering”, “Art”. 
+Trong phần “[Success Stories](https://www.python.org/success-stories/)“, là những câu chuyện thành công cùng Python, bao gồm nhiều chủ đề khác nhau như “**Web Development**”, “**Scientific**”, “**Business**”, “Education”, “Goverment”, “Engineering”, “Art”.
 
 Bạn cũng có thể thêm câu chuyện ở mình với “Submit Yours” đó.
 ![](/assets/images/2020/03/2020-03-ai-da-thanh-cong-cung-python-1.png)
@@ -39,9 +45,9 @@ Xây dựng mã nguồn mở và đa nền tảng Azure CLI(Microsoft) với Pyt
 
 → Microsoft Azure là một nền tảng điện toán đám mây trải rộng hơn 50 trung tâm dữ liệu toàn cầu với hàng trăm dịch vụ. Là một dịch vụ cloud lớn, họ cung cấp rất nhiều công cụ để quản lý và triển khai hệ thống, một trong những công cụ được sử dụng rộng rãi nhất là Azure CLI(Azure “az” Command Line Interface).
 
-→ Azure CLI bao gồm hàng ngàn các lệnh cùng nhiều thư viện bên thứ 3, cho nên họ đã chuyển từ PowerShell cho Windows và Nodejs-CLI cho Mac, Linux sang dùng Python cho tất cả các nền tảng. 
+→ Azure CLI bao gồm hàng ngàn các lệnh cùng nhiều thư viện bên thứ 3, cho nên họ đã chuyển từ PowerShell cho Windows và Nodejs-CLI cho Mac, Linux sang dùng Python cho tất cả các nền tảng.
 
-→ Nhờ sự linh hoạt và hệ sinh thái của các gói(packages), Python giúp Azure cung cấp hàng trăm dịch vụ, mỗi dịch vụ cung cấp những phiên bản tương thích khác nhau kèm với hàng trăm nghìn dòng lệnh một cách nhanh nhẹn, hữu ích và dễ sử dụng thật sự là một thách thức lớn. 
+→ Nhờ sự linh hoạt và hệ sinh thái của các gói(packages), Python giúp Azure cung cấp hàng trăm dịch vụ, mỗi dịch vụ cung cấp những phiên bản tương thích khác nhau kèm với hàng trăm nghìn dòng lệnh một cách nhanh nhẹn, hữu ích và dễ sử dụng thật sự là một thách thức lớn.
 
  → Điều quan trọng nhất là Python cho phép họ tạo nên một công cụ có thể chạy trên nhiều nền tảng, hoạt động tốt, hỗ trợ mở rộng mạnh mẽ và làm hài lòng khách hàng của họ.
 
@@ -52,7 +58,7 @@ Trực quan hoá dữ liệu khoa học cùng Python – một side project tron
 
 → Python đã được chọn vì syntax đơn giản, dễ maintain và là ngôn ngữ dễ học dễ sử dụng
 
-→ MayaVi được viết hoàn toàn bằng Python và nhờ tính linh hoạt của VTK, Python và Tkinter, hoạt động trên Linux, Unix và Windows. 
+→ MayaVi được viết hoàn toàn bằng Python và nhờ tính linh hoạt của VTK, Python và Tkinter, hoạt động trên Linux, Unix và Windows.
 
 → Người viết nhấn mạnh sự đơn giản, dễ học và cực kỳ mạnh mẽ của Python, bên cạnh đó trình thông dịch rất tiện cho việc thử nghiệm.
 
@@ -71,7 +77,7 @@ Python đã giúp viết phần mềm chống thư rác trong thương mại
 
 → Họ xây dựng Armadillo theo kiểu bất đồng bộ(asyncronous) và sử dụng thư viện “asyncore” của Python, cùng nhiều thư viện khác như Python recipes của ActiveState.
 
-Dùng WingIDE như là môi trường phát triển và Nose tests cùng với thư viện unittest để xây dựng bộ test cho dự án. 
+Dùng WingIDE như là môi trường phát triển và Nose tests cùng với thư viện unittest để xây dựng bộ test cho dự án.
 
 Họ cũng sử dụng Python Shell trong suốt quá trình phát triển dự án để nhanh chóng kiểm tra và chạy code thử.
 

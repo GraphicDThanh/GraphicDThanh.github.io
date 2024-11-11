@@ -1,11 +1,17 @@
 ---
-layout: post
-title:  "Lỗi và xử lý ngoại lệ trong Python"
-date:   2020-08-12 10:00:00 +0700
-categories: python, dai-ban-doanh-python
+title: "Lỗi và xử lý ngoại lệ trong Python"
+header:
+  teaser:
+  og_image:
+excerpt_separator: <!--more-->
+categories:
+  - Đại Bản Doanh Python
+tags:
+  - python
+last_modified_at: 2020-08-12T15:12:19-04:00
 ---
 
-Hôm ni, mình học tiếp về bạn “Lỗi và ngoại lệ”, bài blog tiếp theo nằm trong series[ “Khám phá Đại Bản Doanh Python”](https://beautyoncode.com/dai-ban-doanh-python-series-overview/), thuộc phần Python Tutorial nha. 
+Hôm ni, mình học tiếp về bạn “Lỗi và ngoại lệ”, bài blog tiếp theo nằm trong series[ “Khám phá Đại Bản Doanh Python”](https://beautyoncode.com/dai-ban-doanh-python-series-overview/), thuộc phần Python Tutorial nha.
 
 Ở bài này, mình sẽ đi tìm hiểu các loại lỗi và ngoại lệ trong Python cũng như cách xử lý và tạo ngoại lệ riêng của mình.
 
@@ -22,7 +28,7 @@ Hình trên cho mình thấy có hai loại lỗi có thể phân biệt đượ
 
 Lỗi cú pháp là lỗi xảy ra khi phân tích cú pháp, là loại lỗi mình hay gặp nhất.
 ![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/09/syntax-error.png?w=1280&ssl=1)
-Trình phân tích cú pháp sẽ lặp lại dòng bị lỗi và hiển thị một dấu mũi tên nhỏ tạo vị trí là thời điểm sớm nhất trong dòng nơi lỗi được phát hiện. 
+Trình phân tích cú pháp sẽ lặp lại dòng bị lỗi và hiển thị một dấu mũi tên nhỏ tạo vị trí là thời điểm sớm nhất trong dòng nơi lỗi được phát hiện.
 
 Ở ví dụ trên thể hiện lỗi được phát hiện tại vị trí hàm print được gọi, lý do là bị thiếu dấu “:”
 
@@ -44,7 +50,7 @@ Khi viết chương trình với Python, đôi khi mình sẽ cố tình để n
 
 ![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2020/09/handle-exceptions.png?w=751&ssl=1)
 
-Ở ví dụ trên đã dùng nhóm lệnh “**try … except**” để bắt và sử lý ngoại lệ. 
+Ở ví dụ trên đã dùng nhóm lệnh “**try … except**” để bắt và sử lý ngoại lệ.
 
 Đoạn code trên hoạt động như sau:
 
@@ -64,20 +70,20 @@ Khi viết chương trình với Python, đôi khi mình sẽ cố tình để n
 
 #### Xe cấp cứu nào đến trước
 
-Có hai đoạn code như hai hình dưới đây, cùng đoán thứ tự in ra khi hai example 1, 2 được thực thi nhé 😀 
+Có hai đoạn code như hai hình dưới đây, cùng đoán thứ tự in ra khi hai example 1, 2 được thực thi nhé 😀
 
 Lưu ý là “RotDH_NV1” được extend từ class Exception
 
 ![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-05-at-6.34.28-PM.png?w=1226&ssl=1)
 
-Bạn nghiên cứu kỹ chưa, đã đoán được thứ tự in ra ở hai ví dụ là gì chưa nhỉ? 
+Bạn nghiên cứu kỹ chưa, đã đoán được thứ tự in ra ở hai ví dụ là gì chưa nhỉ?
 
 Trước khi dòm đáp án, hãy cố thử đưa ra kết quả của mình trước nha.
 <hr />
 
 Đây là đáp án của mình, để mình làm thử coi đúng không hen:
 
-Đầu tiên là cả thứ tự kế thừa của mấy bạn này: 
+Đầu tiên là cả thứ tự kế thừa của mấy bạn này:
 
 **Exception > RotDH_NV1 > RotDH_NV2 > RotDH_NV3**
 
@@ -106,9 +112,9 @@ Trước khi dòm đáp án, hãy cố thử đưa ra kết quả của mình tr
 Vậy kết quả in ra ở example 1 là:
 
 > RotDH_NV1
-> 
+>
 > RotDH_NV2
-> 
+>
 > RotDH_NV3
 
 
@@ -129,16 +135,16 @@ Vậy kết quả in ra ở example 1 là:
 Vậy kết quả in ra ở example 2 là:
 
 > RotDH_NV1
-> 
+>
 > RotDH_NV1
-> 
+>
 > RotDH_NV1
 
 Từ ví dụ trên, mình thấy được khi có ngoại lệ được raise lên, đụng bạn nào là bạn ấy thực thi trước, nó cũng giống như việc cấp cứu vậy, xe cấp cứu nào đến trước thì chở người ta đi bệnh viện trước.
 
 Đôi khi sẽ có lỗi xảy ra nhưng mình chưa đoán được loại exception đó là gì, và mình thường xử dụng “**except:**” không đi kèm với loại ngoại lệ nào, để hốt trọn mấy bạn còn lại.
 
-Tuy nhiên nhớ cẩn trọng khi xài bạn này nha, vì bạn ấy hốt cả rổ nên sẽ dễ che dấu lỗi của chương trình và gây khó khăn cho việc kiểm lỗi ý. 
+Tuy nhiên nhớ cẩn trọng khi xài bạn này nha, vì bạn ấy hốt cả rổ nên sẽ dễ che dấu lỗi của chương trình và gây khó khăn cho việc kiểm lỗi ý.
 
 Do đó, tốt nhất là nên dùng bạn ấy cho tụi còn lại, in lỗi ra ngoài và raise lại bạn ấy lên để biết mà chủ động bảo vệ code nha.
 
@@ -150,9 +156,9 @@ except:
       raise
 ```
 
-Đoạn ni cho mình lưu ý xí nữa nha. Có bạn nào hay xài *“except Exception as e:”* để bắt các loại ngoại lệ còn lại không nhỉ? 
+Đoạn ni cho mình lưu ý xí nữa nha. Có bạn nào hay xài *“except Exception as e:”* để bắt các loại ngoại lệ còn lại không nhỉ?
 
-Khi mình xài cái *“except Exception as e:”* thì có cái tiện là mình có thể truy cập vào các thuộc tính của đổi tượng “**e**” như *e.message* hay *e.args*. 
+Khi mình xài cái *“except Exception as e:”* thì có cái tiện là mình có thể truy cập vào các thuộc tính của đổi tượng “**e**” như *e.message* hay *e.args*.
 
 Nhưng bạn lưu ý xíu là cái **“except Exception as e:”** nó khác với cái **“except:”** nha. *Cụ thể:*
 
@@ -162,7 +168,7 @@ Nhưng bạn lưu ý xíu là cái **“except Exception as e:”** nó khác v�
 
 #### Làm cho tôi điều này nếu không bị dính ngoại lệ nào(Do it if no exception raise)
 
-Ngoài ra, nhóm “**try … except**” còn có một mệnh đề đi kèm không bắt buộc là “**else**”, đi sau tất cả các loại “except”. 
+Ngoài ra, nhóm “**try … except**” còn có một mệnh đề đi kèm không bắt buộc là “**else**”, đi sau tất cả các loại “except”.
 
 Mệnh đề này thường chứa các đoạn mã cần thực thi nếu mệnh đề try không có bất cứ ngoại lệ nào.
 
@@ -184,7 +190,7 @@ try:
 except OSError:
    # xử lý ngoại lệ OSError
    ```
-   
+
 #### Chụp cắt lớp ngoại lệ
 
 Khi ngoại lệ xảy ra, bạn ấy có một vài giá trị để thể hiện mình, kiểu như mình tên gì, nhà ở đâu hay gia đình có mấy người ý, mấy bạn này hay được gọi với tên tiếng anh là “*exception’s argument*”.
@@ -199,15 +205,15 @@ Ngoài mấy bạn mặc định được trả ra như trên, thì khi mình ra
 
 Ở các nội dung trên, rất nhiều lần tụi mình đã la làng mỗi khi code có vấn đề, bạn đã biết cách la làng khi có ngoại lệ rồi phải không?
 
-Đó chính là sử dụng cuộc gọi cấp cứu 115 =)) 
+Đó chính là sử dụng cuộc gọi cấp cứu 115 =))
 
 Mình đùa thôi, đó là dùng từ khoá “**raise**” đi kèm với ngoại lệ hoặc đi một mình bạn ấy cũng được.
 
 #### Đổ lỗi
 
-Ha ha, bạn có tin ngoại lệ đổ lỗi cho nhau được không? 
+Ha ha, bạn có tin ngoại lệ đổ lỗi cho nhau được không?
 
-Nếu bạn muốn thì nó được. Thật á! 
+Nếu bạn muốn thì nó được. Thật á!
 
 Đây là ví dụ cho sự đổ lỗi, hay gọi hoa mỹ hơn là các ngoại lệ được xâu chuỗi với nhau, mời bạn xem đoạn code này:
 
@@ -215,13 +221,13 @@ Nếu bạn muốn thì nó được. Thật á!
 
 Ở trên, rõ là exception IOError được bắt, nhưng mình cố tình đổi lỗi thành RuntimeError bằng cách sử dụng “**from**”, cú pháp giúp mình có thể xâu chuỗi lỗi IOError qua lỗi RuntimeError và in cả hai bạn này ra màn hình như trên.
 
-Nhưng nếu bạn chỉ muốn in lỗi “RuntimError” thôi, và không muốn hiện lỗi IOError nữa, thì có thể dùng **“from None**” để vô hiệu hoá quá trình xâu exception của bạn from. 
+Nhưng nếu bạn chỉ muốn in lỗi “RuntimError” thôi, và không muốn hiện lỗi IOError nữa, thì có thể dùng **“from None**” để vô hiệu hoá quá trình xâu exception của bạn from.
 
 Khi đó nó sẽ làm việc như thế này:
 
 ![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-10-at-10.07.35-PM.png?w=1292&ssl=1)
 
-Yeah, vậy là tụi mình có thể đổi lỗi trắng trợn mà không truy được nguồn gốc luôn(trừ khi nhìn vô code). 
+Yeah, vậy là tụi mình có thể đổi lỗi trắng trợn mà không truy được nguồn gốc luôn(trừ khi nhìn vô code).
 
 E hèm, tuy nhiên, bạn này khá là nguy hiểm nha vì đổi tứ tung lên cả lại làm khó khi debug ấy, nên thận trọng khi dùng thì hơn.
 
@@ -229,11 +235,11 @@ E hèm, tuy nhiên, bạn này khá là nguy hiểm nha vì đổi tứ tung lê
 
 Đó giờ(ý là từ đầu bài tới chừ), mình làm việc với ngoại lệ của người ta(ngoại lệ mặc định của Python), giờ mình cũng thích tạo ngoại lệ của riêng mình rồi, đơn giản là nói tiếng người, á nhầm, tiếng của người dùng, và tiếng của lập trình viên thì đôi khi có ý nghĩa và thân thiện hơn mà, hihi.
 
-Khi mình viết chương trình của mình, mình có thể tạo ngoại lệ bằng cách kế thừa từ lớp “**Exception**”, cả bằng cách trực tiếp lẫn gián tiếp. 
+Khi mình viết chương trình của mình, mình có thể tạo ngoại lệ bằng cách kế thừa từ lớp “**Exception**”, cả bằng cách trực tiếp lẫn gián tiếp.
 
 Trực tiếp thì khỏi giải thích ha, còn gián tiếp là mình kế thừa từ bạn ngoại lệ nào đó đã kế thừa từ “**Exception**”, vậy hoai.
 
-Thường thường, người ta hay tạo một base exception kế thừa trực tiếp, rồi những loại ngoại lệ khác kế thừa gián tiếp “Exception” bằng cái base exception đó. 
+Thường thường, người ta hay tạo một base exception kế thừa trực tiếp, rồi những loại ngoại lệ khác kế thừa gián tiếp “Exception” bằng cái base exception đó.
 
 À, còn về cách đặt tên, họ cũng đặt tên theo cùng họ luôn, ví dụ họ ở đây có thể là Error: Input Error, StupidError, NevermindError, … Kiểu vậy á 😀
 
@@ -245,7 +251,7 @@ Mọi người cùng dòm qua ví dụ nha:
 
 Ở phần “Làm cho tôi điều này nếu không bị dính ngoại lệ nào”, tụi mình xài “else” sau except á nạ, nhớ hông, đó là mình thực thi code khi không có ngoại lệ xảy ra.
 
-Còn ở đây, là “**Làm cho tôi điều này bất cứ giá nào**”, thì mình xài với “**finally**“, đó là mình thực thi đám code trong finally dù có ngoại lệ xảy ra hay không. 
+Còn ở đây, là “**Làm cho tôi điều này bất cứ giá nào**”, thì mình xài với “**finally**“, đó là mình thực thi đám code trong finally dù có ngoại lệ xảy ra hay không.
 
 Tức là đoạn code ở finally này thể nào cũng phải làm, họ gọi là mát mẻ là “**clean-up actions**”.
 
@@ -257,7 +263,7 @@ Bạn có thắc mắc vì sao gặp exception mà đoạn print vẫn in đư�
 
 Đó là cơ chế của finally đó, cùng mình tìm hiểu thêm về cách hoạt động của bạn ấy nào.
 
-Nếu có mệnh đề “finally” xuất hiện, thì code thuộc mệnh đề này sẽ thực thi như là công việc cuối cùng trước khi lệnh try kết thúc. 
+Nếu có mệnh đề “finally” xuất hiện, thì code thuộc mệnh đề này sẽ thực thi như là công việc cuối cùng trước khi lệnh try kết thúc.
 
 **Dưới đây là cơ chế hoạt động cho những tình huống khá phức tạp với finally:**
 
@@ -308,7 +314,7 @@ Traceback (most recent call last):
 TypeError: unsupported operand type(s) for /: 'str' and 'str'
 ```
 
-Nè, nhớ nghiền ngẫm bạn finally trước khi đi tiếp nha. 
+Nè, nhớ nghiền ngẫm bạn finally trước khi đi tiếp nha.
 
 Dòm lại lần nữa coi có hiểu ví dụ hông?
 
@@ -316,7 +322,7 @@ Dòm lại lần nữa coi có hiểu ví dụ hông?
 
 Trong Python, có một vài loại object được định nghĩa sẵn các hành động làm sạch để trả lại tài nguyên khi mình không xài nữa mà không cần biết tài nguyên đó có được sử dụng thành công hay không(như khi chính ta thực hiện làm sạch tài nguyên với finally ở trên).
 
-Loại object như vậy có thể kể điển hình là khi mình làm việc với một file. 
+Loại object như vậy có thể kể điển hình là khi mình làm việc với một file.
 
 Thường thì khi mình mở một file mình sẽ dùng **open(“filename.txt”)**. Vấn đề ở đây là tụi mình mở người ta rồi nhưng không nhớ mà đóng lại để thu hồi tài nguyên bộ nhớ về, và có thể gây vấn đề về bộ nhớ cho các dự án lớn hoặc file quá nặng.
 

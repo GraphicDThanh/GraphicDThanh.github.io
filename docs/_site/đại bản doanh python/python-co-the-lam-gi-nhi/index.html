@@ -1,0 +1,920 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en-US" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Python có thể dùng để làm gì nhỉ? - BeautyOnCode</title>
+<meta name="description" content="Chào mừng mọi người đến với bài post đầu tiên của phần “Lượn lờ cùng Python” của series “Khám phá Đại Bản Doanh Python”  Lượn lờ mang nghĩa như cưỡi ngựa xem hoa vậy đó. Với mình thì học gì đó không phải cứ nhảy vô code liền, mà mình muốn tìm hiểu cái ngữ cảnh gắn với thứ mình học một xíu, ví dụ như cái mình học có thể dùng để làm gì, học Python thì tìm việc ở những vị trí nào, hay những ai đã thành công cùng nó rồi, hay với một người mới hoàn toàn thì mình nên bắt đầu từ đâu, …  Các câu hỏi mang tính chất định hướng như vậy mình thấy là rất quan trọng, vì thực tế con đường học hành với ngành lập trình không hề dễ dàng. Nếu bạn có càng nhiều câu hỏi định hướng và tìm hiểu kỹ hướng đi cho mình thì dù trên con đường ấy có nhiều chông gai nhưng hướng đi bạn đã xác định được rồi thì những cái gai đó cũng khó mà làm bạn lạc đường được.  Trong phần này, tụi mình sẽ cùng nhau dạo quanh quanh những phần ngoài lề trước khi tấn công vào các kiến thức Python cơ bản và nâng cao ở phần tiếp theo.  Mình sẽ đi tìm hiểu những câu hỏi sau trong “Lượn lờ cùng Python”:         Python có thể dùng để làm gì nhỉ?           Ai đã thành công cùng Python?           Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?      Những nội dung trong bài series này từ “Đại bản doanh Python” python.org, mình viết bằng ngôn ngữ của mình kèm theo những tài liệu khác mà mình thấy liên quan và hữu ích cho chủ đề của bài.  Bài dưới đây sẽ đi trả lời câu hỏi “Python có thể dùng để làm gì?”    Học Python đang là xu hướng của thế giới, Python được các ông trùm như Instagram, Netflix, Reddit, Lyft, Google, Spotify, New York Times và Bloomberg sử dụng.  Vậy nó có thể làm được gì mà người ta dùng nhiều quá vậy?  Python được ứng dụng rất rộng rãi, ở đây mình cùng tìm hiểu về 5 nhóm chính nơi Python được sử dụng phổ biến nhất:  → Phát triển Web và Internet(Web and Internet development)  → Khoa học và số học(Scientific and Numeric)  → Giảng dạy lập trình(Education)  → Các giao diện người dùng Desktop(GUI Desktop)  → Phát triển phần mềm(Software Development)  Năm lĩnh vực Python được ứng dụng phổ biến nhất  Phát triển Web và Internet  Có lẽ Python phát triển nhất trong lĩnh vực này, với nhiều sự lựa chọn như:  → Các frameworks phổ biến nhất là Django và Pyramid.  → Các micro-frameworks là Flask và Bottle.  → Và các CMS(hệ thống quản trị nội dung) như Plone, django CMS  → Thư viện Python còn hỗ trợ nhiều giao thức internet như là: HTML và XML, JSON, E-mail processing, rồi còn support FTP, IMAP, các internet protocols … và cũng dễ dùng socket interface nữa.  → Python có thư viện PyPI với nhiều thư viện hỗ trợ lập trình web được dùng phổ biến như Requests, BeautifulSoup, Feedparser, Paramiko, Twisted Python.  Khoa học và Số học  Python cũng được sử dụng rộng rãi trong khoa học và số học:  → SciPy là bộ sưu tập các gói dành cho toán học, khoa học, kỹ thuật  → Pandas là thư viện phân tích dữ liệu và mô phỏng  → IPython mà một trình shell mạnh mẽ có tính năng chỉnh sửa và ghi lại phiên làm việc một cách dễ dàng ngoài ra còn hỗ trợ trực quan và tính toán song song.  → Tổ chức The Software Carpentry Course, nơi dạy những kỹ năng cơ bản trong khoa học máy tính, cung cấp nhiều tài liệu học miễn phí và có cộng đồng mạnh.  Giảng dạy lập trình  Python là một ngôn ngữ tuyệt vời trong giảng dạy lập trình ở nhiều cấp độ từ cơ bản đến nâng cao.  Nhiều cuốn sách giảng dạy lập trình được viết với ngôn ngữ Python như là:  → How to Think Like a Computer Scientist  → Python Programming: An Introduction to Computer Science  → Practical Programming  Nhóm “Education Special Interest Group” là nơi thảo luận giành cho công tác giảng dạy về Python  Giao diện desktop  → Tkinter là thư viện dùng để viết GUI desktop được xây dựng bằng Python. Nếu bạn có hứng thú với side project build Desktop GUI với Tkinter có thể check qua Tkinter và video tutorial ở đây.  → Ngoài ra còn có các gói GUI toolkit khác sử dụng trên nhiều nền tảng như wxWidgets, Kvy, Qt thông qua pyqt, pyside, GTK+, win32 extensions.  Phát triển phần mềm  Các nhà phát triển thường dùng Python để quản lý, kiểm thử, thử nghiệm, và xây dựng phần mềm  → Scons là một công cụ xây dựng phần mềm  → Buildbot và Apache Gum dùng trong tự động biên dịch và kiểm thử  → ERP Roundup hay Trac cho kiểm soát lỗi và quản lý dự án  Xây dựng ứng dụng thương mại  Python cũng được sử dụng trong xây dựng ERP(Enterprise Resource Planning Software) và các hệ thống thương mại điện tử, như là:  → Odoo là phần mềm quản lý công ty nơi quản lý hàng loạt các ứng dụng kinh doanh cùng một chỗ tạo thành bộ ứng dựng quản lý doanh nghiệp hoàn chỉnh.  → Tryton là mô hình 3 lớp(Presentation, Business, Data) dành cho các nền tảng ứng dụng chung.  Ba ứng dụng chính của Python  Đây là một video giới thiệu về những thứ Python có thể làm cũng rất là hay ho và dễ hiểu từ kênh CS Dojo – một developer của Google  Trong video trên giới thiệu Python áp dụng trong 3 lĩnh vực chính là:  → Web Development: Web Framework(Django, Flask)  → Data Science, Data analysis/visualization          Machine Learning với scikit-learn, TensorFlow           Data analysis và visualization với matplolib      → Scripting  Ngoài ra, những ứng dụng khác như Game Development(PyGame), Desktop applications(Tkinter, QT), Embedded applications(Raspberry Pi)  Các vị trí công việc dành cho người học Python  Nếu bạn học Python, thì có khá nhiều công việc dành cho bạn, hãy tham khảo một số vị trí cùng với các nhiệm vụ chính của từng loại công việc ấy nhé.  Python developer → Xây dựng trang web → Tối ưu hóa thuật toán, data → Giải quyết các vấn đề về phân tích dữ liệu → Thực hiện bảo mật và bảo vệ dữ liệu → Viết mã đơn giản, tái sử dụng được, hiệu quả hơn  Product Manager Với người quản lý dự án, data đóng vai trò vô cùng quan trọng trong việc phân tích dữ liệu từ thị trường cũng như từ người dùng để lên kế hoạch xây dựng các sản phẩm tương ứng với nhu cầu. Khi tiến hành phân tích dữ liệu thì Python là một kỹ năng quan trọng.  Data Analyst Data Analyst là người sẽ làm việc với khối lượng thông tin khổng lồ, nhiều công ty sẽ tìm kiếm những người có khả năng sàng lọc lượng lớn thông tin, với sự hỗ trợ của các thư viện Python như SciPy hay Pandas  Giáo viên dạy khoa học máy tính Học Python còn phù hợp cho những công việc như dạy Python, dạy các kiến thức trong lĩnh vực khoa học máy tính.  Trong chương này, mình đã cùng tìm hiểu những lĩnh vực ứng dụng của Python cũng như các vị trí công việc khi mình học Python. Khi chọn mỗi vị trí công việc khác nhau thì sẽ học chuyên sâu hơn về kiến thức cũng như phần mềm sử dụng trong lĩnh vực đó.  Như mình, hiện mình đang làm việc ở vị trí là Python Developer, cụ thể hơn là mình đang làm bên Backend, sử dụng Python, Django để xây dựng API cho ứng dụng web.  Ở bài viết sau, là câu hỏi tiếp theo “Ai đã thành công cùng Python?”">
+
+
+  <meta name="author" content="Thanh Nguyen">
+  
+  <meta property="article:author" content="Thanh Nguyen">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="BeautyOnCode">
+<meta property="og:title" content="Python có thể dùng để làm gì nhỉ?">
+<meta property="og:url" content="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/python-co-the-lam-gi-nhi/">
+
+
+  <meta property="og:description" content="Chào mừng mọi người đến với bài post đầu tiên của phần “Lượn lờ cùng Python” của series “Khám phá Đại Bản Doanh Python”  Lượn lờ mang nghĩa như cưỡi ngựa xem hoa vậy đó. Với mình thì học gì đó không phải cứ nhảy vô code liền, mà mình muốn tìm hiểu cái ngữ cảnh gắn với thứ mình học một xíu, ví dụ như cái mình học có thể dùng để làm gì, học Python thì tìm việc ở những vị trí nào, hay những ai đã thành công cùng nó rồi, hay với một người mới hoàn toàn thì mình nên bắt đầu từ đâu, …  Các câu hỏi mang tính chất định hướng như vậy mình thấy là rất quan trọng, vì thực tế con đường học hành với ngành lập trình không hề dễ dàng. Nếu bạn có càng nhiều câu hỏi định hướng và tìm hiểu kỹ hướng đi cho mình thì dù trên con đường ấy có nhiều chông gai nhưng hướng đi bạn đã xác định được rồi thì những cái gai đó cũng khó mà làm bạn lạc đường được.  Trong phần này, tụi mình sẽ cùng nhau dạo quanh quanh những phần ngoài lề trước khi tấn công vào các kiến thức Python cơ bản và nâng cao ở phần tiếp theo.  Mình sẽ đi tìm hiểu những câu hỏi sau trong “Lượn lờ cùng Python”:         Python có thể dùng để làm gì nhỉ?           Ai đã thành công cùng Python?           Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?      Những nội dung trong bài series này từ “Đại bản doanh Python” python.org, mình viết bằng ngôn ngữ của mình kèm theo những tài liệu khác mà mình thấy liên quan và hữu ích cho chủ đề của bài.  Bài dưới đây sẽ đi trả lời câu hỏi “Python có thể dùng để làm gì?”    Học Python đang là xu hướng của thế giới, Python được các ông trùm như Instagram, Netflix, Reddit, Lyft, Google, Spotify, New York Times và Bloomberg sử dụng.  Vậy nó có thể làm được gì mà người ta dùng nhiều quá vậy?  Python được ứng dụng rất rộng rãi, ở đây mình cùng tìm hiểu về 5 nhóm chính nơi Python được sử dụng phổ biến nhất:  → Phát triển Web và Internet(Web and Internet development)  → Khoa học và số học(Scientific and Numeric)  → Giảng dạy lập trình(Education)  → Các giao diện người dùng Desktop(GUI Desktop)  → Phát triển phần mềm(Software Development)  Năm lĩnh vực Python được ứng dụng phổ biến nhất  Phát triển Web và Internet  Có lẽ Python phát triển nhất trong lĩnh vực này, với nhiều sự lựa chọn như:  → Các frameworks phổ biến nhất là Django và Pyramid.  → Các micro-frameworks là Flask và Bottle.  → Và các CMS(hệ thống quản trị nội dung) như Plone, django CMS  → Thư viện Python còn hỗ trợ nhiều giao thức internet như là: HTML và XML, JSON, E-mail processing, rồi còn support FTP, IMAP, các internet protocols … và cũng dễ dùng socket interface nữa.  → Python có thư viện PyPI với nhiều thư viện hỗ trợ lập trình web được dùng phổ biến như Requests, BeautifulSoup, Feedparser, Paramiko, Twisted Python.  Khoa học và Số học  Python cũng được sử dụng rộng rãi trong khoa học và số học:  → SciPy là bộ sưu tập các gói dành cho toán học, khoa học, kỹ thuật  → Pandas là thư viện phân tích dữ liệu và mô phỏng  → IPython mà một trình shell mạnh mẽ có tính năng chỉnh sửa và ghi lại phiên làm việc một cách dễ dàng ngoài ra còn hỗ trợ trực quan và tính toán song song.  → Tổ chức The Software Carpentry Course, nơi dạy những kỹ năng cơ bản trong khoa học máy tính, cung cấp nhiều tài liệu học miễn phí và có cộng đồng mạnh.  Giảng dạy lập trình  Python là một ngôn ngữ tuyệt vời trong giảng dạy lập trình ở nhiều cấp độ từ cơ bản đến nâng cao.  Nhiều cuốn sách giảng dạy lập trình được viết với ngôn ngữ Python như là:  → How to Think Like a Computer Scientist  → Python Programming: An Introduction to Computer Science  → Practical Programming  Nhóm “Education Special Interest Group” là nơi thảo luận giành cho công tác giảng dạy về Python  Giao diện desktop  → Tkinter là thư viện dùng để viết GUI desktop được xây dựng bằng Python. Nếu bạn có hứng thú với side project build Desktop GUI với Tkinter có thể check qua Tkinter và video tutorial ở đây.  → Ngoài ra còn có các gói GUI toolkit khác sử dụng trên nhiều nền tảng như wxWidgets, Kvy, Qt thông qua pyqt, pyside, GTK+, win32 extensions.  Phát triển phần mềm  Các nhà phát triển thường dùng Python để quản lý, kiểm thử, thử nghiệm, và xây dựng phần mềm  → Scons là một công cụ xây dựng phần mềm  → Buildbot và Apache Gum dùng trong tự động biên dịch và kiểm thử  → ERP Roundup hay Trac cho kiểm soát lỗi và quản lý dự án  Xây dựng ứng dụng thương mại  Python cũng được sử dụng trong xây dựng ERP(Enterprise Resource Planning Software) và các hệ thống thương mại điện tử, như là:  → Odoo là phần mềm quản lý công ty nơi quản lý hàng loạt các ứng dụng kinh doanh cùng một chỗ tạo thành bộ ứng dựng quản lý doanh nghiệp hoàn chỉnh.  → Tryton là mô hình 3 lớp(Presentation, Business, Data) dành cho các nền tảng ứng dụng chung.  Ba ứng dụng chính của Python  Đây là một video giới thiệu về những thứ Python có thể làm cũng rất là hay ho và dễ hiểu từ kênh CS Dojo – một developer của Google  Trong video trên giới thiệu Python áp dụng trong 3 lĩnh vực chính là:  → Web Development: Web Framework(Django, Flask)  → Data Science, Data analysis/visualization          Machine Learning với scikit-learn, TensorFlow           Data analysis và visualization với matplolib      → Scripting  Ngoài ra, những ứng dụng khác như Game Development(PyGame), Desktop applications(Tkinter, QT), Embedded applications(Raspberry Pi)  Các vị trí công việc dành cho người học Python  Nếu bạn học Python, thì có khá nhiều công việc dành cho bạn, hãy tham khảo một số vị trí cùng với các nhiệm vụ chính của từng loại công việc ấy nhé.  Python developer → Xây dựng trang web → Tối ưu hóa thuật toán, data → Giải quyết các vấn đề về phân tích dữ liệu → Thực hiện bảo mật và bảo vệ dữ liệu → Viết mã đơn giản, tái sử dụng được, hiệu quả hơn  Product Manager Với người quản lý dự án, data đóng vai trò vô cùng quan trọng trong việc phân tích dữ liệu từ thị trường cũng như từ người dùng để lên kế hoạch xây dựng các sản phẩm tương ứng với nhu cầu. Khi tiến hành phân tích dữ liệu thì Python là một kỹ năng quan trọng.  Data Analyst Data Analyst là người sẽ làm việc với khối lượng thông tin khổng lồ, nhiều công ty sẽ tìm kiếm những người có khả năng sàng lọc lượng lớn thông tin, với sự hỗ trợ của các thư viện Python như SciPy hay Pandas  Giáo viên dạy khoa học máy tính Học Python còn phù hợp cho những công việc như dạy Python, dạy các kiến thức trong lĩnh vực khoa học máy tính.  Trong chương này, mình đã cùng tìm hiểu những lĩnh vực ứng dụng của Python cũng như các vị trí công việc khi mình học Python. Khi chọn mỗi vị trí công việc khác nhau thì sẽ học chuyên sâu hơn về kiến thức cũng như phần mềm sử dụng trong lĩnh vực đó.  Như mình, hiện mình đang làm việc ở vị trí là Python Developer, cụ thể hơn là mình đang làm bên Backend, sử dụng Python, Django để xây dựng API cho ứng dụng web.  Ở bài viết sau, là câu hỏi tiếp theo “Ai đã thành công cùng Python?”">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/2020/12/2020-12-python-co-the-lam-gi-nhi-cover.png">
+
+
+
+  <meta name="twitter:site" content="@mmistakes">
+  <meta name="twitter:title" content="Python có thể dùng để làm gì nhỉ?">
+  <meta name="twitter:description" content="Chào mừng mọi người đến với bài post đầu tiên của phần “Lượn lờ cùng Python” của series “Khám phá Đại Bản Doanh Python”  Lượn lờ mang nghĩa như cưỡi ngựa xem hoa vậy đó. Với mình thì học gì đó không phải cứ nhảy vô code liền, mà mình muốn tìm hiểu cái ngữ cảnh gắn với thứ mình học một xíu, ví dụ như cái mình học có thể dùng để làm gì, học Python thì tìm việc ở những vị trí nào, hay những ai đã thành công cùng nó rồi, hay với một người mới hoàn toàn thì mình nên bắt đầu từ đâu, …  Các câu hỏi mang tính chất định hướng như vậy mình thấy là rất quan trọng, vì thực tế con đường học hành với ngành lập trình không hề dễ dàng. Nếu bạn có càng nhiều câu hỏi định hướng và tìm hiểu kỹ hướng đi cho mình thì dù trên con đường ấy có nhiều chông gai nhưng hướng đi bạn đã xác định được rồi thì những cái gai đó cũng khó mà làm bạn lạc đường được.  Trong phần này, tụi mình sẽ cùng nhau dạo quanh quanh những phần ngoài lề trước khi tấn công vào các kiến thức Python cơ bản và nâng cao ở phần tiếp theo.  Mình sẽ đi tìm hiểu những câu hỏi sau trong “Lượn lờ cùng Python”:         Python có thể dùng để làm gì nhỉ?           Ai đã thành công cùng Python?           Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?      Những nội dung trong bài series này từ “Đại bản doanh Python” python.org, mình viết bằng ngôn ngữ của mình kèm theo những tài liệu khác mà mình thấy liên quan và hữu ích cho chủ đề của bài.  Bài dưới đây sẽ đi trả lời câu hỏi “Python có thể dùng để làm gì?”    Học Python đang là xu hướng của thế giới, Python được các ông trùm như Instagram, Netflix, Reddit, Lyft, Google, Spotify, New York Times và Bloomberg sử dụng.  Vậy nó có thể làm được gì mà người ta dùng nhiều quá vậy?  Python được ứng dụng rất rộng rãi, ở đây mình cùng tìm hiểu về 5 nhóm chính nơi Python được sử dụng phổ biến nhất:  → Phát triển Web và Internet(Web and Internet development)  → Khoa học và số học(Scientific and Numeric)  → Giảng dạy lập trình(Education)  → Các giao diện người dùng Desktop(GUI Desktop)  → Phát triển phần mềm(Software Development)  Năm lĩnh vực Python được ứng dụng phổ biến nhất  Phát triển Web và Internet  Có lẽ Python phát triển nhất trong lĩnh vực này, với nhiều sự lựa chọn như:  → Các frameworks phổ biến nhất là Django và Pyramid.  → Các micro-frameworks là Flask và Bottle.  → Và các CMS(hệ thống quản trị nội dung) như Plone, django CMS  → Thư viện Python còn hỗ trợ nhiều giao thức internet như là: HTML và XML, JSON, E-mail processing, rồi còn support FTP, IMAP, các internet protocols … và cũng dễ dùng socket interface nữa.  → Python có thư viện PyPI với nhiều thư viện hỗ trợ lập trình web được dùng phổ biến như Requests, BeautifulSoup, Feedparser, Paramiko, Twisted Python.  Khoa học và Số học  Python cũng được sử dụng rộng rãi trong khoa học và số học:  → SciPy là bộ sưu tập các gói dành cho toán học, khoa học, kỹ thuật  → Pandas là thư viện phân tích dữ liệu và mô phỏng  → IPython mà một trình shell mạnh mẽ có tính năng chỉnh sửa và ghi lại phiên làm việc một cách dễ dàng ngoài ra còn hỗ trợ trực quan và tính toán song song.  → Tổ chức The Software Carpentry Course, nơi dạy những kỹ năng cơ bản trong khoa học máy tính, cung cấp nhiều tài liệu học miễn phí và có cộng đồng mạnh.  Giảng dạy lập trình  Python là một ngôn ngữ tuyệt vời trong giảng dạy lập trình ở nhiều cấp độ từ cơ bản đến nâng cao.  Nhiều cuốn sách giảng dạy lập trình được viết với ngôn ngữ Python như là:  → How to Think Like a Computer Scientist  → Python Programming: An Introduction to Computer Science  → Practical Programming  Nhóm “Education Special Interest Group” là nơi thảo luận giành cho công tác giảng dạy về Python  Giao diện desktop  → Tkinter là thư viện dùng để viết GUI desktop được xây dựng bằng Python. Nếu bạn có hứng thú với side project build Desktop GUI với Tkinter có thể check qua Tkinter và video tutorial ở đây.  → Ngoài ra còn có các gói GUI toolkit khác sử dụng trên nhiều nền tảng như wxWidgets, Kvy, Qt thông qua pyqt, pyside, GTK+, win32 extensions.  Phát triển phần mềm  Các nhà phát triển thường dùng Python để quản lý, kiểm thử, thử nghiệm, và xây dựng phần mềm  → Scons là một công cụ xây dựng phần mềm  → Buildbot và Apache Gum dùng trong tự động biên dịch và kiểm thử  → ERP Roundup hay Trac cho kiểm soát lỗi và quản lý dự án  Xây dựng ứng dụng thương mại  Python cũng được sử dụng trong xây dựng ERP(Enterprise Resource Planning Software) và các hệ thống thương mại điện tử, như là:  → Odoo là phần mềm quản lý công ty nơi quản lý hàng loạt các ứng dụng kinh doanh cùng một chỗ tạo thành bộ ứng dựng quản lý doanh nghiệp hoàn chỉnh.  → Tryton là mô hình 3 lớp(Presentation, Business, Data) dành cho các nền tảng ứng dụng chung.  Ba ứng dụng chính của Python  Đây là một video giới thiệu về những thứ Python có thể làm cũng rất là hay ho và dễ hiểu từ kênh CS Dojo – một developer của Google  Trong video trên giới thiệu Python áp dụng trong 3 lĩnh vực chính là:  → Web Development: Web Framework(Django, Flask)  → Data Science, Data analysis/visualization          Machine Learning với scikit-learn, TensorFlow           Data analysis và visualization với matplolib      → Scripting  Ngoài ra, những ứng dụng khác như Game Development(PyGame), Desktop applications(Tkinter, QT), Embedded applications(Raspberry Pi)  Các vị trí công việc dành cho người học Python  Nếu bạn học Python, thì có khá nhiều công việc dành cho bạn, hãy tham khảo một số vị trí cùng với các nhiệm vụ chính của từng loại công việc ấy nhé.  Python developer → Xây dựng trang web → Tối ưu hóa thuật toán, data → Giải quyết các vấn đề về phân tích dữ liệu → Thực hiện bảo mật và bảo vệ dữ liệu → Viết mã đơn giản, tái sử dụng được, hiệu quả hơn  Product Manager Với người quản lý dự án, data đóng vai trò vô cùng quan trọng trong việc phân tích dữ liệu từ thị trường cũng như từ người dùng để lên kế hoạch xây dựng các sản phẩm tương ứng với nhu cầu. Khi tiến hành phân tích dữ liệu thì Python là một kỹ năng quan trọng.  Data Analyst Data Analyst là người sẽ làm việc với khối lượng thông tin khổng lồ, nhiều công ty sẽ tìm kiếm những người có khả năng sàng lọc lượng lớn thông tin, với sự hỗ trợ của các thư viện Python như SciPy hay Pandas  Giáo viên dạy khoa học máy tính Học Python còn phù hợp cho những công việc như dạy Python, dạy các kiến thức trong lĩnh vực khoa học máy tính.  Trong chương này, mình đã cùng tìm hiểu những lĩnh vực ứng dụng của Python cũng như các vị trí công việc khi mình học Python. Khi chọn mỗi vị trí công việc khác nhau thì sẽ học chuyên sâu hơn về kiến thức cũng như phần mềm sử dụng trong lĩnh vực đó.  Như mình, hiện mình đang làm việc ở vị trí là Python Developer, cụ thể hơn là mình đang làm bên Backend, sử dụng Python, Django để xây dựng API cho ứng dụng web.  Ở bài viết sau, là câu hỏi tiếp theo “Ai đã thành công cùng Python?”">
+  <meta name="twitter:url" content="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/python-co-the-lam-gi-nhi/">
+
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/2020/12/2020-12-python-co-the-lam-gi-nhi-cover.png">
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2020-02-12T00:00:00-05:00">
+
+
+
+  <meta property="article:modified_time" content="2020-02-12T14:12:19-05:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/python-co-the-lam-gi-nhi/">
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="BeautyOnCode Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  window.enable_copy_code_button = true;
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo/logo-circle.webp" alt="BeautyOnCode"></a>
+        
+        <a class="site-title" href="/">
+          BeautyOnCode
+          <span class="site-subtitle">Code Your Life In An Elegant Way</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/docs/quick-start-guide/"
+                
+                
+              >Quick-Start Guide</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/year-archive/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/collection-archive/"
+                
+                
+              >Collections</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/logo/thanh-nguyen.jpg" alt="Thanh Nguyen" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Thanh Nguyen</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Web developer, nature lover, curious soul, and laid-back mom balancing code with life’s simple joys.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Da Nang, VN</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://beautyoncode.com" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">BeautyOnCode</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/graphicdthanh/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">Linkedin</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/GraphicDThanh" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.facebook.com/beautyoncode" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span class="label">Facebook</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Python có thể dùng để làm gì nhỉ?">
+    <meta itemprop="description" content="Chào mừng mọi người đến với bài post đầu tiên của phần “Lượn lờ cùng Python” của series “Khám phá Đại Bản Doanh Python”Lượn lờ mang nghĩa như cưỡi ngựa xem hoa vậy đó. Với mình thì học gì đó không phải cứ nhảy vô code liền, mà mình muốn tìm hiểu cái ngữ cảnh gắn với thứ mình học một xíu, ví dụ như cái mình học có thể dùng để làm gì, học Python thì tìm việc ở những vị trí nào, hay những ai đã thành công cùng nó rồi, hay với một người mới hoàn toàn thì mình nên bắt đầu từ đâu, …Các câu hỏi mang tính chất định hướng như vậy mình thấy là rất quan trọng, vì thực tế con đường học hành với ngành lập trình không hề dễ dàng. Nếu bạn có càng nhiều câu hỏi định hướng và tìm hiểu kỹ hướng đi cho mình thì dù trên con đường ấy có nhiều chông gai nhưng hướng đi bạn đã xác định được rồi thì những cái gai đó cũng khó mà làm bạn lạc đường được.Trong phần này, tụi mình sẽ cùng nhau dạo quanh quanh những phần ngoài lề trước khi tấn công vào các kiến thức Python cơ bản và nâng cao ở phần tiếp theo.Mình sẽ đi tìm hiểu những câu hỏi sau trong “Lượn lờ cùng Python”:      Python có thể dùng để làm gì nhỉ?        Ai đã thành công cùng Python?        Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?  Những nội dung trong bài series này từ “Đại bản doanh Python” python.org, mình viết bằng ngôn ngữ của mình kèm theo những tài liệu khác mà mình thấy liên quan và hữu ích cho chủ đề của bài.Bài dưới đây sẽ đi trả lời câu hỏi “Python có thể dùng để làm gì?”Học Python đang là xu hướng của thế giới, Python được các ông trùm như Instagram, Netflix, Reddit, Lyft, Google, Spotify, New York Times và Bloomberg sử dụng.Vậy nó có thể làm được gì mà người ta dùng nhiều quá vậy?Python được ứng dụng rất rộng rãi, ở đây mình cùng tìm hiểu về 5 nhóm chính nơi Python được sử dụng phổ biến nhất:→ Phát triển Web và Internet(Web and Internet development)→ Khoa học và số học(Scientific and Numeric)→ Giảng dạy lập trình(Education)→ Các giao diện người dùng Desktop(GUI Desktop)→ Phát triển phần mềm(Software Development)Năm lĩnh vực Python được ứng dụng phổ biến nhấtPhát triển Web và InternetCó lẽ Python phát triển nhất trong lĩnh vực này, với nhiều sự lựa chọn như:→ Các frameworks phổ biến nhất là Django và Pyramid.→ Các micro-frameworks là Flask và Bottle.→ Và các CMS(hệ thống quản trị nội dung) như Plone, django CMS→ Thư viện Python còn hỗ trợ nhiều giao thức internet như là: HTML và XML, JSON, E-mail processing, rồi còn support FTP, IMAP, các internet protocols … và cũng dễ dùng socket interface nữa.→ Python có thư viện PyPI với nhiều thư viện hỗ trợ lập trình web được dùng phổ biến như Requests, BeautifulSoup, Feedparser, Paramiko, Twisted Python.Khoa học và Số họcPython cũng được sử dụng rộng rãi trong khoa học và số học:→ SciPy là bộ sưu tập các gói dành cho toán học, khoa học, kỹ thuật→ Pandas là thư viện phân tích dữ liệu và mô phỏng→ IPython mà một trình shell mạnh mẽ có tính năng chỉnh sửa và ghi lại phiên làm việc một cách dễ dàng ngoài ra còn hỗ trợ trực quan và tính toán song song.→ Tổ chức The Software Carpentry Course, nơi dạy những kỹ năng cơ bản trong khoa học máy tính, cung cấp nhiều tài liệu học miễn phí và có cộng đồng mạnh.Giảng dạy lập trìnhPython là một ngôn ngữ tuyệt vời trong giảng dạy lập trình ở nhiều cấp độ từ cơ bản đến nâng cao.Nhiều cuốn sách giảng dạy lập trình được viết với ngôn ngữ Python như là:→ How to Think Like a Computer Scientist→ Python Programming: An Introduction to Computer Science→ Practical ProgrammingNhóm “Education Special Interest Group” là nơi thảo luận giành cho công tác giảng dạy về PythonGiao diện desktop→ Tkinter là thư viện dùng để viết GUI desktop được xây dựng bằng Python. Nếu bạn có hứng thú với side project build Desktop GUI với Tkinter có thể check qua Tkinter và video tutorial ở đây.→ Ngoài ra còn có các gói GUI toolkit khác sử dụng trên nhiều nền tảng như wxWidgets, Kvy, Qt thông qua pyqt, pyside, GTK+, win32 extensions.Phát triển phần mềmCác nhà phát triển thường dùng Python để quản lý, kiểm thử, thử nghiệm, và xây dựng phần mềm→ Scons là một công cụ xây dựng phần mềm→ Buildbot và Apache Gum dùng trong tự động biên dịch và kiểm thử→ ERP Roundup hay Trac cho kiểm soát lỗi và quản lý dự ánXây dựng ứng dụng thương mạiPython cũng được sử dụng trong xây dựng ERP(Enterprise Resource Planning Software) và các hệ thống thương mại điện tử, như là:→ Odoo là phần mềm quản lý công ty nơi quản lý hàng loạt các ứng dụng kinh doanh cùng một chỗ tạo thành bộ ứng dựng quản lý doanh nghiệp hoàn chỉnh.→ Tryton là mô hình 3 lớp(Presentation, Business, Data) dành cho các nền tảng ứng dụng chung.Ba ứng dụng chính của PythonĐây là một video giới thiệu về những thứ Python có thể làm cũng rất là hay ho và dễ hiểu từ kênh CS Dojo – một developer của GoogleTrong video trên giới thiệu Python áp dụng trong 3 lĩnh vực chính là:→ Web Development: Web Framework(Django, Flask)→ Data Science, Data analysis/visualization      Machine Learning với scikit-learn, TensorFlow        Data analysis và visualization với matplolib  → ScriptingNgoài ra, những ứng dụng khác như Game Development(PyGame), Desktop applications(Tkinter, QT), Embedded applications(Raspberry Pi)Các vị trí công việc dành cho người học PythonNếu bạn học Python, thì có khá nhiều công việc dành cho bạn, hãy tham khảo một số vị trí cùng với các nhiệm vụ chính của từng loại công việc ấy nhé.Python developer→ Xây dựng trang web→ Tối ưu hóa thuật toán, data→ Giải quyết các vấn đề về phân tích dữ liệu→ Thực hiện bảo mật và bảo vệ dữ liệu→ Viết mã đơn giản, tái sử dụng được, hiệu quả hơnProduct ManagerVới người quản lý dự án, data đóng vai trò vô cùng quan trọng trong việc phân tích dữ liệu từ thị trường cũng như từ người dùng để lên kế hoạch xây dựng các sản phẩm tương ứng với nhu cầu. Khi tiến hành phân tích dữ liệu thì Python là một kỹ năng quan trọng.Data AnalystData Analyst là người sẽ làm việc với khối lượng thông tin khổng lồ, nhiều công ty sẽ tìm kiếm những người có khả năng sàng lọc lượng lớn thông tin, với sự hỗ trợ của các thư viện Python như SciPy hay PandasGiáo viên dạy khoa học máy tínhHọc Python còn phù hợp cho những công việc như dạy Python, dạy các kiến thức trong lĩnh vực khoa học máy tính.Trong chương này, mình đã cùng tìm hiểu những lĩnh vực ứng dụng của Python cũng như các vị trí công việc khi mình học Python. Khi chọn mỗi vị trí công việc khác nhau thì sẽ học chuyên sâu hơn về kiến thức cũng như phần mềm sử dụng trong lĩnh vực đó.Như mình, hiện mình đang làm việc ở vị trí là Python Developer, cụ thể hơn là mình đang làm bên Backend, sử dụng Python, Django để xây dựng API cho ứng dụng web.Ở bài viết sau, là câu hỏi tiếp theo “Ai đã thành công cùng Python?”">
+    <meta itemprop="datePublished" content="2020-02-12T00:00:00-05:00">
+    <meta itemprop="dateModified" content="2020-02-12T14:12:19-05:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/python-co-the-lam-gi-nhi/" itemprop="url">Python có thể dùng để làm gì nhỉ?
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p><img src="/assets/images/2020/12/2020-12-python-co-the-lam-gi-nhi-cover.png" alt="" /></p>
+
+<p>Chào mừng mọi người đến với bài post đầu tiên của phần “Lượn lờ cùng Python” của series “<a href="https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/07/dai-ban-doanh-python-series-overview.html">Khám phá Đại Bản Doanh Python</a>”</p>
+
+<p>Lượn lờ mang nghĩa như cưỡi ngựa xem hoa vậy đó. Với mình thì học gì đó không phải cứ nhảy vô code liền, mà mình muốn tìm hiểu cái ngữ cảnh gắn với thứ mình học một xíu, ví dụ như cái mình học có thể dùng để làm gì, học Python thì tìm việc ở những vị trí nào, hay những ai đã thành công cùng nó rồi, hay với một người mới hoàn toàn thì mình nên bắt đầu từ đâu, …</p>
+
+<p>Các câu hỏi mang tính chất định hướng như vậy mình thấy là rất quan trọng, vì thực tế con đường học hành với ngành lập trình không hề dễ dàng. Nếu bạn có càng nhiều câu hỏi định hướng và tìm hiểu kỹ hướng đi cho mình thì dù trên con đường ấy có nhiều chông gai nhưng hướng đi bạn đã xác định được rồi thì những cái gai đó cũng khó mà làm bạn lạc đường được.</p>
+
+<p>Trong phần này, tụi mình sẽ cùng nhau dạo quanh quanh những phần ngoài lề trước khi tấn công vào các kiến thức Python cơ bản và nâng cao ở phần tiếp theo.</p>
+
+<p><strong><em>Mình sẽ đi tìm hiểu những câu hỏi sau trong “Lượn lờ cùng Python”:</em></strong></p>
+<ul>
+  <li>
+    <p><strong><a href="https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/02/12/python-co-the-lam-gi-nhi.html">Python có thể dùng để làm gì nhỉ?</a></strong></p>
+  </li>
+  <li>
+    <p><a href="https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/03/11/ai-da-thanh-cong-cung-python.html">Ai đã thành công cùng Python?</a></p>
+  </li>
+  <li>
+    <p><a href="https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/06/bat-dau-voi-python.html">Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?</a></p>
+  </li>
+</ul>
+
+<p>Những nội dung trong bài series này từ “<strong>Đại bản doanh Python</strong>” <a href="python.org">python.org</a>, mình viết bằng ngôn ngữ của mình kèm theo những tài liệu khác mà mình thấy liên quan và hữu ích cho chủ đề của bài.</p>
+
+<p>Bài dưới đây sẽ đi trả lời câu hỏi “Python có thể dùng để làm gì?”</p>
+
+<hr />
+
+<p>Học Python đang là xu hướng của thế giới, Python được các ông trùm như Instagram, Netflix, Reddit, Lyft, Google, Spotify, New York Times và Bloomberg sử dụng.</p>
+
+<p><em>Vậy nó có thể làm được gì mà người ta dùng nhiều quá vậy?</em></p>
+
+<p>Python được ứng dụng rất rộng rãi, ở đây mình cùng tìm hiểu về 5 nhóm chính nơi Python được sử dụng phổ biến nhất:</p>
+
+<p>→ <strong>Phát triển Web và Internet</strong>(Web and Internet development)</p>
+
+<p>→ <strong>Khoa học và số học</strong>(Scientific and Numeric)</p>
+
+<p>→ <strong>Giảng dạy lập trình</strong>(Education)</p>
+
+<p>→ <strong>Các giao diện người dùng Desktop</strong>(GUI Desktop)</p>
+
+<p>→ <strong>Phát triển phần mềm</strong>(Software Development)</p>
+
+<h2 id="năm-lĩnh-vực-python-được-ứng-dụng-phổ-biến-nhất">Năm lĩnh vực Python được ứng dụng phổ biến nhất</h2>
+
+<h3 id="phát-triển-web-và-internet">Phát triển Web và Internet</h3>
+
+<p>Có lẽ Python phát triển nhất trong lĩnh vực này, với nhiều sự lựa chọn như:</p>
+
+<p>→ Các frameworks phổ biến nhất là <a href="https://www.djangoproject.com/">Django</a> và <a href="https://trypyramid.com/">Pyramid</a>.</p>
+
+<p>→ Các micro-frameworks là <a href="http://flask.pocoo.org/">Flask</a> và <a href="http://bottlepy.org/docs/dev/">Bottle</a>.</p>
+
+<p>→ Và các CMS(hệ thống quản trị nội dung) như <a href="https://www.plone.org/">Plone</a>, <a href="https://www.django-cms.org/en/">django CMS</a></p>
+
+<p>→ Thư viện Python còn hỗ trợ nhiều giao thức internet như là: <a href="https://docs.python.org/3/library/markup.html">HTML và XML</a>, <a href="https://docs.python.org/3/library/json.html">JSON</a>, <a href="https://docs.python.org/3/library/email.html">E-mail processing</a>, rồi còn support <a href="https://docs.python.org/3/library/ftplib.html">FTP</a>, <a href="https://docs.python.org/2/library/imaplib.html">IMAP</a>, các <a href="https://docs.python.org/3/library/internet.html">internet protocols</a> … và cũng dễ dùng <a href="https://docs.python.org/3/howto/sockets.html">socket interface</a> nữa.</p>
+
+<p>→ Python có thư viện PyPI với nhiều thư viện hỗ trợ lập trình web được dùng phổ biến như <a href="https://pypi.org/project/requests/">Requests</a>, <a href="https://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a>, <a href="https://pypi.org/project/feedparser/">Feedparser</a>, <a href="https://pypi.org/project/paramiko/">Paramiko</a>, <a href="https://twistedmatrix.com/trac/">Twisted Python</a>.</p>
+
+<h3 id="khoa-học-và-số-học">Khoa học và Số học</h3>
+
+<p>Python cũng được sử dụng rộng rãi trong khoa học và số học:</p>
+
+<p>→ <a href="https://scipy.org/">SciPy</a> là bộ sưu tập các gói dành cho toán học, khoa học, kỹ thuật</p>
+
+<p>→ <a href="https://pandas.pydata.org/">Pandas</a> là thư viện phân tích dữ liệu và mô phỏng</p>
+
+<p>→ <a href="http://ipython.org/">IPython</a> mà một trình shell mạnh mẽ có tính năng chỉnh sửa và ghi lại phiên làm việc một cách dễ dàng ngoài ra còn hỗ trợ trực quan và tính toán song song.</p>
+
+<p>→ Tổ chức <a href="https://software-carpentry.org/">The Software Carpentry Course</a>, nơi dạy những kỹ năng cơ bản trong khoa học máy tính, cung cấp nhiều tài liệu học miễn phí và có cộng đồng mạnh.</p>
+
+<h3 id="giảng-dạy-lập-trình">Giảng dạy lập trình</h3>
+
+<p>Python là một ngôn ngữ tuyệt vời trong giảng dạy lập trình ở nhiều cấp độ từ cơ bản đến nâng cao.</p>
+
+<p>Nhiều cuốn sách giảng dạy lập trình được viết với ngôn ngữ Python như là:</p>
+
+<p>→ <a href="http://www.openbookproject.net/thinkcs/python/english2e/">How to Think Like a Computer Scientist</a></p>
+
+<p>→ <a href="https://mcsp.wartburg.edu/zelle/python/">Python Programming: An Introduction to Computer Science</a></p>
+
+<p>→ <a href="http://pragprog.com/book/gwpy2/practical-programming">Practical Programming</a></p>
+
+<p>Nhóm “<a href="https://www.python.org/community/sigs/current/edu-sig">Education Special Interest Group</a>” là nơi thảo luận giành cho công tác giảng dạy về Python</p>
+
+<h3 id="giao-diện-desktop">Giao diện desktop</h3>
+
+<p>→ <a href="https://docs.python.org/3/library/tkinter.html">Tkinter</a> là thư viện dùng để viết GUI desktop được xây dựng bằng Python. Nếu bạn có hứng thú với side project build Desktop GUI với Tkinter có thể check qua Tkinter và video tutorial ở <a href="https://www.youtube.com/watch?v=ELkaEpN29PU">đây</a>.</p>
+
+<p>→ Ngoài ra còn có các gói GUI toolkit khác sử dụng trên nhiều nền tảng như <a href="https://www.wxpython.org/">wxWidgets</a>, <a href="https://kivy.org/#home">Kvy</a>, Qt thông qua <a href="https://riverbankcomputing.com/software/pyqt/intro">pyqt</a>, <a href="https://wiki.qt.io/Qt_for_Python">pyside</a>, <a href="https://pygobject.readthedocs.io/en/latest/">GTK+</a>, <a href="https://sourceforge.net/projects/pywin32/">win32 extensions</a>.</p>
+
+<h3 id="phát-triển-phần-mềm">Phát triển phần mềm</h3>
+
+<p>Các nhà phát triển thường dùng Python để quản lý, kiểm thử, thử nghiệm, và xây dựng phần mềm</p>
+
+<p>→ <a href="https://www.scons.org/">Scons</a> là một công cụ xây dựng phần mềm</p>
+
+<p>→ <a href="http://buildbot.net/">Buildbot</a> và <a href="http://gump.apache.org/">Apache Gum</a> dùng trong tự động biên dịch và kiểm thử</p>
+
+<p>→ <a href="http://roundup.sourceforge.net/">ERP Roundup</a> hay <a href="https://www.edgewall.org/trac/">Trac</a> cho kiểm soát lỗi và quản lý dự án</p>
+
+<h3 id="xây-dựng-ứng-dụng-thương-mại">Xây dựng ứng dụng thương mại</h3>
+
+<p>Python cũng được sử dụng trong xây dựng ERP(Enterprise Resource Planning Software) và các hệ thống thương mại điện tử, như là:</p>
+
+<p>→ <a href="https://www.odoo.com/vi_VN/">Odoo</a> là phần mềm quản lý công ty nơi quản lý hàng loạt các ứng dụng kinh doanh cùng một chỗ tạo thành bộ ứng dựng quản lý doanh nghiệp hoàn chỉnh.</p>
+
+<p>→ <a href="http://www.tryton.org/foundation">Tryton</a> là mô hình 3 lớp(Presentation, Business, Data) dành cho các nền tảng ứng dụng chung.</p>
+
+<h2 id="ba-ứng-dụng-chính-của-python">Ba ứng dụng chính của Python</h2>
+
+<p>Đây là một <a href="https://youtu.be/kLZuut1fYzQ">video</a> giới thiệu về những thứ Python có thể làm cũng rất là hay ho và dễ hiểu từ kênh CS Dojo – một developer của Google</p>
+
+<p>Trong video trên giới thiệu Python áp dụng trong 3 lĩnh vực chính là:</p>
+
+<p>→ Web Development: Web Framework(Django, Flask)</p>
+
+<p>→ Data Science, Data analysis/visualization</p>
+
+<ul>
+  <li>
+    <p>Machine Learning với scikit-learn, TensorFlow</p>
+  </li>
+  <li>
+    <p>Data analysis và visualization với matplolib</p>
+  </li>
+</ul>
+
+<p>→ Scripting</p>
+
+<p>Ngoài ra, những ứng dụng khác như Game Development(PyGame), Desktop applications(Tkinter, QT), Embedded applications(Raspberry Pi)</p>
+
+<h2 id="các-vị-trí-công-việc-dành-cho-người-học-python">Các vị trí công việc dành cho người học Python</h2>
+
+<p>Nếu bạn học Python, thì có khá nhiều công việc dành cho bạn, hãy tham khảo một số vị trí cùng với các nhiệm vụ chính của từng loại công việc ấy nhé.</p>
+
+<h3 id="python-developer">Python developer</h3>
+<p>→ Xây dựng trang web
+→ Tối ưu hóa thuật toán, data
+→ Giải quyết các vấn đề về phân tích dữ liệu
+→ Thực hiện bảo mật và bảo vệ dữ liệu
+→ Viết mã đơn giản, tái sử dụng được, hiệu quả hơn</p>
+
+<h3 id="product-manager">Product Manager</h3>
+<p>Với người quản lý dự án, data đóng vai trò vô cùng quan trọng trong việc phân tích dữ liệu từ thị trường cũng như từ người dùng để lên kế hoạch xây dựng các sản phẩm tương ứng với nhu cầu. Khi tiến hành phân tích dữ liệu thì Python là một kỹ năng quan trọng.</p>
+
+<h3 id="data-analyst">Data Analyst</h3>
+<p>Data Analyst là người sẽ làm việc với khối lượng thông tin khổng lồ, nhiều công ty sẽ tìm kiếm những người có khả năng sàng lọc lượng lớn thông tin, với sự hỗ trợ của các thư viện Python như SciPy hay Pandas</p>
+
+<h3 id="giáo-viên-dạy-khoa-học-máy-tính">Giáo viên dạy khoa học máy tính</h3>
+<p>Học Python còn phù hợp cho những công việc như dạy Python, dạy các kiến thức trong lĩnh vực khoa học máy tính.</p>
+
+<p>Trong chương này, mình đã cùng tìm hiểu những lĩnh vực ứng dụng của Python cũng như các vị trí công việc khi mình học Python. Khi chọn mỗi vị trí công việc khác nhau thì sẽ học chuyên sâu hơn về kiến thức cũng như phần mềm sử dụng trong lĩnh vực đó.</p>
+
+<p>Như mình, hiện mình đang làm việc ở vị trí là Python Developer, cụ thể hơn là mình đang làm bên Backend, sử dụng Python, Django để xây dựng API cho ứng dụng web.</p>
+
+<p>Ở bài viết sau, là câu hỏi tiếp theo “<a href="https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/03/11/ai-da-thanh-cong-cung-python.html">Ai đã thành công cùng Python?</a>”</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#python" class="page__taxonomy-item p-category" rel="tag">python</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#%C4%91%E1%BA%A1i-b%E1%BA%A3n-doanh-python" class="page__taxonomy-item p-category" rel="tag">Đại Bản Doanh Python</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2020-02-12">February 12, 2020</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  <h4 class="page__share-title">Share on</h4>
+
+  <a href="https://twitter.com/intent/tweet?via=mmistakes&text=Python+c%C3%B3+th%E1%BB%83+d%C3%B9ng+%C4%91%E1%BB%83+l%C3%A0m+g%C3%AC+nh%E1%BB%89%3F%20http%3A%2F%2Flocalhost%3A4000%2F%25C4%2591%25E1%25BA%25A1i%2520b%25E1%25BA%25A3n%2520doanh%2520python%2Fpython-co-the-lam-gi-nhi%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F%25C4%2591%25E1%25BA%25A1i%2520b%25E1%25BA%25A3n%2520doanh%2520python%2Fpython-co-the-lam-gi-nhi%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/python-co-the-lam-gi-nhi/" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/linux/lam-quen-va-dieu-huong-he-thong-tap-tin-trong-linux/" class="pagination--pager" title="
+">Previous</a>
+    
+    
+      <a href="/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/bat-dau-voi-python/" class="pagination--pager" title="Tài liệu học và nghiên cứu Python
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  <div align="center" style="margin: 1em 0;">
+  <ins class="adsbygoogle"
+        style="display:block; border-bottom: initial;"
+        data-ad-client="ca-pub-7328585512091257"
+        data-ad-slot="3049671934"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+</div>
+
+
+  <h2 class="page__related-title">You May Also Enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/django/relation-fields-in-drf-serializer/" rel="permalink">Relation fields in Django Rest Framework Serializer
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+The Django model offers various types of relationships such as OneToOneField, ForeignKey, ManyToManyField, and GenericForeignKey.
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/django/export-multiple-csv-to-zip-django/" rel="permalink">Export Multiple CSVs file into a ZIP in Django Application
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/django/export-docx-in-django/" rel="permalink">Export a docx file in Django application
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          8 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/js/scope-trong-javascript/" rel="permalink">Scope trong JavaScript
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      <div align="center" style="margin: 1em 0;">
+  <ins class="adsbygoogle"
+        style="display:block; border-bottom: initial;"
+        data-ad-client="ca-pub-7328585512091257"
+        data-ad-slot="3049671934"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="search-searchbar"></div>
+  <div class="search-hits"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/mmistakes" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/mmistakes" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/mmistakes" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 <a href="http://localhost:4000">BeautyOnCode</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+<script>
+// Including InstantSearch.js library and styling
+const loadSearch = function() {
+  const loadCSS = function(src) {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = src;
+    link.media = 'all';
+    document.head.appendChild(link);
+  };
+
+  var script = document.createElement('script');
+  script.setAttribute("type", "text/javascript");
+  script.setAttribute("src", "https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.js");
+  script.addEventListener("load", function() {
+    // Instantiating InstantSearch.js with Algolia credentials
+    const search = instantsearch({
+      appId: 'QB6HVGBSBA',
+      apiKey: '9d5014e5bbc77372547bce778dfa5663',
+      indexName: 'minimal_mistakes',
+      searchParameters: {
+        restrictSearchableAttributes: ['title', 'content']
+      }
+    });
+
+    const hitTemplate = function(hit) {
+      const url = hit.url;
+      const hightlight = hit._highlightResult;
+      const title = hightlight.title && hightlight.title.value  || "";
+      const content = hightlight.html && hightlight.html.value  || "";
+
+      return `
+        <div class="list__item">
+          <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+            <h2 class="archive__item-title" itemprop="headline"><a href="/${url}">${title}</a></h2>
+            <div class="archive__item-excerpt" itemprop="description">${content}</div>
+          </article>
+        </div>
+      `;
+    }
+
+    // Adding searchbar and results widgets
+    search.addWidget(
+      instantsearch.widgets.searchBox({
+        container: '.search-searchbar',
+        poweredBy: true,
+        placeholder: 'Enter your search term...'
+      })
+    );
+    search.addWidget(
+      instantsearch.widgets.hits({
+        container: '.search-hits',
+        templates: {
+          item: hitTemplate,
+          empty: 'No results',
+        }
+      })
+    );
+
+    if (!search.started) {
+      search.start();
+    }
+  });
+  document.body.appendChild(script);
+
+  loadCSS("https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.css");
+  loadCSS("https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch-theme-algolia.min.css");
+};
+
+// Starting the search only when toggle is clicked
+$(document).ready(function() {
+  var scriptLoaded = false;
+
+  $(".search__toggle").on("click", function() {
+    if (!scriptLoaded) {
+      loadSearch();
+      scriptLoaded = true;
+    }
+  });
+});
+</script>
+
+
+
+
+<style>
+.google-auto-placed {
+  margin: 2em auto;
+}
+</style>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
+
+
+  </body>
+</html>

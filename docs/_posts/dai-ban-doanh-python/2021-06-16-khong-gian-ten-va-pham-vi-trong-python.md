@@ -1,17 +1,23 @@
 ---
-layout: post
-title:  "Không gian tên(namespace) và phạm vi(scope) trong Python"
-date:   2021-06-16 10:00:00 +0700
-categories: python, dai-ban-doanh-python
+title: "Không gian tên(namespace) và phạm vi(scope) trong Python"
+header:
+  teaser:
+  og_image:
+excerpt_separator: <!--more-->
+categories:
+  - Đại Bản Doanh Python
+tags:
+  - python
+last_modified_at: 2020-06-16T15:12:19-04:00
 ---
 
 Khi mình ngồi học và dịch bài ["Class trong Python"](https://docs.python.org/3/tutorial/classes.html) cho sê-ri ["Khám Phá Đại Bản Doanh Python"](https://viblo.asia/s/kham-pha-dai-ban-doanh-python-OVlYq8Ozl8W), mình đã đụng hai bạn này, và các bạn thật là trừu tượng và khó gặm. Thế là mình tìm kiếm và viết bài này để hiểu rõ hơn về hai bạn ấy, hi vọng bạn đọc thêm để hiểu về Python nhé.
 
 ## Không gian tên là gì?
 
-Không gian tên(namespace) là một không gian chứa các tên =)) 
+Không gian tên(namespace) là một không gian chứa các tên =))
 
-Thật đó, tên là các định danh, và không gian là các cấu trúc hay các tổ chức, hoặc hiểu đơn giản nó là một vùng nào đó.  
+Thật đó, tên là các định danh, và không gian là các cấu trúc hay các tổ chức, hoặc hiểu đơn giản nó là một vùng nào đó.
 
 Không gian tên trong Python giống như là bảng phân công theo dõi công việc của một nhóm người vậy đó. Bảng phân công thì theo dõi tên người, còn không gian tên trong Python thì theo dõi tên các đối tượng.
 
@@ -29,14 +35,14 @@ Ví dụ về không gian tên bằng gọi hàm globals(), locals():
 
 ```python
 >>> a = [1, 2, 3, 4, 5]
->>> 
+>>>
 >>> def foo():
 ...     b = 11
 ...     print(locals())
-... 
+...
 >>> class Student:
 ...     pass
-... 
+...
 >>> student = Student()
 >>> print(globals())
 {'__name__': '__main__', '__doc__': None, '__package__': None, '__loader__': <class '_frozen_importlib.BuiltinImporter'>, '__spec__': None, '__annotations__': {}, '__builtins__': <module 'builtins' (built-in)>, 'a': [1, 2, 3, 4, 5], 'b': 'Hello World!', 'foo': <function foo at 0x101fd93b0>, 'foo0': <function foo at 0x10200c7a0>, 'foo1': <function foo at 0x10200c7a0>, 'tracked_namespaces': {'local': {}}, 'tracked_keys': dict_keys(['local']), 'ns': <module 'namespaces_student' from '/Users/ycui/PythonProjects/namespaces_student.py'>, 'working_hard': True, 'Student': <class '__main__.Student'>, 'Teacher': <class 'namespaces_teacher.Teacher'>, 'student': <__main__.Student object at 0x102027490>}
@@ -50,7 +56,7 @@ Bên cạnh globals() được sử dụng để theo dõi các đối tượng 
 
 ### Không gian tên có tính linh hoạt
 
-Không gian tên được dùng để theo dõi các đối tượng. 
+Không gian tên được dùng để theo dõi các đối tượng.
 
 Trong Python code, chúng ta tạo ra các đối tượng cố định và xoá các đối tượng không còn được dùng nữa, do đó không gian tên cũng sẽ thay đổi theo dựa trên các thao tác này.
 
@@ -76,7 +82,7 @@ Khi một hàm được gọi, nó tạo ra một không gian tên cục bộ, v
 
 ![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2021/01/namespace-scope-pyhon-1.png)
 
-Bạn thấy không, không gian tên theo dõi các đối tượng trong mô-đun này, vì tụi này nằm trong không gian của nó, còn phạm vi chính là đường màu cam thể hiện hàng rào bọc ngoài không gian tên này. 
+Bạn thấy không, không gian tên theo dõi các đối tượng trong mô-đun này, vì tụi này nằm trong không gian của nó, còn phạm vi chính là đường màu cam thể hiện hàng rào bọc ngoài không gian tên này.
 
 Nói cách khác, nếu mình muốn sử dụng attr0 nằm trong mô-đun ở trên ở một hàm “bo” chẳng hạn, nếu hàm này không thể truy cập vào phạm vi này thì không thể dùng biến đó được.
 
@@ -118,13 +124,13 @@ Bạn có thể hình dung nó kiểu như là nhà mình có một cái macbook
 
 ### Không gian tên và phạm vi đều phân cấp
 
-Bạn có để ý thấy chỉ cần truy cập vào trình biên dịch là mình có thể sử dụng các hàm dựng sẵn của Python như print() hay các kiểu dữ liệu như dict(), list(). 
+Bạn có để ý thấy chỉ cần truy cập vào trình biên dịch là mình có thể sử dụng các hàm dựng sẵn của Python như print() hay các kiểu dữ liệu như dict(), list().
 
 Vậy các bạn này từ đâu ra thế nhỉ ? Vâng, các bạn này thuộc không gian tên dựng sẵn(built-in) đó ạ.
 
 Còn khi tạo một mô-đun, ta sẽ có không gian tên toàn cục(global) của mô-đun đó, khi tạo một hàm mình có không gian tên cục bộ(local) của hàm đó. Khi các không gian tên được tạo thì các phạm vi tương ứng của chúng cũng được tạo.
 
-> **Đặc điểm quan trọng của không gian tên là chúng có mối quan hệ phân cấp như vậy.** 
+> **Đặc điểm quan trọng của không gian tên là chúng có mối quan hệ phân cấp như vậy.**
 
 Biểu đồ dưới thể hiện sự phân cấp này: không gian tên và phạm vi dựng sẵn bao trùm không gian tên và phạm vi toàn cục, và lớp này bao trùm không gian tên và phạm vi cục bộ.
 
@@ -156,7 +162,7 @@ Do đó, nguyên tắc LEGB định nghĩa thứ tự tìm kiếm của tên the
 
 Và thêm nữa, nếu tên đã được tìm kiếm ở cấp nào rồi, thì chương trình sẽ dừng việc tìm kiếm lại và sử dụng tên đó chứ không đi tìm ở những lớp trên nữa nha, vì tìm ra rồi thì dùng liền chớ hỉ.
 
-Ví dụ như ở trên biến a gọi trong hàm inner_function sẽ có giá trị là 11, chứ chương trình không tìm tiếp cấp ở ngoài, nơi a có giá trị là 1 đó. 
+Ví dụ như ở trên biến a gọi trong hàm inner_function sẽ có giá trị là 11, chứ chương trình không tìm tiếp cấp ở ngoài, nơi a có giá trị là 1 đó.
 
 ### Kết
 

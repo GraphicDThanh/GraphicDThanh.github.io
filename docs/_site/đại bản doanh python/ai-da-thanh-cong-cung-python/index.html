@@ -1,0 +1,838 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en-US" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Ai đã thành công cùng Python? - BeautyOnCode</title>
+<meta name="description" content="Chào mừng mọi người đến với bài post thứ hai của phần “Lượn lờ cùng Python” của series “Khám phá Đại Bản Doanh Python”  Mở bài Trong phần này, tụi mình sẽ cùng nhau dạo quanh quanh những phần ngoài lề trước khi tấn công vào document ở những phần tiếp theo nhé. Mình sẽ đi trả lời nhưng câu hỏi sau trong “Lượn lờ cùng Python”:  ♣ Python có thể dùng để làm gì nhỉ?  ♣ Ai đã thành công cùng Python?   ♣ Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?  Những nội dung trong bài series này từ “Đại bản doanh Python” python.org, mình viết bằng ngôn ngữ của mình kèm theo những tài liệu khác mà mình thấy liên quan và hữu ích cho chủ đề của bài. Bài dưới đây sẽ đi trả lời câu hỏi “Ai đã thành công cùng Python?” nằm trong mục “Success Stories” nha.  Thân bài Những ai đã thành công cùng Python?  Trong phần “Success Stories“, là những câu chuyện thành công cùng Python, bao gồm nhiều chủ đề khác nhau như “Web Development”, “Scientific”, “Business”, “Education”, “Goverment”, “Engineering”, “Art”.  Bạn cũng có thể thêm câu chuyện ở mình với “Submit Yours” đó.  Ba chủ đề được in đậm có nhiều câu chuyện nhất, mình chọn mỗi chủ đề một câu chuyện với vài tóm tắt.  [Web Development] Building an open-source and cross-platform Azure CLI with Python  Xây dựng mã nguồn mở và đa nền tảng Azure CLI(Microsoft) với Python  → Microsoft Azure là một nền tảng điện toán đám mây trải rộng hơn 50 trung tâm dữ liệu toàn cầu với hàng trăm dịch vụ. Là một dịch vụ cloud lớn, họ cung cấp rất nhiều công cụ để quản lý và triển khai hệ thống, một trong những công cụ được sử dụng rộng rãi nhất là Azure CLI(Azure “az” Command Line Interface).  → Azure CLI bao gồm hàng ngàn các lệnh cùng nhiều thư viện bên thứ 3, cho nên họ đã chuyển từ PowerShell cho Windows và Nodejs-CLI cho Mac, Linux sang dùng Python cho tất cả các nền tảng.  → Nhờ sự linh hoạt và hệ sinh thái của các gói(packages), Python giúp Azure cung cấp hàng trăm dịch vụ, mỗi dịch vụ cung cấp những phiên bản tương thích khác nhau kèm với hàng trăm nghìn dòng lệnh một cách nhanh nhẹn, hữu ích và dễ sử dụng thật sự là một thách thức lớn.  → Điều quan trọng nhất là Python cho phép họ tạo nên một công cụ có thể chạy trên nhiều nền tảng, hoạt động tốt, hỗ trợ mở rộng mạnh mẽ và làm hài lòng khách hàng của họ.  [Scientific] Python for Scientific Data Visualization  Trực quan hoá dữ liệu khoa học cùng Python – một side project trong 4 tháng của người không phải là lập trình viên, cũng không phải là nhà khoa học máy tính :D.  → Python đã được chọn vì syntax đơn giản, dễ maintain và là ngôn ngữ dễ học dễ sử dụng  → MayaVi được viết hoàn toàn bằng Python và nhờ tính linh hoạt của VTK, Python và Tkinter, hoạt động trên Linux, Unix và Windows.  → Người viết nhấn mạnh sự đơn giản, dễ học và cực kỳ mạnh mẽ của Python, bên cạnh đó trình thông dịch rất tiện cho việc thử nghiệm.  → Python giúp cho development cycle nhanh hơn, và không cần đợi code compile.  → Kiểu dữ liệu tự động trong Python giúp người dùng tập trung vào phát triển chức năng, giải quyết vấn đề thay vì học quá nhiều cú pháp và ngôn ngữ.  [Business] Python to Deliver Commercial Anti-Spam Software  Python đã giúp viết phần mềm chống thư rác trong thương mại  → Dự án Armadillo là một SMTP email filtering proxy hoạt động trên nhiều tên miền và nhiều nền tảng khác nhau, cung cấp dịch vụ lưu trữ email với proxy chống virut và spam. Do đó, Python được chọn như là một giải pháp cho xây dựng đa nền tảng này.  → The SMTP email filtering proxy bao gồm bộ đệm thông minh, các thư viện filter,  báo cáo spam, virut.  → Họ xây dựng Armadillo theo kiểu bất đồng bộ(asyncronous) và sử dụng thư viện “asyncore” của Python, cùng nhiều thư viện khác như Python recipes của ActiveState.  Dùng WingIDE như là môi trường phát triển và Nose tests cùng với thư viện unittest để xây dựng bộ test cho dự án.  Họ cũng sử dụng Python Shell trong suốt quá trình phát triển dự án để nhanh chóng kiểm tra và chạy code thử.  → Sau 4 tháng, sản phẩm hoàn thành sớm hơn dự định 3 tháng(so với kế hoạch giành cho C/C++) và được sử dụng bởi nhiều công ty, đánh bại đối thủ cạnh tranh và chứng minh rằng Python có khả năng phát triển ở các hệ thống thương mại, không còn là ngôn ngữ chỉ giành cho scripting nữa.    Như vậy là mình đã biết thêm về những cây chuyện thành công cùng Python rồi ♥  Thực ra thì có quá trời câu chuyện thành công với Python ngoài kia, nhưng những câu chuyện đó không cần kể ra, chỉ cần thấy sản phẩm của người ta thành công thế nào là đủ. Sương sương có thể kể đến những ông trùm Instagram, Netflix, Reddit, Lyft, Google, Spotify, New York Times và Bloomberg đều có dùng Python cả.  Giờ đến lượt tụi mình viết câu chuyện của chính mình đó. Nhưng trước hết, phải học đã rồi nói chuyện tiếp nhé :”&gt;  Ở bài viết sau, mình sẽ tiếp tục khám phá câu hỏi “Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?” cùng phần “Getting Started“.">
+
+
+  <meta name="author" content="Thanh Nguyen">
+  
+  <meta property="article:author" content="Thanh Nguyen">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="BeautyOnCode">
+<meta property="og:title" content="Ai đã thành công cùng Python?">
+<meta property="og:url" content="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/ai-da-thanh-cong-cung-python/">
+
+
+  <meta property="og:description" content="Chào mừng mọi người đến với bài post thứ hai của phần “Lượn lờ cùng Python” của series “Khám phá Đại Bản Doanh Python”  Mở bài Trong phần này, tụi mình sẽ cùng nhau dạo quanh quanh những phần ngoài lề trước khi tấn công vào document ở những phần tiếp theo nhé. Mình sẽ đi trả lời nhưng câu hỏi sau trong “Lượn lờ cùng Python”:  ♣ Python có thể dùng để làm gì nhỉ?  ♣ Ai đã thành công cùng Python?   ♣ Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?  Những nội dung trong bài series này từ “Đại bản doanh Python” python.org, mình viết bằng ngôn ngữ của mình kèm theo những tài liệu khác mà mình thấy liên quan và hữu ích cho chủ đề của bài. Bài dưới đây sẽ đi trả lời câu hỏi “Ai đã thành công cùng Python?” nằm trong mục “Success Stories” nha.  Thân bài Những ai đã thành công cùng Python?  Trong phần “Success Stories“, là những câu chuyện thành công cùng Python, bao gồm nhiều chủ đề khác nhau như “Web Development”, “Scientific”, “Business”, “Education”, “Goverment”, “Engineering”, “Art”.  Bạn cũng có thể thêm câu chuyện ở mình với “Submit Yours” đó.  Ba chủ đề được in đậm có nhiều câu chuyện nhất, mình chọn mỗi chủ đề một câu chuyện với vài tóm tắt.  [Web Development] Building an open-source and cross-platform Azure CLI with Python  Xây dựng mã nguồn mở và đa nền tảng Azure CLI(Microsoft) với Python  → Microsoft Azure là một nền tảng điện toán đám mây trải rộng hơn 50 trung tâm dữ liệu toàn cầu với hàng trăm dịch vụ. Là một dịch vụ cloud lớn, họ cung cấp rất nhiều công cụ để quản lý và triển khai hệ thống, một trong những công cụ được sử dụng rộng rãi nhất là Azure CLI(Azure “az” Command Line Interface).  → Azure CLI bao gồm hàng ngàn các lệnh cùng nhiều thư viện bên thứ 3, cho nên họ đã chuyển từ PowerShell cho Windows và Nodejs-CLI cho Mac, Linux sang dùng Python cho tất cả các nền tảng.  → Nhờ sự linh hoạt và hệ sinh thái của các gói(packages), Python giúp Azure cung cấp hàng trăm dịch vụ, mỗi dịch vụ cung cấp những phiên bản tương thích khác nhau kèm với hàng trăm nghìn dòng lệnh một cách nhanh nhẹn, hữu ích và dễ sử dụng thật sự là một thách thức lớn.  → Điều quan trọng nhất là Python cho phép họ tạo nên một công cụ có thể chạy trên nhiều nền tảng, hoạt động tốt, hỗ trợ mở rộng mạnh mẽ và làm hài lòng khách hàng của họ.  [Scientific] Python for Scientific Data Visualization  Trực quan hoá dữ liệu khoa học cùng Python – một side project trong 4 tháng của người không phải là lập trình viên, cũng không phải là nhà khoa học máy tính :D.  → Python đã được chọn vì syntax đơn giản, dễ maintain và là ngôn ngữ dễ học dễ sử dụng  → MayaVi được viết hoàn toàn bằng Python và nhờ tính linh hoạt của VTK, Python và Tkinter, hoạt động trên Linux, Unix và Windows.  → Người viết nhấn mạnh sự đơn giản, dễ học và cực kỳ mạnh mẽ của Python, bên cạnh đó trình thông dịch rất tiện cho việc thử nghiệm.  → Python giúp cho development cycle nhanh hơn, và không cần đợi code compile.  → Kiểu dữ liệu tự động trong Python giúp người dùng tập trung vào phát triển chức năng, giải quyết vấn đề thay vì học quá nhiều cú pháp và ngôn ngữ.  [Business] Python to Deliver Commercial Anti-Spam Software  Python đã giúp viết phần mềm chống thư rác trong thương mại  → Dự án Armadillo là một SMTP email filtering proxy hoạt động trên nhiều tên miền và nhiều nền tảng khác nhau, cung cấp dịch vụ lưu trữ email với proxy chống virut và spam. Do đó, Python được chọn như là một giải pháp cho xây dựng đa nền tảng này.  → The SMTP email filtering proxy bao gồm bộ đệm thông minh, các thư viện filter,  báo cáo spam, virut.  → Họ xây dựng Armadillo theo kiểu bất đồng bộ(asyncronous) và sử dụng thư viện “asyncore” của Python, cùng nhiều thư viện khác như Python recipes của ActiveState.  Dùng WingIDE như là môi trường phát triển và Nose tests cùng với thư viện unittest để xây dựng bộ test cho dự án.  Họ cũng sử dụng Python Shell trong suốt quá trình phát triển dự án để nhanh chóng kiểm tra và chạy code thử.  → Sau 4 tháng, sản phẩm hoàn thành sớm hơn dự định 3 tháng(so với kế hoạch giành cho C/C++) và được sử dụng bởi nhiều công ty, đánh bại đối thủ cạnh tranh và chứng minh rằng Python có khả năng phát triển ở các hệ thống thương mại, không còn là ngôn ngữ chỉ giành cho scripting nữa.    Như vậy là mình đã biết thêm về những cây chuyện thành công cùng Python rồi ♥  Thực ra thì có quá trời câu chuyện thành công với Python ngoài kia, nhưng những câu chuyện đó không cần kể ra, chỉ cần thấy sản phẩm của người ta thành công thế nào là đủ. Sương sương có thể kể đến những ông trùm Instagram, Netflix, Reddit, Lyft, Google, Spotify, New York Times và Bloomberg đều có dùng Python cả.  Giờ đến lượt tụi mình viết câu chuyện của chính mình đó. Nhưng trước hết, phải học đã rồi nói chuyện tiếp nhé :”&gt;  Ở bài viết sau, mình sẽ tiếp tục khám phá câu hỏi “Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?” cùng phần “Getting Started“.">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/2020/03/2020-03-ai-da-thanh-cong-cung-python-cover.png">
+
+
+
+  <meta name="twitter:site" content="@mmistakes">
+  <meta name="twitter:title" content="Ai đã thành công cùng Python?">
+  <meta name="twitter:description" content="Chào mừng mọi người đến với bài post thứ hai của phần “Lượn lờ cùng Python” của series “Khám phá Đại Bản Doanh Python”  Mở bài Trong phần này, tụi mình sẽ cùng nhau dạo quanh quanh những phần ngoài lề trước khi tấn công vào document ở những phần tiếp theo nhé. Mình sẽ đi trả lời nhưng câu hỏi sau trong “Lượn lờ cùng Python”:  ♣ Python có thể dùng để làm gì nhỉ?  ♣ Ai đã thành công cùng Python?   ♣ Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?  Những nội dung trong bài series này từ “Đại bản doanh Python” python.org, mình viết bằng ngôn ngữ của mình kèm theo những tài liệu khác mà mình thấy liên quan và hữu ích cho chủ đề của bài. Bài dưới đây sẽ đi trả lời câu hỏi “Ai đã thành công cùng Python?” nằm trong mục “Success Stories” nha.  Thân bài Những ai đã thành công cùng Python?  Trong phần “Success Stories“, là những câu chuyện thành công cùng Python, bao gồm nhiều chủ đề khác nhau như “Web Development”, “Scientific”, “Business”, “Education”, “Goverment”, “Engineering”, “Art”.  Bạn cũng có thể thêm câu chuyện ở mình với “Submit Yours” đó.  Ba chủ đề được in đậm có nhiều câu chuyện nhất, mình chọn mỗi chủ đề một câu chuyện với vài tóm tắt.  [Web Development] Building an open-source and cross-platform Azure CLI with Python  Xây dựng mã nguồn mở và đa nền tảng Azure CLI(Microsoft) với Python  → Microsoft Azure là một nền tảng điện toán đám mây trải rộng hơn 50 trung tâm dữ liệu toàn cầu với hàng trăm dịch vụ. Là một dịch vụ cloud lớn, họ cung cấp rất nhiều công cụ để quản lý và triển khai hệ thống, một trong những công cụ được sử dụng rộng rãi nhất là Azure CLI(Azure “az” Command Line Interface).  → Azure CLI bao gồm hàng ngàn các lệnh cùng nhiều thư viện bên thứ 3, cho nên họ đã chuyển từ PowerShell cho Windows và Nodejs-CLI cho Mac, Linux sang dùng Python cho tất cả các nền tảng.  → Nhờ sự linh hoạt và hệ sinh thái của các gói(packages), Python giúp Azure cung cấp hàng trăm dịch vụ, mỗi dịch vụ cung cấp những phiên bản tương thích khác nhau kèm với hàng trăm nghìn dòng lệnh một cách nhanh nhẹn, hữu ích và dễ sử dụng thật sự là một thách thức lớn.  → Điều quan trọng nhất là Python cho phép họ tạo nên một công cụ có thể chạy trên nhiều nền tảng, hoạt động tốt, hỗ trợ mở rộng mạnh mẽ và làm hài lòng khách hàng của họ.  [Scientific] Python for Scientific Data Visualization  Trực quan hoá dữ liệu khoa học cùng Python – một side project trong 4 tháng của người không phải là lập trình viên, cũng không phải là nhà khoa học máy tính :D.  → Python đã được chọn vì syntax đơn giản, dễ maintain và là ngôn ngữ dễ học dễ sử dụng  → MayaVi được viết hoàn toàn bằng Python và nhờ tính linh hoạt của VTK, Python và Tkinter, hoạt động trên Linux, Unix và Windows.  → Người viết nhấn mạnh sự đơn giản, dễ học và cực kỳ mạnh mẽ của Python, bên cạnh đó trình thông dịch rất tiện cho việc thử nghiệm.  → Python giúp cho development cycle nhanh hơn, và không cần đợi code compile.  → Kiểu dữ liệu tự động trong Python giúp người dùng tập trung vào phát triển chức năng, giải quyết vấn đề thay vì học quá nhiều cú pháp và ngôn ngữ.  [Business] Python to Deliver Commercial Anti-Spam Software  Python đã giúp viết phần mềm chống thư rác trong thương mại  → Dự án Armadillo là một SMTP email filtering proxy hoạt động trên nhiều tên miền và nhiều nền tảng khác nhau, cung cấp dịch vụ lưu trữ email với proxy chống virut và spam. Do đó, Python được chọn như là một giải pháp cho xây dựng đa nền tảng này.  → The SMTP email filtering proxy bao gồm bộ đệm thông minh, các thư viện filter,  báo cáo spam, virut.  → Họ xây dựng Armadillo theo kiểu bất đồng bộ(asyncronous) và sử dụng thư viện “asyncore” của Python, cùng nhiều thư viện khác như Python recipes của ActiveState.  Dùng WingIDE như là môi trường phát triển và Nose tests cùng với thư viện unittest để xây dựng bộ test cho dự án.  Họ cũng sử dụng Python Shell trong suốt quá trình phát triển dự án để nhanh chóng kiểm tra và chạy code thử.  → Sau 4 tháng, sản phẩm hoàn thành sớm hơn dự định 3 tháng(so với kế hoạch giành cho C/C++) và được sử dụng bởi nhiều công ty, đánh bại đối thủ cạnh tranh và chứng minh rằng Python có khả năng phát triển ở các hệ thống thương mại, không còn là ngôn ngữ chỉ giành cho scripting nữa.    Như vậy là mình đã biết thêm về những cây chuyện thành công cùng Python rồi ♥  Thực ra thì có quá trời câu chuyện thành công với Python ngoài kia, nhưng những câu chuyện đó không cần kể ra, chỉ cần thấy sản phẩm của người ta thành công thế nào là đủ. Sương sương có thể kể đến những ông trùm Instagram, Netflix, Reddit, Lyft, Google, Spotify, New York Times và Bloomberg đều có dùng Python cả.  Giờ đến lượt tụi mình viết câu chuyện của chính mình đó. Nhưng trước hết, phải học đã rồi nói chuyện tiếp nhé :”&gt;  Ở bài viết sau, mình sẽ tiếp tục khám phá câu hỏi “Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?” cùng phần “Getting Started“.">
+  <meta name="twitter:url" content="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/ai-da-thanh-cong-cung-python/">
+
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/2020/03/2020-03-ai-da-thanh-cong-cung-python-cover.png">
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2020-03-11T00:00:00-04:00">
+
+
+
+  <meta property="article:modified_time" content="2020-03-11T15:12:19-04:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/ai-da-thanh-cong-cung-python/">
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="BeautyOnCode Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  window.enable_copy_code_button = true;
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo/logo-circle.webp" alt="BeautyOnCode"></a>
+        
+        <a class="site-title" href="/">
+          BeautyOnCode
+          <span class="site-subtitle">Code Your Life In An Elegant Way</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/docs/quick-start-guide/"
+                
+                
+              >Quick-Start Guide</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/year-archive/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/collection-archive/"
+                
+                
+              >Collections</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/logo/thanh-nguyen.jpg" alt="Thanh Nguyen" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Thanh Nguyen</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Web developer, nature lover, curious soul, and laid-back mom balancing code with life’s simple joys.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Da Nang, VN</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://beautyoncode.com" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">BeautyOnCode</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/graphicdthanh/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">Linkedin</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/GraphicDThanh" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.facebook.com/beautyoncode" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span class="label">Facebook</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Ai đã thành công cùng Python?">
+    <meta itemprop="description" content="Chào mừng mọi người đến với bài post thứ hai của phần “Lượn lờ cùng Python” của series “Khám phá Đại Bản Doanh Python”Mở bàiTrong phần này, tụi mình sẽ cùng nhau dạo quanh quanh những phần ngoài lề trước khi tấn công vào document ở những phần tiếp theo nhé.Mình sẽ đi trả lời nhưng câu hỏi sau trong “Lượn lờ cùng Python”:♣ Python có thể dùng để làm gì nhỉ?♣ Ai đã thành công cùng Python? ♣ Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?Những nội dung trong bài series này từ “Đại bản doanh Python” python.org, mình viết bằng ngôn ngữ của mình kèm theo những tài liệu khác mà mình thấy liên quan và hữu ích cho chủ đề của bài.Bài dưới đây sẽ đi trả lời câu hỏi “Ai đã thành công cùng Python?” nằm trong mục “Success Stories” nha.Thân bàiNhững ai đã thành công cùng Python?Trong phần “Success Stories“, là những câu chuyện thành công cùng Python, bao gồm nhiều chủ đề khác nhau như “Web Development”, “Scientific”, “Business”, “Education”, “Goverment”, “Engineering”, “Art”.Bạn cũng có thể thêm câu chuyện ở mình với “Submit Yours” đó.Ba chủ đề được in đậm có nhiều câu chuyện nhất, mình chọn mỗi chủ đề một câu chuyện với vài tóm tắt.[Web Development] Building an open-source and cross-platform Azure CLI with PythonXây dựng mã nguồn mở và đa nền tảng Azure CLI(Microsoft) với Python→ Microsoft Azure là một nền tảng điện toán đám mây trải rộng hơn 50 trung tâm dữ liệu toàn cầu với hàng trăm dịch vụ. Là một dịch vụ cloud lớn, họ cung cấp rất nhiều công cụ để quản lý và triển khai hệ thống, một trong những công cụ được sử dụng rộng rãi nhất là Azure CLI(Azure “az” Command Line Interface).→ Azure CLI bao gồm hàng ngàn các lệnh cùng nhiều thư viện bên thứ 3, cho nên họ đã chuyển từ PowerShell cho Windows và Nodejs-CLI cho Mac, Linux sang dùng Python cho tất cả các nền tảng.→ Nhờ sự linh hoạt và hệ sinh thái của các gói(packages), Python giúp Azure cung cấp hàng trăm dịch vụ, mỗi dịch vụ cung cấp những phiên bản tương thích khác nhau kèm với hàng trăm nghìn dòng lệnh một cách nhanh nhẹn, hữu ích và dễ sử dụng thật sự là một thách thức lớn.→ Điều quan trọng nhất là Python cho phép họ tạo nên một công cụ có thể chạy trên nhiều nền tảng, hoạt động tốt, hỗ trợ mở rộng mạnh mẽ và làm hài lòng khách hàng của họ.[Scientific] Python for Scientific Data VisualizationTrực quan hoá dữ liệu khoa học cùng Python – một side project trong 4 tháng của người không phải là lập trình viên, cũng không phải là nhà khoa học máy tính :D.→ Python đã được chọn vì syntax đơn giản, dễ maintain và là ngôn ngữ dễ học dễ sử dụng→ MayaVi được viết hoàn toàn bằng Python và nhờ tính linh hoạt của VTK, Python và Tkinter, hoạt động trên Linux, Unix và Windows.→ Người viết nhấn mạnh sự đơn giản, dễ học và cực kỳ mạnh mẽ của Python, bên cạnh đó trình thông dịch rất tiện cho việc thử nghiệm.→ Python giúp cho development cycle nhanh hơn, và không cần đợi code compile.→ Kiểu dữ liệu tự động trong Python giúp người dùng tập trung vào phát triển chức năng, giải quyết vấn đề thay vì học quá nhiều cú pháp và ngôn ngữ.[Business] Python to Deliver Commercial Anti-Spam SoftwarePython đã giúp viết phần mềm chống thư rác trong thương mại→ Dự án Armadillo là một SMTP email filtering proxy hoạt động trên nhiều tên miền và nhiều nền tảng khác nhau, cung cấp dịch vụ lưu trữ email với proxy chống virut và spam. Do đó, Python được chọn như là một giải pháp cho xây dựng đa nền tảng này.→ The SMTP email filtering proxy bao gồm bộ đệm thông minh, các thư viện filter,  báo cáo spam, virut.→ Họ xây dựng Armadillo theo kiểu bất đồng bộ(asyncronous) và sử dụng thư viện “asyncore” của Python, cùng nhiều thư viện khác như Python recipes của ActiveState.Dùng WingIDE như là môi trường phát triển và Nose tests cùng với thư viện unittest để xây dựng bộ test cho dự án.Họ cũng sử dụng Python Shell trong suốt quá trình phát triển dự án để nhanh chóng kiểm tra và chạy code thử.→ Sau 4 tháng, sản phẩm hoàn thành sớm hơn dự định 3 tháng(so với kế hoạch giành cho C/C++) và được sử dụng bởi nhiều công ty, đánh bại đối thủ cạnh tranh và chứng minh rằng Python có khả năng phát triển ở các hệ thống thương mại, không còn là ngôn ngữ chỉ giành cho scripting nữa.Như vậy là mình đã biết thêm về những cây chuyện thành công cùng Python rồi ♥Thực ra thì có quá trời câu chuyện thành công với Python ngoài kia, nhưng những câu chuyện đó không cần kể ra, chỉ cần thấy sản phẩm của người ta thành công thế nào là đủ. Sương sương có thể kể đến những ông trùm Instagram, Netflix, Reddit, Lyft, Google, Spotify, New York Times và Bloomberg đều có dùng Python cả.Giờ đến lượt tụi mình viết câu chuyện của chính mình đó. Nhưng trước hết, phải học đã rồi nói chuyện tiếp nhé :”&gt;Ở bài viết sau, mình sẽ tiếp tục khám phá câu hỏi “Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?” cùng phần “Getting Started“.">
+    <meta itemprop="datePublished" content="2020-03-11T00:00:00-04:00">
+    <meta itemprop="dateModified" content="2020-03-11T15:12:19-04:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/ai-da-thanh-cong-cung-python/" itemprop="url">Ai đã thành công cùng Python?
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          4 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p><img src="/assets/images/2020/03/2020-03-ai-da-thanh-cong-cung-python-cover.png" alt="" /></p>
+
+<p>Chào mừng mọi người đến với bài post thứ hai của phần “Lượn lờ cùng Python” của series “<a href="https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/07/dai-ban-doanh-python-series-overview.html">Khám phá Đại Bản Doanh Python</a>”</p>
+
+<h2 id="mở-bài">Mở bài</h2>
+<p>Trong phần này, tụi mình sẽ cùng nhau dạo quanh quanh những phần ngoài lề trước khi tấn công vào document ở những phần tiếp theo nhé.
+Mình sẽ đi trả lời nhưng câu hỏi sau trong “<strong>Lượn lờ cùng Python</strong>”:</p>
+
+<p>♣ <a href="https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/02/12/python-co-the-lam-gi-nhi.html">Python có thể dùng để làm gì nhỉ?</a></p>
+
+<p>♣ <a href="https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/03/11/ai-da-thanh-cong-cung-python.html">Ai đã thành công cùng Python? </a></p>
+
+<p>♣ <a href="https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020">Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?</a></p>
+
+<p>Những nội dung trong bài series này từ “Đại bản doanh Python” python.org, mình viết bằng ngôn ngữ của mình kèm theo những tài liệu khác mà mình thấy liên quan và hữu ích cho chủ đề của bài.
+Bài dưới đây sẽ đi trả lời câu hỏi “<strong>Ai đã thành công cùng Python?</strong>” nằm trong mục “Success Stories” nha.</p>
+
+<h2 id="thân-bài">Thân bài</h2>
+<h3 id="những-ai-đã-thành-công-cùng-python">Những ai đã thành công cùng Python?</h3>
+
+<p>Trong phần “<a href="https://www.python.org/success-stories/">Success Stories</a>“, là những câu chuyện thành công cùng Python, bao gồm nhiều chủ đề khác nhau như “<strong>Web Development</strong>”, “<strong>Scientific</strong>”, “<strong>Business</strong>”, “Education”, “Goverment”, “Engineering”, “Art”.</p>
+
+<p>Bạn cũng có thể thêm câu chuyện ở mình với “Submit Yours” đó.
+<img src="/assets/images/2020/03/2020-03-ai-da-thanh-cong-cung-python-1.png" alt="" />
+Ba chủ đề được in đậm có nhiều câu chuyện nhất, mình chọn mỗi chủ đề một câu chuyện với vài tóm tắt.</p>
+
+<h3 id="web-development-building-an-open-source-and-cross-platform-azure-cli-with-python">[Web Development] <a href="https://www.python.org/success-stories/building-an-open-source-and-cross-platform-azure-cli-with-python/">Building an open-source and cross-platform Azure CLI with Python</a></h3>
+
+<p>Xây dựng mã nguồn mở và đa nền tảng Azure CLI(Microsoft) với Python</p>
+
+<p>→ Microsoft Azure là một nền tảng điện toán đám mây trải rộng hơn 50 trung tâm dữ liệu toàn cầu với hàng trăm dịch vụ. Là một dịch vụ cloud lớn, họ cung cấp rất nhiều công cụ để quản lý và triển khai hệ thống, một trong những công cụ được sử dụng rộng rãi nhất là Azure CLI(Azure “az” Command Line Interface).</p>
+
+<p>→ Azure CLI bao gồm hàng ngàn các lệnh cùng nhiều thư viện bên thứ 3, cho nên họ đã chuyển từ PowerShell cho Windows và Nodejs-CLI cho Mac, Linux sang dùng Python cho tất cả các nền tảng.</p>
+
+<p>→ Nhờ sự linh hoạt và hệ sinh thái của các gói(packages), Python giúp Azure cung cấp hàng trăm dịch vụ, mỗi dịch vụ cung cấp những phiên bản tương thích khác nhau kèm với hàng trăm nghìn dòng lệnh một cách nhanh nhẹn, hữu ích và dễ sử dụng thật sự là một thách thức lớn.</p>
+
+<p>→ Điều quan trọng nhất là Python cho phép họ tạo nên một công cụ có thể chạy trên nhiều nền tảng, hoạt động tốt, hỗ trợ mở rộng mạnh mẽ và làm hài lòng khách hàng của họ.</p>
+
+<h3 id="scientific-python-for-scientific-data-visualization">[Scientific] <a href="https://www.python.org/success-stories/python-for-scientific-data-visualization/">Python for Scientific Data Visualization</a></h3>
+
+<p>Trực quan hoá dữ liệu khoa học cùng Python – một side project trong 4 tháng của người không phải là lập trình viên, cũng không phải là nhà khoa học máy tính :D.</p>
+
+<p>→ Python đã được chọn vì syntax đơn giản, dễ maintain và là ngôn ngữ dễ học dễ sử dụng</p>
+
+<p>→ MayaVi được viết hoàn toàn bằng Python và nhờ tính linh hoạt của VTK, Python và Tkinter, hoạt động trên Linux, Unix và Windows.</p>
+
+<p>→ Người viết nhấn mạnh sự đơn giản, dễ học và cực kỳ mạnh mẽ của Python, bên cạnh đó trình thông dịch rất tiện cho việc thử nghiệm.</p>
+
+<p>→ Python giúp cho development cycle nhanh hơn, và không cần đợi code compile.</p>
+
+<p>→ Kiểu dữ liệu tự động trong Python giúp người dùng tập trung vào phát triển chức năng, giải quyết vấn đề thay vì học quá nhiều cú pháp và ngôn ngữ.</p>
+
+<h3 id="business-python-to-deliver-commercial-anti-spam-software">[Business] <a href="https://www.python.org/success-stories/python-to-deliver-commercial-anti-spam-software/">Python to Deliver Commercial Anti-Spam Software</a></h3>
+
+<p>Python đã giúp viết phần mềm chống thư rác trong thương mại</p>
+
+<p>→ Dự án Armadillo là một SMTP email filtering proxy hoạt động trên nhiều tên miền và nhiều nền tảng khác nhau, cung cấp dịch vụ lưu trữ email với proxy chống virut và spam. Do đó, Python được chọn như là một giải pháp cho xây dựng đa nền tảng này.</p>
+
+<p>→ The SMTP email filtering proxy bao gồm bộ đệm thông minh, các thư viện filter,  báo cáo spam, virut.</p>
+
+<p>→ Họ xây dựng Armadillo theo kiểu bất đồng bộ(asyncronous) và sử dụng thư viện “asyncore” của Python, cùng nhiều thư viện khác như Python recipes của ActiveState.</p>
+
+<p>Dùng WingIDE như là môi trường phát triển và Nose tests cùng với thư viện unittest để xây dựng bộ test cho dự án.</p>
+
+<p>Họ cũng sử dụng Python Shell trong suốt quá trình phát triển dự án để nhanh chóng kiểm tra và chạy code thử.</p>
+
+<p>→ Sau 4 tháng, sản phẩm hoàn thành sớm hơn dự định 3 tháng(so với kế hoạch giành cho C/C++) và được sử dụng bởi nhiều công ty, đánh bại đối thủ cạnh tranh và chứng minh rằng Python có khả năng phát triển ở các hệ thống thương mại, không còn là ngôn ngữ chỉ giành cho scripting nữa.</p>
+
+<hr />
+
+<p>Như vậy là mình đã biết thêm về những cây chuyện thành công cùng Python rồi ♥</p>
+
+<p>Thực ra thì có quá trời câu chuyện thành công với Python ngoài kia, nhưng những câu chuyện đó không cần kể ra, chỉ cần thấy sản phẩm của người ta thành công thế nào là đủ. Sương sương có thể kể đến những ông trùm Instagram, Netflix, Reddit, Lyft, Google, Spotify, New York Times và Bloomberg đều có dùng Python cả.</p>
+
+<p>Giờ đến lượt tụi mình viết câu chuyện của chính mình đó. Nhưng trước hết, phải học đã rồi nói chuyện tiếp nhé :”&gt;</p>
+
+<p>Ở bài viết sau, mình sẽ tiếp tục khám phá câu hỏi <a href="https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/02/bat-dau-voi-python.htnl">“Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?”</a> cùng phần “Getting Started“.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#python" class="page__taxonomy-item p-category" rel="tag">python</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#%C4%91%E1%BA%A1i-b%E1%BA%A3n-doanh-python" class="page__taxonomy-item p-category" rel="tag">Đại Bản Doanh Python</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2020-03-11">March 11, 2020</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  <h4 class="page__share-title">Share on</h4>
+
+  <a href="https://twitter.com/intent/tweet?via=mmistakes&text=Ai+%C4%91%C3%A3+th%C3%A0nh+c%C3%B4ng+c%C3%B9ng+Python%3F%20http%3A%2F%2Flocalhost%3A4000%2F%25C4%2591%25E1%25BA%25A1i%2520b%25E1%25BA%25A3n%2520doanh%2520python%2Fai-da-thanh-cong-cung-python%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F%25C4%2591%25E1%25BA%25A1i%2520b%25E1%25BA%25A3n%2520doanh%2520python%2Fai-da-thanh-cong-cung-python%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/ai-da-thanh-cong-cung-python/" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/bat-dau-voi-python/" class="pagination--pager" title="Tài liệu học và nghiên cứu Python
+">Previous</a>
+    
+    
+      <a href="/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/tai-lieu-hoc-va-nghien-cuu-python/" class="pagination--pager" title="Tài liệu học và nghiên cứu Python
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  <div align="center" style="margin: 1em 0;">
+  <ins class="adsbygoogle"
+        style="display:block; border-bottom: initial;"
+        data-ad-client="ca-pub-7328585512091257"
+        data-ad-slot="3049671934"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+</div>
+
+
+  <h2 class="page__related-title">You May Also Enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/django/relation-fields-in-drf-serializer/" rel="permalink">Relation fields in Django Rest Framework Serializer
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+The Django model offers various types of relationships such as OneToOneField, ForeignKey, ManyToManyField, and GenericForeignKey.
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/django/export-multiple-csv-to-zip-django/" rel="permalink">Export Multiple CSVs file into a ZIP in Django Application
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/django/export-docx-in-django/" rel="permalink">Export a docx file in Django application
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          8 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/js/scope-trong-javascript/" rel="permalink">Scope trong JavaScript
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      <div align="center" style="margin: 1em 0;">
+  <ins class="adsbygoogle"
+        style="display:block; border-bottom: initial;"
+        data-ad-client="ca-pub-7328585512091257"
+        data-ad-slot="3049671934"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="search-searchbar"></div>
+  <div class="search-hits"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/mmistakes" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/mmistakes" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/mmistakes" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 <a href="http://localhost:4000">BeautyOnCode</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+<script>
+// Including InstantSearch.js library and styling
+const loadSearch = function() {
+  const loadCSS = function(src) {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = src;
+    link.media = 'all';
+    document.head.appendChild(link);
+  };
+
+  var script = document.createElement('script');
+  script.setAttribute("type", "text/javascript");
+  script.setAttribute("src", "https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.js");
+  script.addEventListener("load", function() {
+    // Instantiating InstantSearch.js with Algolia credentials
+    const search = instantsearch({
+      appId: 'QB6HVGBSBA',
+      apiKey: '9d5014e5bbc77372547bce778dfa5663',
+      indexName: 'minimal_mistakes',
+      searchParameters: {
+        restrictSearchableAttributes: ['title', 'content']
+      }
+    });
+
+    const hitTemplate = function(hit) {
+      const url = hit.url;
+      const hightlight = hit._highlightResult;
+      const title = hightlight.title && hightlight.title.value  || "";
+      const content = hightlight.html && hightlight.html.value  || "";
+
+      return `
+        <div class="list__item">
+          <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+            <h2 class="archive__item-title" itemprop="headline"><a href="/${url}">${title}</a></h2>
+            <div class="archive__item-excerpt" itemprop="description">${content}</div>
+          </article>
+        </div>
+      `;
+    }
+
+    // Adding searchbar and results widgets
+    search.addWidget(
+      instantsearch.widgets.searchBox({
+        container: '.search-searchbar',
+        poweredBy: true,
+        placeholder: 'Enter your search term...'
+      })
+    );
+    search.addWidget(
+      instantsearch.widgets.hits({
+        container: '.search-hits',
+        templates: {
+          item: hitTemplate,
+          empty: 'No results',
+        }
+      })
+    );
+
+    if (!search.started) {
+      search.start();
+    }
+  });
+  document.body.appendChild(script);
+
+  loadCSS("https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.css");
+  loadCSS("https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch-theme-algolia.min.css");
+};
+
+// Starting the search only when toggle is clicked
+$(document).ready(function() {
+  var scriptLoaded = false;
+
+  $(".search__toggle").on("click", function() {
+    if (!scriptLoaded) {
+      loadSearch();
+      scriptLoaded = true;
+    }
+  });
+});
+</script>
+
+
+
+
+<style>
+.google-auto-placed {
+  margin: 2em auto;
+}
+</style>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
+
+
+  </body>
+</html>

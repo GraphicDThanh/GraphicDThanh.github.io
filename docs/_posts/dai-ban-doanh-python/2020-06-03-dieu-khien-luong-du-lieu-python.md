@@ -1,9 +1,16 @@
 ---
-layout: post
-title:  "Các công cụ điều khiển luồng dữ liệu trong Python"
-date:   2020-06-03 10:00:00 +0700
-categories: python, dai-ban-doanh-python
+title: "Các công cụ điều khiển luồng dữ liệu trong Python"
+header:
+  teaser: /assets/images/2020/06/2020-06-bat-dau-voi-python.jpg
+  og_image: /assets/images/2020/06/2020-06-bat-dau-voi-python.jpg
+excerpt_separator: <!--more-->
+categories:
+  - Đại Bản Doanh Python
+tags:
+  - python
+last_modified_at: 2020-06-03T15:12:19-04:00
 ---
+
 
 ![](/assets/images/2020/06/2020-06-dieu-khien-luong-du-lieu-python-cover.webp)
 

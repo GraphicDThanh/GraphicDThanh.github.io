@@ -1,0 +1,76 @@
+<p>CSS trong JS hay <code class="language-plaintext highlighter-rouge">CSS-in-JS</code> là một thuật ngữ mô tả việc viết code style CSS trong code JS, tức viết vào file <code class="language-plaintext highlighter-rouge">.js</code> , <code class="language-plaintext highlighter-rouge">.jsx</code> thay vì viết code CSS vào file <code class="language-plaintext highlighter-rouge">.css</code> như bình thường.</p>
+
+<h2 id="css-trong-js-ra-đời-khi-nào">CSS trong JS ra đời khi nào?</h2>
+
+<p><code class="language-plaintext highlighter-rouge">CSS-in-JS</code> ra đời khi mà trang web ngày càng phức tạp và việc duy trì tất cả các CSS của toàn bộ hệ thống trang web (code base lớn) trở nên khó khăn.</p>
+
+<p>Vì tất cả CSS sẽ nằm chung trong một scope global document (hay global scope selectors) gây nhiều xung đột (khi trùng tên class, id) và việc ghi đè CSS trở nên khó khăn hơn (ghi đè nhiều lớp, sử dụng !important, …) .</p>
+
+<p>Thêm vào đó xu hướng <code class="language-plaintext highlighter-rouge">component-based development</code> (hay component driven development) ngày càng phát triển với React khiến việc style từng thành phần (component) càng trở nên cấp thiết.</p>
+
+<h2 id="css-in-js-đã-giúp-giải-quyết-các-vấn-đề-này-như-thế-nào">CSS-in-JS đã giúp giải quyết các vấn đề này như thế nào?</h2>
+
+<p><code class="language-plaintext highlighter-rouge">CSS-in-JS</code> sẽ trích xuất CSS theo từng component thay vì theo document như CSS.</p>
+
+<p><code class="language-plaintext highlighter-rouge">styled-components</code> là một thư việc CSS-in-JS được sử dụng phổ biến nhất. Ngoài ra còn có <code class="language-plaintext highlighter-rouge">Aphrodite</code>, <code class="language-plaintext highlighter-rouge">Radium</code>, <code class="language-plaintext highlighter-rouge">Glamorous</code>, <code class="language-plaintext highlighter-rouge">JSS</code></p>
+
+<p>Một ví dụ với thư viện Styled Component (<code class="language-plaintext highlighter-rouge">styled-components</code>):</p>
+
+<p>Tạo Text mặc định sẽ nhận thẻ p, với font size là 16px.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">styled</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">styled-components</span><span class="dl">'</span>
+
+<span class="kd">const</span> <span class="nx">Text</span> <span class="o">=</span> <span class="nx">styled</span><span class="p">.</span><span class="nx">p</span><span class="s2">`
+  font-size: 16px;
+`</span>
+</code></pre></div></div>
+
+<p>và truyền thẻ <code class="language-plaintext highlighter-rouge">h2</code> vào thuộc tính <code class="language-plaintext highlighter-rouge">“as”</code> để Text sử dụng:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">Text</span> <span class="k">as</span><span class="o">=</span><span class="dl">'</span><span class="s1">h2</span><span class="dl">'</span><span class="o">&gt;</span><span class="nx">This</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">H2</span> <span class="nx">heading</span><span class="o">&lt;</span><span class="sr">/Text</span><span class="err">&gt;
+</span></code></pre></div></div>
+<p>Khi đó code CSS sẽ tự động tạo một class duy nhất và được gắn vào DOM như sau:</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;style&gt;</span>
+  <span class="nc">.gZxhj123</span> <span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">16px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span>
+</code></pre></div></div>
+
+<h2 id="ưu-điểm-khi-sử-dụng-css-in-js">Ưu điểm khi sử dụng CSS-in-JS</h2>
+
+<p>→ Code ngắn gọn và nhất quán hơn</p>
+
+<p>→ Giảm xung đột CSS</p>
+
+<p>→ CSS dynamic với props</p>
+
+<p>→ Kế thừa style</p>
+
+<p>→ Cú pháp SASS giúp style dễ dàng với pseudo element và pseudo class</p>
+
+<p>→ Dễ dàng thay đổi theme với ThemeContext</p>
+
+<p>→ Tự động tạo prefix cho class CSS, không sợ bị trùng nhau</p>
+
+<p>→ Có thể viết unit test cho CSS</p>
+
+<h2 id="nhược-điểm-khi-sử-dụng-css-in-js">Nhược điểm khi sử dụng CSS-in-JS</h2>
+
+<p>→ Sẽ không phù hợp với người chưa biết JS</p>
+
+<p>→ Tốn thời gian làm quen với thư viện, gây khó khăn cho người mới</p>
+
+<p>→ Khó khăn khi muốn debug bằng tên class</p>
+
+<p>→ Hiệu suất không tốt bằng CSS, do sử dụng nhiều thẻ style hơn, nặng code base hơn</p>
+
+<hr />
+
+<p>Trên đây là vài note tóm tắt mình tìm hiểu được về CSS-in-JS.</p>
+
+<p>Với mình, nếu dự án nhỏ, và làm việc với các bạn chưa có nhiều kinh nghiệm về JS, về OOP, … thì mình sẽ chọn CSS truyền thống (hoặc SASS – vẫn dynamic được) vì các bạn sẽ dễ tiếp cận hơn.</p>
+
+<p>Còn dự án vừa và lớn, tính kế thừa cao, nhiều components, dev nhiều kinh nghiệm hơn thì mình sẽ chọn các thư viện CSS-in-JS như styled-components.</p>
+
+<p>Bạn thấy sao về CSS-in-JS? Nếu được chọn thì bạn sẽ sử dụng styled-components hay CSS truyền thống để style cho ứng dụng React của bạn?</p>

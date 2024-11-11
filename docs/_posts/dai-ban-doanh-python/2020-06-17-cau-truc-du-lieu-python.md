@@ -1,9 +1,16 @@
 ---
-layout: post
-title:  "Cấu trúc dữ liệu​ trong Python"
-date:   2020-06-17 10:00:00 +0700
-categories: python, dai-ban-doanh-python
+title: "Cấu trúc dữ liệu​ trong Python"
+header:
+  teaser: /assets/images/2020/06/2020-06-cau-truc-du-lieu-python-cover.webp
+  og_image: /assets/images/2020/06/2020-06-cau-truc-du-lieu-python-cover.webp
+excerpt_separator: <!--more-->
+categories:
+  - Đại Bản Doanh Python
+tags:
+  - python
+last_modified_at: 2020-06-03T15:12:19-04:00
 ---
+
 ![](/assets/images/2020/06/2020-06-cau-truc-du-lieu-python-cover.webp)
 
 Chào mừng mọi người đến với bài post tiếp theo của phần [“The Python Tutorial”](https://docs.python.org/3/tutorial/) của series [Khám phá Đại Bản Doanh Python](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/07/dai-ban-doanh-python-series-overview.html). The Python Tutorial mang đến những khái niệm và các tính năng cơ bản nhất của Python và cú pháp của nó.

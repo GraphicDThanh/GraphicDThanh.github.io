@@ -1,9 +1,14 @@
 ---
-layout: post
-title:  "Python có thể dùng để làm gì nhỉ?"
-date:   2020-02-12 10:00:00 +0700
-categories: python dai-ban-doanh-python
-author: thanh
+title: "Python có thể dùng để làm gì nhỉ?"
+header:
+  teaser: /assets/images/2020/12/2020-12-python-co-the-lam-gi-nhi-cover.png
+  og_image: /assets/images/2020/12/2020-12-python-co-the-lam-gi-nhi-cover.png
+excerpt_separator: <!--more-->
+categories:
+  - Đại Bản Doanh Python
+tags:
+  - python
+last_modified_at: 2020-02-12T15:12:19-04:00
 ---
 
 ![](/assets/images/2020/12/2020-12-python-co-the-lam-gi-nhi-cover.png)
@@ -30,9 +35,9 @@ Bài dưới đây sẽ đi trả lời câu hỏi “Python có thể dùng đ�
 
 ---
 
-Học Python đang là xu hướng của thế giới, Python được các ông trùm như Instagram, Netflix, Reddit, Lyft, Google, Spotify, New York Times và Bloomberg sử dụng. 
+Học Python đang là xu hướng của thế giới, Python được các ông trùm như Instagram, Netflix, Reddit, Lyft, Google, Spotify, New York Times và Bloomberg sử dụng.
 
-*Vậy nó có thể làm được gì mà người ta dùng nhiều quá vậy?* 
+*Vậy nó có thể làm được gì mà người ta dùng nhiều quá vậy?*
 
 Python được ứng dụng rất rộng rãi, ở đây mình cùng tìm hiểu về 5 nhóm chính nơi Python được sử dụng phổ biến nhất:
 
@@ -79,7 +84,7 @@ Python cũng được sử dụng rộng rãi trong khoa học và số học:
 
 Python là một ngôn ngữ tuyệt vời trong giảng dạy lập trình ở nhiều cấp độ từ cơ bản đến nâng cao.
 
-Nhiều cuốn sách giảng dạy lập trình được viết với ngôn ngữ Python như là: 
+Nhiều cuốn sách giảng dạy lập trình được viết với ngôn ngữ Python như là:
 
 → [How to Think Like a Computer Scientist](http://www.openbookproject.net/thinkcs/python/english2e/)
 
@@ -124,9 +129,9 @@ Trong video trên giới thiệu Python áp dụng trong 3 lĩnh vực chính l�
 → Data Science, Data analysis/visualization
 
 - Machine Learning với scikit-learn, TensorFlow
-    
+
 - Data analysis và visualization với matplolib
-    
+
 → Scripting
 
 Ngoài ra, những ứng dụng khác như Game Development(PyGame), Desktop applications(Tkinter, QT), Embedded applications(Raspberry Pi)

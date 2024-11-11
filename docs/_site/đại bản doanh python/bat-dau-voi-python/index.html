@@ -1,0 +1,892 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en-US" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Bắt đầu với Python? - BeautyOnCode</title>
+<meta name="description" content="Chào mừng mọi người đến với bài post thứ ba của phần “Lượn lờ cùng Python” của series “Khám phá Đại Bản Doanh Python“  Trong phần này, tụi mình sẽ cùng nhau dạo quanh quanh những phần ngoài lề trước khi tấn công vào document ở những phần tiếp theo nhé.  Mình sẽ đi trả lời nhưng câu hỏi sau trong “Lượn lờ cùng Python”:  ♣ Python có thể dùng để làm gì nhỉ?  ♣ Ai đã thành công cùng Python?  ♣ Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu? (bài hôm ni)  Những nội dung trong bài series này từ “Đại bản doanh Python” python.org, mình viết bằng ngôn ngữ của mình kèm theo những tài liệu khác mà mình thấy liên quan và hữu ích cho chủ đề của bài.  Bài dưới đây sẽ đi trả lời câu hỏi “Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?” nằm trong mục “Getting Started” nha  Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu? Dô dô, dô ngay và luôn, không đợi chờ gì nữa, học Python ngay thôi, lương nghìn lẻ một đô đang chờ ahihi  Ở phần “Bắt đầu với Python” này, gồm những nội dung chính sau:  – Python là gì thế ạ?  – Cách lượm Python về và chơi thử  – Chơi thử rồi, giờ là học thiệt nghe  – Tìm kiếm những ứng dụng làm sẵn  – Hỏi han thường gặp  Đi thôi mấy mọi người ơi!  Python là gì thế ạ? Python là ngôn ngữ lập trình hướng đối tượng, có thể so sánh với Perl, Ruby, Scheme hoặc Java  Các tính năng đáng chú ý:  ♥ Cú pháp tao nhã, dễ đọc dễ viết  ♥ Viết chương trình một phát là có thể chạy liền  ♥ Thư viện chuẩn hỗ trợ các tác vụ phổ biến như kết nối server, tìm kiếm với các biểu thức(regular expression), đọc và chỉnh sửa file  ♥ Dễ dàng kiểm thử các đoạn code ngắn với Python interactive mode  ♥ Có thể thêm các mô đun khác được viết bằng ngôn ngữ khác như C, C++. Có thể nhúng vào ứng dụng khác để tạo giao diện sử dụng  ♥ Chạy trên đa nền tảng: Mac OS X, Linux, Windows, Unix. Miễn phí tải xuống, miễn phí sử dụng  Các tính năng đáng chú ý về ngôn ngữ:  ♥ Nhiều kiểu dữ liệu: number(floating point, complex, and unlimited-length long integers), string (both ASCII and Unicode), lists(danh sách), and dictionaries(từ điển). Kiểu dữ liệu động và mạnh mẽ, trộn các loại dữ liệu khác nhau sẽ báo lỗi ngay(như cộng string với number)  ♥ Hỗ trợ lập trình hướng đối tượng với lớp(classes) và nhiều lớp kế thừa(multi inheritances).  ♥ Code có thể nhóm thành các mô-đun, các gói. Bộ nhớ được quản lý tự động. Có hỗ trợ xử lý lỗi sạch đẹp  ♥ Python chứa các tính năng nâng cao của một ngôn ngữ lập trình như list comprehensions và generators  Cách lượm Python về chơi thử Để lượm được Python về và chơi thử, mình phải cài đặt cái trình thông dịch của bạn ấy – Python Interpreter, đây là chương trình có thể đọc code Python và chạy. Ngoài ra, bạn ấy còn có kèm theo nhiều tài liệu có thể giúp mình hiểu hơn về Python nữa.  Thường thì Mac và Linux sẽ được tích hợp Python sẵn rồi, nhưng đó là bản lỗi thời rồi(Python 2.x), cho nên mình cần phải cập nhật lên bản mới(Python 3.x)(vui lòng kiểm tra ở trang Downloads này nhé).  Sau khi cài được python version 3 rồi, mình vô command line gõ “python” hoặc “python3” là đã được vô chế độ chơi thử cùng Python Interpreter rồi đó.  Vô đây chỉ là chơi thử thấy liền kết quả thôi, còn nếu bạn muốn lưu code lại và chỉnh sửa thì mình cần có IDE hoặc Code Editor để mở file đó, bạn có thể bắt đầu với [Thony](https://thonny.org/(một chương trình tích hợp sẵn Python Interpreter và IDE bundles), khá đơn giản và nhẹ nữa. (Bonus)  Nếu bạn đang tìm kiếm một IDEs hay Text Editors để xài với Python, thì python.org cũng có nguyên hai list to bự chảng cho bạn tham khảo luôn:  ⇒ IDEs Python giới thiệu tên, nền tảng, lần cuối cập nhật và vài thông tin chính của IDE  ⇒ Python Editors giới thiệu tên, nền tảng, viết bằng ngôn ngữ gì, giấy phép nào, và vài thông tin chính của editor  Mình tạt qua giới thiệu cái IDEs với cái Code Editors xí nếu bạn chưa rõ thì đọc thêm nhé  IDEs là môi trường lập trình cung cấp những tính năng như mã hoá, biên dịch, gỡ lỗi, thực thi, tự động điền vào(autocomplete), các thư viện trong cùng một nơi giúp các tác vụ trở nên đơn giản và dễ dàng hơn  Các IDEs phổ biến có thể kể đến: PyCharm, Spyder, PyDev, Idle, Wing, Eric Python, Rodeo, Thonny  Trong khi đó, Code editors là một nền tảng để chỉnh và sửa mã nguồn, phổ biến dùng với Python có thể kể đến: Sublime text, Atom, Vim, Visual Studio Code  Bạn có thể xem qua những python IDE, code editors ở article này, có giới thiệu những features chính, ưu điểm, nhược điểm để mình lựa cái dùng cho phù hợp.  Chơi thử rồi, giờ là học thiệt nghe Lựa được nơi code rồi, mình bắt tay vô code thôi. Á nhầm, mình phải đọc mấy cái hướng dẫn(tutorial) trước, rồi code theo xem nó chạy thế nào chớ. Về hướng dẫn thì có 2 hướng chính nè:          Mới học lập trình, hãy đi cùng Beginner Guide – Non Programmer           Có tí kinh nghiệm lập trình rồi, thì đi cùng Beginner Guide – Programmer      Trong mỗi hướng dẫn, đều gồm những mục như giới thiệu sách phù hợp cho từng đối tượng, các tutorials và các websites, các khoá học tương tác, tài liệu giành cho người nghiên cứu khoa học, các videos và tools.  Mình thấy bên Non Programmer thì các khoá học tương tác được xếp trước những tài nguyên khác chắc là muốn người bắt đầu tương tác làm quen Python trước.  Còn bên Programmer thì là hai link review những khoá học tốt nhất giành cho Python để nắm bắt nhanh nhất, nàm trên top có [“Google Python’s class”](https://developers.google.com/edu/python/(miễn phí) và  khóa “Complete Python Bootcamp: Go from zero to hero in Python 3” từ Udemy(có phí).  Bên cạnh đó, khi cần tìm kiếm thêm thông tin gì về Python thì online documentation là nơi bạn cần ghé. Ngoài ra, cũng có Python tutorial học những thứ cơ bản nhất và giúp mình bắt đầu với Python, mình sẽ cùng học tutorial này trong những bài blog tiếp theo.  Sau khi học và viết những thứ cơ bản rồi, đã đến lúc bạn nên tìm hiểu thêm về Syntax Python cùng series “The Python Language Reference” và những thư viện chuẩn của Python với “The Python Standard Library“.  Bạn có muốn biết những recipes(công thức) và patterns(mô hình) phổ biến trong Python, hãy ghé “ActiveState Python Cookbook” để xem.  Tìm kiếm những ứng dụng có sẵn Nếu bạn muốn tìm kiếm những mô đun, package hay những ứng dụng được viết bằng Python rồi để tham khảo hay dùng trong ứng dựng của mình, thì nơi đầu tiên có thể ghé kiếm thử là PyPI – kho packages viết bằng Python sẽ tìm kiếm được những source code tốt nhất hoặc đơn giản chỉ cần hỏi thăm bác Google với những từ khoá như là “python package”, “python example”, “python recipes”, … là được rồi.  Nếu vẫn không tìm được thứ bạn cần, ngại gì không hỏi một câu trên Stackoverflow hay bất cứ ai bạn biết là họ biết nhiều Python hơn bạn nhỉ ^^.  Hỏi han thường gặp Nếu bạn có câu hỏi nào về Python, thử kiểm tra trong phần “Hỏi han thường gặp” thử xem người ta đã trả lời chưa nhé.  Bonus cho bạn top câu hỏi Python trên StackOverflow nè.  Đây là bài cuối của phần “Lượn lờ cùng Python” rồi.  Tụi mình đã đi qua đám này hẳn mình đã hiểu cái độ quan trọng của Python và háo hức cho hành trình tiếp theo rồi đó.  Tiếp đến, mình sẽ gặm qua phần khó ăn nhất “Documentation”  Thực ra mình cũng ngán mấy cái documentation dữ lắm, cho nên mình không dại dột chi mà chui vô liền cái document lắm chữ đâu. Mình thấy ở đây còn có nhiều sự lựa chọn khác có vẻ dễ thương hơn nhiều, đó là “Audio/Visual Talks” và “Beginner Guide“. Phần ni gọi tên là “Làm quen kết bạn với Python” cho nó thân thiện ha.  BeautyOnCode.">
+
+
+  <meta name="author" content="Thanh Nguyen">
+  
+  <meta property="article:author" content="Thanh Nguyen">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="BeautyOnCode">
+<meta property="og:title" content="Bắt đầu với Python?">
+<meta property="og:url" content="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/bat-dau-voi-python/">
+
+
+  <meta property="og:description" content="Chào mừng mọi người đến với bài post thứ ba của phần “Lượn lờ cùng Python” của series “Khám phá Đại Bản Doanh Python“  Trong phần này, tụi mình sẽ cùng nhau dạo quanh quanh những phần ngoài lề trước khi tấn công vào document ở những phần tiếp theo nhé.  Mình sẽ đi trả lời nhưng câu hỏi sau trong “Lượn lờ cùng Python”:  ♣ Python có thể dùng để làm gì nhỉ?  ♣ Ai đã thành công cùng Python?  ♣ Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu? (bài hôm ni)  Những nội dung trong bài series này từ “Đại bản doanh Python” python.org, mình viết bằng ngôn ngữ của mình kèm theo những tài liệu khác mà mình thấy liên quan và hữu ích cho chủ đề của bài.  Bài dưới đây sẽ đi trả lời câu hỏi “Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?” nằm trong mục “Getting Started” nha  Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu? Dô dô, dô ngay và luôn, không đợi chờ gì nữa, học Python ngay thôi, lương nghìn lẻ một đô đang chờ ahihi  Ở phần “Bắt đầu với Python” này, gồm những nội dung chính sau:  – Python là gì thế ạ?  – Cách lượm Python về và chơi thử  – Chơi thử rồi, giờ là học thiệt nghe  – Tìm kiếm những ứng dụng làm sẵn  – Hỏi han thường gặp  Đi thôi mấy mọi người ơi!  Python là gì thế ạ? Python là ngôn ngữ lập trình hướng đối tượng, có thể so sánh với Perl, Ruby, Scheme hoặc Java  Các tính năng đáng chú ý:  ♥ Cú pháp tao nhã, dễ đọc dễ viết  ♥ Viết chương trình một phát là có thể chạy liền  ♥ Thư viện chuẩn hỗ trợ các tác vụ phổ biến như kết nối server, tìm kiếm với các biểu thức(regular expression), đọc và chỉnh sửa file  ♥ Dễ dàng kiểm thử các đoạn code ngắn với Python interactive mode  ♥ Có thể thêm các mô đun khác được viết bằng ngôn ngữ khác như C, C++. Có thể nhúng vào ứng dụng khác để tạo giao diện sử dụng  ♥ Chạy trên đa nền tảng: Mac OS X, Linux, Windows, Unix. Miễn phí tải xuống, miễn phí sử dụng  Các tính năng đáng chú ý về ngôn ngữ:  ♥ Nhiều kiểu dữ liệu: number(floating point, complex, and unlimited-length long integers), string (both ASCII and Unicode), lists(danh sách), and dictionaries(từ điển). Kiểu dữ liệu động và mạnh mẽ, trộn các loại dữ liệu khác nhau sẽ báo lỗi ngay(như cộng string với number)  ♥ Hỗ trợ lập trình hướng đối tượng với lớp(classes) và nhiều lớp kế thừa(multi inheritances).  ♥ Code có thể nhóm thành các mô-đun, các gói. Bộ nhớ được quản lý tự động. Có hỗ trợ xử lý lỗi sạch đẹp  ♥ Python chứa các tính năng nâng cao của một ngôn ngữ lập trình như list comprehensions và generators  Cách lượm Python về chơi thử Để lượm được Python về và chơi thử, mình phải cài đặt cái trình thông dịch của bạn ấy – Python Interpreter, đây là chương trình có thể đọc code Python và chạy. Ngoài ra, bạn ấy còn có kèm theo nhiều tài liệu có thể giúp mình hiểu hơn về Python nữa.  Thường thì Mac và Linux sẽ được tích hợp Python sẵn rồi, nhưng đó là bản lỗi thời rồi(Python 2.x), cho nên mình cần phải cập nhật lên bản mới(Python 3.x)(vui lòng kiểm tra ở trang Downloads này nhé).  Sau khi cài được python version 3 rồi, mình vô command line gõ “python” hoặc “python3” là đã được vô chế độ chơi thử cùng Python Interpreter rồi đó.  Vô đây chỉ là chơi thử thấy liền kết quả thôi, còn nếu bạn muốn lưu code lại và chỉnh sửa thì mình cần có IDE hoặc Code Editor để mở file đó, bạn có thể bắt đầu với [Thony](https://thonny.org/(một chương trình tích hợp sẵn Python Interpreter và IDE bundles), khá đơn giản và nhẹ nữa. (Bonus)  Nếu bạn đang tìm kiếm một IDEs hay Text Editors để xài với Python, thì python.org cũng có nguyên hai list to bự chảng cho bạn tham khảo luôn:  ⇒ IDEs Python giới thiệu tên, nền tảng, lần cuối cập nhật và vài thông tin chính của IDE  ⇒ Python Editors giới thiệu tên, nền tảng, viết bằng ngôn ngữ gì, giấy phép nào, và vài thông tin chính của editor  Mình tạt qua giới thiệu cái IDEs với cái Code Editors xí nếu bạn chưa rõ thì đọc thêm nhé  IDEs là môi trường lập trình cung cấp những tính năng như mã hoá, biên dịch, gỡ lỗi, thực thi, tự động điền vào(autocomplete), các thư viện trong cùng một nơi giúp các tác vụ trở nên đơn giản và dễ dàng hơn  Các IDEs phổ biến có thể kể đến: PyCharm, Spyder, PyDev, Idle, Wing, Eric Python, Rodeo, Thonny  Trong khi đó, Code editors là một nền tảng để chỉnh và sửa mã nguồn, phổ biến dùng với Python có thể kể đến: Sublime text, Atom, Vim, Visual Studio Code  Bạn có thể xem qua những python IDE, code editors ở article này, có giới thiệu những features chính, ưu điểm, nhược điểm để mình lựa cái dùng cho phù hợp.  Chơi thử rồi, giờ là học thiệt nghe Lựa được nơi code rồi, mình bắt tay vô code thôi. Á nhầm, mình phải đọc mấy cái hướng dẫn(tutorial) trước, rồi code theo xem nó chạy thế nào chớ. Về hướng dẫn thì có 2 hướng chính nè:          Mới học lập trình, hãy đi cùng Beginner Guide – Non Programmer           Có tí kinh nghiệm lập trình rồi, thì đi cùng Beginner Guide – Programmer      Trong mỗi hướng dẫn, đều gồm những mục như giới thiệu sách phù hợp cho từng đối tượng, các tutorials và các websites, các khoá học tương tác, tài liệu giành cho người nghiên cứu khoa học, các videos và tools.  Mình thấy bên Non Programmer thì các khoá học tương tác được xếp trước những tài nguyên khác chắc là muốn người bắt đầu tương tác làm quen Python trước.  Còn bên Programmer thì là hai link review những khoá học tốt nhất giành cho Python để nắm bắt nhanh nhất, nàm trên top có [“Google Python’s class”](https://developers.google.com/edu/python/(miễn phí) và  khóa “Complete Python Bootcamp: Go from zero to hero in Python 3” từ Udemy(có phí).  Bên cạnh đó, khi cần tìm kiếm thêm thông tin gì về Python thì online documentation là nơi bạn cần ghé. Ngoài ra, cũng có Python tutorial học những thứ cơ bản nhất và giúp mình bắt đầu với Python, mình sẽ cùng học tutorial này trong những bài blog tiếp theo.  Sau khi học và viết những thứ cơ bản rồi, đã đến lúc bạn nên tìm hiểu thêm về Syntax Python cùng series “The Python Language Reference” và những thư viện chuẩn của Python với “The Python Standard Library“.  Bạn có muốn biết những recipes(công thức) và patterns(mô hình) phổ biến trong Python, hãy ghé “ActiveState Python Cookbook” để xem.  Tìm kiếm những ứng dụng có sẵn Nếu bạn muốn tìm kiếm những mô đun, package hay những ứng dụng được viết bằng Python rồi để tham khảo hay dùng trong ứng dựng của mình, thì nơi đầu tiên có thể ghé kiếm thử là PyPI – kho packages viết bằng Python sẽ tìm kiếm được những source code tốt nhất hoặc đơn giản chỉ cần hỏi thăm bác Google với những từ khoá như là “python package”, “python example”, “python recipes”, … là được rồi.  Nếu vẫn không tìm được thứ bạn cần, ngại gì không hỏi một câu trên Stackoverflow hay bất cứ ai bạn biết là họ biết nhiều Python hơn bạn nhỉ ^^.  Hỏi han thường gặp Nếu bạn có câu hỏi nào về Python, thử kiểm tra trong phần “Hỏi han thường gặp” thử xem người ta đã trả lời chưa nhé.  Bonus cho bạn top câu hỏi Python trên StackOverflow nè.  Đây là bài cuối của phần “Lượn lờ cùng Python” rồi.  Tụi mình đã đi qua đám này hẳn mình đã hiểu cái độ quan trọng của Python và háo hức cho hành trình tiếp theo rồi đó.  Tiếp đến, mình sẽ gặm qua phần khó ăn nhất “Documentation”  Thực ra mình cũng ngán mấy cái documentation dữ lắm, cho nên mình không dại dột chi mà chui vô liền cái document lắm chữ đâu. Mình thấy ở đây còn có nhiều sự lựa chọn khác có vẻ dễ thương hơn nhiều, đó là “Audio/Visual Talks” và “Beginner Guide“. Phần ni gọi tên là “Làm quen kết bạn với Python” cho nó thân thiện ha.  BeautyOnCode.">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/2020/06/2020-06-bat-dau-voi-python.jpg">
+
+
+
+  <meta name="twitter:site" content="@mmistakes">
+  <meta name="twitter:title" content="Bắt đầu với Python?">
+  <meta name="twitter:description" content="Chào mừng mọi người đến với bài post thứ ba của phần “Lượn lờ cùng Python” của series “Khám phá Đại Bản Doanh Python“  Trong phần này, tụi mình sẽ cùng nhau dạo quanh quanh những phần ngoài lề trước khi tấn công vào document ở những phần tiếp theo nhé.  Mình sẽ đi trả lời nhưng câu hỏi sau trong “Lượn lờ cùng Python”:  ♣ Python có thể dùng để làm gì nhỉ?  ♣ Ai đã thành công cùng Python?  ♣ Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu? (bài hôm ni)  Những nội dung trong bài series này từ “Đại bản doanh Python” python.org, mình viết bằng ngôn ngữ của mình kèm theo những tài liệu khác mà mình thấy liên quan và hữu ích cho chủ đề của bài.  Bài dưới đây sẽ đi trả lời câu hỏi “Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?” nằm trong mục “Getting Started” nha  Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu? Dô dô, dô ngay và luôn, không đợi chờ gì nữa, học Python ngay thôi, lương nghìn lẻ một đô đang chờ ahihi  Ở phần “Bắt đầu với Python” này, gồm những nội dung chính sau:  – Python là gì thế ạ?  – Cách lượm Python về và chơi thử  – Chơi thử rồi, giờ là học thiệt nghe  – Tìm kiếm những ứng dụng làm sẵn  – Hỏi han thường gặp  Đi thôi mấy mọi người ơi!  Python là gì thế ạ? Python là ngôn ngữ lập trình hướng đối tượng, có thể so sánh với Perl, Ruby, Scheme hoặc Java  Các tính năng đáng chú ý:  ♥ Cú pháp tao nhã, dễ đọc dễ viết  ♥ Viết chương trình một phát là có thể chạy liền  ♥ Thư viện chuẩn hỗ trợ các tác vụ phổ biến như kết nối server, tìm kiếm với các biểu thức(regular expression), đọc và chỉnh sửa file  ♥ Dễ dàng kiểm thử các đoạn code ngắn với Python interactive mode  ♥ Có thể thêm các mô đun khác được viết bằng ngôn ngữ khác như C, C++. Có thể nhúng vào ứng dụng khác để tạo giao diện sử dụng  ♥ Chạy trên đa nền tảng: Mac OS X, Linux, Windows, Unix. Miễn phí tải xuống, miễn phí sử dụng  Các tính năng đáng chú ý về ngôn ngữ:  ♥ Nhiều kiểu dữ liệu: number(floating point, complex, and unlimited-length long integers), string (both ASCII and Unicode), lists(danh sách), and dictionaries(từ điển). Kiểu dữ liệu động và mạnh mẽ, trộn các loại dữ liệu khác nhau sẽ báo lỗi ngay(như cộng string với number)  ♥ Hỗ trợ lập trình hướng đối tượng với lớp(classes) và nhiều lớp kế thừa(multi inheritances).  ♥ Code có thể nhóm thành các mô-đun, các gói. Bộ nhớ được quản lý tự động. Có hỗ trợ xử lý lỗi sạch đẹp  ♥ Python chứa các tính năng nâng cao của một ngôn ngữ lập trình như list comprehensions và generators  Cách lượm Python về chơi thử Để lượm được Python về và chơi thử, mình phải cài đặt cái trình thông dịch của bạn ấy – Python Interpreter, đây là chương trình có thể đọc code Python và chạy. Ngoài ra, bạn ấy còn có kèm theo nhiều tài liệu có thể giúp mình hiểu hơn về Python nữa.  Thường thì Mac và Linux sẽ được tích hợp Python sẵn rồi, nhưng đó là bản lỗi thời rồi(Python 2.x), cho nên mình cần phải cập nhật lên bản mới(Python 3.x)(vui lòng kiểm tra ở trang Downloads này nhé).  Sau khi cài được python version 3 rồi, mình vô command line gõ “python” hoặc “python3” là đã được vô chế độ chơi thử cùng Python Interpreter rồi đó.  Vô đây chỉ là chơi thử thấy liền kết quả thôi, còn nếu bạn muốn lưu code lại và chỉnh sửa thì mình cần có IDE hoặc Code Editor để mở file đó, bạn có thể bắt đầu với [Thony](https://thonny.org/(một chương trình tích hợp sẵn Python Interpreter và IDE bundles), khá đơn giản và nhẹ nữa. (Bonus)  Nếu bạn đang tìm kiếm một IDEs hay Text Editors để xài với Python, thì python.org cũng có nguyên hai list to bự chảng cho bạn tham khảo luôn:  ⇒ IDEs Python giới thiệu tên, nền tảng, lần cuối cập nhật và vài thông tin chính của IDE  ⇒ Python Editors giới thiệu tên, nền tảng, viết bằng ngôn ngữ gì, giấy phép nào, và vài thông tin chính của editor  Mình tạt qua giới thiệu cái IDEs với cái Code Editors xí nếu bạn chưa rõ thì đọc thêm nhé  IDEs là môi trường lập trình cung cấp những tính năng như mã hoá, biên dịch, gỡ lỗi, thực thi, tự động điền vào(autocomplete), các thư viện trong cùng một nơi giúp các tác vụ trở nên đơn giản và dễ dàng hơn  Các IDEs phổ biến có thể kể đến: PyCharm, Spyder, PyDev, Idle, Wing, Eric Python, Rodeo, Thonny  Trong khi đó, Code editors là một nền tảng để chỉnh và sửa mã nguồn, phổ biến dùng với Python có thể kể đến: Sublime text, Atom, Vim, Visual Studio Code  Bạn có thể xem qua những python IDE, code editors ở article này, có giới thiệu những features chính, ưu điểm, nhược điểm để mình lựa cái dùng cho phù hợp.  Chơi thử rồi, giờ là học thiệt nghe Lựa được nơi code rồi, mình bắt tay vô code thôi. Á nhầm, mình phải đọc mấy cái hướng dẫn(tutorial) trước, rồi code theo xem nó chạy thế nào chớ. Về hướng dẫn thì có 2 hướng chính nè:          Mới học lập trình, hãy đi cùng Beginner Guide – Non Programmer           Có tí kinh nghiệm lập trình rồi, thì đi cùng Beginner Guide – Programmer      Trong mỗi hướng dẫn, đều gồm những mục như giới thiệu sách phù hợp cho từng đối tượng, các tutorials và các websites, các khoá học tương tác, tài liệu giành cho người nghiên cứu khoa học, các videos và tools.  Mình thấy bên Non Programmer thì các khoá học tương tác được xếp trước những tài nguyên khác chắc là muốn người bắt đầu tương tác làm quen Python trước.  Còn bên Programmer thì là hai link review những khoá học tốt nhất giành cho Python để nắm bắt nhanh nhất, nàm trên top có [“Google Python’s class”](https://developers.google.com/edu/python/(miễn phí) và  khóa “Complete Python Bootcamp: Go from zero to hero in Python 3” từ Udemy(có phí).  Bên cạnh đó, khi cần tìm kiếm thêm thông tin gì về Python thì online documentation là nơi bạn cần ghé. Ngoài ra, cũng có Python tutorial học những thứ cơ bản nhất và giúp mình bắt đầu với Python, mình sẽ cùng học tutorial này trong những bài blog tiếp theo.  Sau khi học và viết những thứ cơ bản rồi, đã đến lúc bạn nên tìm hiểu thêm về Syntax Python cùng series “The Python Language Reference” và những thư viện chuẩn của Python với “The Python Standard Library“.  Bạn có muốn biết những recipes(công thức) và patterns(mô hình) phổ biến trong Python, hãy ghé “ActiveState Python Cookbook” để xem.  Tìm kiếm những ứng dụng có sẵn Nếu bạn muốn tìm kiếm những mô đun, package hay những ứng dụng được viết bằng Python rồi để tham khảo hay dùng trong ứng dựng của mình, thì nơi đầu tiên có thể ghé kiếm thử là PyPI – kho packages viết bằng Python sẽ tìm kiếm được những source code tốt nhất hoặc đơn giản chỉ cần hỏi thăm bác Google với những từ khoá như là “python package”, “python example”, “python recipes”, … là được rồi.  Nếu vẫn không tìm được thứ bạn cần, ngại gì không hỏi một câu trên Stackoverflow hay bất cứ ai bạn biết là họ biết nhiều Python hơn bạn nhỉ ^^.  Hỏi han thường gặp Nếu bạn có câu hỏi nào về Python, thử kiểm tra trong phần “Hỏi han thường gặp” thử xem người ta đã trả lời chưa nhé.  Bonus cho bạn top câu hỏi Python trên StackOverflow nè.  Đây là bài cuối của phần “Lượn lờ cùng Python” rồi.  Tụi mình đã đi qua đám này hẳn mình đã hiểu cái độ quan trọng của Python và háo hức cho hành trình tiếp theo rồi đó.  Tiếp đến, mình sẽ gặm qua phần khó ăn nhất “Documentation”  Thực ra mình cũng ngán mấy cái documentation dữ lắm, cho nên mình không dại dột chi mà chui vô liền cái document lắm chữ đâu. Mình thấy ở đây còn có nhiều sự lựa chọn khác có vẻ dễ thương hơn nhiều, đó là “Audio/Visual Talks” và “Beginner Guide“. Phần ni gọi tên là “Làm quen kết bạn với Python” cho nó thân thiện ha.  BeautyOnCode.">
+  <meta name="twitter:url" content="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/bat-dau-voi-python/">
+
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/2020/06/2020-06-bat-dau-voi-python.jpg">
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2020-06-02T00:00:00-04:00">
+
+
+
+  <meta property="article:modified_time" content="2020-06-02T15:12:19-04:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/bat-dau-voi-python/">
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="BeautyOnCode Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  window.enable_copy_code_button = true;
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo/logo-circle.webp" alt="BeautyOnCode"></a>
+        
+        <a class="site-title" href="/">
+          BeautyOnCode
+          <span class="site-subtitle">Code Your Life In An Elegant Way</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/docs/quick-start-guide/"
+                
+                
+              >Quick-Start Guide</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/year-archive/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/collection-archive/"
+                
+                
+              >Collections</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/logo/thanh-nguyen.jpg" alt="Thanh Nguyen" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Thanh Nguyen</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Web developer, nature lover, curious soul, and laid-back mom balancing code with life’s simple joys.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Da Nang, VN</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://beautyoncode.com" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">BeautyOnCode</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/graphicdthanh/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">Linkedin</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/GraphicDThanh" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.facebook.com/beautyoncode" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span class="label">Facebook</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Bắt đầu với Python?">
+    <meta itemprop="description" content="Chào mừng mọi người đến với bài post thứ ba của phần “Lượn lờ cùng Python” của series “Khám phá Đại Bản Doanh Python“Trong phần này, tụi mình sẽ cùng nhau dạo quanh quanh những phần ngoài lề trước khi tấn công vào document ở những phần tiếp theo nhé.Mình sẽ đi trả lời nhưng câu hỏi sau trong “Lượn lờ cùng Python”:♣ Python có thể dùng để làm gì nhỉ?♣ Ai đã thành công cùng Python?♣ Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu? (bài hôm ni)Những nội dung trong bài series này từ “Đại bản doanh Python” python.org, mình viết bằng ngôn ngữ của mình kèm theo những tài liệu khác mà mình thấy liên quan và hữu ích cho chủ đề của bài.Bài dưới đây sẽ đi trả lời câu hỏi “Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?” nằm trong mục “Getting Started” nhaHáo hức với Python quá ♥ Mình nên bắt đầu từ đâu?Dô dô, dô ngay và luôn, không đợi chờ gì nữa, học Python ngay thôi, lương nghìn lẻ một đô đang chờ ahihiỞ phần “Bắt đầu với Python” này, gồm những nội dung chính sau:– Python là gì thế ạ?– Cách lượm Python về và chơi thử– Chơi thử rồi, giờ là học thiệt nghe– Tìm kiếm những ứng dụng làm sẵn– Hỏi han thường gặpĐi thôi mấy mọi người ơi!Python là gì thế ạ?Python là ngôn ngữ lập trình hướng đối tượng, có thể so sánh với Perl, Ruby, Scheme hoặc JavaCác tính năng đáng chú ý:♥ Cú pháp tao nhã, dễ đọc dễ viết♥ Viết chương trình một phát là có thể chạy liền♥ Thư viện chuẩn hỗ trợ các tác vụ phổ biến như kết nối server, tìm kiếm với các biểu thức(regular expression), đọc và chỉnh sửa file♥ Dễ dàng kiểm thử các đoạn code ngắn với Python interactive mode♥ Có thể thêm các mô đun khác được viết bằng ngôn ngữ khác như C, C++. Có thể nhúng vào ứng dụng khác để tạo giao diện sử dụng♥ Chạy trên đa nền tảng: Mac OS X, Linux, Windows, Unix. Miễn phí tải xuống, miễn phí sử dụngCác tính năng đáng chú ý về ngôn ngữ:♥ Nhiều kiểu dữ liệu: number(floating point, complex, and unlimited-length long integers), string (both ASCII and Unicode), lists(danh sách), and dictionaries(từ điển). Kiểu dữ liệu động và mạnh mẽ, trộn các loại dữ liệu khác nhau sẽ báo lỗi ngay(như cộng string với number)♥ Hỗ trợ lập trình hướng đối tượng với lớp(classes) và nhiều lớp kế thừa(multi inheritances).♥ Code có thể nhóm thành các mô-đun, các gói. Bộ nhớ được quản lý tự động. Có hỗ trợ xử lý lỗi sạch đẹp♥ Python chứa các tính năng nâng cao của một ngôn ngữ lập trình như list comprehensions và generatorsCách lượm Python về chơi thửĐể lượm được Python về và chơi thử, mình phải cài đặt cái trình thông dịch của bạn ấy – Python Interpreter, đây là chương trình có thể đọc code Python và chạy. Ngoài ra, bạn ấy còn có kèm theo nhiều tài liệu có thể giúp mình hiểu hơn về Python nữa.Thường thì Mac và Linux sẽ được tích hợp Python sẵn rồi, nhưng đó là bản lỗi thời rồi(Python 2.x), cho nên mình cần phải cập nhật lên bản mới(Python 3.x)(vui lòng kiểm tra ở trang Downloads này nhé).Sau khi cài được python version 3 rồi, mình vô command line gõ “python” hoặc “python3” là đã được vô chế độ chơi thử cùng Python Interpreter rồi đó.Vô đây chỉ là chơi thử thấy liền kết quả thôi, còn nếu bạn muốn lưu code lại và chỉnh sửa thì mình cần có IDE hoặc Code Editor để mở file đó, bạn có thể bắt đầu với [Thony](https://thonny.org/(một chương trình tích hợp sẵn Python Interpreter và IDE bundles), khá đơn giản và nhẹ nữa.(Bonus)Nếu bạn đang tìm kiếm một IDEs hay Text Editors để xài với Python, thì python.org cũng có nguyên hai list to bự chảng cho bạn tham khảo luôn:⇒ IDEs Python giới thiệu tên, nền tảng, lần cuối cập nhật và vài thông tin chính của IDE⇒ Python Editors giới thiệu tên, nền tảng, viết bằng ngôn ngữ gì, giấy phép nào, và vài thông tin chính của editorMình tạt qua giới thiệu cái IDEs với cái Code Editors xí nếu bạn chưa rõ thì đọc thêm nhéIDEs là môi trường lập trình cung cấp những tính năng như mã hoá, biên dịch, gỡ lỗi, thực thi, tự động điền vào(autocomplete), các thư viện trong cùng một nơi giúp các tác vụ trở nên đơn giản và dễ dàng hơnCác IDEs phổ biến có thể kể đến: PyCharm, Spyder, PyDev, Idle, Wing, Eric Python, Rodeo, ThonnyTrong khi đó, Code editors là một nền tảng để chỉnh và sửa mã nguồn, phổ biến dùng với Python có thể kể đến: Sublime text, Atom, Vim, Visual Studio CodeBạn có thể xem qua những python IDE, code editors ở article này, có giới thiệu những features chính, ưu điểm, nhược điểm để mình lựa cái dùng cho phù hợp.Chơi thử rồi, giờ là học thiệt ngheLựa được nơi code rồi, mình bắt tay vô code thôi. Á nhầm, mình phải đọc mấy cái hướng dẫn(tutorial) trước, rồi code theo xem nó chạy thế nào chớ. Về hướng dẫn thì có 2 hướng chính nè:      Mới học lập trình, hãy đi cùng Beginner Guide – Non Programmer        Có tí kinh nghiệm lập trình rồi, thì đi cùng Beginner Guide – Programmer  Trong mỗi hướng dẫn, đều gồm những mục như giới thiệu sách phù hợp cho từng đối tượng, các tutorials và các websites, các khoá học tương tác, tài liệu giành cho người nghiên cứu khoa học, các videos và tools.Mình thấy bên Non Programmer thì các khoá học tương tác được xếp trước những tài nguyên khác chắc là muốn người bắt đầu tương tác làm quen Python trước.Còn bên Programmer thì là hai link review những khoá học tốt nhất giành cho Python để nắm bắt nhanh nhất, nàm trên top có [“Google Python’s class”](https://developers.google.com/edu/python/(miễn phí) và  khóa “Complete Python Bootcamp: Go from zero to hero in Python 3” từ Udemy(có phí).Bên cạnh đó, khi cần tìm kiếm thêm thông tin gì về Python thì online documentation là nơi bạn cần ghé. Ngoài ra, cũng có Python tutorial học những thứ cơ bản nhất và giúp mình bắt đầu với Python, mình sẽ cùng học tutorial này trong những bài blog tiếp theo.Sau khi học và viết những thứ cơ bản rồi, đã đến lúc bạn nên tìm hiểu thêm về Syntax Python cùng series “The Python Language Reference” và những thư viện chuẩn của Python với “The Python Standard Library“.Bạn có muốn biết những recipes(công thức) và patterns(mô hình) phổ biến trong Python, hãy ghé “ActiveState Python Cookbook” để xem.Tìm kiếm những ứng dụng có sẵnNếu bạn muốn tìm kiếm những mô đun, package hay những ứng dụng được viết bằng Python rồi để tham khảo hay dùng trong ứng dựng của mình, thì nơi đầu tiên có thể ghé kiếm thử là PyPI – kho packages viết bằng Python sẽ tìm kiếm được những source code tốt nhất hoặc đơn giản chỉ cần hỏi thăm bác Google với những từ khoá như là “python package”, “python example”, “python recipes”, … là được rồi.Nếu vẫn không tìm được thứ bạn cần, ngại gì không hỏi một câu trên Stackoverflow hay bất cứ ai bạn biết là họ biết nhiều Python hơn bạn nhỉ ^^.Hỏi han thường gặpNếu bạn có câu hỏi nào về Python, thử kiểm tra trong phần “Hỏi han thường gặp” thử xem người ta đã trả lời chưa nhé.Bonus cho bạn top câu hỏi Python trên StackOverflow nè.Đây là bài cuối của phần “Lượn lờ cùng Python” rồi.Tụi mình đã đi qua đám này hẳn mình đã hiểu cái độ quan trọng của Python và háo hức cho hành trình tiếp theo rồi đó.Tiếp đến, mình sẽ gặm qua phần khó ăn nhất “Documentation”Thực ra mình cũng ngán mấy cái documentation dữ lắm, cho nên mình không dại dột chi mà chui vô liền cái document lắm chữ đâu. Mình thấy ở đây còn có nhiều sự lựa chọn khác có vẻ dễ thương hơn nhiều, đó là “Audio/Visual Talks” và “Beginner Guide“. Phần ni gọi tên là “Làm quen kết bạn với Python” cho nó thân thiện ha.BeautyOnCode.">
+    <meta itemprop="datePublished" content="2020-06-02T00:00:00-04:00">
+    <meta itemprop="dateModified" content="2020-06-02T15:12:19-04:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/bat-dau-voi-python/" itemprop="url">Bắt đầu với Python?
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          7 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p><img src="/assets/images/2020/06/2020-06-bat-dau-voi-python.jpg" alt="" /></p>
+
+<p>Chào mừng mọi người đến với bài post thứ ba của phần “Lượn lờ cùng Python” của series “Khám phá Đại Bản Doanh Python“</p>
+
+<p>Trong phần này, tụi mình sẽ cùng nhau dạo quanh quanh những phần ngoài lề trước khi tấn công vào document ở những phần tiếp theo nhé.</p>
+
+<p>Mình sẽ đi trả lời nhưng câu hỏi sau trong “Lượn lờ cùng Python”:</p>
+
+<p>♣ <a href="https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/02/12/python-co-the-lam-gi-nhi.html">Python có thể dùng để làm gì nhỉ?</a></p>
+
+<p>♣ <a href="https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/03/11/ai-da-thanh-cong-cung-python.html">Ai đã thành công cùng Python?</a></p>
+
+<p>♣ Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu? (bài hôm ni)</p>
+
+<p>Những nội dung trong bài series này từ “Đại bản doanh Python” python.org, mình viết bằng ngôn ngữ của mình kèm theo những tài liệu khác mà mình thấy liên quan và hữu ích cho chủ đề của bài.</p>
+
+<p>Bài dưới đây sẽ đi trả lời câu hỏi “Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?” nằm trong mục <a href="https://www.python.org/about/gettingstarted/">“Getting Started”</a> nha</p>
+
+<h2 id="háo-hức-với-python-quá--mình-nên-bắt-đầu-từ-đâu">Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?</h2>
+<p>Dô dô, dô ngay và luôn, không đợi chờ gì nữa, học Python ngay thôi, lương nghìn lẻ một đô đang chờ ahihi</p>
+
+<p>Ở phần “Bắt đầu với Python” này, gồm những nội dung chính sau:</p>
+
+<p>– Python là gì thế ạ?</p>
+
+<p>– Cách lượm Python về và chơi thử</p>
+
+<p>– Chơi thử rồi, giờ là học thiệt nghe</p>
+
+<p>– Tìm kiếm những ứng dụng làm sẵn</p>
+
+<p>– Hỏi han thường gặp</p>
+
+<p>Đi thôi mấy mọi người ơi!</p>
+
+<h2 id="python-là-gì-thế-ạ">Python là gì thế ạ?</h2>
+<p>Python là ngôn ngữ lập trình hướng đối tượng, có thể so sánh với Perl, Ruby, Scheme hoặc Java</p>
+
+<p><strong>Các tính năng đáng chú ý:</strong></p>
+
+<p>♥ Cú pháp tao nhã, dễ đọc dễ viết</p>
+
+<p>♥ Viết chương trình một phát là có thể chạy liền</p>
+
+<p>♥ Thư viện chuẩn hỗ trợ các tác vụ phổ biến như kết nối server, tìm kiếm với các biểu thức(regular expression), đọc và chỉnh sửa file</p>
+
+<p>♥ Dễ dàng kiểm thử các đoạn code ngắn với Python interactive mode</p>
+
+<p>♥ Có thể thêm các mô đun khác được viết bằng ngôn ngữ khác như C, C++. Có thể nhúng vào ứng dụng khác để tạo giao diện sử dụng</p>
+
+<p>♥ Chạy trên đa nền tảng: Mac OS X, Linux, Windows, Unix. Miễn phí tải xuống, miễn phí sử dụng</p>
+
+<p><strong>Các tính năng đáng chú ý về ngôn ngữ:</strong></p>
+
+<p>♥ Nhiều kiểu dữ liệu: number(floating point, complex, and unlimited-length long integers), string (both ASCII and Unicode), lists(danh sách), and dictionaries(từ điển). Kiểu dữ liệu động và mạnh mẽ, trộn các loại dữ liệu khác nhau sẽ báo lỗi ngay(như cộng string với number)</p>
+
+<p>♥ Hỗ trợ lập trình hướng đối tượng với lớp(classes) và nhiều lớp kế thừa(multi inheritances).</p>
+
+<p>♥ Code có thể nhóm thành các mô-đun, các gói. Bộ nhớ được quản lý tự động. Có hỗ trợ xử lý lỗi sạch đẹp</p>
+
+<p>♥ Python chứa các tính năng nâng cao của một ngôn ngữ lập trình như list comprehensions và generators</p>
+
+<h2 id="cách-lượm-python-về-chơi-thử">Cách lượm Python về chơi thử</h2>
+<p>Để lượm được Python về và chơi thử, mình phải cài đặt cái trình thông dịch của bạn ấy – Python Interpreter, đây là chương trình có thể đọc code Python và chạy. Ngoài ra, bạn ấy còn có kèm theo nhiều tài liệu có thể giúp mình hiểu hơn về Python nữa.</p>
+
+<p>Thường thì Mac và Linux sẽ được tích hợp Python sẵn rồi, nhưng đó là bản lỗi thời rồi(Python 2.x), cho nên mình cần phải cập nhật lên bản mới(Python 3.x)(vui lòng kiểm tra ở trang <a href="https://www.python.org/downloads">Downloads</a> này nhé).</p>
+
+<p>Sau khi cài được python version 3 rồi, mình vô command line gõ “python” hoặc “python3” là đã được vô chế độ chơi thử cùng Python Interpreter rồi đó.</p>
+
+<p>Vô đây chỉ là chơi thử thấy liền kết quả thôi, còn nếu bạn muốn lưu code lại và chỉnh sửa thì mình cần có IDE hoặc Code Editor để mở file đó, bạn có thể bắt đầu với [Thony](https://thonny.org/(một chương trình tích hợp sẵn Python Interpreter và IDE bundles), khá đơn giản và nhẹ nữa.
+(Bonus)</p>
+
+<p>Nếu bạn đang tìm kiếm một IDEs hay Text Editors để xài với Python, thì python.org cũng có nguyên hai list to bự chảng cho bạn tham khảo luôn:</p>
+
+<p>⇒ <a href="https://wiki.python.org/moin/IntegratedDevelopmentEnvironments">IDEs Python</a> giới thiệu tên, nền tảng, lần cuối cập nhật và vài thông tin chính của IDE</p>
+
+<p>⇒ <a href="https://wiki.python.org/moin/PythonEditors">Python Editors</a> giới thiệu tên, nền tảng, viết bằng ngôn ngữ gì, giấy phép nào, và vài thông tin chính của editor</p>
+
+<p>Mình tạt qua giới thiệu cái IDEs với cái Code Editors xí nếu bạn chưa rõ thì đọc thêm nhé</p>
+
+<p>IDEs là môi trường lập trình cung cấp những tính năng như mã hoá, biên dịch, gỡ lỗi, thực thi, tự động điền vào(autocomplete), các thư viện trong cùng một nơi giúp các tác vụ trở nên đơn giản và dễ dàng hơn</p>
+
+<p>Các IDEs phổ biến có thể kể đến: <strong>PyCharm, Spyder, PyDev, Idle, Wing, Eric Python, Rodeo, Thonny</strong></p>
+
+<p>Trong khi đó, Code editors là một nền tảng để chỉnh và sửa mã nguồn, phổ biến dùng với Python có thể kể đến: Sublime text, Atom, Vim, Visual Studio Code</p>
+
+<p>Bạn có thể xem qua những python IDE, code editors ở <a href="https://www.softwaretestinghelp.com/python-ide-code-editors/">article này</a>, có giới thiệu những features chính, ưu điểm, nhược điểm để mình lựa cái dùng cho phù hợp.</p>
+
+<h2 id="chơi-thử-rồi-giờ-là-học-thiệt-nghe">Chơi thử rồi, giờ là học thiệt nghe</h2>
+<p>Lựa được nơi code rồi, mình bắt tay vô code thôi. Á nhầm, mình phải đọc mấy cái hướng dẫn(tutorial) trước, rồi code theo xem nó chạy thế nào chớ. Về hướng dẫn thì có 2 hướng chính nè:</p>
+
+<ul>
+  <li>
+    <p>Mới học lập trình, hãy đi cùng <a href="https://wiki.python.org/moin/BeginnersGuide/NonProgrammers">Beginner Guide – Non Programmer</a></p>
+  </li>
+  <li>
+    <p>Có tí kinh nghiệm lập trình rồi, thì đi cùng <a href="https://wiki.python.org/moin/BeginnersGuide/NonProgrammers">Beginner Guide – Programmer</a></p>
+  </li>
+</ul>
+
+<p>Trong mỗi hướng dẫn, đều gồm những mục như giới thiệu sách phù hợp cho từng đối tượng, các tutorials và các websites, các khoá học tương tác, tài liệu giành cho người nghiên cứu khoa học, các videos và tools.</p>
+
+<p>Mình thấy bên Non Programmer thì các khoá học tương tác được xếp trước những tài nguyên khác chắc là muốn người bắt đầu tương tác làm quen Python trước.</p>
+
+<p>Còn bên Programmer thì là hai link review những khoá học tốt nhất giành cho Python để nắm bắt nhanh nhất, nàm trên top có [“Google Python’s class”](https://developers.google.com/edu/python/(miễn phí) và  khóa <a href="https://www.udemy.com/course/complete-python-bootcamp/?LSNPUBID=q15T%2FSfRF14&amp;ranEAID=q15T%2FSfRF14&amp;ranMID=39197&amp;ranSiteID=q15T_SfRF14-p8TkjVNx50ElGm9thCvQmA">“Complete Python Bootcamp: Go from zero to hero in Python 3”</a> từ Udemy(có phí).</p>
+
+<p>Bên cạnh đó, khi cần tìm kiếm thêm thông tin gì về Python thì <a href="https://docs.python.org/3/">online documentation</a> là nơi bạn cần ghé. Ngoài ra, cũng có <a href="https://docs.python.org/3/tutorial/">Python tutorial</a> học những thứ cơ bản nhất và giúp mình bắt đầu với Python, mình sẽ cùng học tutorial này trong những bài blog tiếp theo.</p>
+
+<p>Sau khi học và viết những thứ cơ bản rồi, đã đến lúc bạn nên tìm hiểu thêm về Syntax Python cùng series <a href="https://docs.python.org/3/reference/">“The Python Language Reference”</a> và những thư viện chuẩn của Python với <a href="https://docs.python.org/3/library/#the-python-standard-library">“The Python Standard Library“</a>.</p>
+
+<p>Bạn có muốn biết những recipes(công thức) và patterns(mô hình) phổ biến trong Python, hãy ghé <a href="http://code.activestate.com/recipes/langs/python/">“ActiveState Python Cookbook”</a> để xem.</p>
+
+<h2 id="tìm-kiếm-những-ứng-dụng-có-sẵn">Tìm kiếm những ứng dụng có sẵn</h2>
+<p>Nếu bạn muốn tìm kiếm những mô đun, package hay những ứng dụng được viết bằng Python rồi để tham khảo hay dùng trong ứng dựng của mình, thì nơi đầu tiên có thể ghé kiếm thử là PyPI – kho packages viết bằng Python sẽ tìm kiếm được những source code tốt nhất hoặc đơn giản chỉ cần hỏi thăm bác Google với những từ khoá như là “python package”, “python example”, “python recipes”, … là được rồi.</p>
+
+<p>Nếu vẫn không tìm được thứ bạn cần, ngại gì không hỏi một câu trên Stackoverflow hay bất cứ ai bạn biết là họ biết nhiều Python hơn bạn nhỉ ^^.</p>
+
+<h2 id="hỏi-han-thường-gặp">Hỏi han thường gặp</h2>
+<p>Nếu bạn có câu hỏi nào về Python, thử kiểm tra trong phần <a href="https://docs.python.org/3/faq/">“Hỏi han thường gặp”</a> thử xem người ta đã trả lời chưa nhé.</p>
+
+<p>Bonus cho bạn <a href="https://stackoverflow.com/questions/tagged/python?sort=MostVotes&amp;edited=true">top câu hỏi Python trên StackOverflow</a> nè.</p>
+
+<p>Đây là bài cuối của phần “Lượn lờ cùng Python” rồi.</p>
+
+<p>Tụi mình đã đi qua đám này hẳn mình đã hiểu cái độ quan trọng của Python và háo hức cho hành trình tiếp theo rồi đó.</p>
+
+<p>Tiếp đến, mình sẽ gặm qua phần khó ăn nhất “Documentation”</p>
+
+<p>Thực ra mình cũng ngán mấy cái documentation dữ lắm, cho nên mình không dại dột chi mà chui vô liền cái document lắm chữ đâu. Mình thấy ở đây còn có nhiều sự lựa chọn khác có vẻ dễ thương hơn nhiều, đó là <a href="https://www.python.org/doc/av/">“Audio/Visual Talks”</a> và <a href="https://wiki.python.org/moin/BeginnersGuide">“Beginner Guide“</a>. Phần ni gọi tên là “Làm quen kết bạn với Python” cho nó thân thiện ha.</p>
+
+<p>BeautyOnCode.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#python" class="page__taxonomy-item p-category" rel="tag">python</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#%C4%91%E1%BA%A1i-b%E1%BA%A3n-doanh-python" class="page__taxonomy-item p-category" rel="tag">Đại Bản Doanh Python</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2020-06-02">June 2, 2020</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  <h4 class="page__share-title">Share on</h4>
+
+  <a href="https://twitter.com/intent/tweet?via=mmistakes&text=B%E1%BA%AFt+%C4%91%E1%BA%A7u+v%E1%BB%9Bi+Python%3F%20http%3A%2F%2Flocalhost%3A4000%2F%25C4%2591%25E1%25BA%25A1i%2520b%25E1%25BA%25A3n%2520doanh%2520python%2Fbat-dau-voi-python%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F%25C4%2591%25E1%25BA%25A1i%2520b%25E1%25BA%25A3n%2520doanh%2520python%2Fbat-dau-voi-python%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/bat-dau-voi-python/" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/chiec-may-tinh-PI/" class="pagination--pager" title="Chiếc máy tính PI(Python Interpreter)
+">Previous</a>
+    
+    
+      <a href="/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/dieu-khien-luong-du-lieu-python/" class="pagination--pager" title="Các công cụ điều khiển luồng dữ liệu trong Python
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  <div align="center" style="margin: 1em 0;">
+  <ins class="adsbygoogle"
+        style="display:block; border-bottom: initial;"
+        data-ad-client="ca-pub-7328585512091257"
+        data-ad-slot="3049671934"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+</div>
+
+
+  <h2 class="page__related-title">You May Also Enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/django/relation-fields-in-drf-serializer/" rel="permalink">Relation fields in Django Rest Framework Serializer
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+The Django model offers various types of relationships such as OneToOneField, ForeignKey, ManyToManyField, and GenericForeignKey.
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/django/export-multiple-csv-to-zip-django/" rel="permalink">Export Multiple CSVs file into a ZIP in Django Application
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/django/export-docx-in-django/" rel="permalink">Export a docx file in Django application
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          8 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/js/scope-trong-javascript/" rel="permalink">Scope trong JavaScript
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      <div align="center" style="margin: 1em 0;">
+  <ins class="adsbygoogle"
+        style="display:block; border-bottom: initial;"
+        data-ad-client="ca-pub-7328585512091257"
+        data-ad-slot="3049671934"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="search-searchbar"></div>
+  <div class="search-hits"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/mmistakes" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/mmistakes" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/mmistakes" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 <a href="http://localhost:4000">BeautyOnCode</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+<script>
+// Including InstantSearch.js library and styling
+const loadSearch = function() {
+  const loadCSS = function(src) {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = src;
+    link.media = 'all';
+    document.head.appendChild(link);
+  };
+
+  var script = document.createElement('script');
+  script.setAttribute("type", "text/javascript");
+  script.setAttribute("src", "https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.js");
+  script.addEventListener("load", function() {
+    // Instantiating InstantSearch.js with Algolia credentials
+    const search = instantsearch({
+      appId: 'QB6HVGBSBA',
+      apiKey: '9d5014e5bbc77372547bce778dfa5663',
+      indexName: 'minimal_mistakes',
+      searchParameters: {
+        restrictSearchableAttributes: ['title', 'content']
+      }
+    });
+
+    const hitTemplate = function(hit) {
+      const url = hit.url;
+      const hightlight = hit._highlightResult;
+      const title = hightlight.title && hightlight.title.value  || "";
+      const content = hightlight.html && hightlight.html.value  || "";
+
+      return `
+        <div class="list__item">
+          <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+            <h2 class="archive__item-title" itemprop="headline"><a href="/${url}">${title}</a></h2>
+            <div class="archive__item-excerpt" itemprop="description">${content}</div>
+          </article>
+        </div>
+      `;
+    }
+
+    // Adding searchbar and results widgets
+    search.addWidget(
+      instantsearch.widgets.searchBox({
+        container: '.search-searchbar',
+        poweredBy: true,
+        placeholder: 'Enter your search term...'
+      })
+    );
+    search.addWidget(
+      instantsearch.widgets.hits({
+        container: '.search-hits',
+        templates: {
+          item: hitTemplate,
+          empty: 'No results',
+        }
+      })
+    );
+
+    if (!search.started) {
+      search.start();
+    }
+  });
+  document.body.appendChild(script);
+
+  loadCSS("https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.css");
+  loadCSS("https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch-theme-algolia.min.css");
+};
+
+// Starting the search only when toggle is clicked
+$(document).ready(function() {
+  var scriptLoaded = false;
+
+  $(".search__toggle").on("click", function() {
+    if (!scriptLoaded) {
+      loadSearch();
+      scriptLoaded = true;
+    }
+  });
+});
+</script>
+
+
+
+
+<style>
+.google-auto-placed {
+  margin: 2em auto;
+}
+</style>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
+
+
+  </body>
+</html>

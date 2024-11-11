@@ -1,16 +1,23 @@
 ---
-layout: post
-title:  "Bắt đầu với Python?"
-date:   2020-06-01 10:00:00 +0700
-categories: python, dai-ban-doanh-python
+title: "Bắt đầu với Python?"
+header:
+  teaser: /assets/images/2020/06/2020-06-bat-dau-voi-python.jpg
+  og_image: /assets/images/2020/06/2020-06-bat-dau-voi-python.jpg
+excerpt_separator: <!--more-->
+categories:
+  - Đại Bản Doanh Python
+tags:
+  - python
+last_modified_at: 2020-06-02T15:12:19-04:00
 ---
+
 
 ![](/assets/images/2020/06/2020-06-bat-dau-voi-python.jpg)
 
 Chào mừng mọi người đến với bài post thứ ba của phần “Lượn lờ cùng Python” của series “Khám phá Đại Bản Doanh Python“
 
 
-Trong phần này, tụi mình sẽ cùng nhau dạo quanh quanh những phần ngoài lề trước khi tấn công vào document ở những phần tiếp theo nhé. 
+Trong phần này, tụi mình sẽ cùng nhau dạo quanh quanh những phần ngoài lề trước khi tấn công vào document ở những phần tiếp theo nhé.
 
 Mình sẽ đi trả lời nhưng câu hỏi sau trong “Lượn lờ cùng Python”:
 
@@ -32,7 +39,7 @@ Dô dô, dô ngay và luôn, không đợi chờ gì nữa, học Python ngay th
 
 – Python là gì thế ạ?
 
-– Cách lượm Python về và chơi thử 
+– Cách lượm Python về và chơi thử
 
 – Chơi thử rồi, giờ là học thiệt nghe
 
@@ -74,10 +81,10 @@ Python là ngôn ngữ lập trình hướng đối tượng, có thể so sánh
 
 Thường thì Mac và Linux sẽ được tích hợp Python sẵn rồi, nhưng đó là bản lỗi thời rồi(Python 2.x), cho nên mình cần phải cập nhật lên bản mới(Python 3.x)(vui lòng kiểm tra ở trang [Downloads](https://www.python.org/downloads) này nhé).
 
-Sau khi cài được python version 3 rồi, mình vô command line gõ “python” hoặc “python3” là đã được vô chế độ chơi thử cùng Python Interpreter rồi đó. 
+Sau khi cài được python version 3 rồi, mình vô command line gõ “python” hoặc “python3” là đã được vô chế độ chơi thử cùng Python Interpreter rồi đó.
 
 Vô đây chỉ là chơi thử thấy liền kết quả thôi, còn nếu bạn muốn lưu code lại và chỉnh sửa thì mình cần có IDE hoặc Code Editor để mở file đó, bạn có thể bắt đầu với [Thony](https://thonny.org/(một chương trình tích hợp sẵn Python Interpreter và IDE bundles), khá đơn giản và nhẹ nữa.
-(Bonus) 
+(Bonus)
 
 Nếu bạn đang tìm kiếm một IDEs hay Text Editors để xài với Python, thì python.org cũng có nguyên hai list to bự chảng cho bạn tham khảo luôn:
 
@@ -110,7 +117,7 @@ Còn bên Programmer thì là hai link review những khoá học tốt nhất g
 
 Bên cạnh đó, khi cần tìm kiếm thêm thông tin gì về Python thì [online documentation](https://docs.python.org/3/) là nơi bạn cần ghé. Ngoài ra, cũng có [Python tutorial](https://docs.python.org/3/tutorial/) học những thứ cơ bản nhất và giúp mình bắt đầu với Python, mình sẽ cùng học tutorial này trong những bài blog tiếp theo.
 
-Sau khi học và viết những thứ cơ bản rồi, đã đến lúc bạn nên tìm hiểu thêm về Syntax Python cùng series [“The Python Language Reference”](https://docs.python.org/3/reference/) và những thư viện chuẩn của Python với [“The Python Standard Library“](https://docs.python.org/3/library/#the-python-standard-library). 
+Sau khi học và viết những thứ cơ bản rồi, đã đến lúc bạn nên tìm hiểu thêm về Syntax Python cùng series [“The Python Language Reference”](https://docs.python.org/3/reference/) và những thư viện chuẩn của Python với [“The Python Standard Library“](https://docs.python.org/3/library/#the-python-standard-library).
 
 Bạn có muốn biết những recipes(công thức) và patterns(mô hình) phổ biến trong Python, hãy ghé [“ActiveState Python Cookbook”](http://code.activestate.com/recipes/langs/python/) để xem.
 
@@ -120,7 +127,7 @@ Nếu bạn muốn tìm kiếm những mô đun, package hay những ứng dụn
 Nếu vẫn không tìm được thứ bạn cần, ngại gì không hỏi một câu trên Stackoverflow hay bất cứ ai bạn biết là họ biết nhiều Python hơn bạn nhỉ ^^.
 
 ## Hỏi han thường gặp
-Nếu bạn có câu hỏi nào về Python, thử kiểm tra trong phần [“Hỏi han thường gặp”](https://docs.python.org/3/faq/) thử xem người ta đã trả lời chưa nhé. 
+Nếu bạn có câu hỏi nào về Python, thử kiểm tra trong phần [“Hỏi han thường gặp”](https://docs.python.org/3/faq/) thử xem người ta đã trả lời chưa nhé.
 
 Bonus cho bạn [top câu hỏi Python trên StackOverflow](https://stackoverflow.com/questions/tagged/python?sort=MostVotes&edited=true) nè.
 

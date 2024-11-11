@@ -1,9 +1,16 @@
 ---
-layout: post
-title:  "Chiếc máy tính PI(Python Interpreter)"
-date:   2020-05-20 10:00:00 +0700
-categories: python, dai-ban-doanh-python
+title: "Chiếc máy tính PI(Python Interpreter)"
+header:
+  teaser: /assets/images/2020/05/2020-05-chiec-may-tinh-PI-cover.jpg
+  og_image: /assets/images/2020/05/2020-05-chiec-may-tinh-PI-cover.jpg
+excerpt_separator: <!--more-->
+categories:
+  - Đại Bản Doanh Python
+tags:
+  - python
+last_modified_at: 2020-05-20T15:12:19-04:00
 ---
+
 ![](/assets/images/2020/05/2020-05-chiec-may-tinh-PI-cover.jpg)
 Chào mừng mọi người đến với phần [“The Python Tutorial”](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/05/chiec-may-tinh-PI.html) của series “Khám phá Đại Bản Doanh Python”. The Python Tutorial mang đến những khái niệm và các tính năng cơ bản nhất của Python và cú pháp của nó.
 

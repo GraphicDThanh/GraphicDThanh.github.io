@@ -1,8 +1,14 @@
 ---
-layout: post
-title:  "Khám phá Đại Bản Doanh Python Series Overview"
-date:   2020-07-01 10:00:00 +0700
-categories: python dai-ban-doanh-python
+title: "Khám phá Đại Bản Doanh Python Series Overview"
+header:
+  teaser: /assets/images/2020/07/2020-07-dai-ban-doanh-python-series-overview-cover.jpg
+  og_image: /assets/images/2020/07/2020-07-dai-ban-doanh-python-series-overview-cover.jpg
+excerpt_separator: <!--more-->
+categories:
+  - Đại Bản Doanh Python
+tags:
+  - python
+last_modified_at: 2020-07-01T15:12:19-04:00
 ---
 
 ![](/assets/images/2020/07/2020-07-dai-ban-doanh-python-series-overview-cover.jpg)
@@ -13,7 +19,7 @@ Và [từ đó](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020
 Chuyện là mình học Python cũng được hơn hai năm rồi và đang làm dự án về Python và Django.
 Lần đầu viết blog về tech, chẳng biết viết gì nên mình đi nghiên cứu trang python.org để lưu lại kiến thức từ khi bắt đầu học để hiểu rõ hơn về cái mình đang học và làm.
 
-Mình chọn ra các chủ đề dưới đây mà mình cho là hay ho nhất để viết những bài về “Đại Bản Doanh Python”, bao gồm: 
+Mình chọn ra các chủ đề dưới đây mà mình cho là hay ho nhất để viết những bài về “Đại Bản Doanh Python”, bao gồm:
 
 Phần 1: Lượn lờ cùng Python(Applications, Getting Started, Help, Success Stories)
 

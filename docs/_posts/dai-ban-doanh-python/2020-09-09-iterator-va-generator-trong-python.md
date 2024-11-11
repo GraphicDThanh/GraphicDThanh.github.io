@@ -1,19 +1,25 @@
 ---
-layout: post
-title:  "Iterable, Iterator và Generator trong Python"
-date:   2020-09-09 10:00:00 +0700
-categories: python, dai-ban-doanh-python
+title: "Iterable, Iterator và Generator trong Python"
+header:
+  teaser:
+  og_image:
+excerpt_separator: <!--more-->
+categories:
+  - Đại Bản Doanh Python
+tags:
+  - python
+last_modified_at: 2020-09-09T15:12:19-04:00
 ---
 
-Chào cả nhà 🥳! Chào BeautyOnCode  🤣 
+Chào cả nhà 🥳! Chào BeautyOnCode  🤣
 
-Just for vui tí, thực ra đó là cách gia đình mình chào nhau dạo gần đây lol 
+Just for vui tí, thực ra đó là cách gia đình mình chào nhau dạo gần đây lol
 
 Ba bảo: “Chào Minh Hoàng!”. Chicken bảo: “Chào Ba Lộc!” . Mẹ Út bảo: “Chào Minh Hoàng”. Chicken bảo: “Chào Mẹ Út” 🤣
 
-Hôm nay tụi mình sẽ cầm gương lên, dũng cảm xông pha ra trận chém con thú hai đầu, một đầu nó có màu hồng tên là “Iterator“, một đầu màu xanh tên là “Generator“. 
+Hôm nay tụi mình sẽ cầm gương lên, dũng cảm xông pha ra trận chém con thú hai đầu, một đầu nó có màu hồng tên là “Iterator“, một đầu màu xanh tên là “Generator“.
 
-Để mình kể bạn nghe, đây là một câu chuyện có thật, từ chiếc ti vi, kênh Cartoon Network, chương trình hoạt hình “Biệt đội Titan xuất kích”. Hai bạn quái vật này được nhốt trong một cái hộp thần bí, Raven đã dặn các bạn không được mở nó ra vì nó rất nguy hiểm, nhưng StarFire đã không kiềm được tò mò và mở ra. Hai bạn này siêu dễ thương luôn, cùng vui chơi với các bạn nhỏ, nhưng khi hai bạn đó được StarFire không kiềm được mà hôn cho một cái thì lập tức hai bạn biến hình thành một con quái vật có hai đầu đi phá thành phố. Sau đó, StarFire đã nói ra những lời đau lòng đến mức từ con quái vật hai đầu khổng lồ hai bạn càng ngày càng thu bé lại và biến thành hai con tiểu yêu khóc nức nở vì không được yêu thương nữa.                        
+Để mình kể bạn nghe, đây là một câu chuyện có thật, từ chiếc ti vi, kênh Cartoon Network, chương trình hoạt hình “Biệt đội Titan xuất kích”. Hai bạn quái vật này được nhốt trong một cái hộp thần bí, Raven đã dặn các bạn không được mở nó ra vì nó rất nguy hiểm, nhưng StarFire đã không kiềm được tò mò và mở ra. Hai bạn này siêu dễ thương luôn, cùng vui chơi với các bạn nhỏ, nhưng khi hai bạn đó được StarFire không kiềm được mà hôn cho một cái thì lập tức hai bạn biến hình thành một con quái vật có hai đầu đi phá thành phố. Sau đó, StarFire đã nói ra những lời đau lòng đến mức từ con quái vật hai đầu khổng lồ hai bạn càng ngày càng thu bé lại và biến thành hai con tiểu yêu khóc nức nở vì không được yêu thương nữa.
 
 Câu chuyện vậy đó, khi mình soạn bài này tự dưng mình thấy cũng trùng hợp ghê, hai bạn “Iterator” và “Generator” này cũng dễ thương như vậy, nhưng cũng có thể biến thành quái vật khi mình chủ quan về các bạn ấy đúng không nào. Còn mình mà đã hiểu á, thì sẽ biến lại thành hai bạn tiểu yêu xinh xắn dễ cưng thôi.
 
@@ -63,7 +69,7 @@ TypeError: 'set' object is not subscriptable
 >>>
 ```
 
-Ôi nó bị sao thế nhỉ, lỗi *“TypeError: ‘set’ object is not subscriptable”* có nghĩa là kiểu dữ liệu “set” không hỗ trợ truy cập phần tử theo chỉ mục index. 
+Ôi nó bị sao thế nhỉ, lỗi *“TypeError: ‘set’ object is not subscriptable”* có nghĩa là kiểu dữ liệu “set” không hỗ trợ truy cập phần tử theo chỉ mục index.
 
 Hiểu nôm na thì nếu a là list, nó có thể truy cập đến phần tử đầu tiên bằng index là 0 với a[0], còn b là set thì nó không có chỉ số index như vậy nên b[0] sẽ báo lỗi như trên.
 
@@ -88,16 +94,16 @@ KeyError: 0
 
 Úi, vậy là kiểu dữ liệu dict cũng không truy cập theo chỉ mục index được.
 
-Vậy là, trong Python cùng là kiểu dữ liệu có thể chứa nhiều phần tử(string, list, set, dict, …) nhưng các bạn này lại chia làm **hai nhóm**: 
+Vậy là, trong Python cùng là kiểu dữ liệu có thể chứa nhiều phần tử(string, list, set, dict, …) nhưng các bạn này lại chia làm **hai nhóm**:
 
-🥰  **Nhóm dữ liệu tuần tự(sequence): string, list, …** cho phép mình truy cập qua các phần tử trong bộ sưu tập bằng chỉ mục, hay gọi là số index, các bạn này có chỉ số index được đánh dấu từ 0 đến len – 1(chiều dài của nó trừ đi 1). 
+🥰  **Nhóm dữ liệu tuần tự(sequence): string, list, …** cho phép mình truy cập qua các phần tử trong bộ sưu tập bằng chỉ mục, hay gọi là số index, các bạn này có chỉ số index được đánh dấu từ 0 đến len – 1(chiều dài của nó trừ đi 1).
 
 🥰  **Nhóm dữ liệu tập hợp(collection): set, dict, …** không truy cập được theo chỉ mục index.
 
 ---
 Rồi sao nữa 😊  Hehe, rồi thì luật sinh ra là để lách luật đó mấy bạn 😅
 
-Muốn lách luật tức là muốn duyệt có trình tự mấy kiểu dữ liệu tập hợp như set, dict trên, thì mình cần hiểu bản chất và cơ chế của luật này cái đã. Đây chính là sư phụ của hai bạn tiểu yêu trên, tớ tạm gọi là sư phụ **iterable** 
+Muốn lách luật tức là muốn duyệt có trình tự mấy kiểu dữ liệu tập hợp như set, dict trên, thì mình cần hiểu bản chất và cơ chế của luật này cái đã. Đây chính là sư phụ của hai bạn tiểu yêu trên, tớ tạm gọi là sư phụ **iterable**
 
 # Iterable
 
@@ -159,7 +165,7 @@ Tuy nhiên, số lượng phần tử trong iterable có thể là hữu hạn h
 
 ![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2021/05/count-iterable.gif?fit=640%2C430&ssl=1)
 
-Trong ví dụ này, mình sử dụng hàm **count** từ [itertools](https://docs.python.org/3/library/itertools.html) để tạo một bộ đếm là bội của 3. 
+Trong ví dụ này, mình sử dụng hàm **count** từ [itertools](https://docs.python.org/3/library/itertools.html) để tạo một bộ đếm là bội của 3.
 
 Khi thực hiện lặp qua bộ đếm này với vòng lặp for và in các phần tử ra thì nó sẽ chạy mãi mãi cho đến khi mình ngừng chương trình hoặc mình phải thêm điều kiện dừng cho vòng lặp for là khi n > 200 thì thoát khỏi vòng lặp như trong ví dụ trên.
 
@@ -185,13 +191,13 @@ Mình tạm dịch là: Trong lĩnh vực khoa học máy tính, một iterator 
 
 Còn trong Python, iterator được định nghĩa trong [Python wiki](https://wiki.python.org/) là:
 
-> [iterator](https://wiki.python.org/moin/Iterator) là đối tượng có phương thức **\_\_next\_\_**, và phương thức này sẽ trả về phần tử tiếp theo của đối tượng, nếu đối tượng không còn phần tử nào để lặp qua thì nó sẽ báo lỗi **StopIteration**. 
+> [iterator](https://wiki.python.org/moin/Iterator) là đối tượng có phương thức **\_\_next\_\_**, và phương thức này sẽ trả về phần tử tiếp theo của đối tượng, nếu đối tượng không còn phần tử nào để lặp qua thì nó sẽ báo lỗi **StopIteration**.
 
 ---
 
-Bạn đã thấy iterator lần nào chưa nhỉ? 
+Bạn đã thấy iterator lần nào chưa nhỉ?
 
-Thực ra mình đã thấy bạn ấy khi mình gọi iter(a) ở ví dụ trên đấy, cùng xem mình gọi **\_\_next\_\_** thì bạn ấy sẽ trả ra gì nhé: 
+Thực ra mình đã thấy bạn ấy khi mình gọi iter(a) ở ví dụ trên đấy, cùng xem mình gọi **\_\_next\_\_** thì bạn ấy sẽ trả ra gì nhé:
 
 ```python
 >>> a = ["BeautyOnCode", "blog"]
@@ -209,7 +215,7 @@ StopIteration
 >>>
 ```
 
-Ồ hay chưa, mình có thể đi qua các phần tử trong a bằng phương thức **\_\_next\_\_**, thay vì dùng for nè. Khi đi đến phần tử cuối cùng rồi, thì nó sẽ báo lỗi *StopIteration* để báo cho mình biết hết đồ để đi tiếp rồi nghen 🤣 
+Ồ hay chưa, mình có thể đi qua các phần tử trong a bằng phương thức **\_\_next\_\_**, thay vì dùng for nè. Khi đi đến phần tử cuối cùng rồi, thì nó sẽ báo lỗi *StopIteration* để báo cho mình biết hết đồ để đi tiếp rồi nghen 🤣
 
 Thêm nữa, **iterator cũng là iterable** đó, cùng xem tớ lặp qua nó với for nè, và cả gọi iter() cho x thì nó trả về chính nó luôn.
 
@@ -234,11 +240,11 @@ Cùng xem cách mình đã lặp qua “*multiplesofthree*” dùng iterator tha
 
 ![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2021/05/iterator-example-unlimit.gif?fit=640%2C616&ssl=1)
 
-Thật thú vị đúng không nào, mình không dùng for mà vẫn lặp qua các đối tượng của một iterable đấy. 
+Thật thú vị đúng không nào, mình không dùng for mà vẫn lặp qua các đối tượng của một iterable đấy.
 
 Và bật mí với các bạn, đây cũng chính là cơ chế lặp được sử dụng nhiều trong Python đấy, cụ thể là cho vòng lặp for nè, rồi xác định nhiều giá trị trong tuple nè, rồi list comprehension(ví dụ cho bạn nào quên nè, [i +1 for i in a]), ….
 
-Trước khi đi tiếp mình xin tóm tóm lại một xíu cho bạn đỡ ngợp nha. 
+Trước khi đi tiếp mình xin tóm tóm lại một xíu cho bạn đỡ ngợp nha.
 
 Mình đã tìm hiểu qua về: **Iterable**, **Iterator**
 
@@ -325,7 +331,7 @@ Còn trong Python, generator được định nghĩa trong Python wiki là:
 
 Mình là một bạn nhỏ hay thắc mắc, mình cũng rất tò mò lý do vì sao cần có hàm generator ấy nhỉ? Nó cũng tạo ra iterator đúng hem, thế sao không dùng luôn iterator thôi nhỉ?
 
-Bạn đoán thử cùng mình xem sao? 
+Bạn đoán thử cùng mình xem sao?
 
 Mình nghĩ là nếu tạo một iterator khoai như ở trên, thì buồn thật đấy, khi nào cũng viết phương thức **\_\_iter\_\_** rồi nó phải trả về iterator, rồi muốn trả về iterator thì lại phải đi định nghĩa phương thức **\_\_next\_\_** và viết cái logic khác nữa. Thật tình mà nói thì cũng hơi khó gặm đó nha 🥲.
 
@@ -333,7 +339,7 @@ Hẳn là mấy chú Python thấy thế bèn nghĩ ra một cách, hay là mìn
 
 Hihi, đoán bậy vậy mà nó trúng rồi nha, chính xác là generator giúp mình tạo iterator một cách dễ dàng hơn nhiều. Và thêm nữa, generator sẽ thường sử dụng cho các trường hợp cần cân nhắc về chuyện hiệu suất của chương trình, ví dụ như là khi mình làm việc với số siêu lớn, hay làm việc với các file có dung lượng lớn cần xử lý.
 
-Vì sao? Vì khi đó nếu dùng một kiểu dữ liệu tuần tự để lưu hay xử lý thì chương trình sẽ ngốn nhiều dung lượng RAM, dẫn đến tràn RAM và gây lỗi về bộ nhớ(*Memory Error*). 
+Vì sao? Vì khi đó nếu dùng một kiểu dữ liệu tuần tự để lưu hay xử lý thì chương trình sẽ ngốn nhiều dung lượng RAM, dẫn đến tràn RAM và gây lỗi về bộ nhớ(*Memory Error*).
 
 Nếu bạn gặp các trường hợp này, thì generator chính là chân ái của đời bạn đó, nhớ nhé 😘
 
@@ -359,11 +365,11 @@ sum(list_n_list(1000000000))
 Và mình chạy thử xem nó tốn bao nhiêu time:
 
 ```python
-$ python list_n_list.py     
+$ python list_n_list.py
 time execute 0:06:51.453351
 ```
 
-Rồi, đoạn code này khá là đơn giản phải không, logic rất dễ hiểu, nhưng nó đang tạo một list với tất cả các phần tử từ 0 đến n, rồi cộng lại. Rõ là phương án này nhìn thì đơn giản, nhưng rất khó chấp nhận trong trường hợp n là một số siêu lớn, vì làm sao mà mình lưu tất cả 1000000000… phần tử trong bộ nhớ được. 
+Rồi, đoạn code này khá là đơn giản phải không, logic rất dễ hiểu, nhưng nó đang tạo một list với tất cả các phần tử từ 0 đến n, rồi cộng lại. Rõ là phương án này nhìn thì đơn giản, nhưng rất khó chấp nhận trong trường hợp n là một số siêu lớn, vì làm sao mà mình lưu tất cả 1000000000… phần tử trong bộ nhớ được.
 
 Với n = 1000000000000000, chương trình sẽ bị đứng sau một hồi cố gắng hiu hiu, thương ghê!
 
@@ -377,7 +383,7 @@ $ python generator.py
 
 Đầu tiên, mình sẽ tiếp cận cách số 2 với bạn iterator trước nha, vì bạn này cũng giúp mình không lưu cả dãy như ở trên, và vẫn có thể xử lý trong tình huống này ha.
 
-Ôkê, vì bạn ni hơi cực, nên mình lại nhắc xíu là mình tính làm gì nha. Đầu tiên là mình cần tạo một lớp có phương thức **\_\_iter\_\_** sau đó phương thức này trả ra iterator, ở đây là mình muốn gom hết vào một chỗ luôn, vì mình hiểu là iterator cũng là iterable nên mình sẽ return self ở đây. Sau đó mình sẽ tạo tiếp một phương thức **\_\_next\_\_** để self chính là iterator. 
+Ôkê, vì bạn ni hơi cực, nên mình lại nhắc xíu là mình tính làm gì nha. Đầu tiên là mình cần tạo một lớp có phương thức **\_\_iter\_\_** sau đó phương thức này trả ra iterator, ở đây là mình muốn gom hết vào một chỗ luôn, vì mình hiểu là iterator cũng là iterable nên mình sẽ return self ở đây. Sau đó mình sẽ tạo tiếp một phương thức **\_\_next\_\_** để self chính là iterator.
 
 Cùng xem code nha:
 
@@ -409,11 +415,11 @@ sum(list_n_iterator(100000000))
 Còn đây là thời gian chạy của đoạn code với iterator nhé:
 
 ```python
-$ python list_n_iterator.py  
+$ python list_n_iterator.py
 time execute 0:06:08.411233
 ```
 
-Và tất nhiên là đoạn code trên có thể hoạt động ổn hơn rồi. 
+Và tất nhiên là đoạn code trên có thể hoạt động ổn hơn rồi.
 
 Tuy nhiên có vài vấn đề mà mình từng đoán trước đây như là:
 
@@ -441,7 +447,7 @@ sum(list_n_generator(1000000000))
 Và thời gian của bạn này chạy là:
 
 ```python
-$ python list_n_generator.py                                            
+$ python list_n_generator.py
 time execute 0:02:07.852190
 ```
 
@@ -451,7 +457,7 @@ time execute 0:02:07.852190
 
 ### Cách 1: Dùng hàm generator
 
-Đây chính là cách mà ví dụ ở trên dùng đấy. 
+Đây chính là cách mà ví dụ ở trên dùng đấy.
 
 Để tạo hàm generator thì mình tạo hàm như bình thường và thay vì dùng return để trả về giá trị thì mình dùng yield để trả về giá trị.
 

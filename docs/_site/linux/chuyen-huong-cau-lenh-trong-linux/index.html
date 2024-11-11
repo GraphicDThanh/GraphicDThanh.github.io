@@ -1,0 +1,204 @@
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/03/signpost-g408c6bc24_1920.jpeg" alt="" />
+Chào mừng bạn đến với blog số 4 của series <a href="https://beautyoncode.com/lam-quen-linux-danh-cho-lap-trinh-vien-series-overview/">“Linux dành cho lập trình viên”</a>.</p>
+
+<p>Trong các blog trước, mình đã đi qua các nội dung về:</p>
+
+<p>– <a href="https://beautyoncode.com/gioi-thieu-ve-linux/"><strong>“Giới thiệu về Linux”</strong></a></p>
+
+<p>– <a href="https://beautyoncode.com/lam-quen-cau-lenh-va-he-thong-tap-tin-trong-linux/"><strong>“Làm quen câu lệnh và hệ thống tập tin trong Linux”</strong></a></p>
+
+<p>– <a href="https://beautyoncode.com/quan-ly-he-thong-tap-tin-trong-linux/"><strong>“Quản lý hệ thống tập tin trong Linux”</strong></a></p>
+
+<p>Nếu bạn chưa đọc qua thì hãy dừng ít phút ghé đọc để có cái nhìn tổng quan và theo cùng nội dung chuỗi bài này nhé.</p>
+
+<p>Tiếp theo trong bài này, tụi mình sẽ <strong>cùng tìm hiểu thêm về việc chuyển hướng trong Linux</strong>.</p>
+
+<hr />
+
+<h2 id="các-luồng-dữ-liệu-của-một-câu-lệnh">Các luồng dữ liệu của một câu lệnh</h2>
+
+<p>Quy trình làm việc cơ bản của bất cứ câu lệnh nào chính là nó sẽ nhận <strong>đầu vào</strong>(input) và trả về một <strong>đầu ra</strong>(output).</p>
+
+<p>Một câu lệnh sẽ có 3 luồng dữ liệu gồm:</p>
+
+<p>– standard input(stdin)</p>
+
+<p>– standard out(stdout)</p>
+
+<p>– standard error(stderr)</p>
+
+<h3 id="đầu-vào-tiêu-chuẩnstdin">Đầu vào tiêu chuẩn(stdin)</h3>
+
+<blockquote>
+  <p><strong>Là dữ liệu được truyền vào câu lệnh.</strong></p>
+</blockquote>
+
+<p>Stdin thường là từ bàn phím, ngoài ra còn có thể từ file hoặc một process khác</p>
+
+<h3 id="đầu-ra-tiêu-chuẩnstdout">Đầu ra tiêu chuẩn(stdout)</h3>
+
+<blockquote>
+  <p><strong>Là kết quả được trả về sau khi thực thi câu lệnh thành công.</strong></p>
+</blockquote>
+
+<p>Stdout thường xuất ra trên màn hình, ngoài ra còn có thể xuất ra file hoặc một process khác</p>
+
+<p><em>Ví dụ:</em> khi bạn gõ ls thì đây chính là stdin, còn stdout là kết quả bạn thấy trên màn hình</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/03/stdin-stdout.png" alt="" /></p>
+
+<h3 id="lỗistderr">Lỗi(stderr)</h3>
+
+<blockquote>
+  <p><strong>Là lỗi được trả về sau khi thực thi câu lệnh và có lỗi gì đó xảy ra.</strong></p>
+</blockquote>
+
+<p>Stdout thường xuất ra trên màn hình, ngoài ra còn có thể xuất ra file hoặc một process khác</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/03/stdin-stderr.png" alt="" /></p>
+
+<h2 id="chuyển-hướng---redirection-là-gì">“Chuyển hướng” - Redirection là gì?</h2>
+<blockquote>
+  <p><strong>“Chuyển hướng”</strong> là một tính năng trong Linux cho phép chúng ta thay đổi đầu vào tiêu chuẩn(stdin) và đầu ra tiêu chuẩn(stdout) khi thực hiện một câu lệnh.</p>
+</blockquote>
+
+<p>Ví dụ: bạn chạy một câu lệnh và muốn lưu lại kết quả trả về của câu lệnh này để sử dụng trong tương lai.</p>
+
+<h3 id="chuyển-hướng-vào-file">Chuyển hướng vào file</h3>
+<h4 id="chuyển-hướng-đầu-rastdout-vào-file-với-dấu-">Chuyển hướng đầu ra(stdout) vào file với dấu &gt;</h4>
+
+<blockquote>
+  <p><strong>Dùng dấu &gt; để chuyển hướng cho đầu ra(stdout)</strong></p>
+</blockquote>
+
+<p><em>Ví dụ:</em> Chuyển kết quả của câu lệnh ls đã thành công và chuyển sdtout vào file là list.txt</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/03/redirection-stdout.png" alt="" /></p>
+
+<p>Kết quả là mình không còn thấy stdout xuất ra màn hình nữa, mà stdout này đã được xuất vào file list.txt, file này được tự động tạo(nếu chưa có) hoặc sẽ ghi đè(nếu file này đã tồn tại).</p>
+
+<p>Tiếp theo ví dụ trên, giả sử mình muốn chuyển stdout của câu lệnh “cal 03 2022” vào file list.txt</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/03/override-stdout.png" alt="" /></p>
+
+<p>Vậy là kết quả của lệnh ls ban đầu đã bị ghi đè rồi.</p>
+
+<p>Nếu bạn muốn ghi thêm vào thay vì ghi đè trong trường hợp này cần <strong>sử dụng dấu »</strong>.</p>
+
+<p>Theo đó kết quả mới sẽ được thêm vào như dưới đây:</p>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/03/adding-stdout.png" alt="" /></p>
+
+<h4 id="chuyển-hướng-lỗistderr-vào-file-với-dấu-2">Chuyển hướng lỗi(stderr) vào file với dấu 2&gt;</h4>
+<blockquote>
+  <p><strong>Dùng dấu 2&gt; để chuyển hướng cho lỗi(stderr)</strong></p>
+</blockquote>
+
+<p><strong>Ví dụ:</strong> Chuyển kết quả của câu lệnh “cal -1 2022” có lỗi(vì tháng là số âm) và chuyển sdterr vào file là cal.txt(nếu chưa có sẽ tạo mới, có file tồn tại sẽ ghi đè)</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/03/redirection-sdterr.png" alt="" /></p>
+
+<p>Thế nhưng không phải lúc nào chúng ta cũng biết chắc chắn là câu lệnh có lỗi để chuyển vào với dấu 2&gt;, khi đó có thể tách ra nếu stdout thì chuyển vào file sdtout-cal.txt và nếu stderr thì chuyển vào file stderr-cal.txt.</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/03/stdout-or-stderr.png" alt="" /></p>
+
+<p>Nhắc lại chỗ này một tí là khi dùng &gt;, thì nội dung file có sẵn sẽ bị ghi đè. Tức là khi có lỗi xảy ra ở câu lệnh số 2, thì file stdout-cal.txt sẽ bị ghi thành file rỗng, vì nó không có output ở đây.</p>
+
+<p>Cuối cùng là một ví dụ cho trường hợp mình không muốn ghi đè(ôn lại) với », kết quả là tất cả các output đều được thêm vào.</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/03/add-std.png" alt="" /></p>
+
+<h4 id="chuyển-hướng-tất-cả-output-gồm-stdout-và-stderr-vào-file-với-dấu-21">Chuyển hướng tất cả output, gồm stdout và stderr vào file với dấu 2&gt;&amp;1</h4>
+<blockquote>
+  <p><strong>Để chuyển hướng output cho cả stdout và stderr thì sử dụng dấu 2&gt;&amp;1</strong></p>
+</blockquote>
+
+<p><strong>Ví dụ:</strong> Chuyển hướng stdout hay stderror vào file(tạo với nếu chưa có file, ghi đè nếu file đã tồn tại)</p>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/03/output-onefile.png" alt="" /></p>
+
+<p><strong>Ví dụ:</strong> Chuyển hướng stdout hay stderror thêm nội dung vào file</p>
+
+<p>Một lưu ý là việc chuyển hướng tất cả đầu ra output(stdout, sdterr) vào chung một file rất thường gặp, đặc biệt là khi <strong>chương trình cần theo dõi log(để debug lỗi) của những câu lệnh được chạy</strong>, hoặc <strong>khi bạn muốn chạy lệnh nhưng bỏ qua các lỗi có thể xảy ra</strong>. Tất cả những nội dung output này sẽ được gom vào một file hay gọi là “bit bucket” hay <strong>“black hole”</strong></p>
+
+<h4 id="ví-dụ-về-đầu-vào-tiêu-chuẩnstdin">Ví dụ về đầu vào tiêu chuẩn(stdin)</h4>
+<p>Hãy thử lệnh này: <strong>tr ‘a-z’ ‘A-Z’</strong></p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/03/tranform-text.png" alt="" /></p>
+
+<p>Kết quả là chương trình nó đứng im như bị treo vậy á!?</p>
+
+<p>Nhưng mà không phải đâu, thực tế là nó đang đứng đợi bạn truyền đầu vào vào ấy. Thử gõ một dòng chữ: “Have a nice day” vào và enter:</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/03/input-transform.png" alt="" /></p>
+
+<p>Kết quả là một dòng chữ mới in hoa được xuất ra, và chương trình tiếp tục đợi đầu vào tiếp theo.</p>
+
+<p>Nếu muốn thoát khỏi lệnh này, bấm <strong>Ctrl+C</strong>.</p>
+
+<p>Tại đây, chương trình đang sử dụng đầu vào tiêu chuẩn(stdin) là từ bàn phím nhập vào. Nếu đầu vào này thay đổi là một file thì sẽ tốt biết mấy, mình có thể chứa nhiều nội dung để chuyển thành chữ in hoa hơn.</p>
+
+<h3 id="chuyển-hướng-đầu-vào-với-dấu-">Chuyển hướng đầu vào với dấu &lt;</h3>
+
+<blockquote>
+  <p><strong>Dùng dấu &lt; để chuyển hướng cho đầu vào(stdin)</strong></p>
+</blockquote>
+
+<p><strong>Ví dụ:</strong> Chuyển đầu vào cho câu lệnh trên là kết quả của lệnh cal trong file mycal. Tức là mình muốn in ra màn hình lịch ở định dạng in hoa</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/03/input-redirection.png" alt="" /></p>
+
+<p>Tiếp theo, nếu muốn chuyển hướng cho stdout(lịch ở định dạng in hoa) và một file mynewcal thì sủe dụng &gt; để chuyển hướng đầu ra</p>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/03/redirection-input-output.png" alt="" /></p>
+
+<h3 id="chuyển-hướng-đầu-ra-của-câu-lệnh-này-thành-đầu-vào-của-câu-lệnh-khác">Chuyển hướng đầu ra của câu lệnh này thành đầu vào của câu lệnh khác</h3>
+
+<blockquote>
+  <table>
+    <tbody>
+      <tr>
+        <td>**Dùng dấu</td>
+        <td>để chuyển hướng cho đầu ra vào câu lệnh khác**</td>
+      </tr>
+    </tbody>
+  </table>
+</blockquote>
+
+<p>Bạn cũng có thể chuyển hướng đầu ra của câu lệnh này vào câu lệnh khác thay vì chuyển vào file như trên. Việc này rất hữu ích khi mà có nhiều câu lệnh cần nối chuỗi với nhau hay có kết quả quá nhiều.</p>
+
+<p><strong>Ví dụ:</strong> Kết quả của câu lệnh “ls /etc” rất dài và làm màn hình xuất hiện thanh scroll, gây khó trong việc tìm kiếm trong kết quả nhiều như vậy.</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/03/command-long-result.png" alt="" /></p>
+
+<p>Để giải quyết vấn đề này, chúng ta có thể gửi kết quả này vào một câu lệnh khác là more để hiện thị thành nhiều trang. Và để qua trang mới, chỉ cần bấm phím Space.</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/03/more-command.png" alt="" /></p>
+
+<p>Vậy là đầu ra của câu lệnh “<strong>ls /etc</strong>” đã trở thành đầu vào của câu lệnh “more”.
+Để thoát ra khỏi chế độ xem nhiều trang của more, bấm “q” và enter để thoát.</p>
+
+<h2 id="piping">Piping</h2>
+<p>Quá trình chuyển hướng đầu ra của lệnh này thành đầu vào của lệnh khác như trên được gọi là <strong>piping</strong>.  Bạn có thể tạm dịch nó là dạng đường ống(piping) vì nó chuyển dữ liệu(output) giống như nước chảy từ ống này sang ống khác.</p>
+
+<p>Để hiểu thêm về piping, mời bạn xem qua sự so sánh hai quá trình sau:</p>
+
+<h3 id="quá-trình-của-câu-lệnh-ls-etc-với-đầu-vào-và-đầu-ra-tiêu-chuẩn">Quá trình của câu lệnh <strong>“ls /etc”</strong> với đầu vào và đầu ra tiêu chuẩn</h3>
+<p>Khi bạn gõ <strong>“ls /etc”</strong> từ bàn phím, kết quả sẽ được in ra màn hình. Dưới đây là quá trình này:</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/03/standard-process.png" alt="" /></p>
+
+<h3 id="quá-trình-của-câu-lệnh-ls-etc--more-với-piping">Quá trình của câu lệnh <strong>“ls /etc | more”</strong> với piping</h3>
+<p>Khi bạn gõ <strong>“ls /etc | more”</strong> từ bàn phím, kết quả lệnh ls nếu có lỗi sẽ được in ra màn hình, nếu không có lỗi sẽ chuyển đầu ra thành đầu vào của lệnh more và xuất kết quả ra màn hình.</p>
+
+<p>Dưới đây là quá trình này:</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/03/piping-process.png" alt="" /></p>
+
+<hr />
+
+<p>Nội dung bài blog này đến đây tạm hết rồi, tụi mình đã tìm hiểu về cách điều hướng câu lệnh trong Linux rồi, thú vị thật nhỉ.</p>
+
+<p>Trong bài viết tiếp theo của series <a href="https://beautyoncode.com/lam-quen-linux-gianh-cho-lap-trinh-vien-series-overview/">“Làm quen Linux giành cho lập trình viên”</a>, sẽ là tìm hiểu thêm về <strong>“Các câu lệnh Linux thường dùng”</strong></p>
+
+<p>Hẹn gặp các bạn trong bài viết sau.</p>

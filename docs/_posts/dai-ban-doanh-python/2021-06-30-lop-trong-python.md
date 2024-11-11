@@ -1,9 +1,16 @@
 ---
-layout: post
-title:  "Lớp trong Python"
-date:   2020-02-12 10:00:00 +0700
-categories: python, dai-ban-doanh-python
+title: "Lớp trong Python"
+header:
+  teaser:
+  og_image:
+excerpt_separator: <!--more-->
+categories:
+  - Đại Bản Doanh Python
+tags:
+  - python
+last_modified_at: 2020-06-30T15:12:19-04:00
 ---
+
 Hôm ni, mình học tiếp về bạn “Lớp(class) trong python”, bài blog tiếp theo nằm trong series [“Khám phá Đại Bản Doanh Python”](https://beautyoncode.com/dai-ban-doanh-python-series-overview/)(nội dung trong bài series này từ chủ yếu mình lấy từ python.org rồi viết lại hoặc dịch lại theo ngôn ngữ của mình)
 
 Ở bài này, tụi mình sẽ học sâu hơn về cách tạo và sử dụng các lớp đối tượng này cùng các khái niệm liên quan nhé.
@@ -13,7 +20,7 @@ Hôm ni, mình học tiếp về bạn “Lớp(class) trong python”, bài blo
 
 Lớp như là tinh tuý trong Python vậy đó, nó có quyền năng cực kỳ mạnh mẽ là cho phép tụi mình nhóm các dữ liệu(fields) và các hàm chức năng liên quan(methods) lại với nhau để tạo ra một loại nhà máy nơi mà có thể sản xuất ra vô số các thực thể đối tượng(instance).
 
-Bạn có thể hình dung lớp như là một bản thiết kế mẫu cho một loại đối tượng nào đó, như bản thiết kế nhà chẳng hạn, từ bản thiết kể này mình có thể tạo nên những thực thể khác nhau, là những ngôi nhà khác nhau. 
+Bạn có thể hình dung lớp như là một bản thiết kế mẫu cho một loại đối tượng nào đó, như bản thiết kế nhà chẳng hạn, từ bản thiết kể này mình có thể tạo nên những thực thể khác nhau, là những ngôi nhà khác nhau.
 
 Tuy nhiên, trước khi học về class, **có hai khái niệm là namespace, scope và một quy luật gọi là LEGB** bạn cần biết để hiểu vì sao chương trình, hiểu sao class lại hoạt động như vậy. Kiến thức này khá trừu tượng và có nhiều nội dung nên mình đã tách các bạn ấy ra một bài post riêng tên là **[“Không gian tên(namespace) và phạm vi(scope) trong Python”](https://beautyoncode.com/khong-gian-ten-va-pham-vi-trong-python/)**, bạn hãy ghé đọc xong rồi quay lại học về lớp nhé.
 
@@ -36,9 +43,9 @@ class TenCuaLop:
 
 Cờ-lát nói với tớ là, cậu ta là kiểu người đọc kỹ hướng dẫn sử dụng trước khi dùng, á nhầm, cậu ta là kiểu cần phải **định nghĩa trước khi sử dụng**, và bắt buộc phải định nghĩa với từ khoá “**class**“.
 
-Một khi mà cậu ta được dùng á hả, là một **không gian tên được khởi tạo**, và nó được sử dụng như là một phạm vi nội bộ, nơi **chứa tất cả các biến** được khai báo trong cậu ấy. 
+Một khi mà cậu ta được dùng á hả, là một **không gian tên được khởi tạo**, và nó được sử dụng như là một phạm vi nội bộ, nơi **chứa tất cả các biến** được khai báo trong cậu ấy.
 
-Nghe hay ho phếch nhỉ. Thế cụ thể là như nào? 
+Nghe hay ho phếch nhỉ. Thế cụ thể là như nào?
 
 Ừ, thì cụ thể là, ví dụ một hàm được định nghĩa trong cậu ấy, tên của hàm này sẽ thuộc cái không gian tên kia, và mình có thể dùng nó từ cậu ấy được. Khi cậu ấy đã được định nghĩa(tức là viết hết tới <lệnh-N> ở trên đó), **một lớp đối tượng được khởi tạo**. Lớp đối tượng này về cơ bản sẽ bao bọc tất cả thành phần của không gian tên được tạo bởi định nghĩa lớp này(phần tiếp học kỹ hơn khúc này).
 
@@ -46,7 +53,7 @@ Nghe hay ho phếch nhỉ. Thế cụ thể là như nào?
 
 ### Cậu ấy là lớp của các đối tượng
 
-Cờ-lát còn bảo với tớ, là ai quen cậu ấy đều biết cậu ấy có hai điểm mạnh: 
+Cờ-lát còn bảo với tớ, là ai quen cậu ấy đều biết cậu ấy có hai điểm mạnh:
 
 – biết rõ bản thân mình
 
@@ -54,7 +61,7 @@ Cờ-lát còn bảo với tớ, là ai quen cậu ấy đều biết cậu ấy
 
 #### Biết rõ bản thân mình
 
-BIết rõ bản thân mình chính là cậu ấy biết cách **tham chiếu thuộc tính**(attribute references) sẵn có trong cậu ấy. 
+BIết rõ bản thân mình chính là cậu ấy biết cách **tham chiếu thuộc tính**(attribute references) sẵn có trong cậu ấy.
 
 Cách cậu ấy hay dùng, là cách mà Python chỉ cho cậu ấy, là dùng dấu “.” để tham chiếu đến các thuộc tính của bản thân mình, ví dụ như là obj.name. Do đó, nếu Cờ-lát được định nghĩa như thế này:
 
@@ -76,7 +83,7 @@ print(x.counter)
 del x.counter
 ```
 
-thì MyCoLat.**ten**, MyCoLat.**say_hi** là các thuộc tính tham chiếu, trả về giá trị là chuỗi(ten), và một hàm(say_hi).  
+thì MyCoLat.**ten**, MyCoLat.**say_hi** là các thuộc tính tham chiếu, trả về giá trị là chuỗi(ten), và một hàm(say_hi).
 
 Các thuộc tính của cậu ấy cũng có thể gán được, vì vậy mình có thể thay đổi giá trị của nó. Ngoài ra,  __doc__ cũng là một thuộc tính, nó sẽ trả ra giá trị của đoạn mô tả “Class cua BeautyOnCode“, đây là thuộc tính mặc định của cậu ấy.
 
@@ -90,11 +97,11 @@ co_lat_empty = MyCoLat()
 
 Dòng trên chính là Cờ-lát của tớ đã được khởi tạo thành một thực thể mới mang tên tạm gọi là “co_lat_empty”, lúc này “co_lat_empty” của tớ hoàn toàn trống rỗng nhé.
 
-Ơ, thế Cờ-lát của mày biến hình à, hay là đa nhân cách? Vâng, chính thế đó, bạn nhìn ra nhanh vậy, Cờ-lát của tớ thuộc loại đa nhân cách siêu đẳng nhé. 
+Ơ, thế Cờ-lát của mày biến hình à, hay là đa nhân cách? Vâng, chính thế đó, bạn nhìn ra nhanh vậy, Cờ-lát của tớ thuộc loại đa nhân cách siêu đẳng nhé.
 
-Trong mỗi tình huống, hoặc mỗi ngữ cảnh, là cậu ấy có thể biến hình thành những con người hoàn toàn khác biệt đấy.  Chưa hết, cậu ấy còn có bí kíp để khởi tạo từng cuộc sống riêng cho chính mình, ví dụ như là đi biển thì sẽ mặc đồ bơi, đi chùa thì phải mặc quần dài, trời nắng thì đội mũ, trời mưa thì mang áo mưa, … 
+Trong mỗi tình huống, hoặc mỗi ngữ cảnh, là cậu ấy có thể biến hình thành những con người hoàn toàn khác biệt đấy.  Chưa hết, cậu ấy còn có bí kíp để khởi tạo từng cuộc sống riêng cho chính mình, ví dụ như là đi biển thì sẽ mặc đồ bơi, đi chùa thì phải mặc quần dài, trời nắng thì đội mũ, trời mưa thì mang áo mưa, …
 
-Và, chiếc túi Doraemon của cậu ấy, chính là hàm __init__ đấy nhé. 
+Và, chiếc túi Doraemon của cậu ấy, chính là hàm __init__ đấy nhé.
 
 Cùng xem hàm này giúp Cờ-lát của tớ biến hình ra sao:
 
@@ -103,7 +110,7 @@ def __init__(self):
     self.language = "Python"
 ```
 
-Khi Cờ-lát của tớ nắm trong tay hàm này, thì mỗi phiên bản biến hình của cậu ấy, não bộ sẽ tự động gọi qua hàm này để khởi tạo các thuộc tính là các đặc điểm, tính cách mà cậu ấy mong muốn. 
+Khi Cờ-lát của tớ nắm trong tay hàm này, thì mỗi phiên bản biến hình của cậu ấy, não bộ sẽ tự động gọi qua hàm này để khởi tạo các thuộc tính là các đặc điểm, tính cách mà cậu ấy mong muốn.
 
 Chưa hết, chỉ cần một ý nghĩ trong đầu như một dạng dữ liệu đầu vào là hàm này đã có thể nhận các giá trị khác nhau rồi nhé. Đây là Cờ Lát cải tiến của tớ với hàm __init__
 
@@ -128,7 +135,7 @@ Ví dụ khi cậu ấy muốn đi chơi với tớ, cậu ấy sẽ tạo ra m�
 >>> x = MyCoLat("Lee Min Ho", 10)
 >>> x.handsome_like, x.love_exp
 ('Lee Min Ho', 10)
->>> 
+>>>
 ```
 
 Đấy, nhìn hẳn các cậu cũng hiểu rồi phải không, hihi. Bạn cờ lát của tớ sẽ biến hình thành handsome_like “Lee Min Ho” với 10 năm kinh nghiệm tình trường love_exp.
@@ -139,7 +146,7 @@ Ví dụ khi cậu ấy muốn đi chơi với tớ, cậu ấy sẽ tạo ra m�
 >>> y = MyCoLat()
 >>> y.handsome_like, y.love_exp
 ('Hyun Bin', 5)
->>> 
+>>>
 ```
 
 Ui, nên tớ mê cậu ấy ngẩn tò te luôn ấy, quá ngầu mà phải không ^^.
@@ -156,7 +163,7 @@ Các đặc điểm này có thể chia làm hai lọại là:
 
 Đặc điểm riêng của cậu ấy hay còn gọi là các **thuộc tính dữ liệu**(data attributes)
 
-Các thuộc tính dữ liệu thì không cần khai báo, như là các biến địa phương, và chúng bắt đầu tồn tại kể từ khi chúng được gán. 
+Các thuộc tính dữ liệu thì không cần khai báo, như là các biến địa phương, và chúng bắt đầu tồn tại kể từ khi chúng được gán.
 
 Ví dụ, từ x là một thực thể của MyCoLat ở trên, mình tạo một thuộc tính dữ liệu cho nó mang tên “counter” nó bắt đầu tồn tại tại thời điểm mình gán giá trị và có thể sử dụng ngay sau đó.
 
@@ -164,28 +171,28 @@ Ví dụ, từ x là một thực thể của MyCoLat ở trên, mình tạo m�
 >>> x.counter = 1
 >>> while x.counter < 10:
 ...     x.counter = x.counter * 2
-... 
+...
 >>> print(x.counter)
 16
 >>> del x.counter
->>> 
+>>>
 ```
 
 #### Các hành động
 
-Còn hành động của từng phiên bản như thấy gái là auto chảnh hay thấy người lớn là auto lịch sự  chính là các **phương thức**(methods). 
+Còn hành động của từng phiên bản như thấy gái là auto chảnh hay thấy người lớn là auto lịch sự  chính là các **phương thức**(methods).
 
 Phương thức của đối tượng là một hàm thuộc về đối tượng đó.
 
-Tên các phương thức của một đối tượng sẽ phụ thuộc vào lớp của đối tượng đó. Theo định nghĩa, tất cả các thuộc tính của lớp thể hiện các hành động của các đối tượng thì sẽ dùng phương thức để thể hiện. 
+Tên các phương thức của một đối tượng sẽ phụ thuộc vào lớp của đối tượng đó. Theo định nghĩa, tất cả các thuộc tính của lớp thể hiện các hành động của các đối tượng thì sẽ dùng phương thức để thể hiện.
 
 Ở ví dụ của tụi mình, x.f là một tham chiếu phương thức f hợp lệ, vì MyCoLat.keep_it là một hàm
 
-Nhưng MyCoLat.handsome_like thì không phải là tham chiếu phương thức, vì handsome_like chỉ là một thuộc tính dữ liệu. 
+Nhưng MyCoLat.handsome_like thì không phải là tham chiếu phương thức, vì handsome_like chỉ là một thuộc tính dữ liệu.
 
 **Thế còn x.keep_it và MyClassDating.keep_it có giống nhau? **
 
-Hai bạn này khác nhau nhé ạ, 
+Hai bạn này khác nhau nhé ạ,
 
 – với x.keep_it thì keep_it là phương thức của thực thể x
 
@@ -203,7 +210,7 @@ Như ở trên, **keep_it** chính là một phương thức như vậy,  phươ
 
 **Vậy thì, điều gì đã xảy ra khi phương thức này được gọi như thế này x.keep_it()? **
 
-Bạn có thấy x.keep_it() được gọi mà không cần biến số nào, ngay cả khi keep_it được định nghĩa với một biến số là self. 
+Bạn có thấy x.keep_it() được gọi mà không cần biến số nào, ngay cả khi keep_it được định nghĩa với một biến số là self.
 
 Vì sao lại thể nhỉ? Có điều gì đó sai sai, có phải là thiếu biến số không? Nếu mà thiếu là Python nó la làng lên lỗi thiếu biến số rồi cậu à, dù cho biến này cậu không dùng nhưng Python nó sẽ vẫn yêu cầu phải có, gọi là required args ấy, cơ mà ở đây thì hoàn toàn không có lỗi nào, lạ thật.
 
@@ -219,7 +226,7 @@ Ví dụ nha, khi một thuộc tính không phải dữ liệu riêng của x �
 
 Khi x gọi phương thức này kèm với một danh sách đối số, một danh sách đối số mới sẽ được xây dựng bao gồm thực thể gọi và danh sách đối số đi kèm, rồi nó sẽ gọi **phương thức của đối tượng** trên bằng đám đối số mới này.
 
-Hi vọng bạn sẽ hiểu 😅 
+Hi vọng bạn sẽ hiểu 😅
 
 ### Thuộc tính của Cờ-lát và thuộc tính của các phiên bản
 
@@ -238,7 +245,7 @@ class Dog:
                           # khởi tạo bởi hàm __init__ sẽ tương ứng
                           # với giá trị của từng thực thể truyền vào
  ```
- 
+
  ```
  >>> from example import Dog
 >>> v = Dog("Vàng")
@@ -252,7 +259,7 @@ class Dog:
 >>> m.name
 'Mili'
  ```
- 
+
  Như mình thấy ở trên, “**kind**” là một thuộc tính **được chia sẻ**. Với các thuộc tính chia sẻ như vậy, nếu nó là các kiểu dữ liệu có thể thay đổi được như là list, dict thì có khả năng sẽ tạo ra nhiều trường hợp mình không mong muốn, vì tính chất chia sẻ này.
 
 Ví dụ mình thêm một thuộc tính nữa mô tả sở thích của các bạn chó là “interest”, là một dict:
@@ -283,11 +290,11 @@ class Dog:
 >>> m.add_interest("ăn")
 >>> v.interest
 ['ngủ', 'ăn']
->>> # Ở đây mình mong đợi v chi có một interest là "ngủ" thôi 
+>>> # Ở đây mình mong đợi v chi có một interest là "ngủ" thôi
     # mà lại trả ra hai cơ, vậy là bị sai goài!
 ```
 
-Như vậy, khi “interest” là một thuộc tính chung được chia sẻ với tất cả các phiên bản khác thì sẽ gây vấn đề phải không? 
+Như vậy, khi “interest” là một thuộc tính chung được chia sẻ với tất cả các phiên bản khác thì sẽ gây vấn đề phải không?
 
 Vậy ở đây, mình cần phải đặt bạn “interest” này vào cho từng phiên bản một, bằng cách đặt thuộc tính này vào hàm __init__, do đó thuộc tính này sẽ được khởi tạo cho từng phiên bản riêng biệt, như thế này sẽ hoạt động như mong đợi là v chỉ có một interest là [“ngủ”] thôi nè:
 
@@ -304,7 +311,7 @@ class Dog:
     def add_interest(self, interest_name):
         self.interest.append(interest_name)
  ```
- 
+
  ```
  >>> from example import Dog
 >>> v = Dog("Vàng")
@@ -333,9 +340,9 @@ Nếu cùng một tên thuộc tính có mặt ở cả thực thể và cả l�
 
 ### Một vài nguyên tắc về ngữ nghĩa
 
-Biến số đầu tiên của phương thức trong class thường sẽ bắt đầu với self(như mình đã học ở trên). 
+Biến số đầu tiên của phương thức trong class thường sẽ bắt đầu với self(như mình đã học ở trên).
 
-**Thế thì nếu không có self có được không nhỉ?** 
+**Thế thì nếu không có self có được không nhỉ?**
 
 Câu trả lời là ĐƯỢC. Cơ mà, đây là quy định về mặt ngữ nghĩa của class trong Python, nên dù có viết được nhưng mình cũng hạn chế nhất có thể, vì sẽ gây hiểu lầm với người khác.
 
@@ -360,7 +367,7 @@ class C:
 #### Gọi hàm
 ##### Có thể gọi hàm trong cùng một class với self
 
-Phương thức này có thể gọi phương thức khác trong cùng một lớp đối tượng, sử dụng **self** để gọi. 
+Phương thức này có thể gọi phương thức khác trong cùng một lớp đối tượng, sử dụng **self** để gọi.
 
 Ví dụ dưới đây gọi hai lần hàm add trong hàm **addtwice** nè:
 
@@ -381,15 +388,15 @@ class Bag:
 
 Các phương thức trong một lớp có thể tham chiếu toàn cục giống như các hàm thông thường với phạm vi toàn cục được liên kết với phương thức đó chính là mô-đun chứa định nghĩa của nó. Ví dụ như mình có thể gọi hàm add của Bag như thế này: Bag.add(1)
 
-Cơ mà lớp đối tượng thì không bao giờ sử dụng như là một phạm vi toàn cục được nghen. Trong khi hiếm có lý do cho việc sử dụng phương thức của một lớp ở phạm vi toàn cục, thì có nhiều cách sử dụng phạm vi toàn cục hợp lý hơn: đơn cử như, các hàm và các mô-đun được nạp vào phạm vi toàn cục để có thể sử dụng trong các phương thức, cũng như việc định nghĩa các hàm hay các lớp trong phạm vi toàn cục. 
+Cơ mà lớp đối tượng thì không bao giờ sử dụng như là một phạm vi toàn cục được nghen. Trong khi hiếm có lý do cho việc sử dụng phương thức của một lớp ở phạm vi toàn cục, thì có nhiều cách sử dụng phạm vi toàn cục hợp lý hơn: đơn cử như, các hàm và các mô-đun được nạp vào phạm vi toàn cục để có thể sử dụng trong các phương thức, cũng như việc định nghĩa các hàm hay các lớp trong phạm vi toàn cục.
 
-Thường thì, lớp chứa phương thức được định nghĩa trong phạm vi toàn cục, và trong phần tiếp theo, mình sẽ tìm thấy thêm vài nguyên nhân tại sao phương thức lại tham chiếu đến lớp của chính nó. 
+Thường thì, lớp chứa phương thức được định nghĩa trong phạm vi toàn cục, và trong phần tiếp theo, mình sẽ tìm thấy thêm vài nguyên nhân tại sao phương thức lại tham chiếu đến lớp của chính nó.
 
 Mỗi giá trị là một đối tượng, và do đó sẽ có một lớp(còn được gọi là type của nó), được lưu trữ dưới dạng đối tượng object.__class__.
 
 ## Kế thừa
 
-Khi nói đến lớp, tất nhiên sẽ nói đến kế thừa, vì đây là viên kim cương trong lập trình hướng đối tượng. 
+Khi nói đến lớp, tất nhiên sẽ nói đến kế thừa, vì đây là viên kim cương trong lập trình hướng đối tượng.
 
 Để kế thừa một lớp rất đơn giản, chỉ việc bọc lớp mình tạo với lớp mình định kế thừa là xong, nó sẽ như vậy nè:
 
@@ -433,19 +440,19 @@ class DerivedClassName(Base1, Base2, Base3):
 
 Vậy ở đây việc kế thừa được thực hiện thế nào nhỉ?
 
-Đối với hầu hết các mục đích, trong các trường hợp đơn giản nhất, bạn có thể nghĩ là việc tìm kiếm các thuộc tính được kết thừa từ lớp cha là tìm kiếm theo chiều sâu, từ trái sang phải, và không phải tìm kiếm hai lần trong cùng một lớp nơi có sự chồng chéo trong phân cấp. 
+Đối với hầu hết các mục đích, trong các trường hợp đơn giản nhất, bạn có thể nghĩ là việc tìm kiếm các thuộc tính được kết thừa từ lớp cha là tìm kiếm theo chiều sâu, từ trái sang phải, và không phải tìm kiếm hai lần trong cùng một lớp nơi có sự chồng chéo trong phân cấp.
 
 Do đó, nếu một thuộc tính không tìm thấy trong DerivedClassName, thì nó sẽ đi kiếm trong Base1, sau đó tìm kiếm đệ quy trong các lớp cơ sở của Base1, và nếu không tìm thấy nó sẽ tìm kiếm trong Base2, và cứ thế cho đến hết.
 
-Thực tế thì nó sẽ phức tạp hơn như thế, thứ tự giải quyết các phương thức thay đổi động để hỗ trợ các lệnh gọi hợp tác tới super(). 
+Thực tế thì nó sẽ phức tạp hơn như thế, thứ tự giải quyết các phương thức thay đổi động để hỗ trợ các lệnh gọi hợp tác tới super().
 
-Thứ tự động là cần thiết vì tất cả các trường hợp đa kế thừa đều thể hiện một hoặc nhiều mối quan hệ một cách chặt chẽ(trong đó có ít nhất một trong các lớp cha có thể được truy cập thông qua nhiều đường dẫn từ lớp dưới cùng). 
+Thứ tự động là cần thiết vì tất cả các trường hợp đa kế thừa đều thể hiện một hoặc nhiều mối quan hệ một cách chặt chẽ(trong đó có ít nhất một trong các lớp cha có thể được truy cập thông qua nhiều đường dẫn từ lớp dưới cùng).
 
 Ví dụ: tất cả các lớp kế thừa từ đối tượng, vì vậy bất kỳ trường hợp đa kế thừa nào cũng cung cấp một đường dẫn để tiếp cận đối tượng. Để giữ cho lớp cơ sở không bị truy cập nhiều lần, thuật toán động tuyến tính hoá thứ tự tìm kiếm theo cách bảo toàn thứ tự từ trái sang phải được chỉ định trọng mỗi lớp, chỉ gọi lớp cha một lần và điều đó là đơn điệu(nghĩa là một lớp có thể được phân lớp mà không ảnh hưởng đến thứ tự ưu tiên của lớp cha của nó). Kết hợp lại với nhau, các thuộc tính này giúp bạn có thể thiết kế các lớp đáng tin cậy và có thể mở rộng với đa kế thừa. Để biết thêm chi tiết bạn có thể đọc thêm ở [đây](https://www.python.org/download/releases/2.3/mro/)
 
 ## Các biến riêng
 
-“Các biến riêng tư thì không thể được truy cập trừ khi nó được truy cập từ bên trong một đối tượng”, **điều này không tồn tại trong Python, như các ngôn ngữ hướng đối tượng khác**. 
+“Các biến riêng tư thì không thể được truy cập trừ khi nó được truy cập từ bên trong một đối tượng”, **điều này không tồn tại trong Python, như các ngôn ngữ hướng đối tượng khác**.
 
 Tuy nhiên, có một quy ước: một tiền tố là dấu gạch dưới(ví dụ: _spam) có thể được hiểu đây là phần không được công khai của API(nó có thể là một hàm, một phương thức hay một biến dữ liệu), và các thành phần này được xem là có thể thay đổi mà không cần báo trước.
 
@@ -477,7 +484,7 @@ class MappingSubclass(Mapping):
 
 Vì thế, dù phương thức update được ghi đè trong lớp con MappingSubclass thì phương thức __init__ vẫn hoạt động bình thường mà không bị ảnh hưởng.
 
-Thậm chí, dù mình có viết thêm một phương thức `__update` riêng của lớp MappingSubclass thì được code vẫn có thể hoạt động được, vì lúc này phương thức nó tên là `_MappingSubclass__update`. 
+Thậm chí, dù mình có viết thêm một phương thức `__update` riêng của lớp MappingSubclass thì được code vẫn có thể hoạt động được, vì lúc này phương thức nó tên là `_MappingSubclass__update`.
 
 Thật hay phải không nào? 🥳
 

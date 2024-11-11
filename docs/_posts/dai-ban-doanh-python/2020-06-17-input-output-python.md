@@ -1,7 +1,12 @@
 ---
-layout: post
-title:  "Input/Output(I/O)​ trong Python"
-date:   2020-06-17 10:00:00 +0700
-categories: python, dai-ban-doanh-python
+title: "Input/Output(I/O)​ trong Python"
+header:
+  teaser: /assets/images/2020/06/2020-06-cau-truc-du-lieu-python-cover.webp
+  og_image: /assets/images/2020/06/2020-06-cau-truc-du-lieu-python-cover.webp
+excerpt_separator: <!--more-->
+categories:
+  - Đại Bản Doanh Python
+tags:
+  - python
+last_modified_at: 2020-06-17T15:12:19-04:00
 ---
-![](/assets/images/2020/06/2020-06-input-output-python-cover.webp)

@@ -1,10 +1,12 @@
 ---
-layout: post
-title:  Buổi si nghĩ nghiêm túc tại "Đại Bản Doanh"
-date:   2020-01-15 10:00:00 +0700
-categories: hanh-trinh-cua-toi
-author: beautyoncode
+title: "Buổi si nghĩ nghiêm túc tại 'Đại Bản Doanh'"
+excerpt_separator: <!--more-->
+categories:
+  - Đại Bản Doanh Python
+tags:
+  - python
 ---
+
 
 ![](/assets/images/2020/01/2020-01-buoi-si-nghi-nghiem-tuc-tai-dai-ban-doanh-cover.jpg)
 

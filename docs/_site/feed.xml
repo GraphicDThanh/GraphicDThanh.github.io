@@ -1,0 +1,1449 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-11-11T02:14:33-05:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">BeautyOnCode</title><subtitle>A flexible Jekyll theme for your blog or site with a minimalist aesthetic.</subtitle><author><name>Thanh Nguyen</name></author><entry><title type="html">Relation fields in Django Rest Framework Serializer</title><link href="http://localhost:4000/django/relation-fields-in-drf-serializer/" rel="alternate" type="text/html" title="Relation fields in Django Rest Framework Serializer" /><published>2023-10-23T23:00:00-04:00</published><updated>2023-10-23T23:00:00-04:00</updated><id>http://localhost:4000/django/relation-fields-in-drf-serializer</id><content type="html" xml:base="http://localhost:4000/django/relation-fields-in-drf-serializer/"><![CDATA[<p><img src="/assets/images/2023/10/2023-10-relation-fields-in-drf-serializer-cover.png" alt="" />
+The Django model offers various types of relationships such as OneToOneField, ForeignKey, ManyToManyField, and GenericForeignKey.</p>
+
+<p>To present or write data of relationship in a serializer, you can utilize DRF Relation fields.</p>
+
+<p>In this post, I will summarize the key points of relational fields and then delve into customizing a relation field to facilitate reading and writing relationship data.</p>
+
+<p>Although the <a href="https://www.django-rest-framework.org/api-guide/relations/#serializer-relations">official document</a> mentions this custom relational topic, it lacks examples and use cases. Therefore, I aim to make it more practical by providing relevant illustrations.</p>
+
+<p>Before we delve into the content, let’s take a look at the relevant models:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Album</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">album_name</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">Track</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">album</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">ForeignKey</span><span class="p">(</span>
+        <span class="n">Album</span><span class="p">,</span>
+        <span class="n">related_name</span><span class="o">=</span><span class="s">'tracks'</span><span class="p">,</span>
+        <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="p">.</span><span class="n">CASCADE</span>
+    <span class="p">)</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">duration</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">IntegerField</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="performance-concerns-related-to-relation-fields-and-the-responsibility-of-developers">Performance concerns related to relation fields and the responsibility of developers</h2>
+
+<p>When using Django REST Framework (DRF), it is important to note that DRF <strong>does not automatically optimize the queryset that is passed to the serializer</strong>.</p>
+
+<p>It is the responsibility of the developer to optimize the performance of relation fields in DRF. By using methods like prefetch_related and select_related, developers can improve the efficiency of their queries and enhance the overall performance of their applications.</p>
+
+<p>With above models, if we have <em>AlbumSerializer</em>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">AlbumSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="p">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+    <span class="n">tracks</span> <span class="o">=</span> <span class="n">serializers</span><span class="p">.</span><span class="n">StringRelatedField</span><span class="p">(</span><span class="n">many</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Album</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s">'album_name'</span><span class="p">,</span> <span class="s">'tracks'</span><span class="p">]</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">AlbumSerializer</span><span class="p">(</span><span class="n">Album</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="nb">all</span><span class="p">(),</span> <span class="n">many</span><span class="o">=</span><span class="bp">True</span><span class="p">).</span><span class="n">data</span>
+</code></pre></div></div>
+
+<p>then serializer all albums as above.</p>
+
+<p>This cause <strong>serious performance issues</strong> since it will hit database N times with N is total number of albums.</p>
+
+<p>It is important to address the issue of hitting the database multiple times, which can cause <strong>serious performance issues</strong>.</p>
+
+<p>By using <code class="language-plaintext highlighter-rouge">Album.objects.prefetch_related('tracks')</code> , developers can optimize the performance by fetching the related tracks in a single database query. This reduces the number of round trips to the database and improves the overall performance of the serializer.</p>
+
+<h2 id="relation-fields-readonly-built-in">Relation fields readonly built-in</h2>
+
+<p>DRF provides relation fields readonly includes:</p>
+
+<p>– <strong>StringRelatedField</strong></p>
+
+<p>– <strong>HyperlinkedIdentityField</strong></p>
+
+<h2 id="relation-fields-read-write-built-in">Relation fields read-write built-in</h2>
+
+<p>DRF provides relation fields read-write includes:</p>
+
+<p>– PrimaryKeyRelatedField</p>
+
+<p>– HyperlinkedRelatedField</p>
+
+<p>– SlugRelatedField</p>
+
+<p>If you want these readonly, add param read_only=True in the field.</p>
+
+<p>For mor detail about these built-in fields, please read the <a href="https://www.django-rest-framework.org/api-guide/relations/">official document</a>.</p>
+
+<h2 id="nested-serializer">Nested serializer</h2>
+
+<p>For nested relationship, you could use its own serializer. By default, nested serializer is readonly.</p>
+
+<p>For example, Track has serializer TrackSerializer then could use:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tracks</span> <span class="o">=</span> <span class="n">TrackSerializer</span><span class="p">(</span><span class="n">many</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">read_only</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Above is how to present data. If you want to write into nested relationship, you could use method create() or update() to write.</p>
+
+<p>For example, when create an album, you also want to write tracks, then:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">validated_data</span><span class="p">):</span>
+    <span class="n">tracks_data</span> <span class="o">=</span> <span class="n">validated_data</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="s">'tracks'</span><span class="p">)</span>
+    <span class="n">album</span> <span class="o">=</span> <span class="n">Album</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="o">**</span><span class="n">validated_data</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">track_data</span> <span class="ow">in</span> <span class="n">tracks_data</span><span class="p">:</span>
+        <span class="n">Track</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="n">create</span><span class="p">(</span><span class="n">album</span><span class="o">=</span><span class="n">album</span><span class="p">,</span> <span class="o">**</span><span class="n">track_data</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">album</span>
+</code></pre></div></div>
+
+<h2 id="custom-relation-fields">Custom relation fields</h2>
+<p>In some case, all above options not fit your needs. You could write a custom relation fields to handle.</p>
+
+<h3 id="example-1-custom-presentation">Example 1: Custom presentation</h3>
+<p>For this example, take a look on <a href="https://www.django-rest-framework.org/api-guide/relations/#example_1">document</a> where create a custom relation field named <strong>“TrackListingField”</strong> extends from <strong>“serializers.RelatedField”</strong> then override method <strong>“to_representation“</strong></p>
+
+<h3 id="example-2-read-write-relation-fields-with-nested-serializer">Example 2: Read-write relation fields with nested serializer</h3>
+<p>For this example, let’s start with this context:</p>
+
+<p>I have class <strong>TrackSerializer</strong> as above on nested serializer, but I don’t want it just use for readonly by default, I want a <strong>read-write</strong> relation fields which could help me read and write in clean way.</p>
+
+<p>From the guide, I will implement <strong>“.to_internal_value()”</strong> method to help it could be writable. And implement <strong>“.to_representation()”</strong> method to present the data.</p>
+
+<p>So, it could look like this:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">CustomRelatedField</span><span class="p">(</span><span class="n">serializers</span><span class="p">.</span><span class="n">RelatedField</span><span class="p">):</span>
+    <span class="s">"""Custom Related Field for Read and Write"""</span>
+
+    <span class="k">def</span> <span class="nf">to_representation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">to_internal_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="k">pass</span>
+</code></pre></div></div>
+
+<h4 id="implement-to_presentation-method"><strong>Implement to_presentation method</strong></h4>
+
+<p>As I want to use serializer class to present the data, then will need a way to get the serializer class from input of the field, then I decided to put it as a part of keyword arguments kwargs.</p>
+
+<p>Above class could be like this:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">CustomRelatedField</span><span class="p">(</span><span class="n">serializers</span><span class="p">.</span><span class="n">RelatedField</span><span class="p">):</span>
+    <span class="s">"""Related Field with Serializer Class for presentation"""</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">serializer_class</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="s">"serializer_class"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="p">.</span><span class="n">serializer_class</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="nb">ValueError</span><span class="p">(</span><span class="s">"serializer_class is required"</span><span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">to_representation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">serializer_class</span><span class="p">(</span><span class="n">value</span><span class="p">).</span><span class="n">data</span>
+</code></pre></div></div>
+
+<p>As above, we able to present object with nested serializer class.</p>
+
+<h4 id="implement-to_internal_value-method"><strong>Implement to_internal_value method</strong></h4>
+
+<p>To help the relation field writable, to_internal_value must be implement. Because this method help decide the data to write to relation models.</p>
+
+<p>There are 2 case of relationships here should be concern:</p>
+
+<p>– ForeignKey in model stands for 1 to many relation</p>
+
+<p>– ManyToManyField in model stands for many to many relation</p>
+
+<p>As example of this post, the tracks belong to 1 to many relations.</p>
+
+<p>One album able to have multiple tracks and 1 track belong to 1 album.</p>
+
+<p><strong>1 to many relation</strong></p>
+
+<p>As 1-n relation, I could get the album by id and set it as value to the write.</p>
+
+<p>The to_internal_value could looks like:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">to_internal_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">get_queryset</span><span class="p">().</span><span class="n">get</span><span class="p">(</span><span class="n">uuid</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Then we have full custom relation fields for a ForeignKey field as FKRelationField below:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ForeignKeyRelationField</span><span class="p">(</span><span class="n">serializers</span><span class="p">.</span><span class="n">RelatedField</span><span class="p">):</span>
+    <span class="s">"""Related Field with Serializer Class for presentation"""</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">serializer_class</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="s">"serializer_class"</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">().</span><span class="n">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">to_representation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">serializer_class</span><span class="p">(</span><span class="n">value</span><span class="p">).</span><span class="n">data</span>
+
+    <span class="k">def</span> <span class="nf">to_internal_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">get_queryset</span><span class="p">().</span><span class="n">get</span><span class="p">(</span><span class="n">uuid</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>I changed the name class from “CustomRelatedField” to “ForeignKeyRelationField” in this case.</p>
+
+<p><strong>many to many relation</strong></p>
+
+<p>Many to many relation will similar to FK with minor change of internal value will be a list of ids instead of single object then each object will return an id instead.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">to_internal_value</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">get_queryset</span><span class="p">().</span><span class="n">get</span><span class="p">(</span><span class="n">uuid</span><span class="o">=</span><span class="n">data</span><span class="p">).</span><span class="nb">id</span>
+</code></pre></div></div>
+
+<p>You could named this field ManyToManyRelationField.</p>
+
+<h2 id="using-custom-relation-field">Using custom relation field</h2>
+
+<p>As above example, I could use my ForeignKeyRelationField on TrackSerializer to read and write the album</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">TrackSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="p">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Track</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s">'title'</span><span class="p">,</span> <span class="s">'album'</span><span class="p">]</span>
+
+    <span class="n">album</span> <span class="o">=</span> <span class="n">ForeignKeyRelatedField</span><span class="p">(</span>
+        <span class="n">many</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+        <span class="n">queryset</span><span class="o">=</span><span class="n">Album</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="nb">all</span><span class="p">(),</span>
+        <span class="n">serializer_class</span><span class="o">=</span><span class="n">AlbumSerializer</span><span class="p">,</span>
+    <span class="p">)</span>
+</code></pre></div></div>
+
+<p>Above serializer could help represent album with nested serializer AlbumSerializer as well as write the album of a track.</p>
+
+<p>And for “tracks” in AlbumSerializer, could use ManyToManyFieldRelationField to read and write for relation many to many.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">AlbumSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="p">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">Album</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s">'album_name'</span><span class="p">,</span> <span class="s">'tracks'</span><span class="p">]</span>
+
+    <span class="n">tracks</span> <span class="o">=</span> <span class="n">ManyManyKeyRelatedField</span><span class="p">(</span>
+        <span class="n">many</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+        <span class="n">queryset</span><span class="o">=</span><span class="n">Track</span><span class="p">.</span><span class="n">objects</span><span class="p">.</span><span class="nb">all</span><span class="p">(),</span>
+        <span class="n">serializer_class</span><span class="o">=</span><span class="n">TrackSerializer</span><span class="p">,</span>
+    <span class="p">)</span>
+</code></pre></div></div>
+
+<p>In this post, I have give you more detail of relational fields and how to custom a relation fields.</p>]]></content><author><name>thanh</name></author><category term="django" /><summary type="html"><![CDATA[The Django model offers various types of relationships such as OneToOneField, ForeignKey, ManyToManyField, and GenericForeignKey.]]></summary></entry><entry><title type="html">Export Multiple CSVs file into a ZIP in Django Application</title><link href="http://localhost:4000/django/export-multiple-csv-to-zip-django/" rel="alternate" type="text/html" title="Export Multiple CSVs file into a ZIP in Django Application" /><published>2023-03-31T23:00:00-04:00</published><updated>2023-03-31T23:00:00-04:00</updated><id>http://localhost:4000/django/export-multiple-csv-to-zip-django</id><content type="html" xml:base="http://localhost:4000/django/export-multiple-csv-to-zip-django/"><![CDATA[<p><img src="/assets/images/2023/04/2023-04-export-multiple-csv-to-zip-django-cover.png" alt="" /></p>
+
+<p>In this next installment of the Django export series, I will be demonstrating how to create a <code class="language-plaintext highlighter-rouge">zip</code> file containing multiple CSV files. Throughout the post, we will explore various methods, providing you with a range of options to consider for your own project.</p>
+
+<h2 id="models-example">Models example</h2>
+<p>Let’s consider a basic library system in which a book can be associated with multiple libraries.</p>
+
+<p>The corresponding models are structured as follows:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">Library</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">TextField</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Book</span><span class="p">(</span><span class="n">models</span><span class="p">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">TextField</span><span class="p">()</span>
+    <span class="n">libraries</span> <span class="o">=</span> <span class="n">models</span><span class="p">.</span><span class="n">ManyToManyField</span><span class="p">(</span>
+        <span class="n">null</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">blank</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+        <span class="n">to</span><span class="o">=</span><span class="s">'Library'</span><span class="p">,</span>
+        <span class="n">related_name</span><span class="o">=</span><span class="s">'books'</span>
+    <span class="p">)</span>
+</code></pre></div></div>
+
+<p>Our objective is to export a zip file that contains several CSV files, each one representing a library and displaying a list of books available in that library.</p>
+
+<h3 id="export-view">Export view</h3>
+
+<p>As is typical when creating a download API, we will create a view that only allows the GET method.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">csv</span><span class="p">,</span> <span class="n">io</span><span class="p">,</span> <span class="n">zipfile</span>
+<span class="kn">from</span> <span class="nn">wsgiref.util</span> <span class="kn">import</span> <span class="n">FileWrapper</span>
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">StreamingHttpResponse</span>
+<span class="kn">from</span> <span class="nn">rest_framework.views</span> <span class="kn">import</span> <span class="n">APIView</span>
+
+<span class="k">class</span> <span class="nc">ExportZip</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">csv_datas</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">build_multiple_csv_files</span><span class="p">()</span>
+
+        <span class="n">temp_file</span> <span class="o">=</span> <span class="n">io</span><span class="p">.</span><span class="n">BytesIO</span><span class="p">()</span>
+        <span class="k">with</span> <span class="n">zipfile</span><span class="p">.</span><span class="n">ZipFile</span><span class="p">(</span>
+             <span class="n">temp_file</span><span class="p">,</span> <span class="s">"w"</span><span class="p">,</span> <span class="n">zipfile</span><span class="p">.</span><span class="n">ZIP_DEFLATED</span>
+        <span class="p">)</span> <span class="k">as</span> <span class="n">temp_file_opened</span><span class="p">:</span>
+            <span class="c1"># add csv files each library
+</span>            <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">csv_datas</span><span class="p">:</span>
+                <span class="n">data</span><span class="p">[</span><span class="s">"csv_file"</span><span class="p">].</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">temp_file_opened</span><span class="p">.</span><span class="n">writestr</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s">"library_</span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s">'library_name'</span><span class="p">]</span><span class="si">}</span><span class="s">.csv"</span><span class="p">,</span>
+                    <span class="n">data</span><span class="p">[</span><span class="s">"csv_file"</span><span class="p">].</span><span class="n">getvalue</span><span class="p">()</span>
+                <span class="p">)</span>
+
+        <span class="n">temp_file</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># put them to streaming content response
+</span>        <span class="c1"># within zip content_type
+</span>        <span class="n">response</span> <span class="o">=</span> <span class="n">StreamingHttpResponse</span><span class="p">(</span>
+            <span class="n">FileWrapper</span><span class="p">(</span><span class="n">temp_file</span><span class="p">),</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s">"application/zip"</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">response</span><span class="p">[</span><span class="s">'Content-Disposition'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'attachment;filename=Libraries.zip'</span>
+        <span class="k">return</span> <span class="n">response</span>
+
+    <span class="k">def</span> <span class="nf">build_multiple_csv_files</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">csv_files</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">return</span> <span class="n">csv_files</span>
+</code></pre></div></div>
+
+<p>In the aforementioned view, we utilize the Python Standard Library’s <a href="https://docs.python.org/3/library/zipfile.html"><code class="language-plaintext highlighter-rouge">zipfile</code> module</a> for compressing and archiving data.</p>
+
+<p>The <a href="https://docs.python.org/3/library/zipfile.html#zipfile.ZipFile"><code class="language-plaintext highlighter-rouge">zipfile.ZipFile</code></a> method enables us to open a zip file for writing. In this instance, the file is a binary I/O object, specified as <code class="language-plaintext highlighter-rouge">temp_file_opened</code>, with the <code class="language-plaintext highlighter-rouge">temp_file</code> object being its <a href="https://docs.python.org/3/library/io.html#module-io">file-like</a> equivalent.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">zipfile</span><span class="p">.</span><span class="n">ZipFile</span><span class="p">(</span>
+    <span class="nb">file</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s">'r'</span><span class="p">,</span> <span class="n">compression</span><span class="o">=</span><span class="n">ZIP_STORED</span><span class="p">,</span>
+    <span class="n">allowZip64</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">compresslevel</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span> <span class="n">strict_timestamps</span><span class="o">=</span><span class="bp">True</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>We utilize a context manager via the <code class="language-plaintext highlighter-rouge">"with"</code> statement to guarantee the closure of our zip file after the suite within the “with” block has been executed, even if an exception is raised.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">temp_file</span> <span class="o">=</span> <span class="n">io</span><span class="p">.</span><span class="n">BytesIO</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">zipfile</span><span class="p">.</span><span class="n">ZipFile</span><span class="p">(</span>
+    <span class="n">temp_file</span><span class="p">,</span> <span class="s">"w"</span><span class="p">,</span> <span class="n">zipfile</span><span class="p">.</span><span class="n">ZIP_DEFLATED</span>
+<span class="p">)</span> <span class="k">as</span> <span class="n">temp_file_opened</span><span class="p">:</span>
+    <span class="c1"># write to zip file
+</span></code></pre></div></div>
+
+<p>Within the context manager, we write the CSV content file to the zip <code class="language-plaintext highlighter-rouge">temp_file_opened</code> using the <code class="language-plaintext highlighter-rouge">writestr</code> method.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">ZipFile</span><span class="p">.</span><span class="n">writestr</span><span class="p">(</span>
+    <span class="n">zinfo_or_arcname</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span>
+    <span class="n">compress_type</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">compresslevel</span><span class="o">=</span><span class="bp">None</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Here, we specify two mandatory parameters - <code class="language-plaintext highlighter-rouge">zinfo_or_arcname</code> and <code class="language-plaintext highlighter-rouge">data</code>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">temp_file_opened</span><span class="p">.</span><span class="n">writestr</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s">"File_library_</span><span class="si">{</span><span class="nb">file</span><span class="p">[</span><span class="s">'lib'</span><span class="p">]</span><span class="si">}</span><span class="s">.csv"</span><span class="p">,</span>
+    <span class="nb">file</span><span class="p">[</span><span class="s">"csv_file"</span><span class="p">].</span><span class="n">getvalue</span><span class="p">()</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Once we have completed writing multiple CSV files, we locate the zip file by using <a href="https://docs.python.org/3/library/io.html#io.IOBase.seek">seek</a>. We then convert the file-like objects to an iterator using <a href="http://filewrapper/">FileWrapper</a> before returning them in the StreamingHttpResponse.</p>
+
+<p>At this stage, we can download an empty file named “Libraries.zip”.</p>
+
+<h2 id="build-csv-files">Build CSV files</h2>
+
+<p>As shown, we have defined a method named <code class="language-plaintext highlighter-rouge">"build_multiple_csv_files"</code> that currently returns an empty list. In the following step, we will add the code to this function to generate a list of CSV files.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ExportLibraries</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
+    <span class="n">header_data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">"name"</span><span class="p">:</span> <span class="s">"Name"</span><span class="p">,</span>
+        <span class="s">"library"</span><span class="p">:</span> <span class="s">"Library Name"</span>
+    <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="p">...</span>
+        <span class="k">return</span> <span class="n">response</span>
+
+    <span class="k">def</span> <span class="nf">build_multiple_csv_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">libraries</span><span class="p">,</span> <span class="n">books</span><span class="p">):</span>
+        <span class="n">csv_files</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">library</span> <span class="ow">in</span> <span class="n">libraries</span><span class="p">.</span><span class="n">iterator</span><span class="p">():</span>
+            <span class="n">mem_file</span> <span class="o">=</span> <span class="n">io</span><span class="p">.</span><span class="n">StringIO</span><span class="p">()</span>
+            <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="n">DictWriter</span><span class="p">(</span>
+                <span class="n">mem_file</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="bp">self</span><span class="p">.</span><span class="n">header_data</span><span class="p">.</span><span class="n">keys</span><span class="p">()</span>
+            <span class="p">)</span>
+            <span class="n">writer</span><span class="p">.</span><span class="n">writerow</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">header_data</span><span class="p">)</span>
+
+            <span class="n">books_in_library</span> <span class="o">=</span> <span class="n">books</span><span class="p">.</span><span class="nb">filter</span><span class="p">(</span><span class="n">libraries__in</span><span class="o">=</span><span class="p">[</span><span class="n">library</span><span class="p">.</span><span class="nb">id</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">book</span> <span class="ow">in</span> <span class="n">books_in_library</span><span class="p">:</span>
+                <span class="n">book_row</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">build_book_row</span><span class="p">(</span><span class="n">book</span><span class="p">,</span> <span class="n">library</span><span class="p">)</span>
+                <span class="n">writer</span><span class="p">.</span><span class="n">writerow</span><span class="p">(</span><span class="n">book_row</span><span class="p">)</span>
+
+            <span class="n">mem_file</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+            <span class="n">csv_files</span><span class="p">.</span><span class="n">append</span><span class="p">({</span>
+                <span class="s">"library_name"</span><span class="p">:</span> <span class="n">library</span><span class="p">.</span><span class="n">name</span><span class="p">,</span>
+                <span class="s">"csv_file"</span><span class="p">:</span> <span class="n">mem_file</span>
+            <span class="p">})</span>
+
+        <span class="k">return</span> <span class="n">csv_files</span>
+
+    <span class="k">def</span> <span class="nf">build_book_row</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">book</span><span class="p">,</span> <span class="n">library</span><span class="p">):</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">header_data</span><span class="p">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="n">row</span><span class="p">[</span><span class="s">"name"</span><span class="p">]</span> <span class="o">=</span> <span class="n">book</span><span class="p">.</span><span class="n">name</span>
+        <span class="n">row</span><span class="p">[</span><span class="s">"library"</span><span class="p">]</span> <span class="o">=</span> <span class="n">library</span><span class="p">.</span><span class="n">name</span>
+
+        <span class="k">return</span> <span class="n">row</span>
+</code></pre></div></div>
+
+<p>Reviewing the code above, we iterate over all libraries and construct a CSV file for each one. This is achieved by initializing a writer object using <code class="language-plaintext highlighter-rouge">csv.DictWriter()</code> and the keys from <code class="language-plaintext highlighter-rouge">header_data</code>.</p>
+
+<p>Here is an example of what <code class="language-plaintext highlighter-rouge">header_data</code> might look like:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">header_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"name"</span><span class="p">:</span> <span class="s">"Book Name"</span><span class="p">,</span>
+    <span class="s">"library"</span><span class="p">:</span> <span class="s">"Library Name"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Next, we add the header to the writer and utilize a loop to add each book row by row to the writer using the .<code class="language-plaintext highlighter-rouge">write_row()</code> method.</p>
+
+<p>Once the writing is complete, we append an object for each library, with the library’s name included in the object’s name, to help establish the CSV filename along with the file’s contents.</p>
+
+<p>To enable export functionality, you may add this view to the URLs file.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">urlpatterns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">path</span><span class="p">(</span>
+        <span class="s">'export_libraries/'</span><span class="p">,</span>
+        <span class="n">ExportLibraries</span><span class="p">.</span><span class="n">as_view</span><span class="p">(),</span>
+        <span class="n">name</span><span class="o">=</span><span class="s">"export_libraries"</span>
+    <span class="p">)</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<h2 id="unit-test">Unit Test</h2>
+
+<p>The following question is how to verify the output?</p>
+
+<p>It is recommended to carry out this step before implementing the logic, as per the <code class="language-plaintext highlighter-rouge">TDD</code> (Test Driven Development) approach. However, I will demonstrate how the logic works first, as it may help you better understand which components require testing.</p>
+
+<p>I intend to create two unit tests for this:</p>
+
+<p>One for the API: Upon calling the API, a zip file should be exported.
+One for the CSV files and their contents: Calling <code class="language-plaintext highlighter-rouge">build_multiple_csv_files()</code> on the view should return a list containing data for each library. At this stage, the content of each CSV file can also be verified row by row.</p>
+
+<p><strong>NOTE</strong>: Please keep in mind that the sample unit tests provided below are solely intended to provide an idea of what they may look like, and you should adapt them according to your specific feature.</p>
+
+<h3 id="test-content-response">Test content response</h3>
+
+<p>This unit test is straightforward; we only need to verify that the API call returns a <code class="language-plaintext highlighter-rouge">200</code> status code and that the exported file is a zip file with the expected name.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_export_libraries</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">client</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s">'export_libraries'</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">response</span><span class="p">.</span><span class="n">status_code</span> <span class="ow">is</span> <span class="n">status</span><span class="p">.</span><span class="n">HTTP_200_OK</span>
+    <span class="k">assert</span> <span class="n">response</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">'Content-Disposition'</span><span class="p">)</span> <span class="o">==</span> <span class="s">"Libraries.zip"</span>
+</code></pre></div></div>
+
+<h3 id="test-view-function-to-get-multiple-csv-files">Test view function to get multiple CSV files</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_build_csvs_files</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="c1"># assume we mock 2 libraries
+</span>    <span class="c1"># library_1, library_2
+</span>    <span class="c1"># queryset is books and libraries
+</span>    <span class="n">view</span> <span class="o">=</span> <span class="n">ExportRecipesCost</span><span class="p">()</span>
+    <span class="n">view</span><span class="p">.</span><span class="n">request</span> <span class="o">=</span> <span class="n">drf_request_for_context</span><span class="p">(</span><span class="bp">self</span><span class="p">.</span><span class="n">user</span><span class="p">)</span>
+    <span class="n">csv_files</span> <span class="o">=</span> <span class="n">view</span><span class="p">.</span><span class="n">build_multiple_csv_files</span><span class="p">(</span>
+        <span class="n">libraries</span><span class="p">,</span> <span class="n">books</span>
+    <span class="p">)</span>
+    <span class="c1"># check number of csv files
+</span>    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">csv_files</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span>
+    <span class="c1"># first csv file
+</span>    <span class="k">assert</span> <span class="n">csv_files</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">"library_name"</span><span class="p">]</span> <span class="o">==</span> <span class="n">library_1</span><span class="p">.</span><span class="n">name</span>
+    <span class="k">assert</span> <span class="n">csv_files</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">"csv_file"</span><span class="p">]</span>
+    <span class="c1"># go check csv content in first file here
+</span>
+    <span class="c1"># second csv file
+</span>    <span class="k">assert</span> <span class="n">csv_files</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">"library_name"</span><span class="p">]</span> <span class="o">==</span> <span class="n">library_2</span><span class="p">.</span><span class="n">name</span>
+    <span class="k">assert</span> <span class="n">csv_files</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">"csv_file"</span><span class="p">]</span>
+    <span class="c1"># go check csv content in first file here
+</span></code></pre></div></div>
+
+<p>I have added some comments in the code to indicate the data we will use for testing. Our approach is to call the view function using a mock DRF request, created using the <code class="language-plaintext highlighter-rouge">drf_request_for_context</code> utility function.</p>
+
+<p>In addition to checking the number of CSV files returned, we can also verify the content of each CSV file based on its header.</p>
+
+<h2 id="optimizing-performance">Optimizing performance</h2>
+
+<p>To improve performance, we can optimize the current solution by using a single loop to prepare all the books data, regardless of the library it belongs to, and then loop through the libraries using this set of data. This approach can significantly reduce processing time.</p>
+
+<p>Instead of solely relying on Django queries, one could use Pandas to flatten the data and make the export process even easier by working with dataframes.</p>
+
+<p>Another improvement could be to handle the export process as a background task, such as a Celery task. Instead of using StreamingHttpResponse to download the file from the browser, we can upload the zip file to a service like S3 and provide the user with a URL or other means of accessing the file. This approach can improve user experience and prevent timeout errors when handling large amounts of data.</p>
+
+<p>(If you have any other ideas for improving performance, please share them with me.)</p>
+
+<h2 id="final-word">Final word</h2>
+
+<p>To summarize, we have explored a method (referred to as “use Django queries”) for exporting a zip file containing multiple CSV files within a Django application. While there is an alternative approach using pandas to export data from a Django app, we may discuss it in the future.</p>]]></content><author><name>Thanh Nguyen</name></author><category term="django" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Export a docx file in Django application</title><link href="http://localhost:4000/django/export-docx-in-django/" rel="alternate" type="text/html" title="Export a docx file in Django application" /><published>2023-03-24T23:00:00-04:00</published><updated>2023-03-24T23:00:00-04:00</updated><id>http://localhost:4000/django/export-docx-in-django</id><content type="html" xml:base="http://localhost:4000/django/export-docx-in-django/"><![CDATA[<p><img src="/assets/images/2023/03/2023-03-export-docx-in-django-cover.png" alt="" /></p>
+
+<p>Exporting file is a commonly used feature that allows users to retrieve their data.</p>
+
+<p>Throughout this series, I will outline various methods for exporting files in a Django application. The exported file formats may include <code class="language-plaintext highlighter-rouge">docx</code>, <code class="language-plaintext highlighter-rouge">csv</code>, <code class="language-plaintext highlighter-rouge">zip</code>, or <code class="language-plaintext highlighter-rouge">pdf</code>.</p>
+
+<p>In this initial post of the series, I will introduce the process of exporting a <code class="language-plaintext highlighter-rouge">docx</code> file. We will be utilizing a library called <code class="language-plaintext highlighter-rouge">python-docx</code> to achieve this.</p>
+
+<h2 id="python-docx">python-docx</h2>
+<h3 id="introduction">Introduction</h3>
+<p><code class="language-plaintext highlighter-rouge">python-dox</code> is a Python library for creating and updating Microsoft Word (<code class="language-plaintext highlighter-rouge">.docx</code>) files.</p>
+
+<p>Please checkout the <a href="https://python-docx.readthedocs.io/en/latest/">official documentation</a> here.</p>
+
+<p>The fundamental concept behind <code class="language-plaintext highlighter-rouge">python-docx</code> is to create a document object to which you can add content such as paragraphs, headings, page breaks, tables, pictures and styling options like bold or italic.</p>
+
+<p>Example:</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">docx</span> <span class="kn">import</span> <span class="n">Document</span>
+<span class="n">document</span> <span class="o">=</span> <span class="n">Document</span><span class="p">()</span>
+<span class="n">document</span><span class="p">.</span><span class="n">add_paragraph</span><span class="p">(</span><span class="s">'Lorem ipsum dolor sit amet.'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="installing">Installing</h3>
+<p>To install <a href="https://pypi.org/project/python-docx/"><code class="language-plaintext highlighter-rouge">python-docx</code></a>, run command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>python-docx
+</code></pre></div></div>
+
+<h3 id="export-view">Export view</h3>
+
+<p>To enable the download of a docx file through an API, we typically create a view that allows only the GET method.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">ExportDocx</span><span class="p">(</span><span class="n">APIView</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># create an empty document object
+</span>        <span class="n">document</span> <span class="o">=</span> <span class="n">Document</span><span class="p">()</span>
+
+        <span class="c1"># save document info
+</span>        <span class="nb">buffer</span> <span class="o">=</span> <span class="n">io</span><span class="p">.</span><span class="n">BytesIO</span><span class="p">()</span>
+        <span class="c1"># save your memory stream
+</span>        <span class="n">document</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="nb">buffer</span><span class="p">)</span>
+        <span class="c1"># rewind the stream to a file
+</span>        <span class="nb">buffer</span><span class="p">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># put them to streaming content response
+</span>        <span class="c1"># within docx content_type
+</span>        <span class="n">response</span> <span class="o">=</span> <span class="n">StreamingHttpResponse</span><span class="p">(</span>
+            <span class="c1"># use the stream's content
+</span>            <span class="n">streaming_content</span><span class="o">=</span><span class="nb">buffer</span><span class="p">,</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s">'application/vnd.openxmlformats-officedocument.wordprocessingm'</span>
+        <span class="p">)</span>
+
+        <span class="n">response</span><span class="p">[</span><span class="s">'Content-Disposition'</span><span class="p">]</span> <span class="o">=</span> <span class="s">'attachment;filename=Test.docx'</span>
+        <span class="n">response</span><span class="p">[</span><span class="s">"Content-Encoding"</span><span class="p">]</span> <span class="o">=</span> <span class="s">'UTF-8'</span>
+
+        <span class="k">return</span> <span class="n">response</span>
+</code></pre></div></div>
+
+<p>Once we have created an empty document, the next step is to save it and send it to the response.</p>
+
+<p><code class="language-plaintext highlighter-rouge">python-docx</code> provides a <code class="language-plaintext highlighter-rouge">document.save()</code> method that acceps a stream instead of a file name.</p>
+
+<p>We can initialize an <code class="language-plaintext highlighter-rouge">io.BytesIO()</code> object to store the document information and then send that to the user.</p>
+
+<p>To handle large data and return a response, we use the <code class="language-plaintext highlighter-rouge">StreamingHttpResponse</code> function and set the content type to <code class="language-plaintext highlighter-rouge">application/vnd.openxmlformats-officedocument.wordprocessingm</code> for docx files.</p>
+
+<h2 id="build-document-content">Build document content</h2>
+
+<p>After enable to download an empty docx file, the next step is to begin building the content for the docx. It is recommended to refer to the <code class="language-plaintext highlighter-rouge">python-docx</code> documentation for detailed instructions.</p>
+
+<p>To add header text, you can use the <code class="language-plaintext highlighter-rouge">.add_heading()</code> method, and to add paragraphs, you can use the <code class="language-plaintext highlighter-rouge">.add_paragraph()</code> method.</p>
+
+<p>If you wish to style the text, you can add a run to a paragraph.</p>
+
+<p>As an example, I have created a <code class="language-plaintext highlighter-rouge">build_document()</code> method which builds all the content in the document.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">build_document</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="n">document</span> <span class="o">=</span> <span class="n">Document</span><span class="p">()</span>
+
+    <span class="c1"># add a header
+</span>    <span class="n">document</span><span class="p">.</span><span class="n">add_heading</span><span class="p">(</span><span class="s">"This is a header"</span><span class="p">)</span>
+
+    <span class="c1"># add a paragraph
+</span>    <span class="n">document</span><span class="p">.</span><span class="n">add_paragraph</span><span class="p">(</span><span class="s">"This is a normal style paragraph"</span><span class="p">)</span>
+
+    <span class="c1"># add a paragraph within an italic text then go on with a break.
+</span>    <span class="n">paragraph</span> <span class="o">=</span> <span class="n">document</span><span class="p">.</span><span class="n">add_paragraph</span><span class="p">()</span>
+    <span class="n">run</span> <span class="o">=</span> <span class="n">paragraph</span><span class="p">.</span><span class="n">add_run</span><span class="p">()</span>
+    <span class="n">run</span><span class="p">.</span><span class="n">italic</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">run</span><span class="p">.</span><span class="n">add_text</span><span class="p">(</span><span class="s">"text will have italic style"</span><span class="p">)</span>
+    <span class="n">run</span><span class="p">.</span><span class="n">add_break</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">document</span>
+</code></pre></div></div>
+
+<p>I will then replace the code that creates an empty document in the view with the following:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">document</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">build_document</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>The current export result is shown below:</p>
+
+<p><img src="/assets/images/2023/03/2023-03-export-docx-in-django-img-1-basic.webp" alt="" /></p>
+
+<h2 id="advance---build-html-content">Advance - build html content</h2>
+
+<p>Essentially, I can export a docx file with content in it.</p>
+
+<p>To begin with, I simply add the content within a paragraph:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># add paragraph for html content
+</span><span class="n">document</span><span class="p">.</span><span class="n">add_paragraph</span><span class="p">(</span><span class="s">"&lt;p&gt;Nice to see Prep note 2&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Prep note 2 content 1&lt;/li&gt;&lt;li&gt;Prep note 2 content 2&lt;/li&gt;&lt;/ul&gt;"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>However, there was a strange display as following:</p>
+
+<p><img src="/assets/images/2023/03/2023-03-export-docx-in-django-img-2-issue-html.webp" alt="" /></p>
+
+<p>I need to find a way to convert HTML content to plain text while preserving basic formatting such as italics, bolding, and bullet points. Here’s an example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Nice to see Prep note 2
+    ●    Prep note 2 content 1
+    ●    Prep note 2 content 2
+</code></pre></div></div>
+
+<p>After research around, I discovered a Python built-in library called <a href="https://docs.python.org/3/library/html.parser.html"><code class="language-plaintext highlighter-rouge">html.parser</code></a> - Simple HTML and XHTML parser.</p>
+
+<p>Followed <a href="https://github.com/python-openxml/python-docx/issues/352">an examle</a> to create a class called <code class="language-plaintext highlighter-rouge">DocumentHTMLParser</code> to handle it, as shown below:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">DocumentHTMLParser</span><span class="p">(</span><span class="n">HTMLParser</span><span class="p">):</span>
+    <span class="s">"""
+    Document Within HTML Parser
+    """</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">document</span><span class="p">):</span>
+        <span class="s">"""
+        Override __init__ method
+        """</span>
+        <span class="n">HTMLParser</span><span class="p">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">document</span> <span class="o">=</span> <span class="n">document</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">paragraph</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">run</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">add_paragraph_and_feed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">html</span><span class="p">):</span>
+        <span class="s">"""
+        Custom method where add paragraph and feed
+        """</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">paragraph</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">document</span><span class="p">.</span><span class="n">add_paragraph</span><span class="p">()</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">feed</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">handle_starttag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">attrs</span><span class="p">):</span>
+        <span class="s">"""
+        Override handle_starttag method
+        """</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">run</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">paragraph</span><span class="p">.</span><span class="n">add_run</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">tag</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"ul"</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">run</span><span class="p">.</span><span class="n">add_break</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">tag</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"li"</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">run</span><span class="p">.</span><span class="n">add_text</span><span class="p">(</span><span class="sa">u</span><span class="s">'        </span><span class="se">\u2022</span><span class="s">    '</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">handle_endtag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tag</span><span class="p">):</span>
+        <span class="s">"""
+        Override handle_endtag method
+        """</span>
+        <span class="k">if</span> <span class="n">tag</span> <span class="ow">in</span> <span class="p">[</span><span class="s">"li"</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="p">.</span><span class="n">run</span><span class="p">.</span><span class="n">add_break</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">handle_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="s">"""Override handle_data method"""</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">run</span><span class="p">.</span><span class="n">add_text</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>The code above involves overriding a function in the HTMLParser class and using the paragraph’s run to customize its style based on the starting tag.</p>
+
+<p>If a tag needs to break on the end, we add a break for it.</p>
+
+<p>I then utilized this custom class in my view to handle the HTML content:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">build_document</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="s">"""Build content document"""</span>
+    <span class="n">document</span> <span class="o">=</span> <span class="n">Document</span><span class="p">()</span>
+    <span class="n">doc_html_parser</span> <span class="o">=</span> <span class="n">DocumentHTMLParser</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
+
+    <span class="c1"># add a header
+</span>    <span class="n">document</span><span class="p">.</span><span class="n">add_heading</span><span class="p">(</span><span class="s">"This is a header"</span><span class="p">)</span>
+
+    <span class="c1"># add a paragraph
+</span>    <span class="n">document</span><span class="p">.</span><span class="n">add_paragraph</span><span class="p">(</span><span class="s">"This is a normal style paragraph"</span><span class="p">)</span>
+
+    <span class="c1"># add a paragraph within an italic text then go on with a break.
+</span>    <span class="n">paragraph</span> <span class="o">=</span> <span class="n">document</span><span class="p">.</span><span class="n">add_paragraph</span><span class="p">()</span>
+    <span class="n">run</span> <span class="o">=</span> <span class="n">paragraph</span><span class="p">.</span><span class="n">add_run</span><span class="p">()</span>
+    <span class="n">run</span><span class="p">.</span><span class="n">italic</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">run</span><span class="p">.</span><span class="n">add_text</span><span class="p">(</span><span class="s">"text will have italic style"</span><span class="p">)</span>
+    <span class="n">run</span><span class="p">.</span><span class="n">add_break</span><span class="p">()</span>
+
+    <span class="c1"># with html content, call method add_paragraph_and_feed tui build content
+</span>    <span class="n">html_content</span> <span class="o">=</span> <span class="s">"&lt;p&gt;Nice to see Prep note 2&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Prep note 2 content 1&lt;/li&gt;&lt;li&gt;Prep note 2 content 2&lt;/li&gt;&lt;/ul&gt;"</span>
+    <span class="n">doc_html_parser</span><span class="p">.</span><span class="n">add_paragraph_and_feed</span><span class="p">(</span><span class="n">html_content</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Here’s the resulting docx file from the HTML content:
+<img src="/assets/images/2023/03/2023-03-export-docx-in-django-img-3-export-docx-html.webpp" alt="" /></p>
+
+<h2 id="unit-test">Unit Test</h2>
+
+<p>On the backend side, unit testing is a crucial component to protect your application. In my project, each pull request requires a minimum of 80% code coverage through testing, making unit testing a mandatory part of the development process. To aid in writing unit tests, we utilize libraries such as <a href="https://factoryboy.readthedocs.io/en/stable/">factory_boy</a> and <a href="https://docs.pytest.org/en/stable/">pytest</a>. If you’re unfamiliar with these libraries, you can check out the links provided before proceeding.</p>
+
+<p>In this section, I won’t be covering how to use or write unit tests for a Django application. Instead, I will ensure that the exported docx file has the correct name and type, and that the file contains the expected content and style.</p>
+
+<h3 id="test-content-response">Test content response</h3>
+
+<p>I performed some basic checks on the exported file, such as verifying the response status, content type, and file name.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_export_docx_general</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="s">"""
+    Ensure general content like
+    status response, content type, file name exported correctly
+    """</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">client</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s">"export_docx"</span><span class="p">))</span>
+    <span class="kn">import</span> <span class="nn">pdb</span><span class="p">;</span><span class="n">pdb</span><span class="p">.</span><span class="n">set_trace</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>By using <code class="language-plaintext highlighter-rouge">import pdb;pdb.set_trace()</code> after making the <code class="language-plaintext highlighter-rouge">GET</code> request in the unit test, I am able to inspect the current data.</p>
+
+<p>Here is an example of what it looks like:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;django.http.response.StreamingHttpResponse object at 0x7fc392a61990&gt;
+<span class="o">(</span>Pdb<span class="o">)</span> response.status_code
+200
+<span class="o">(</span>Pdb<span class="o">)</span> response.streaming_content
+&lt;map object at 0x7fc3927aadd0&gt;
+<span class="o">(</span>Pdb<span class="o">)</span> response.streaming_content.__dir__<span class="o">()</span>
+<span class="o">[</span><span class="s1">'__getattribute__'</span>, <span class="s1">'__iter__'</span>, <span class="s1">'__next__'</span>, <span class="s1">'__new__'</span>, <span class="s1">'__reduce__'</span>, <span class="s1">'__doc__'</span>, <span class="s1">'__repr__'</span>, <span class="s1">'__hash__'</span>, <span class="s1">'__str__'</span>, <span class="s1">'__setattr__'</span>, <span class="s1">'__delattr__'</span>, <span class="s1">'__lt__'</span>, <span class="s1">'__le__'</span>, <span class="s1">'__eq__'</span>, <span class="s1">'__ne__'</span>, <span class="s1">'__gt__'</span>, <span class="s1">'__ge__'</span>, <span class="s1">'__init__'</span>, <span class="s1">'__reduce_ex__'</span>, <span class="s1">'__subclasshook__'</span>, <span class="s1">'__init_subclass__'</span>, <span class="s1">'__format__'</span>, <span class="s1">'__sizeof__'</span>, <span class="s1">'__dir__'</span>, <span class="s1">'__class__'</span><span class="o">]</span>
+<span class="o">(</span>Pdb<span class="o">)</span> response.get<span class="o">(</span><span class="s2">"Content-Type"</span><span class="o">)</span>
+<span class="s1">'application/vnd.openxmlformats-officedocument.wordprocessingm'</span>
+<span class="o">(</span>Pdb<span class="o">)</span> response.get<span class="o">(</span><span class="s2">"Content-Disposition"</span><span class="o">)</span>
+<span class="s1">'attachment;filename=Recipe_Pho_2021-04-15-14-34-09.docx'</span>
+</code></pre></div></div>
+
+<p>As seen in the previous code block, I can continue writing unit tests to check the exported file’s general content, such as the file’s content type, status code, and name.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_export_docx_general</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="s">"""
+    Ensure general content like
+    status response, content type, file name exported correctly
+    """</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">client</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="s">"export_docx"</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">response</span><span class="p">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="n">status</span><span class="p">.</span><span class="n">HTTP_200_OK</span>
+    <span class="k">assert</span> <span class="n">response</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">)</span> <span class="o">==</span> \
+        <span class="s">"application/vnd.openxmlformats-officedocument.wordprocessingm"</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s">"Content-Disposition"</span><span class="p">).</span><span class="n">split</span><span class="p">(</span><span class="s">"="</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="n">filename</span> <span class="o">==</span> <span class="s">"Test.docx"</span>
+</code></pre></div></div>
+
+<p>Please note the <code class="language-plaintext highlighter-rouge">response.streaming_content</code> object above which appears as a map object without any data for testing. Initially, I was unsure about how to test the content and style of the document accurately. Despite researching various options, I could not find a suitable solution. Eventually, I came up with a solution for testing the built document myself, which is as follows:</p>
+
+<h3 id="test-document-content">Test document content</h3>
+
+<p>I have created a function in the code called <code class="language-plaintext highlighter-rouge">build_document</code> to build the document, which is now ready for testing:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">build_document</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="s">"""Build content document"""</span>
+    <span class="n">document</span> <span class="o">=</span> <span class="n">Document</span><span class="p">()</span>
+    <span class="n">doc_html_parser</span> <span class="o">=</span> <span class="n">DocumentHTMLParser</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
+
+    <span class="c1"># with html content, call method add_paragraph_and_feed tui build content
+</span>    <span class="n">html_content</span> <span class="o">=</span> <span class="s">"&lt;p&gt;Nice to see Prep note 2&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Prep note 2 content 1&lt;/li&gt;&lt;li&gt;Prep note 2 content 2&lt;/li&gt;&lt;/ul&gt;"</span>
+    <span class="n">doc_html_parser</span><span class="p">.</span><span class="n">add_paragraph_and_feed</span><span class="p">(</span><span class="n">html_content</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>My solution was to directly call this function for testing on a mocked view.</p>
+
+<p>Here’s how it appears in the test function:</p>
+
+<pre><code class="language-pyhton">def test_build_document_for_docx(self):
+    """Ensure document built content and style correctly"""
+    # inline import just for you know where they are
+    from django.http import HttpRequest
+    from rest_framework.request import Request as DRFRequest
+
+    # mock drf request
+    request = HttpRequest()
+    request.method = 'GET'
+    drf_request = DRFRequest(request)
+    drf_request.user = self.user
+
+    # mock view with request
+    view = ExportRecipesDocx()
+    view.request = request
+
+    # call function in view directly
+    document = view.build_document()
+    import pdb;pdb.set_trace()
+</code></pre>
+
+<p>Once again, I checked the document profile. As an example, I just have a personal curiosity and love to explore what they are 🥰.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">(</span>Pdb<span class="o">)</span> document
+&lt;docx.document.Document object at 0x7fd5e65140a0&gt;
+<span class="o">(</span>Pdb<span class="o">)</span> document._body.paragraphs
+<span class="o">[</span>&lt;docx.text.paragraph.Paragraph object at 0x7fd5e5d5fb50&gt;]
+<span class="o">(</span>Pdb<span class="o">)</span> document._body.paragraphs[0].runs
+<span class="o">[</span>&lt;docx.text.run.Run object at 0x7fd5e5e419d0&gt;, &lt;docx.text.run.Run object at 0x7fd5e5eba6d0&gt;, &lt;docx.text.run.Run object at 0x7fd5e5eba410&gt;, &lt;docx.text.run.Run object at 0x7fd5e5eba3d0&gt;]
+<span class="o">(</span>Pdb<span class="o">)</span> document._body.paragraphs[0].runs[0].text
+<span class="s1">'Nice to see Prep note 2\n'</span>
+<span class="o">(</span>Pdb<span class="o">)</span> document._body.paragraphs[0].runs[0].style.name
+<span class="s1">'Default Paragraph Font'</span>
+<span class="o">(</span>Pdb<span class="o">)</span> document._body.paragraphs[0].runs[0].style.priority
+1
+<span class="o">(</span>Pdb<span class="o">)</span> document._body.paragraphs[0].runsp[1].text
+</code></pre></div></div>
+
+<p>In my current <code class="language-plaintext highlighter-rouge">build_document</code> method, I create a paragraph and add some runs to it, while also inserting breaks where necessary based on the start and end tags of the HTML.</p>
+
+<p>Below is the final version of my unit test for checking the document’s content and styles:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">test_build_document_for_docx</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="s">"""Ensure document built content and style correctly"""</span>
+    <span class="c1"># mock request and view initialize like above code
+</span>    <span class="c1"># ...
+</span>    <span class="c1"># call function in view directly
+</span>    <span class="n">document</span> <span class="o">=</span> <span class="n">view</span><span class="p">.</span><span class="n">build_document</span><span class="p">()</span>
+
+    <span class="n">paragraphs</span> <span class="o">=</span> <span class="n">document</span><span class="p">.</span><span class="n">_body</span><span class="p">.</span><span class="n">paragraphs</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">paragraphs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="k">assert</span> <span class="n">paragraphs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">style</span><span class="p">.</span><span class="n">name</span> <span class="o">==</span> <span class="s">"Normal"</span>
+    <span class="k">assert</span> <span class="n">paragraphs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">style</span><span class="p">.</span><span class="n">priority</span> <span class="ow">is</span> <span class="bp">None</span>
+    <span class="k">assert</span> <span class="p">[</span>
+        <span class="s">'Nice to see Prep note 2'</span><span class="p">,</span>
+        <span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span>
+        <span class="s">'        •    Prep note 2 content 1</span><span class="se">\n</span><span class="s">'</span><span class="p">,</span>
+        <span class="s">'        •    Prep note 2 content 2</span><span class="se">\n</span><span class="s">'</span>
+    <span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="n">item</span><span class="p">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">paragraphs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">runs</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="p">{</span><span class="bp">None</span><span class="p">}</span> <span class="o">==</span> <span class="p">{</span><span class="n">item</span><span class="p">.</span><span class="n">italic</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">paragraphs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">runs</span><span class="p">}</span>
+    <span class="k">assert</span> <span class="p">{</span><span class="bp">None</span><span class="p">}</span> <span class="o">==</span> <span class="p">{</span><span class="n">item</span><span class="p">.</span><span class="n">bold</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">paragraphs</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">runs</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>Exporting files in a Django app is a fascinating process, and Python has several libraries that are useful for handling content formats.</p>
+
+<h2 id="final-word">Final word</h2>
+<p>In this article, we discussed a straightforward example of exporting docx files within a Django app.</p>]]></content><author><name>Thanh Nguyen</name></author><category term="django" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Scope trong JavaScript</title><link href="http://localhost:4000/js/scope-trong-javascript/" rel="alternate" type="text/html" title="Scope trong JavaScript" /><published>2022-11-22T22:00:00-05:00</published><updated>2022-11-22T22:00:00-05:00</updated><id>http://localhost:4000/js/scope-trong-javascript</id><content type="html" xml:base="http://localhost:4000/js/scope-trong-javascript/"><![CDATA[<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/11/agriculture-gfa5e56941_1920.jpeg" alt="" /></p>
+
+<p>Scope liên quan trực tiếp bởi Lexical Environment bởi scope liên quan đến phạm vi truy cập của biến.</p>
+
+<p>Mời bạn ghé đọc <a href="https://beautyoncode.com/lexical-environment-trong-javascript/">bài viết Lexical Environment</a> trước nếu bạn chưa có dịp đọc nha.</p>
+
+<p>Bài viết này sẽ tìm hiểu thêm về scope và các loại scope trong JavaScript.</p>
+
+<h2 id="scope-là-gì">Scope là gì?</h2>
+<p>Scope (tiếng Việt là “phạm vi”) là phạm vi được xác định nơi mà bạn có thể truy cập vào biến.</p>
+
+<blockquote>
+  <p>Scope determines the variables accessibility (visibility)</p>
+</blockquote>
+
+<h2 id="các-loại-scope-trong-javascript">Các loại scope trong JavaScript</h2>
+<p>Có 3 loại scope trong JavaScript:</p>
+
+<p>– Block Scope (có từ ES6)</p>
+
+<p>– Function Scope hay Local Scope</p>
+
+<p>– Global Scope</p>
+
+<hr />
+
+<p>Ở ES5, chỉ có hai scope là Function Scope và Global Scope</p>
+
+<p>– Scope của function gọi là Function Scope</p>
+
+<p>– Scope bên ngoài function gọi là Global Scope, tương ứng với khai báo biến với var</p>
+
+<p>Tức là:</p>
+
+<p>– trong function → biến thuộc Function Scope</p>
+
+<p>– bên ngoài function → biến thuộc Global Scope</p>
+
+<p>Ví dụ:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// a in global scope</span>
+<span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">x</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// b in function x scope</span>
+  <span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> <span class="c1">// 5</span>
+<span class="nx">x</span><span class="p">()</span> <span class="c1">// 10</span>
+</code></pre></div></div>
+
+<p>Hình bên dưới minh họa hai loại scope này:</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/11/scope-es5.png" alt="" /></p>
+
+<p>Chiếc khung màu đen thể hiện phạm vi của từng loại scope.</p>
+
+<p>– Khung bọc màu tím là phạm vi của hàm x, hay function x scope.</p>
+
+<p>– Khung bọc màu xanh là phạm vi của global, hay global scope.</p>
+
+<hr />
+
+<p>Ở ES6, JavaScript giới thiệu thêm hai cách khai báo biến với let, const (<a href="https://beautyoncode.com/khai-bao-bien-voi-var-let-va-const-trong-javascript/">đọc thêm về var, let, const mình ở đây</a>) đi kèm đó là một loại scope mới – block scope.</p>
+
+<p>Khi bạn khai báo một biến với let, const trong một block, được hiểu là bọc trong một cặp {} , thì biến này nằm trong block scope đó.</p>
+
+<p>Ví dụ:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">x</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="nx">c</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">d</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">hello from d</span><span class="dl">'</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">x</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>Thử đặt một breakpoint và quan sát trên debugger:</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/11/check-scope.png" alt="" /></p>
+
+<p>Ở Global có a là 5, Local có c là 15, Block có d là 0 tương ứng với 3 scopes mình đã đề cập.</p>
+
+<p>Vậy b đang ở đâu? Bạn có thấy b đang thuộc một nơi gọi là Script ?</p>
+
+<p>Thực ra thì b vẫn đang thuộc global scope. Chỉ là vì nó được khai báo với let và được nằm trong một vùng nhớ riêng gọi là <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz">Temporary Dead Zone (TDZ)</a> nên được mô tả khác trên debugger ở một tab gọi là Script. (đọc thêm ở <a href="https://beautyoncode.com/hoisting-trong-javascript/">blog này</a>)</p>
+
+<p>Bạn có thể chứng minh được b vẫn thuộc global scope vì tại dòng được debug, vẫn có thể truy cập vào b được. Tuy nhiên bạn không thể truy cập vào b từ window , ví dụ window.b</p>
+
+<p>Hình bên dưới minh họa ba loại scope ở ví dụ trên:</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/11/scope-js-now.png" alt="" /></p>]]></content><author><name>Thanh Nguyen</name></author><category term="js" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Lexical environment trong JavaScript</title><link href="http://localhost:4000/js/lexical-environment-trong-javascript/" rel="alternate" type="text/html" title="Lexical environment trong JavaScript" /><published>2022-11-02T23:00:00-04:00</published><updated>2022-11-02T23:00:00-04:00</updated><id>http://localhost:4000/js/lexical-environment-trong-javascript</id><content type="html" xml:base="http://localhost:4000/js/lexical-environment-trong-javascript/"><![CDATA[<p>Trước khi tìm hiểu về <code class="language-plaintext highlighter-rouge">scope</code>, <code class="language-plaintext highlighter-rouge">scope chain</code>, hay cả <code class="language-plaintext highlighter-rouge">closures</code>, bạn cần hiểu về <code class="language-plaintext highlighter-rouge">Lexical Environment</code>.</p>
+
+<p>Đây là một khái niệm nền tảng trong JavaScript.</p>
+
+<h2 id="execution-context-và-callstack">Execution Context và Callstack</h2>
+<p>Nhắc lại từ bài <a href="https://beautyoncode.com/dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript/https://beautyoncode.com/dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript/">“Điều gì xảy ra khi chạy một chương trình JavaScript ?”</a>, mỗi khi chương trình JavaScript thực thi, sẽ khởi tạo ra các <strong>“Execution Context”</strong></p>
+
+<p>Và có hai giai đoạn của execution context là <strong>“Memory Creation”</strong> và <strong>“Code Execution”</strong>.</p>
+
+<p>Ví dụ có đoạn code sau:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">x</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="nx">y</span><span class="p">();</span>
+
+  <span class="kd">function</span> <span class="nx">y</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">c</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">x</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p>thì sơ đồ mô tả các execution context và callback được tạo với chương trình trên như sau:</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/11/ec-callstack.png" alt="" /></p>
+
+<h2 id="lexical-environment--scope-chain">Lexical Environment &amp; Scope Chain</h2>
+
+<p>Mình đã chọn hình cover cho bài viết này là hình ảnh trái đất nhìn từ ngoài vũ trụ, là điểm tương đồng khi nói về lexical environment. Cùng tìm hiểu nhé!</p>
+
+<h3 id="lexical-là-gì">Lexical là gì?</h3>
+
+<p>“Lexical” tiếng anh có nghĩa là sự kết nối từ bên ngoài theo một thứ tự nào đó.</p>
+
+<h3 id="lexical-enviroment-là-gì">Lexical Enviroment là gì?</h3>
+
+<blockquote>
+  <p>“Lexical Environment” của hàm bao gồm local memory của hàm đó cộng với “Lexical Environment” của cha nó.</p>
+</blockquote>
+
+<p>Ví dụ có hàm <code class="language-plaintext highlighter-rouge">y</code> ở trên nằm lồng trong hàm <code class="language-plaintext highlighter-rouge">x</code> (<code class="language-plaintext highlighter-rouge">y</code> con của <code class="language-plaintext highlighter-rouge">x</code>), và hàm <code class="language-plaintext highlighter-rouge">x</code> nằm bên trong <code class="language-plaintext highlighter-rouge">global scope</code> (<code class="language-plaintext highlighter-rouge">x</code> con của <code class="language-plaintext highlighter-rouge">global</code>).</p>
+
+<p>Hay còn gọi <code class="language-plaintext highlighter-rouge">y is lexically inside the x function. x is lexically inside global</code>.</p>
+
+<p>Ngay khi một <strong>“Execution Context”</strong> khởi tạo, một <strong>“Lexical Environment”</strong> cũng đồng thời được khởi tạo.</p>
+
+<p>Cùng xem parent’s lexical environment tương ứng ở ví dụ trên:</p>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/11/parent-lexical-env.png" alt="" /></p>
+
+<p>Và <code class="language-plaintext highlighter-rouge">Lexical Environment</code> sẽ gồm <code class="language-plaintext highlighter-rouge">local memory</code> và <code class="language-plaintext highlighter-rouge">parent lexical environment</code> được biểu diễn với vòng tròn màu tím bên dưới.</p>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/11/lexical-environment.png" alt="" /></p>
+
+<h2 id="scope-chain">Scope Chain</h2>
+
+<p><strong>Nhìn vào hình trên bạn có thấy được cách chương trình tìm kiếm các giá trị của biến không ?</strong></p>
+
+<p>Thứ tự tìm sẽ từ vòng tím của <code class="language-plaintext highlighter-rouge">y</code> sang vòng tím của <code class="language-plaintext highlighter-rouge">x</code> rồi sang vòng tím của <code class="language-plaintext highlighter-rouge">global</code> và vẫn tìm không thấy thì sẽ gặp <code class="language-plaintext highlighter-rouge">null</code> và kết thúc quá trình tìm kiếm này.</p>
+
+<p>Giả sử tại vòng tím <code class="language-plaintext highlighter-rouge">x</code> không tồn tại <code class="language-plaintext highlighter-rouge">c</code> như trên, thì chương trình sẽ tiếp tục tìm kiếm xem ở các vòng tím <code class="language-plaintext highlighter-rouge">y</code>, rồi đến <code class="language-plaintext highlighter-rouge">global</code>.</p>
+
+<p>Nếu vẫn không tìm thấy sẽ báo lỗi. Nếu có tìm thấy tại đâu trước thì sẽ ưu tiên dùng giá trị tại chỗ đó.</p>
+
+<p>Đây chính là các mà JS Engine tìm kiếm từ trong ra ngoài, gọi là <strong>Scope Chain</strong>.</p>
+
+<p>Hay nói đơn giản hơn <strong>Scope Chain chính là chuỗi nối của các Lexical Environment.</strong></p>
+
+<p>Nếu biến không được tìm thấy ở <code class="language-plaintext highlighter-rouge">local memory</code> của <code class="language-plaintext highlighter-rouge">execution context</code> thì nó sẽ tiến hành tìm kiểm ở các <code class="language-plaintext highlighter-rouge">lexical environment</code> cho đến hết chuỗi thì thôi.</p>
+
+<h2 id="tổng-kết">Tổng kết</h2>
+
+<p>– <code class="language-plaintext highlighter-rouge">Lexical Environment</code> được tạo cùng <code class="language-plaintext highlighter-rouge">Execution Context</code></p>
+
+<p>– <code class="language-plaintext highlighter-rouge">Lexical Environment = local memory + parent’s Lexical Environment</code></p>
+
+<p>– Chain of Lexical Environment gọi là <code class="language-plaintext highlighter-rouge">Scope Chain</code></p>
+
+<hr />
+
+<p>Vậy còn <strong>scope</strong> thì sao ? <strong>Scope</strong> có liên quan đến lexical environment này không ?</p>
+
+<p>Mời các bạn đón đọc bài tiếp theo về <strong>scope</strong> nhé!</p>]]></content><author><name>Thanh Nguyen</name></author><category term="js" /><summary type="html"><![CDATA[Trước khi tìm hiểu về scope, scope chain, hay cả closures, bạn cần hiểu về Lexical Environment.]]></summary></entry><entry><title type="html">Chơi cùng JavaScript</title><link href="http://localhost:4000/js/choi-cung-javascript/" rel="alternate" type="text/html" title="Chơi cùng JavaScript" /><published>2022-10-17T23:00:00-04:00</published><updated>2022-10-17T23:00:00-04:00</updated><id>http://localhost:4000/js/choi-cung-javascript</id><content type="html" xml:base="http://localhost:4000/js/choi-cung-javascript/"><![CDATA[<p>Khi học JavaScript bạn thử nghiệm các đoạn code nhỏ bằng các cách nào ?</p>
+
+<p>Thử xem bạn đã dùng cách nào trong các cách sau nhé!</p>
+
+<h2 id="cách-1-chạy-chương-trình-với-browser">Cách 1: Chạy chương trình với browser</h2>
+<p>Tạo file <code class="language-plaintext highlighter-rouge">index.html</code> để chứa code của trang web.</p>
+
+<p>Bạn có thể mở trực tiếp file hoặc <code class="language-plaintext highlighter-rouge">“Go Live”</code> với extension <a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">“Live Server”</a> trên VSCode.</p>
+
+<h3 id="cách-11-viết-nội-dung-js-trong-thẻ-scriptscript">Cách 1.1: Viết nội dung JS trong thẻ <code class="language-plaintext highlighter-rouge">&lt;script&gt;&lt;/script&gt;</code></h3>
+<p>File <code class="language-plaintext highlighter-rouge">index.html</code>:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1.0"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Central Music<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;script&gt;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">'</span><span class="s1">Hello</span><span class="dl">'</span><span class="p">);</span>
+  <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<h3 id="cách-12-viết-nội-dung-js-file-mainjs">Cách 1.2: Viết nội dung JS file <code class="language-plaintext highlighter-rouge">main.js</code></h3>
+<p>Viết một file <code class="language-plaintext highlighter-rouge">main.js</code> rồi sử dụng làm source, và dùng thuộc tính <code class="language-plaintext highlighter-rouge">src</code> của thẻ script truyền đường dẫn đến file <code class="language-plaintext highlighter-rouge">main.js</code> để sử dụng</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"./main.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre></div></div>
+
+<p>Cách này thì khá cồng kềnh khi muốn thử nghiệm nhanh một đoạn logic nhỏ.  Tuy nhiên sẽ cần thiết nếu bạn thực hành liên quan đến <code class="language-plaintext highlighter-rouge">DOM</code>, styles.</p>
+
+<p>Cách này không chia sẻ code online được.</p>
+
+<h2 id="cách-2-chạy-chương-trình-với-nodejs">Cách 2: Chạy chương trình với nodejs</h2>
+<p>Cài nodejs trên máy (thường sẽ có sẵn vì dev thường sử dụng npm)</p>
+
+<p>Chạy lệnh <code class="language-plaintext highlighter-rouge">node &lt;filename&gt;.js</code> ở command line để thực thi</p>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/10/node-run-js.png?w=1280&amp;ssl=1" alt="" /></p>
+
+<p>Cách này sẽ tiện hơn nếu muốn chạy một chương trình JS nhỏ không liên quan đến DOM.</p>
+
+<p>Một tip được bạn <a href="https://hung.dev/">hung.dev</a> chia sẻ là có thể sử dụng gói <code class="language-plaintext highlighter-rouge">nodemon</code> để tự động load lại khi mình có chỉnh sửa trên file. Cám ơn nha bạn Hưng ^^</p>
+
+<p>Chạy câu lệnh: <code class="language-plaintext highlighter-rouge">npx nodemon example.js</code> để vừa cài gói <code class="language-plaintext highlighter-rouge">nodemon</code> vừa thực thi code.</p>
+
+<p>Bạn sẽ thấy dòng <code class="language-plaintext highlighter-rouge">“Hello nodemon”</code> bên dưới là code thực thi sau khi code trong file <code class="language-plaintext highlighter-rouge">example.js</code> của mình thay đối.</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/10/nodemon-auto-reload.png?w=713&amp;ssl=1" alt="" /></p>
+
+<h2 id="cách-3-sử-dụng-tab-console-trên-trình-duyệt-chrome">Cách 3: Sử dụng tab “Console” trên trình duyệt Chrome</h2>
+<p>Sử dụng browser <code class="language-plaintext highlighter-rouge">Chrome</code>, mở <code class="language-plaintext highlighter-rouge">Console</code> tab và thử nghiệm trực tiếp trên đó.</p>
+
+<p>Cách này sẽ rất tiện khi mình muốn kiểm tra nhanh hay demo nhanh các đoạn code hay cú pháp của JS, vì trình duyệt có tích hợp sẵn để dùng.</p>
+
+<p>Đặc biệt bạn có thể chơi với <a href="https://developer.mozilla.org/en-US/docs/Web/API">Web APIs</a> như DOM, …</p>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/10/console-chrome.png?w=1008&amp;ssl=1" alt="" /></p>
+
+<h2 id="cách-4-sử-dụng-snippets">Cách 4: Sử dụng snippets</h2>
+<p>Nhờ một comment trên Viblo post, nhắc mình mới nhớ đến bạn này.</p>
+
+<p>Snippets dành cho JavaScript trên Chrome là một công cụ mạnh mẽ giúp bạn lưu một đoạn code JS và chạy trên bất cứ trang nào mà không bị mất code khi reload như khi mình viết ở Console.</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/10/snippets-js.png" alt="" /></p>
+
+<p>Bạn có thể tạo một snippets bằng cách vào Sources &gt; Snippets và chọn “+ New snippet”. Để chạy chương trình, bấm Cmd + Enter hoặc nút Run như trên hình.</p>
+
+<p>Đọc thêm document Snippets ở <a href="https://developer.chrome.com/docs/devtools/javascript/snippets/">đây</a>.</p>
+
+<h2 id="cách-5-sử-dụng-editor-trên-trang-w3schoolscom">Cách 5: Sử dụng editor trên trang w3schools.com</h2>
+<p>Tương tự cách 1 tuy nhiên có thể thực hiện trên <a href="https://www.w3schools.com/">w3schools.com</a> vì trên đây có một editor có sẵn để thử nghiệm.</p>
+
+<p>Dù công cụ này không được hiện đại lắm nhưng việc ôn nhanh kiến thức cơ bản và thử nghiệm ngay tức thì trên trang này cũng rất hữu ích.</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/10/w3schools-editor.png?w=1198&amp;ssl=1" alt="" /></p>
+
+<h2 id="cách-6-sử-dụng-javascriptmakeup">Cách 6: Sử dụng javascript.makeup</h2>
+<p><a href="https://javascript.makeup/">javascript.markup</a> cũng là một cách để có thể chơi với JS và kết quả cũng khá dễ nhìn.</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/10/js-markup-1.png?w=748&amp;ssl=1" alt="" /></p>
+
+<h2 id="cách-7-các-công-cụ-online-giúp-viết-và-chia-sẻ-chương-trình">Cách 7: Các công cụ online giúp viết và chia sẻ chương trình</h2>
+<p>Một số công cụ online như: JSBin, JSFiddle, Repl.it</p>
+
+<p>Các công cụ này thường yêu cầu tài khoản để lưu và chia sẻ chương trình.</p>
+
+<h3 id="jsbin">JSBin</h3>
+<p>https://jsbin.com/</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/10/jsbin.png?w=1280&amp;ssl=1" alt="" /></p>
+
+<h3 id="jsfield">JSField</h3>
+<p>https://jsfiddle.net/</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/10/jsfield.png?w=1280&amp;ssl=1" alt="" /></p>
+
+<h3 id="replit">Replit</h3>
+<p>https://replit.com/</p>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/10/replit.png?w=1280&amp;ssl=1" alt="" /></p>
+
+<h3 id="playcodeio">Playcode.io</h3>
+<p>https://playcode.io/</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/10/play.io_.png?w=1280&amp;ssl=1" alt="" /></p>
+
+<hr />
+
+<p>Trên đây là một số cách mình biết và hay sử dụng.</p>
+
+<p>Còn bạn thì sao, bạn hay thử nghiệm JS như thế nào?</p>]]></content><author><name>Thanh Nguyen</name></author><category term="js" /><summary type="html"><![CDATA[Khi học JavaScript bạn thử nghiệm các đoạn code nhỏ bằng các cách nào ?]]></summary></entry><entry><title type="html">Khai báo biến với var, let và const trong JavaScript</title><link href="http://localhost:4000/js/khai-bao-bien-voi-var-let-va-const-trong-javascript/" rel="alternate" type="text/html" title="Khai báo biến với var, let và const trong JavaScript" /><published>2022-10-11T23:00:00-04:00</published><updated>2022-10-11T23:00:00-04:00</updated><id>http://localhost:4000/js/khai-bao-bien-voi-var-let-va-const-trong-javascript</id><content type="html" xml:base="http://localhost:4000/js/khai-bao-bien-voi-var-let-va-const-trong-javascript/"><![CDATA[<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/10/var-let-const.png?w=1280&amp;ssl=1" alt="" /></p>
+
+<p>Ba cách giúp bạn khai báo biến trong JavaScript là sử dụng từ khóa <code class="language-plaintext highlighter-rouge">var</code>, <code class="language-plaintext highlighter-rouge">let</code>, <code class="language-plaintext highlighter-rouge">const</code>.</p>
+
+<p>Bài viết này mình sẽ tóm tắt lại sự khác nhau của ba cách khai báo này và cách sử dụng.</p>
+
+<p>Đồng thời cũng làm quen với các loại scoped như <code class="language-plaintext highlighter-rouge">local scoped</code>, <code class="language-plaintext highlighter-rouge">global scoped</code>, <code class="language-plaintext highlighter-rouge">block scoped</code>, khái niệm <code class="language-plaintext highlighter-rouge">Temporal Dead Zone</code>, và một số loại lỗi hay gặp khi làm việc với các từ khóa này như <code class="language-plaintext highlighter-rouge">SyntaxError</code>,  <code class="language-plaintext highlighter-rouge">ReferenceError</code>, <code class="language-plaintext highlighter-rouge">TypeError</code></p>
+
+<h2 id="var-và-let">var và let</h2>
+
+<h3 id="var">var</h3>
+
+<p>Thường thì sẽ so sánh <code class="language-plaintext highlighter-rouge">var</code> và <code class="language-plaintext highlighter-rouge">let</code> trước, vì cả hai đều dùng để khai báo một biến có thể thay đổi giá trị được.</p>
+
+<p>Ví dụ:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">:</span>
+</code></pre></div></div>
+
+<p>Khi khai báo với <code class="language-plaintext highlighter-rouge">var</code>, biến của bạn sẽ được <code class="language-plaintext highlighter-rouge">hoisting</code> trước khi gán giá trị, tức là biến này được định nghĩa ngay trước khi chương trình thực thi, trong giai đoạn <code class="language-plaintext highlighter-rouge">Memory Creation</code> trong ngữ cảnh thực thi.</p>
+
+<p>Nếu chưa rõ bạn có thể đọc bài <a href="https://beautyoncode.com/dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript/">“Điều gì xảy ra khi chạy chương trình JS”</a> và bài <a href="https://beautyoncode.com/hoisting-trong-javascript/">“Hoisting trong JavaScript”</a></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span><span class="p">.</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="mi">2</span><span class="p">.</span> <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="mi">3</span><span class="p">.</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>ở đây chương trình sẽ in ra giá trị <code class="language-plaintext highlighter-rouge">undefined</code> ở dòng số 1, và in ra số 1 ở dòng số 3</p>
+
+<p>Bên cạnh đó, biến được khai báo với <code class="language-plaintext highlighter-rouge">var</code> sẽ nằm trong <code class="language-plaintext highlighter-rouge">global scoped</code>, chỉ khi khai báo với var trong <strong>hàm</strong> mới có scope là <code class="language-plaintext highlighter-rouge">function scoped</code> hay <code class="language-plaintext highlighter-rouge">local scoped</code>.</p>
+
+<p>Đây là lý do vì sao nếu bạn khai báo như trên có thể dùng <code class="language-plaintext highlighter-rouge">window.a</code> hay <code class="language-plaintext highlighter-rouge">this.a</code> (với this này là window) để truy cập vào a vì nó nằm ở <code class="language-plaintext highlighter-rouge">global scope</code>.</p>
+
+<h3 id="let">let</h3>
+
+<p>Khi khai báo với let, biến của bạn và vẫn được hoisting, tuy nhiên biến này được lưu trong một khu vực gọi là Temporal Dead Zone và làm cho nó không truy cập được trước khi khai báo.</p>
+
+<p>Ví dụ:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/10/let-error-access-tdz-1.png?w=1280&amp;ssl=1" alt="" /></p>
+
+<p>ở đây chương trình sẽ bị lỗi <code class="language-plaintext highlighter-rouge">ReferenceError</code> không thể truy cập <code class="language-plaintext highlighter-rouge">b</code> trước khi được khởi tạo</p>
+
+<p>Và biến được khai báo với <code class="language-plaintext highlighter-rouge">let</code> sẽ nằm trong <code class="language-plaintext highlighter-rouge">block scoped</code></p>
+
+<p>Ví dụ biến b dưới đây nằm trong một <code class="language-plaintext highlighter-rouge">block scoped</code> của <code class="language-plaintext highlighter-rouge">if</code> với <code class="language-plaintext highlighter-rouge">{}</code> và không thể sử dụng ở bên ngoài.</p>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/10/let-block-scope.png?w=1280&amp;ssl=1" alt="" /></p>
+
+<hr />
+
+<p>Một điểm khác nhau nữa của <code class="language-plaintext highlighter-rouge">var</code> và <code class="language-plaintext highlighter-rouge">let</code> nữa là việc khai báo hai biến cùng tên hay <code class="language-plaintext highlighter-rouge">re-declaration</code>. Có thể khai báo hai biến cùng tên với <code class="language-plaintext highlighter-rouge">var</code>, nhưng với <code class="language-plaintext highlighter-rouge">let</code> làm như thế sẽ báo lỗi <code class="language-plaintext highlighter-rouge">Syntax Error</code> và không cho phép chương trình thực thi.</p>
+
+<p>Có thể khai báo hai biến cùng tên với <code class="language-plaintext highlighter-rouge">var</code>:</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/elementor/thumbs/var-re-declare-pw401gsly8iz6e0wwpugd8kqtcsupaxplvqapagwmg.png?w=640&amp;ssl=1" alt="" /></p>
+
+<p>Nhưng với <code class="language-plaintext highlighter-rouge">let</code> sẽ báo lỗi <code class="language-plaintext highlighter-rouge">Syntax Error</code> và không cho phép chương trình thực thi.</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/10/re-declare-let.png?w=1280&amp;ssl=1" alt="" /></p>
+
+<h2 id="let-var-và-const">let, var và const</h2>
+
+<p><code class="language-plaintext highlighter-rouge">let</code> và <code class="language-plaintext highlighter-rouge">var</code> cho phép khai báo tên một biến mà không cần giá trị khởi tạo, còn const chỉ cho phép khai báo với một giá trị ban đầu.</p>
+
+<p>Ví dụ:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span><span class="p">;</span> 
+<span class="kd">let</span> <span class="nx">b</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Nếu không có giá trị khởi tạo cho const bạn sẽ bị lỗi <code class="language-plaintext highlighter-rouge">SyntaxError</code>. 
+<img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/elementor/thumbs/const-missing-init-pw409hd2uavxrdsh53o9x79fie691bdkopk13gk65w.png?w=640&amp;ssl=1" alt="" /></p>
+
+<p>Thêm nữa, bạn có thể thay đổi giá trị cho biến khai báo với <code class="language-plaintext highlighter-rouge">let</code> hay <code class="language-plaintext highlighter-rouge">var</code>, nhưng bạn không thể thay đổi giá trị cho biến khai báo với <code class="language-plaintext highlighter-rouge">const</code>.</p>
+
+<p>Nếu bạn gán giá trị cho một biến khai báo với const bạn sẽ bị lỗi <code class="language-plaintext highlighter-rouge">TypeError</code></p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/elementor/thumbs/const-assign-val-pw40dmtf0ykj1drdwe9yfnjpynpm16uw99a8egekyk.png?w=640&amp;ssl=1" alt="" /></p>
+
+<p><strong>Cuối cùng let và const là cú pháp của ES6.</strong></p>
+
+<h2 id="cách-sử-dụng-var-let-const">Cách sử dụng var, let, const</h2>
+
+<p>Biết khác nhau thế nào rồi thì bạn sẽ sử dụng chúng như thế nào?</p>
+
+<p><strong>const</strong>: sử dụng khai báo hằng số, các giá trị không thay đổi trong suốt chương trình, và cố gắng dùng nhiều nhất có thể vì nó chặt chẽ nhất.</p>
+
+<p><strong>let</strong>: ưu tiên tiếp theo sau <code class="language-plaintext highlighter-rouge">const</code>, cố gắng sử dụng bất cứ khi nào có thể vì let có <code class="language-plaintext highlighter-rouge">Temporal Dead Zone</code> giúp bạn không truy cập trước khi khai báo tránh các lỗi về <code class="language-plaintext highlighter-rouge">undefined</code> như khi dùng với var</p>
+
+<p><strong>var</strong>: không nên dùng, hạn chế tối đa (hiểu để đọc code những chương trình viết với <code class="language-plaintext highlighter-rouge">ES5</code>)</p>
+
+<h3 id="vậy-làm-sao-để-tránh-lỗi-referenceerror-khi-sử-dụng-let">Vậy làm sao để tránh lỗi ReferenceError khi sử dụng let?</h3>
+
+<p>Tốt nhất là hãy đặt tất cả các khai báo và khởi tạo về biến lên trên cùng của chương trình, module, hàm, scope.</p>
+
+<p>Khi đó biến sẽ được khai báo trước khi sử dụng để đảm bảo bạn không truy cập trước khi nó được khai báo sẽ tránh lỗi trên.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Chúc các bạn hiểu và tự tin khai báo biến mình cần sử dụng nhé.</p>
+
+<p>(<a href="https://www.youtube.com/watch?v=BNC6slYCj50">Ref</a>)</p>]]></content><author><name>Thanh Nguyen</name></author><category term="js" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">CSS trong JS là gì?</title><link href="http://localhost:4000/js/css-trong-js-la-js/" rel="alternate" type="text/html" title="CSS trong JS là gì?" /><published>2022-09-13T23:00:00-04:00</published><updated>2022-09-13T23:00:00-04:00</updated><id>http://localhost:4000/js/css-trong-js-la-js</id><content type="html" xml:base="http://localhost:4000/js/css-trong-js-la-js/"><![CDATA[<p>CSS trong JS hay <code class="language-plaintext highlighter-rouge">CSS-in-JS</code> là một thuật ngữ mô tả việc viết code style CSS trong code JS, tức viết vào file <code class="language-plaintext highlighter-rouge">.js</code> , <code class="language-plaintext highlighter-rouge">.jsx</code> thay vì viết code CSS vào file <code class="language-plaintext highlighter-rouge">.css</code> như bình thường.</p>
+
+<h2 id="css-trong-js-ra-đời-khi-nào">CSS trong JS ra đời khi nào?</h2>
+
+<p><code class="language-plaintext highlighter-rouge">CSS-in-JS</code> ra đời khi mà trang web ngày càng phức tạp và việc duy trì tất cả các CSS của toàn bộ hệ thống trang web (code base lớn) trở nên khó khăn.</p>
+
+<p>Vì tất cả CSS sẽ nằm chung trong một scope global document (hay global scope selectors) gây nhiều xung đột (khi trùng tên class, id) và việc ghi đè CSS trở nên khó khăn hơn (ghi đè nhiều lớp, sử dụng !important, …) .</p>
+
+<p>Thêm vào đó xu hướng <code class="language-plaintext highlighter-rouge">component-based development</code> (hay component driven development) ngày càng phát triển với React khiến việc style từng thành phần (component) càng trở nên cấp thiết.</p>
+
+<h2 id="css-in-js-đã-giúp-giải-quyết-các-vấn-đề-này-như-thế-nào">CSS-in-JS đã giúp giải quyết các vấn đề này như thế nào?</h2>
+
+<p><code class="language-plaintext highlighter-rouge">CSS-in-JS</code> sẽ trích xuất CSS theo từng component thay vì theo document như CSS.</p>
+
+<p><code class="language-plaintext highlighter-rouge">styled-components</code> là một thư việc CSS-in-JS được sử dụng phổ biến nhất. Ngoài ra còn có <code class="language-plaintext highlighter-rouge">Aphrodite</code>, <code class="language-plaintext highlighter-rouge">Radium</code>, <code class="language-plaintext highlighter-rouge">Glamorous</code>, <code class="language-plaintext highlighter-rouge">JSS</code></p>
+
+<p>Một ví dụ với thư viện Styled Component (<code class="language-plaintext highlighter-rouge">styled-components</code>):</p>
+
+<p>Tạo Text mặc định sẽ nhận thẻ p, với font size là 16px.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">styled</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">styled-components</span><span class="dl">'</span>
+
+<span class="kd">const</span> <span class="nx">Text</span> <span class="o">=</span> <span class="nx">styled</span><span class="p">.</span><span class="nx">p</span><span class="s2">`
+  font-size: 16px;
+`</span>
+</code></pre></div></div>
+
+<p>và truyền thẻ <code class="language-plaintext highlighter-rouge">h2</code> vào thuộc tính <code class="language-plaintext highlighter-rouge">“as”</code> để Text sử dụng:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">Text</span> <span class="k">as</span><span class="o">=</span><span class="dl">'</span><span class="s1">h2</span><span class="dl">'</span><span class="o">&gt;</span><span class="nx">This</span> <span class="nx">is</span> <span class="nx">a</span> <span class="nx">H2</span> <span class="nx">heading</span><span class="o">&lt;</span><span class="sr">/Text</span><span class="err">&gt;
+</span></code></pre></div></div>
+<p>Khi đó code CSS sẽ tự động tạo một class duy nhất và được gắn vào DOM như sau:</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;style&gt;</span>
+  <span class="nc">.gZxhj123</span> <span class="p">{</span>
+    <span class="nl">font-size</span><span class="p">:</span> <span class="m">16px</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="nt">&lt;/style&gt;</span>
+</code></pre></div></div>
+
+<h2 id="ưu-điểm-khi-sử-dụng-css-in-js">Ưu điểm khi sử dụng CSS-in-JS</h2>
+
+<p>→ Code ngắn gọn và nhất quán hơn</p>
+
+<p>→ Giảm xung đột CSS</p>
+
+<p>→ CSS dynamic với props</p>
+
+<p>→ Kế thừa style</p>
+
+<p>→ Cú pháp SASS giúp style dễ dàng với pseudo element và pseudo class</p>
+
+<p>→ Dễ dàng thay đổi theme với ThemeContext</p>
+
+<p>→ Tự động tạo prefix cho class CSS, không sợ bị trùng nhau</p>
+
+<p>→ Có thể viết unit test cho CSS</p>
+
+<h2 id="nhược-điểm-khi-sử-dụng-css-in-js">Nhược điểm khi sử dụng CSS-in-JS</h2>
+
+<p>→ Sẽ không phù hợp với người chưa biết JS</p>
+
+<p>→ Tốn thời gian làm quen với thư viện, gây khó khăn cho người mới</p>
+
+<p>→ Khó khăn khi muốn debug bằng tên class</p>
+
+<p>→ Hiệu suất không tốt bằng CSS, do sử dụng nhiều thẻ style hơn, nặng code base hơn</p>
+
+<hr />
+
+<p>Trên đây là vài note tóm tắt mình tìm hiểu được về CSS-in-JS.</p>
+
+<p>Với mình, nếu dự án nhỏ, và làm việc với các bạn chưa có nhiều kinh nghiệm về JS, về OOP, … thì mình sẽ chọn CSS truyền thống (hoặc SASS – vẫn dynamic được) vì các bạn sẽ dễ tiếp cận hơn.</p>
+
+<p>Còn dự án vừa và lớn, tính kế thừa cao, nhiều components, dev nhiều kinh nghiệm hơn thì mình sẽ chọn các thư viện CSS-in-JS như styled-components.</p>
+
+<p>Bạn thấy sao về CSS-in-JS? Nếu được chọn thì bạn sẽ sử dụng styled-components hay CSS truyền thống để style cho ứng dụng React của bạn?</p>]]></content><author><name>Thanh Nguyen</name></author><category term="js" /><summary type="html"><![CDATA[CSS trong JS hay CSS-in-JS là một thuật ngữ mô tả việc viết code style CSS trong code JS, tức viết vào file .js , .jsx thay vì viết code CSS vào file .css như bình thường.]]></summary></entry><entry><title type="html">Hoisting trong JavaScript</title><link href="http://localhost:4000/js/hoisting-trong-javascript/" rel="alternate" type="text/html" title="Hoisting trong JavaScript" /><published>2022-09-06T23:00:00-04:00</published><updated>2022-09-06T23:00:00-04:00</updated><id>http://localhost:4000/js/hoisting-trong-javascript</id><content type="html" xml:base="http://localhost:4000/js/hoisting-trong-javascript/"><![CDATA[<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/09/thread-246742_1280.jpeg?w=1280&amp;ssl=1" alt="" /></p>
+
+<p>Điều khiến JavaScript khó hiểu với những người mới hay chuyển từ ngôn ngữ khác qua chính là JavaScript cho phép sử dụng biến và hàm ngay cả trước cả khi bạn khai báo chúng.</p>
+
+<p>Ví dụ ở đoạn code này:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span><span class="p">.</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+<span class="mi">2</span><span class="p">.</span> <span class="nx">aFunction</span><span class="p">()</span>
+<span class="mi">3</span><span class="p">.</span> 
+<span class="mi">4</span><span class="p">.</span> <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="mi">5</span><span class="p">.</span> <span class="kd">function</span> <span class="nx">aFunction</span><span class="p">()</span> <span class="p">{</span>
+<span class="mi">6</span><span class="p">.</span> 	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello</span><span class="dl">"</span><span class="p">)</span>
+<span class="mi">7</span><span class="p">.</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>Chương trình khi chạy không báo lỗi gì và kết quả in ra ở Console là:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kc">undefined</span>
+<span class="nx">Hello</span>
+</code></pre></div></div>
+<p>Lưu ý ở đây mình dùng <code class="language-plaintext highlighter-rouge">var</code> , nếu sử dụng <code class="language-plaintext highlighter-rouge">let</code> hay <code class="language-plaintext highlighter-rouge">const</code> thì sẽ bị lỗi <code class="language-plaintext highlighter-rouge">Uncaught ReferenceError: x is not defined</code> vì với <code class="language-plaintext highlighter-rouge">let</code> hay <code class="language-plaintext highlighter-rouge">const</code> của ES6 thì chỉ sau khi bạn khai báo mới sử dụng được chúng.</p>
+
+<p>Vậy điều gì đã khiến bạn có thể truy cập vào các biến và hàm ngay cả khi chúng chưa được khai báo?</p>
+
+<p><strong>Chính là cơ chế Hoisting trong JavaScript.</strong></p>
+
+<p>Vậy cụ thể thì <code class="language-plaintext highlighter-rouge">hoisting</code> là như thế nào?</p>
+
+<p>Bạn có nhớ hai giai đoạn của một <code class="language-plaintext highlighter-rouge">“Execution Context”</code> là <code class="language-plaintext highlighter-rouge">Memory Creation</code> và <code class="language-plaintext highlighter-rouge">Code Execution</code> đã được giới thiệu trong bài <a href="https://beautyoncode.com/dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript/">“Điều gì xảy ra khi chạy một chương trình JavaScript”</a> không?</p>
+
+<p><strong>Hoisting</strong> trong JavaScript được thực hiện trong giai đoạn cấp phát bộ nhớ – <strong>Memory Creation</strong>. Các biến và hàm sẽ được cấp bộ nhớ trước khi code được thực thi, biến được cấp bộ nhớ với giá trị <code class="language-plaintext highlighter-rouge">undefined</code> , còn hàm thì sẽ được cấp bộ nhớ cho toàn bộ nội dung bên trong hàm <code class="language-plaintext highlighter-rouge">f aFunction()</code>.</p>
+
+<p>Vì thế, bước vào giai đoạn thực thi <strong>Code Execution</strong>, thì các giá trị này đã có sẵn để sử dụng, nên gọi các hàm và biến này đã được <code class="language-plaintext highlighter-rouge">hoist</code> lên trước khi code được thực thi.</p>
+
+<hr />
+
+<p>Bạn có thể kiểm tra trực tiếp trên <strong>devTools</strong> bằng cách đặt một breakpoint ngay tại dòng số 4, ngay trước khi code của biến và hàm được khai báo.</p>
+
+<p>Khi chương trình chạy, gặp <strong>breakpoint</strong> dừng lại, hãy kiểm tra tab <strong>Global</strong> và tìm <code class="language-plaintext highlighter-rouge">a</code> , <code class="language-plaintext highlighter-rouge">aFunction</code> , tại đây tìm thấy biến <code class="language-plaintext highlighter-rouge">a</code> và hàm <code class="language-plaintext highlighter-rouge">aFunction</code> đã được cấp phát bộ nhớ và sẵn sàng để sử dụng.</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/09/hoisting.png" alt="" /></p>
+
+<p>Một lưu ý ở đây, nếu aFunction được khai báo ở dạng biểu thức dưới tên một biến</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">aFunction</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}</span>
+</code></pre></div></div>
+
+<p>thì <code class="language-plaintext highlighter-rouge">aFunction</code> sẽ có giá trị ban đầu là <code class="language-plaintext highlighter-rouge">undefined</code> như với một biến bình thường, và chương trình này sẽ báo lỗi.</p>
+
+<p><strong>Hoisting</strong> trong JavaScript sẽ dễ gây hiểu nhầm nếu bạn không hiểu về JavaScript Engine nên bạn cần tìm hiểu cơ chế này để dễ debug chương trình của mình nhé.</p>
+
+<p>Thêm nữa, ở phiên bản ES6, cung cấp let và const để yêu cầu bạn chỉ sử dụng biến sau khi đã khai báo chúng nên sẽ tránh được các sử dụng không mong đợi như trên.</p>
+
+<p>Vì thế, bạn nên ưu tiên sử dụng let và const thay thế cho var.</p>
+
+<p>(<a href="https://www.youtube.com/watch?v=pN6jk0uUrD8&amp;list=PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP">Ref series Namaste JavaScript</a>)</p>]]></content><author><name>Thanh Nguyen</name></author><category term="js" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Điều gì xảy ra khi chạy một chương trình JavaScript?</title><link href="http://localhost:4000/js/dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript/" rel="alternate" type="text/html" title="Điều gì xảy ra khi chạy một chương trình JavaScript?" /><published>2022-08-29T23:00:00-04:00</published><updated>2022-08-29T23:00:00-04:00</updated><id>http://localhost:4000/js/dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript</id><content type="html" xml:base="http://localhost:4000/js/dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript/"><![CDATA[<blockquote>
+  <p>Mọi thứ trong JavaScript diễn ra bên trong một <strong>“Execution Context”</strong>(ngữ cảnh thực thi)</p>
+</blockquote>
+
+<p>Có hai giai đoạn trong <strong>“Execution Context”</strong> gồm:</p>
+
+<p>– Giai đoạn <strong>“Memory Creation”</strong> (cấp phát bộ nhớ): là lúc tất cả các biến và hàm được cấp phát bộ nhớ dưới dạng <strong>key: value</strong>.</p>
+
+<p>Một tên khác cho phần này là <strong>“Variable Environment”</strong></p>
+
+<p>– Giai đoạn <strong>“Code Execution”</strong> (thực thi code): là lúc code được thực thi theo thứ tự từ trên xuống dưới, từng dòng một.</p>
+
+<p>Một tên khác cho phần này là <strong>“Thread of Execution”</strong></p>
+
+<p>Vì thế:</p>
+
+<blockquote>
+  <p>JavaScript is a <strong>synchronous</strong> <strong>single-threaded</strong> language</p>
+</blockquote>
+
+<hr />
+
+<p>Giả sử có chương trình tính bình phương như sau:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span><span class="p">.</span> <span class="kd">let</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="mi">2</span><span class="p">.</span> <span class="kd">function</span> <span class="nx">square</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+<span class="mi">3</span><span class="p">.</span> 	<span class="kd">let</span> <span class="nx">ans</span> <span class="o">=</span> <span class="nx">num</span><span class="p">.</span> <span class="o">*</span> <span class="nx">num</span><span class="p">;</span>
+<span class="mi">4</span><span class="p">.</span> 	<span class="k">return</span> <span class="nx">ans</span><span class="p">;</span>
+<span class="mi">5</span><span class="p">.</span> <span class="p">}</span>
+<span class="mi">6</span><span class="p">.</span> <span class="kd">const</span> <span class="nx">square2</span> <span class="o">=</span> <span class="nx">square</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
+<span class="mi">7</span><span class="p">.</span> <span class="kd">const</span> <span class="nx">square4</span> <span class="o">=</span> <span class="nx">square</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Khi chương trình JS khởi chạy, một <strong>execution context</strong> ở global sẽ được tạo.</p>
+
+<p>Ở giai đoạn <strong>“Memory Creation Phase”</strong>, bộ nhớ được cấp cho tất cả các biến và các hàm.</p>
+
+<p>Chương trình bắt đầu đọc từ trên xuống dưới và cấp bộ nhớ:</p>
+
+<p>– Dòng 1 cấp biến <code class="language-plaintext highlighter-rouge">n</code> với <code class="language-plaintext highlighter-rouge">undefined</code></p>
+
+<p>– Dòng 2 cấp cho hàm <code class="language-plaintext highlighter-rouge">square</code> bộ nhớ cho toàn bộ nội dung của nó,</p>
+
+<p>– Dòng 6 cấp biến <code class="language-plaintext highlighter-rouge">square2</code> với <code class="language-plaintext highlighter-rouge">undefined</code></p>
+
+<p>– Dòng 7 cấp biến <code class="language-plaintext highlighter-rouge">square4</code> với <code class="language-plaintext highlighter-rouge">undefined</code></p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/08/js-execute1.png" alt="" /></p>
+
+<p>Tiếp tục qua giai đoạn <strong>“Code Execution”</strong>, code sẽ được thực thi theo thứ tự:</p>
+
+<p>– Dòng 1, gán 2 cho biến <code class="language-plaintext highlighter-rouge">n</code></p>
+
+<p>– Dòng 2 đến 5 bỏ qua vì không có gì để thực thi</p>
+
+<p>– Dòng 6, hàm <code class="language-plaintext highlighter-rouge">square(2)</code> được gọi, một <strong>execution context</strong> giành riêng cho hàm này được tạo, mình tạm gọi là <strong>“square execution context”</strong></p>
+
+<p>– Giai đoạn <strong>Memory Creation Phase</strong> của <strong>“square execution context”</strong>, cấp bộ nhớ cho <code class="language-plaintext highlighter-rouge">num</code> và <code class="language-plaintext highlighter-rouge">ans</code></p>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/08/js-execute2.png" alt="" /></p>
+
+<p>– Giai đoạn <strong>Code Execution</strong> của <strong>“square execution context”</strong>, thực thi:</p>
+
+<p>– Dòng 2, <code class="language-plaintext highlighter-rouge">num</code> được gán giá trị là <code class="language-plaintext highlighter-rouge">2</code> từ đầu vào khi gọi hàm <code class="language-plaintext highlighter-rouge">square(n)</code></p>
+
+<p>– Dòng 3, <code class="language-plaintext highlighter-rouge">ans</code> được gán giá trị 2 * 2, là <code class="language-plaintext highlighter-rouge">4</code>.</p>
+
+<p>– Dòng 4, trả về giá trị của ans cho <strong>global execution context</strong> ở dòng số 6, là nơi gọi hàm <code class="language-plaintext highlighter-rouge">square(n)</code>. Sau khi trả về giá trị, toàn bộ <strong>square execution context</strong> bị xóa đi.</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/08/js-execute3.png" alt="" /></p>
+
+<p>– Dòng 7, hàm <code class="language-plaintext highlighter-rouge">square(4)</code> được gọi, một execution context giành riêng cho hàm này được tạo, mình tạm gọi là “square 4 execution context”</p>
+
+<p>– Hai giai đoạn tương tự như khi gọi <code class="language-plaintext highlighter-rouge">square(2)</code> ở trên</p>
+
+<p>– Dòng 4, trả về giá trị của <code class="language-plaintext highlighter-rouge">ans</code> cho <strong>global execution context</strong> ở dòng số 7, là nơi gọi hàm <code class="language-plaintext highlighter-rouge">square(4)</code></p>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/08/js-execute-4.png" alt="" /></p>
+
+<p>Quá trình ở trên thường được gọi là <strong>call stack</strong></p>
+
+<p>Mỗi <strong>execution context</strong> được tạo sẽ được bỏ vào(<strong>push</strong>) vào ngăn xếp(<strong>stack</strong>)</p>
+
+<p>Mỗi <strong>execution context</strong> bị xóa sẽ được lấy ra khỏi(<strong>pop</strong>) ngăn xếp(<strong>stack</strong>)</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/08/js-execute5.png" alt="" /></p>
+
+<blockquote>
+  <p>Call Stack maintain the “order of execution” of execution context</p>
+</blockquote>
+
+<p>Bạn có thể trực tiếp xem được callstack của chương trình với devtools của Chrome. Hình minh họa sau được mình lấy bằng cách chạy chương trình trên với breakpoint ở dòng số 4 trong hàm square khi gọi với square(n)</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/08/call-stack.png" alt="" /></p>
+
+<p>Call Stack còn có nhiều tên tương tự khác như là: “Execution Context Stack”, “Program Stack”, “Control Stack”, “Runtime Stack”, “Machine Stack”</p>
+
+<p>Đây chính là cách JS Engine thực thi code.</p>
+
+<p>(Ref: https://www.youtube.com/watch?v=iLWTnMzWtj4)</p>]]></content><author><name>Thanh Nguyen</name></author><category term="js" /><summary type="html"><![CDATA[Mọi thứ trong JavaScript diễn ra bên trong một “Execution Context”(ngữ cảnh thực thi)]]></summary></entry></feed>
