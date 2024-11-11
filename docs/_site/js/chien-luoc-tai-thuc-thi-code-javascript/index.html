@@ -1,0 +1,103 @@
+<p>Giả sử bạn cần giải một bài toán <a href="https://leetcode.com/problems/search-insert-position/"><strong>35. Search Insert Position</strong></a>, tìm giá trị index của target trong một mảng được sắp xếp theo thứ tự tăng dần, nếu không có thì trả về giá trị index cần chèn target vào.</p>
+
+<p>Sau khi tìm hiểu về binary search, bạn đưa ra một đoạn mã sau:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">searchInsert</span><span class="p">(</span><span class="nx">nums</span><span class="p">,</span> <span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">l</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">r</span> <span class="o">=</span> <span class="nx">nums</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">while</span><span class="p">(</span><span class="nx">l</span> <span class="o">&lt;</span> <span class="nx">r</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">m</span> <span class="o">=</span> <span class="nx">l</span> <span class="o">+</span> <span class="p">(</span><span class="nx">r</span> <span class="o">-</span> <span class="nx">l</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">m</span><span class="p">]</span> <span class="o">==</span> <span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">m</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">nums</span><span class="p">[</span><span class="nx">m</span><span class="p">]</span> <span class="o">&lt;</span> <span class="nx">target</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">l</span> <span class="o">=</span> <span class="nx">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="nx">r</span> <span class="o">=</span> <span class="nx">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nx">l</span>  
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>Giả sử mảng được truyền vào là <code class="language-plaintext highlighter-rouge">[1,3,5,6]</code> và target là <code class="language-plaintext highlighter-rouge">5</code>, gọi <code class="language-plaintext highlighter-rouge">searchInsert([1,3,5,6], 5)</code> trả về kết quả là <code class="language-plaintext highlighter-rouge">2</code> , là giá trị index đúng của <code class="language-plaintext highlighter-rouge">5</code></p>
+
+<p>Tuy nhiên, cũng với mảng trên, target là <code class="language-plaintext highlighter-rouge">2</code> , tức gọi <code class="language-plaintext highlighter-rouge">searchInsert([1,3,5,6], 2)</code>, trả về <code class="language-plaintext highlighter-rouge">0</code> là sai. Kết quả mong đợi là <code class="language-plaintext highlighter-rouge">1</code>.</p>
+
+<p><strong>Vậy làm sao để debug đoạn mã trên?</strong></p>
+
+<p>Giới thiệu đến bạn một công cụ Visualize Code Running có tên là <a href="http://pythontutor.com/">pythontutor.com</a> giúp bạn xem được từng bước được mô tả một cách trực quan. Dù là pythontutor nhưng công cụ này hỗ trợ nhiều loại ngôn ngữ như Python, JavaScript, C, C++, and Java.</p>
+
+<p>Bạn vào trang <a href="http://pythontutor.com/">pythontutor.com</a> sau đó chọn <strong>Start writing</strong> and <strong>visualizing code now</strong> và chọn ngôn ngữ muốn viết.</p>
+
+<p>Ở đây mình chọn <strong>JavaScript</strong> và copy/paste đoạn mã trên vào. Lưu ý là nhớ gọi <code class="language-plaintext highlighter-rouge">searchInsert([1,3,5,6], 2)</code> để hàm có thể thực thi nhé.</p>
+
+<p>Tiếp theo nhấn nút <strong>Visualize Execution</strong> để bắt đầu xem code thực thi ra sao. Bấm <strong>Next</strong> để di chuyển đến bước tiếp theo.</p>
+
+<p>Hình minh họa:</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/08/visual-1.png" alt="" /></p>
+
+<p>Nửa màn hình bên trái chứa code, các nút bấm để di chuyển đến bước tiếp theo <strong>Next</strong>, bước trước đó <strong>Prev</strong>, bước cuối cùng <strong>Last</strong> và bước đầu tiên <strong>First</strong></p>
+
+<p>– Mũi tên xanh lá câu nhạt chỉ dòng vừa mới thực thi</p>
+
+<p>– Mũi tên đỏ chỉ dòng sẽ thực thi tiếp theo</p>
+
+<p>Nửa màn hình bên phải là visualize code thực thi</p>
+
+<p>– <code class="language-plaintext highlighter-rouge">Global Frame</code> chứa hàm <code class="language-plaintext highlighter-rouge">searchInsert</code></p>
+
+<p>– Khung màu xanh nhạt chứa các thông tin khi gọi hàm<code class="language-plaintext highlighter-rouge">searchInsert</code> như <code class="language-plaintext highlighter-rouge">nums, target, l, r, m</code></p>
+
+<p>– Từ nums có mũi tên trỏ xuống mảng màu vàng chính là giá trị của danh sách <code class="language-plaintext highlighter-rouge">nums</code></p>
+
+<p>Sau khi quan sát từng bước thì mình phát hiện bước này có giá trị <code class="language-plaintext highlighter-rouge">l</code> và <code class="language-plaintext highlighter-rouge">r</code> đều là <code class="language-plaintext highlighter-rouge">0</code> dẫn đến thoát khỏi vòng lặp</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/08/visual-2.png" alt="" /></p>
+
+<p>Và giá trị trả về là <code class="language-plaintext highlighter-rouge">l</code>, tức <code class="language-plaintext highlighter-rouge">0</code></p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/08/visual-3.png" alt="" /></p>
+
+<p>Vậy vấn đề ở đây là nếu <code class="language-plaintext highlighter-rouge">l</code> và <code class="language-plaintext highlighter-rouge">r</code> đều có giá trị bằng nhau thì vẫn cần nằm trong vòng lặp <code class="language-plaintext highlighter-rouge">while</code> để có thể xác định vị trí của <code class="language-plaintext highlighter-rouge">l</code> là <code class="language-plaintext highlighter-rouge">m+1</code> nếu giá trị này nhỏ hơn target.</p>
+
+<p>Cập nhật điều kiện <code class="language-plaintext highlighter-rouge">while (l &lt;= r)</code> và thử lại ta thấy <code class="language-plaintext highlighter-rouge">l</code> ở dòng 9 sẽ bằng <code class="language-plaintext highlighter-rouge">m+1</code> tức 0+1 là 1</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/08/visual-4.png" alt="" /></p>
+
+<p>Khi đó <code class="language-plaintext highlighter-rouge">l</code> là <code class="language-plaintext highlighter-rouge">1</code> không nhỏ hơn <code class="language-plaintext highlighter-rouge">r</code> là <code class="language-plaintext highlighter-rouge">0</code> nên thoát ra khỏi vòng lặp và trả về <code class="language-plaintext highlighter-rouge">1</code> là kết quả đúng.</p>
+
+<hr />
+
+<p>Trên đây là một ví dụ cụ thể về cách bạn có thể sử dụng pythontutor để debug một đoạn logic và xem từng bước chạy như thế nào.</p>
+
+<p>Thay vì đi <code class="language-plaintext highlighter-rouge">console.log</code> mọi nơi thì cách này xịn xò hơn hẳn phải không?</p>
+
+<p>Lại chúc mọi người debug vui vẻ và giải thêm được nhiều bài toán thú vị nhé.</p>
+
+<p><a href="https://beautyoncode.com/truc-quan-hoa-khi-chay-ma-chuong-trinh/">Bài viết gốc</a> nằm ở blog cá nhân của mình, mời bạn ghé chơi.</p>
+
+<hr />
+
+<p>If you think these contents are helpful, you could send me an encouraging by:</p>
+<ul>
+  <li>Support me
+    <ul>
+      <li><a href="https://ko-fi.com/beautyoncode">☕️ Buy me a coffee</a></li>
+      <li><a href="https://me.momo.vn/beautyoncode">😇 Send a hi on Momo</a></li>
+      <li><a href="beautyoncode.com/support/">👀 Visit support page</a></li>
+    </ul>
+  </li>
+  <li>Visit my blog at <a href="beautyoncode.com">beautyoncode.com</a></li>
+  <li>Follow me on:
+    <ul>
+      <li><a href="https://careerly.vn/profiles/1140">Careerly</a></li>
+      <li><a href="facebook.com/beautyoncode">fanpage</a></li>
+      <li><a href="https://www.linkedin.com/in/graphicdthanh/">linkedin</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>🤘 Chat with me 🤘</p>
+
+<p>See you around, friends!</p>

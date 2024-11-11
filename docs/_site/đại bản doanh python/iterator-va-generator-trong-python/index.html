@@ -1,0 +1,1225 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en-US" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Iterable, Iterator và Generator trong Python - BeautyOnCode</title>
+<meta name="description" content="Chào cả nhà 🥳! Chào BeautyOnCode  🤣  Just for vui tí, thực ra đó là cách gia đình mình chào nhau dạo gần đây lol  Ba bảo: “Chào Minh Hoàng!”. Chicken bảo: “Chào Ba Lộc!” . Mẹ Út bảo: “Chào Minh Hoàng”. Chicken bảo: “Chào Mẹ Út” 🤣  Hôm nay tụi mình sẽ cầm gương lên, dũng cảm xông pha ra trận chém con thú hai đầu, một đầu nó có màu hồng tên là “Iterator“, một đầu màu xanh tên là “Generator“.  Để mình kể bạn nghe, đây là một câu chuyện có thật, từ chiếc ti vi, kênh Cartoon Network, chương trình hoạt hình “Biệt đội Titan xuất kích”. Hai bạn quái vật này được nhốt trong một cái hộp thần bí, Raven đã dặn các bạn không được mở nó ra vì nó rất nguy hiểm, nhưng StarFire đã không kiềm được tò mò và mở ra. Hai bạn này siêu dễ thương luôn, cùng vui chơi với các bạn nhỏ, nhưng khi hai bạn đó được StarFire không kiềm được mà hôn cho một cái thì lập tức hai bạn biến hình thành một con quái vật có hai đầu đi phá thành phố. Sau đó, StarFire đã nói ra những lời đau lòng đến mức từ con quái vật hai đầu khổng lồ hai bạn càng ngày càng thu bé lại và biến thành hai con tiểu yêu khóc nức nở vì không được yêu thương nữa.  Câu chuyện vậy đó, khi mình soạn bài này tự dưng mình thấy cũng trùng hợp ghê, hai bạn “Iterator” và “Generator” này cũng dễ thương như vậy, nhưng cũng có thể biến thành quái vật khi mình chủ quan về các bạn ấy đúng không nào. Còn mình mà đã hiểu á, thì sẽ biến lại thành hai bạn tiểu yêu xinh xắn dễ cưng thôi.  Cho nên là hôm nay, mình cùng quyết tâm chinh phục con quái thú hai đầu này nha! 👻  Ý quên, còn gặp cả sư phụ của tụi nhỏ nữa đấy.  Bài blog này thuộc series “Khám phá Đại Bản Doanh Python”.  (Image by artemtation from Pixabay)  Mở đầu Trong nội dung bài “Các công cụ điều khiển luồng dữ liệu”, mình đã biết cách lặp qua các phần tử của các kiểu dữ liệu là tập hợp nhiều phần tử trong đó, như là string, list, dict rồi, dùng for phần_tử in danh_sách. Và mình cũng đã học cách sử dụng enumerate() để có thể vừa lặp qua vừa sử dụng chỉ số index của phần tử, ví dụ:  &gt;&gt;&gt; a = [&quot;Thanh&quot;, &quot;has&quot;, &quot;a&quot;, &quot;blog&quot;] &gt;&gt;&gt; for i, s in enumerate(a): ...     print(&quot;chuoi hien tai la:&quot;, s) ...     if i &lt; len(a) - 1: ...             print(&quot;chuoi tiep theo la:&quot;, a[i+1]) ...     else: ...             print(&quot;day la chuoi cuoi cung!&quot;) ... chuoi hien tai la: Thanh chuoi tiep theo la: has chuoi hien tai la: has chuoi tiep theo la: a chuoi hien tai la: a chuoi tiep theo la: blog chuoi hien tai la: blog day la chuoi cuoi cung! &gt;&gt;&gt;  “a” đang là một danh sách. Nếu a là một set thì sao nhỉ? Cùng xem ví dụ ở trên với b có giá trị tương tự a nhưng là kiểu dữ liệu set nhé. (Đọc thêm về các loại dữ liệu ở bài “Cấu trúc dữ liệu trong Python” nhé)  &gt;&gt;&gt; b = {&quot;Thanh&quot;, &quot;has&quot;, &quot;a&quot;, &quot;blog&quot;} &gt;&gt;&gt; for i, s in enumerate(b): ...     print(&quot;chuoi hien tai la:&quot;, s) ...     if i &lt; len(b) - 1: ...             print(&quot;chuoi tiep theo la:&quot;, b[i+1]) ...     else: ...             print(&quot;day la chuoi cuoi cung!&quot;) ... chuoi hien tai la: blog Traceback (most recent call last):   File &quot;&lt;stdin&gt;&quot;, line 4, in &lt;module&gt; TypeError: &#39;set&#39; object is not subscriptable &gt;&gt;&gt;   Ôi nó bị sao thế nhỉ, lỗi “TypeError: ‘set’ object is not subscriptable” có nghĩa là kiểu dữ liệu “set” không hỗ trợ truy cập phần tử theo chỉ mục index.  Hiểu nôm na thì nếu a là list, nó có thể truy cập đến phần tử đầu tiên bằng index là 0 với a[0], còn b là set thì nó không có chỉ số index như vậy nên b[0] sẽ báo lỗi như trên.    Thế còn kiểu dữ liệu dict thì sao nhỉ? Không biết bạn này có hỗ trợ truy cập theo chỉ mục index không ta?  &gt;&gt;&gt; a = {&quot;name&quot;: &quot;Thanh&quot;, &quot;age&quot;: 29} &gt;&gt;&gt; for i, key in enumerate(a): ...     print(&quot;tu khoa: &quot;, key) ...     print(f&quot;gia tri cua tu khoa {key} la: {a[key]}&quot;) ...     print(f&quot;gia tri cua a tại index {i} la: {a[i]}&quot;) ... tu khoa:  name gia tri cua tu khoa name la: Thanh Traceback (most recent call last):   File &quot;&lt;stdin&gt;&quot;, line 4, in &lt;module&gt; KeyError: 0 &gt;&gt;&gt;   Úi, vậy là kiểu dữ liệu dict cũng không truy cập theo chỉ mục index được.  Vậy là, trong Python cùng là kiểu dữ liệu có thể chứa nhiều phần tử(string, list, set, dict, …) nhưng các bạn này lại chia làm hai nhóm:  🥰  Nhóm dữ liệu tuần tự(sequence): string, list, … cho phép mình truy cập qua các phần tử trong bộ sưu tập bằng chỉ mục, hay gọi là số index, các bạn này có chỉ số index được đánh dấu từ 0 đến len – 1(chiều dài của nó trừ đi 1).  🥰  Nhóm dữ liệu tập hợp(collection): set, dict, … không truy cập được theo chỉ mục index.    Rồi sao nữa 😊  Hehe, rồi thì luật sinh ra là để lách luật đó mấy bạn 😅  Muốn lách luật tức là muốn duyệt có trình tự mấy kiểu dữ liệu tập hợp như set, dict trên, thì mình cần hiểu bản chất và cơ chế của luật này cái đã. Đây chính là sư phụ của hai bạn tiểu yêu trên, tớ tạm gọi là sư phụ iterable  Iterable  Thực ra nãy giờ mình từng gặp nhiều bạn là iterable rồi ấy 👉  a và b của những ví dụ trên đều là các iterable.  Một đối tượng là iterable nghĩa là nó có thể lặp qua, hiểu nôm na nếu a là một iterable thì:  👉  có thể lặp qua a được, tức có thể viết *“for x in a” *  👉  gọi iter(a), sẽ trả về một iterator  👉  a có phương thức __iter__ cũng trả về một iterator, hoặc đôi khi A có phương thức \getitem\ nếu a thuộc nhóm dữ liệu tuần tử có thể truy cập phần tử theo chỉ số index đã nói ở trên.  Xem ví dụ với iterable là list:  &gt;&gt;&gt; a = [&quot;Thanh&quot;, &quot;has&quot;, &quot;a&quot;, &quot;blog&quot;]] &gt;&gt;&gt; a = [&quot;BeautyOnCode&quot;, &quot;blog&quot;] &gt;&gt;&gt; for s in a: ...     print(s) ... BeautyOnCode blog &gt;&gt;&gt; iter(a) &lt;list_iterator object at 0x10b5dbd60&gt; &gt;&gt;&gt; a.__dir__() [&#39;__repr__&#39;, &#39;__hash__&#39;, &#39;__getattribute__&#39;, &#39;__lt__&#39;, &#39;__le__&#39;, &#39;__eq__&#39;, &#39;__ne__&#39;, &#39;__gt__&#39;, &#39;__ge__&#39;, &#39;__iter__&#39;, &#39;__init__&#39;, &#39;__len__&#39;, &#39;__getitem__&#39;, &#39;__setitem__&#39;, &#39;__delitem__&#39;, &#39;__add__&#39;, &#39;__mul__&#39;, &#39;__rmul__&#39;, &#39;__contains__&#39;, &#39;__iadd__&#39;, &#39;__imul__&#39;, &#39;__new__&#39;, &#39;__reversed__&#39;, &#39;__sizeof__&#39;, &#39;clear&#39;, &#39;copy&#39;, &#39;append&#39;, &#39;insert&#39;, &#39;extend&#39;, &#39;pop&#39;, &#39;remove&#39;, &#39;index&#39;, &#39;count&#39;, &#39;reverse&#39;, &#39;sort&#39;, &#39;__doc__&#39;, &#39;__str__&#39;, &#39;__setattr__&#39;, &#39;__delattr__&#39;, &#39;__reduce_ex__&#39;, &#39;__reduce__&#39;, &#39;__subclasshook__&#39;, &#39;__init_subclass__&#39;, &#39;__format__&#39;, &#39;__dir__&#39;, &#39;__class__&#39;] &gt;&gt;&gt; a.__iter__() &lt;list_iterator object at 0x10b5dbd60&gt; &gt;&gt;&gt; a.__getitem__(0) &#39;BeautyOnCode&#39; &gt;&gt;&gt;   Tiếp theo b là một dict nè:  &gt;&gt;&gt; b = {&quot;name&quot;: &quot;Thanh&quot;, &quot;age&quot;: 29} &gt;&gt;&gt; for x in b: ...     print(x) ... name age &gt;&gt;&gt; iter(b) &lt;dict_keyiterator object at 0x10b61cc20&gt; &gt;&gt;&gt; b.__dir__() [&#39;__repr__&#39;, &#39;__hash__&#39;, &#39;__getattribute__&#39;, &#39;__lt__&#39;, &#39;__le__&#39;, &#39;__eq__&#39;, &#39;__ne__&#39;, &#39;__gt__&#39;, &#39;__ge__&#39;, &#39;__iter__&#39;, &#39;__init__&#39;, &#39;__len__&#39;, &#39;__getitem__&#39;, &#39;__setitem__&#39;, &#39;__delitem__&#39;, &#39;__contains__&#39;, &#39;__new__&#39;, &#39;__sizeof__&#39;, &#39;get&#39;, &#39;setdefault&#39;, &#39;pop&#39;, &#39;popitem&#39;, &#39;keys&#39;, &#39;items&#39;, &#39;values&#39;, &#39;update&#39;, &#39;fromkeys&#39;, &#39;clear&#39;, &#39;copy&#39;, &#39;__reversed__&#39;, &#39;__doc__&#39;, &#39;__str__&#39;, &#39;__setattr__&#39;, &#39;__delattr__&#39;, &#39;__reduce_ex__&#39;, &#39;__reduce__&#39;, &#39;__subclasshook__&#39;, &#39;__init_subclass__&#39;, &#39;__format__&#39;, &#39;__dir__&#39;, &#39;__class__&#39;] &gt;&gt;&gt; b.__iter__() &lt;dict_keyiterator object at 0x10b61cc20&gt; &gt;&gt;&gt; b.__getitem__(0) Traceback (most recent call last):   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt; KeyError: 0   Bạn đã thấy sự khác nhau chưa, vậy là điểm chung duy nhất của các iterable là có nhiều phần tử và cho phép mình lặp qua chúng nó đấy.  Tuy nhiên, số lượng phần tử trong iterable có thể là hữu hạn hoặc vô hạn, ở các ví dụ trên rõ là chúng nó có số lượng hữu hạn. Giờ thì cũng đi qua một ví dụ với số lượng phần tử vô hạn nhé.    Trong ví dụ này, mình sử dụng hàm count từ itertools để tạo một bộ đếm là bội của 3.  Khi thực hiện lặp qua bộ đếm này với vòng lặp for và in các phần tử ra thì nó sẽ chạy mãi mãi cho đến khi mình ngừng chương trình hoặc mình phải thêm điều kiện dừng cho vòng lặp for là khi n &gt; 200 thì thoát khỏi vòng lặp như trong ví dụ trên.  Với số lượng phần tử vô hạn như vậy thì mình không thể chuyển các bạn ấy về kiểu danh sách được. Chưa kể với số lượng phần tử quá lớn sẽ gây hại cho bộ nhớ và hiệu suất của chương trình.  Hehe, thực ra tớ chuyển thử rồi, và nó kill luôn PI và tự thoát ra ngoài luôn 😅  &gt;&gt;&gt; list(multiples_of_three) [1]    5953 killed     python   Vì những nguyên nhân đó, sư phụ Iterable đã nhận một đệ tử đầu tiên, chính là bạn tiểu yêu màu hồng, bạn mà sau này biến thành quái thú màu hồng trong con quái thú hai đầu đó, bạn ấy tên là Iterator.  Cùng xem bạn Iterator giúp giải quyết vấn đề trên ra sao nhé!  Iterator Thực ra iterator là một khái niệm trong lĩnh vực khoa học máy tính đấy nhé. Đây là xuất thân của Iterator từ Wikipedia:     In computer programming, an iterator is an object that enables a programmer to traverse a container, particularly lists.   Mình tạm dịch là: Trong lĩnh vực khoa học máy tính, một iterator là một đối tượng cho phép các nhà lập trình có thể duyệt qua một vùng chứa các dữ liệu, như danh sách.  Còn trong Python, iterator được định nghĩa trong Python wiki là:     iterator là đối tượng có phương thức __next__, và phương thức này sẽ trả về phần tử tiếp theo của đối tượng, nếu đối tượng không còn phần tử nào để lặp qua thì nó sẽ báo lỗi StopIteration.     Bạn đã thấy iterator lần nào chưa nhỉ?  Thực ra mình đã thấy bạn ấy khi mình gọi iter(a) ở ví dụ trên đấy, cùng xem mình gọi __next__ thì bạn ấy sẽ trả ra gì nhé:  &gt;&gt;&gt; a = [&quot;BeautyOnCode&quot;, &quot;blog&quot;] &gt;&gt;&gt; x = iter(a) &gt;&gt;&gt; x &lt;list_iterator object at 0x10b5dbd60&gt; &gt;&gt;&gt; x.__next__() &#39;BeautyOnCode&#39; &gt;&gt;&gt; x.__next__() &#39;blog&#39; &gt;&gt;&gt; x.__next__() Traceback (most recent call last):   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt; StopIteration &gt;&gt;&gt;   Ồ hay chưa, mình có thể đi qua các phần tử trong a bằng phương thức __next__, thay vì dùng for nè. Khi đi đến phần tử cuối cùng rồi, thì nó sẽ báo lỗi StopIteration để báo cho mình biết hết đồ để đi tiếp rồi nghen 🤣  Thêm nữa, iterator cũng là iterable đó, cùng xem tớ lặp qua nó với for nè, và cả gọi iter() cho x thì nó trả về chính nó luôn.  &gt;&gt;&gt; a = [&quot;BeautyOnCode&quot;, &quot;blog&quot;] &gt;&gt;&gt; x = iter(a) &gt;&gt;&gt; for s in x: ...     print(s) ... BeautyOnCode blog &gt;&gt;&gt; iter(x) &lt;list_iterator object at 0x10b5a84f0&gt; &gt;&gt;&gt; x &lt;list_iterator object at 0x10b5a84f0&gt; &gt;&gt;&gt;   Ra vậy, để lặp qua một iterable vô hạn, như cái ví dụ bội số của 3 ở trên, mình cần biến nó thành iterator bằng hàm iter(), rồi sau đó có thể dùng __next__() hoặc next() để đi qua lần lượt các phần tử. Nhưng vì đang nói đến iterable vô hạn, cho nên nó sẽ không bao giờ có ngoại lệ StopIteration luôn ấy.  Cùng xem cách mình đã lặp qua “multiplesofthree” dùng iterator thay cho for nhé:    Thật thú vị đúng không nào, mình không dùng for mà vẫn lặp qua các đối tượng của một iterable đấy.  Và bật mí với các bạn, đây cũng chính là cơ chế lặp được sử dụng nhiều trong Python đấy, cụ thể là cho vòng lặp for nè, rồi xác định nhiều giá trị trong tuple nè, rồi list comprehension(ví dụ cho bạn nào quên nè, [i +1 for i in a]), ….  Trước khi đi tiếp mình xin tóm tóm lại một xíu cho bạn đỡ ngợp nha.  Mình đã tìm hiểu qua về: Iterable, Iterator  😊  Iterable được xác định bằng 3 cách:          dùng được với for           iter(X) không báo lỗi           có phương thức __iter__      😊  Iterator được xác định bằng:          Y = iter(X), với X là một iterable, thì Y là một iterator           next(Y) sẽ trả về giá trị phần tử tiếp theo hoặc ngoại lệ StopIteration, thì Y là iterator.           iter(Y) sẽ trả về Y, thì Y là iterator(tức iterator cũng chính là iterable)      Nhìn tóm tắt trên bạn thử hình dung xem nếu mình muốn tạo một iterable cho riêng mình thì mình cần phải định nghĩa những gì để Python hiểu nó là một iterable nhỉ?  Để xem nào, hẳn là nó cần có một phương thức là __iter__, và phương thức này cần trả về một bạn iterator.  Cùng mình thử sức định nghĩa một iterable của riêng bạn nhé!    class BlogPostIterator:     def __init__(self, blogpost):         self._blogpost = blogpost         self._current = 0      def __next__(self):         &quot;&quot;&quot;Trả về bạn post tiếp theo nhé&quot;&quot;&quot;         # Số posts trong blog nè         posts = self._blogpost._posts         if self._current &lt; len(posts):             # lấy phần tử với chỉ sổ index là _current ra nha             next = posts[self._current]             # tăng _current lên 1 nhé             self._current += 1             return next          # Nếu chỉ số index vượt quá số posts có thì         # la làng ngoại lệ StopIteration         raise StopIteration  class BlogPost:     &quot;&quot;&quot;Posts in blog&quot;&quot;&quot;     def __init__(self):         self._posts = []      def add_post(self, posts):         &quot;&quot;&quot;Thêm posts vào nhé&quot;&quot;&quot;         self._posts += posts      def __iter__(self):         &quot;&quot;&quot;Trả về iterator nhé&quot;&quot;&quot;         return BlogPostIterator(self)   Ở trên, lớp BlogPost có thể tạo ra các đối tượng là iterable đó, cùng thử nghiệm nha:    Mình có thực hành và giải thích ở trên video này nè  Ui, mãi quần quật với hai bạn này mà mình sắp trễ thời gian rồi, nhanh nhanh đi tiếp đến chú tiểu yêu tiếp theo cần phải chinh phục, đó là chú màu xanh generator .  Generator  Đây là xuất thân của Generator từ Wikipedia:     In computer science, a generator is a routine that can be used to control the iteration behaviour of a loop. All generators are also iterators.   Mình tạm dịch là: Trong lĩnh vực khoa học máy tính, một generator là một bộ các quy trình các có thể dùng để kiểm soát hành động của một vòng lặp. Và tất cả generator cũng là iterators.  Còn trong Python, generator được định nghĩa trong Python wiki là:  generator hay gọi là hàm generator, cho phép bạn tạo ra một hàm hoạt động tương tự như một iterator, tức là nó cũng là iterable, và có thể dùng với vòng lặp for.  Dùng generator trong trường hợp nào  Mình là một bạn nhỏ hay thắc mắc, mình cũng rất tò mò lý do vì sao cần có hàm generator ấy nhỉ? Nó cũng tạo ra iterator đúng hem, thế sao không dùng luôn iterator thôi nhỉ?  Bạn đoán thử cùng mình xem sao?  Mình nghĩ là nếu tạo một iterator khoai như ở trên, thì buồn thật đấy, khi nào cũng viết phương thức __iter__ rồi nó phải trả về iterator, rồi muốn trả về iterator thì lại phải đi định nghĩa phương thức __next__ và viết cái logic khác nữa. Thật tình mà nói thì cũng hơi khó gặm đó nha 🥲.  Hẳn là mấy chú Python thấy thế bèn nghĩ ra một cách, hay là mình cho tụi nhỏ viết một hàm thôi, và hàm đó hoạt động như là một iterator, còn những thứ lằng nhằng kia hãy để các chú lo, phải không? 🥰  Hihi, đoán bậy vậy mà nó trúng rồi nha, chính xác là generator giúp mình tạo iterator một cách dễ dàng hơn nhiều. Và thêm nữa, generator sẽ thường sử dụng cho các trường hợp cần cân nhắc về chuyện hiệu suất của chương trình, ví dụ như là khi mình làm việc với số siêu lớn, hay làm việc với các file có dung lượng lớn cần xử lý.  Vì sao? Vì khi đó nếu dùng một kiểu dữ liệu tuần tự để lưu hay xử lý thì chương trình sẽ ngốn nhiều dung lượng RAM, dẫn đến tràn RAM và gây lỗi về bộ nhớ(Memory Error).  Nếu bạn gặp các trường hợp này, thì generator chính là chân ái của đời bạn đó, nhớ nhé 😘  Ví dụ giùm cái  Đề bài: tạo một danh sách các số từ 0 đến n, sau đó tính tổng của chúng nó. Hãy thử nghiệm với n = 1000000000 nhé.  Nào, giờ mình sẽ đi cùng với mọi người giải bài toán bằng ba cách nhé  Cách 1: dùng một danh sách để lưu các số.  def list_n_list(n):     num, nums = 0, []     while num &lt; n:         nums.append(num)         num += 1         return nums  sum(list_n_list(1000000000))   Và mình chạy thử xem nó tốn bao nhiêu time:  $ python list_n_list.py time execute 0:06:51.453351   Rồi, đoạn code này khá là đơn giản phải không, logic rất dễ hiểu, nhưng nó đang tạo một list với tất cả các phần tử từ 0 đến n, rồi cộng lại. Rõ là phương án này nhìn thì đơn giản, nhưng rất khó chấp nhận trong trường hợp n là một số siêu lớn, vì làm sao mà mình lưu tất cả 1000000000… phần tử trong bộ nhớ được.  Với n = 1000000000000000, chương trình sẽ bị đứng sau một hồi cố gắng hiu hiu, thương ghê!  $ python generator.py [1]    2247 killed     python generator.py   Cách 2: dùng iterator  Đầu tiên, mình sẽ tiếp cận cách số 2 với bạn iterator trước nha, vì bạn này cũng giúp mình không lưu cả dãy như ở trên, và vẫn có thể xử lý trong tình huống này ha.  Ôkê, vì bạn ni hơi cực, nên mình lại nhắc xíu là mình tính làm gì nha. Đầu tiên là mình cần tạo một lớp có phương thức __iter__ sau đó phương thức này trả ra iterator, ở đây là mình muốn gom hết vào một chỗ luôn, vì mình hiểu là iterator cũng là iterable nên mình sẽ return self ở đây. Sau đó mình sẽ tạo tiếp một phương thức __next__ để self chính là iterator.  Cùng xem code nha:  class list_n_iterator(object):     def __init__(self, n):         # giới hạn là n         self.n = n         # bắt đầu từ 0         self.next = 0      def __iter__(self):         # list_n vừa là iterable, vừa là iterator         # vì nó có phương thức __iter__ và __next__         return self      def __next__(self):         if self.next &lt; self.n:             # gán giá trị hiện tại của next             current = self.next             # tăng 1 cho next             self.next = current + 1             return current         raise StopIteration  sum(list_n_iterator(100000000))   Còn đây là thời gian chạy của đoạn code với iterator nhé:  $ python list_n_iterator.py time execute 0:06:08.411233   Và tất nhiên là đoạn code trên có thể hoạt động ổn hơn rồi.  Tuy nhiên có vài vấn đề mà mình từng đoán trước đây như là:  – Nhiều code quá, gồm lớp rồi phương thức, …  – Và logic khá rối, trừ khi bạn hiểu sâu về iterator, iterable còn không thì nhìn vào đã hoa mắt rồi  Chưa hết, nếu dùng đoạn code này lại ở nhiều nơi sẽ làm cho code càng dài hơn đấy. Vì thế, Python đã hỗ trợ mình bạn generator, bạn này được giới thiệu từ PEP255.  Cách 3: dùng người anh hùng generator, chân ái khi làm việc với số lớn và dữ liệu lớn  Cùng viết lại code trên với generator nhé! Bạn sẽ ngạc nhiên vì độ thanh lịch của nó đấy!  def list_n_generator(n):     num = 0     while num &lt; n:         yield num         num += 1  sum(list_n_generator(1000000000))   Và thời gian của bạn này chạy là:  $ python list_n_generator.py time execute 0:02:07.852190   *Lưu ý nhỏ là thời gian chỉ mang tính chất so sánh khách quan thôi nha, vì nó còn phụ thuộc vào máy của tớ nữa ý. *  Cách tạo generator  Cách 1: Dùng hàm generator  Đây chính là cách mà ví dụ ở trên dùng đấy.  Để tạo hàm generator thì mình tạo hàm như bình thường và thay vì dùng return để trả về giá trị thì mình dùng yield để trả về giá trị.  Cách 2: Dùng biểu thức generator  Ngoài ra còn có thể dùng biểu thức generator để tạo nữa, biểu thức này tương tự như list comprehension ấy, mà thay dấu [] bằng dấu () thôi  &gt;&gt;&gt; list_odds = [1, 3, 5, 7, 9] &gt;&gt;&gt; (x**2 for x in list_odds) &lt;generator object &lt;genexpr&gt; at 0x10b914b30&gt;   Vậy là hôm nay mình đã cùng gặp qua sư phụ iterable, và chiến đấu với hai bạn tiểu yêu iterator và generator rồi. Bạn quái thú hai đầu này dù có sự giúp sức của sư phụ iterable nữa nhưng vẫn đầu hàng trước sự cố gắng của tụi mình và cả ba đều biến thành các bạn tiểu yêu xinh xắn rồi đó. 🥳  Những khái niệm này dễ gây nhầm lẫn nên mình và các bạn hãy chú ý khi sử dụng nha.">
+
+
+  <meta name="author" content="Thanh Nguyen">
+  
+  <meta property="article:author" content="Thanh Nguyen">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="BeautyOnCode">
+<meta property="og:title" content="Iterable, Iterator và Generator trong Python">
+<meta property="og:url" content="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/iterator-va-generator-trong-python/">
+
+
+  <meta property="og:description" content="Chào cả nhà 🥳! Chào BeautyOnCode  🤣  Just for vui tí, thực ra đó là cách gia đình mình chào nhau dạo gần đây lol  Ba bảo: “Chào Minh Hoàng!”. Chicken bảo: “Chào Ba Lộc!” . Mẹ Út bảo: “Chào Minh Hoàng”. Chicken bảo: “Chào Mẹ Út” 🤣  Hôm nay tụi mình sẽ cầm gương lên, dũng cảm xông pha ra trận chém con thú hai đầu, một đầu nó có màu hồng tên là “Iterator“, một đầu màu xanh tên là “Generator“.  Để mình kể bạn nghe, đây là một câu chuyện có thật, từ chiếc ti vi, kênh Cartoon Network, chương trình hoạt hình “Biệt đội Titan xuất kích”. Hai bạn quái vật này được nhốt trong một cái hộp thần bí, Raven đã dặn các bạn không được mở nó ra vì nó rất nguy hiểm, nhưng StarFire đã không kiềm được tò mò và mở ra. Hai bạn này siêu dễ thương luôn, cùng vui chơi với các bạn nhỏ, nhưng khi hai bạn đó được StarFire không kiềm được mà hôn cho một cái thì lập tức hai bạn biến hình thành một con quái vật có hai đầu đi phá thành phố. Sau đó, StarFire đã nói ra những lời đau lòng đến mức từ con quái vật hai đầu khổng lồ hai bạn càng ngày càng thu bé lại và biến thành hai con tiểu yêu khóc nức nở vì không được yêu thương nữa.  Câu chuyện vậy đó, khi mình soạn bài này tự dưng mình thấy cũng trùng hợp ghê, hai bạn “Iterator” và “Generator” này cũng dễ thương như vậy, nhưng cũng có thể biến thành quái vật khi mình chủ quan về các bạn ấy đúng không nào. Còn mình mà đã hiểu á, thì sẽ biến lại thành hai bạn tiểu yêu xinh xắn dễ cưng thôi.  Cho nên là hôm nay, mình cùng quyết tâm chinh phục con quái thú hai đầu này nha! 👻  Ý quên, còn gặp cả sư phụ của tụi nhỏ nữa đấy.  Bài blog này thuộc series “Khám phá Đại Bản Doanh Python”.  (Image by artemtation from Pixabay)  Mở đầu Trong nội dung bài “Các công cụ điều khiển luồng dữ liệu”, mình đã biết cách lặp qua các phần tử của các kiểu dữ liệu là tập hợp nhiều phần tử trong đó, như là string, list, dict rồi, dùng for phần_tử in danh_sách. Và mình cũng đã học cách sử dụng enumerate() để có thể vừa lặp qua vừa sử dụng chỉ số index của phần tử, ví dụ:  &gt;&gt;&gt; a = [&quot;Thanh&quot;, &quot;has&quot;, &quot;a&quot;, &quot;blog&quot;] &gt;&gt;&gt; for i, s in enumerate(a): ...     print(&quot;chuoi hien tai la:&quot;, s) ...     if i &lt; len(a) - 1: ...             print(&quot;chuoi tiep theo la:&quot;, a[i+1]) ...     else: ...             print(&quot;day la chuoi cuoi cung!&quot;) ... chuoi hien tai la: Thanh chuoi tiep theo la: has chuoi hien tai la: has chuoi tiep theo la: a chuoi hien tai la: a chuoi tiep theo la: blog chuoi hien tai la: blog day la chuoi cuoi cung! &gt;&gt;&gt;  “a” đang là một danh sách. Nếu a là một set thì sao nhỉ? Cùng xem ví dụ ở trên với b có giá trị tương tự a nhưng là kiểu dữ liệu set nhé. (Đọc thêm về các loại dữ liệu ở bài “Cấu trúc dữ liệu trong Python” nhé)  &gt;&gt;&gt; b = {&quot;Thanh&quot;, &quot;has&quot;, &quot;a&quot;, &quot;blog&quot;} &gt;&gt;&gt; for i, s in enumerate(b): ...     print(&quot;chuoi hien tai la:&quot;, s) ...     if i &lt; len(b) - 1: ...             print(&quot;chuoi tiep theo la:&quot;, b[i+1]) ...     else: ...             print(&quot;day la chuoi cuoi cung!&quot;) ... chuoi hien tai la: blog Traceback (most recent call last):   File &quot;&lt;stdin&gt;&quot;, line 4, in &lt;module&gt; TypeError: &#39;set&#39; object is not subscriptable &gt;&gt;&gt;   Ôi nó bị sao thế nhỉ, lỗi “TypeError: ‘set’ object is not subscriptable” có nghĩa là kiểu dữ liệu “set” không hỗ trợ truy cập phần tử theo chỉ mục index.  Hiểu nôm na thì nếu a là list, nó có thể truy cập đến phần tử đầu tiên bằng index là 0 với a[0], còn b là set thì nó không có chỉ số index như vậy nên b[0] sẽ báo lỗi như trên.    Thế còn kiểu dữ liệu dict thì sao nhỉ? Không biết bạn này có hỗ trợ truy cập theo chỉ mục index không ta?  &gt;&gt;&gt; a = {&quot;name&quot;: &quot;Thanh&quot;, &quot;age&quot;: 29} &gt;&gt;&gt; for i, key in enumerate(a): ...     print(&quot;tu khoa: &quot;, key) ...     print(f&quot;gia tri cua tu khoa {key} la: {a[key]}&quot;) ...     print(f&quot;gia tri cua a tại index {i} la: {a[i]}&quot;) ... tu khoa:  name gia tri cua tu khoa name la: Thanh Traceback (most recent call last):   File &quot;&lt;stdin&gt;&quot;, line 4, in &lt;module&gt; KeyError: 0 &gt;&gt;&gt;   Úi, vậy là kiểu dữ liệu dict cũng không truy cập theo chỉ mục index được.  Vậy là, trong Python cùng là kiểu dữ liệu có thể chứa nhiều phần tử(string, list, set, dict, …) nhưng các bạn này lại chia làm hai nhóm:  🥰  Nhóm dữ liệu tuần tự(sequence): string, list, … cho phép mình truy cập qua các phần tử trong bộ sưu tập bằng chỉ mục, hay gọi là số index, các bạn này có chỉ số index được đánh dấu từ 0 đến len – 1(chiều dài của nó trừ đi 1).  🥰  Nhóm dữ liệu tập hợp(collection): set, dict, … không truy cập được theo chỉ mục index.    Rồi sao nữa 😊  Hehe, rồi thì luật sinh ra là để lách luật đó mấy bạn 😅  Muốn lách luật tức là muốn duyệt có trình tự mấy kiểu dữ liệu tập hợp như set, dict trên, thì mình cần hiểu bản chất và cơ chế của luật này cái đã. Đây chính là sư phụ của hai bạn tiểu yêu trên, tớ tạm gọi là sư phụ iterable  Iterable  Thực ra nãy giờ mình từng gặp nhiều bạn là iterable rồi ấy 👉  a và b của những ví dụ trên đều là các iterable.  Một đối tượng là iterable nghĩa là nó có thể lặp qua, hiểu nôm na nếu a là một iterable thì:  👉  có thể lặp qua a được, tức có thể viết *“for x in a” *  👉  gọi iter(a), sẽ trả về một iterator  👉  a có phương thức __iter__ cũng trả về một iterator, hoặc đôi khi A có phương thức \getitem\ nếu a thuộc nhóm dữ liệu tuần tử có thể truy cập phần tử theo chỉ số index đã nói ở trên.  Xem ví dụ với iterable là list:  &gt;&gt;&gt; a = [&quot;Thanh&quot;, &quot;has&quot;, &quot;a&quot;, &quot;blog&quot;]] &gt;&gt;&gt; a = [&quot;BeautyOnCode&quot;, &quot;blog&quot;] &gt;&gt;&gt; for s in a: ...     print(s) ... BeautyOnCode blog &gt;&gt;&gt; iter(a) &lt;list_iterator object at 0x10b5dbd60&gt; &gt;&gt;&gt; a.__dir__() [&#39;__repr__&#39;, &#39;__hash__&#39;, &#39;__getattribute__&#39;, &#39;__lt__&#39;, &#39;__le__&#39;, &#39;__eq__&#39;, &#39;__ne__&#39;, &#39;__gt__&#39;, &#39;__ge__&#39;, &#39;__iter__&#39;, &#39;__init__&#39;, &#39;__len__&#39;, &#39;__getitem__&#39;, &#39;__setitem__&#39;, &#39;__delitem__&#39;, &#39;__add__&#39;, &#39;__mul__&#39;, &#39;__rmul__&#39;, &#39;__contains__&#39;, &#39;__iadd__&#39;, &#39;__imul__&#39;, &#39;__new__&#39;, &#39;__reversed__&#39;, &#39;__sizeof__&#39;, &#39;clear&#39;, &#39;copy&#39;, &#39;append&#39;, &#39;insert&#39;, &#39;extend&#39;, &#39;pop&#39;, &#39;remove&#39;, &#39;index&#39;, &#39;count&#39;, &#39;reverse&#39;, &#39;sort&#39;, &#39;__doc__&#39;, &#39;__str__&#39;, &#39;__setattr__&#39;, &#39;__delattr__&#39;, &#39;__reduce_ex__&#39;, &#39;__reduce__&#39;, &#39;__subclasshook__&#39;, &#39;__init_subclass__&#39;, &#39;__format__&#39;, &#39;__dir__&#39;, &#39;__class__&#39;] &gt;&gt;&gt; a.__iter__() &lt;list_iterator object at 0x10b5dbd60&gt; &gt;&gt;&gt; a.__getitem__(0) &#39;BeautyOnCode&#39; &gt;&gt;&gt;   Tiếp theo b là một dict nè:  &gt;&gt;&gt; b = {&quot;name&quot;: &quot;Thanh&quot;, &quot;age&quot;: 29} &gt;&gt;&gt; for x in b: ...     print(x) ... name age &gt;&gt;&gt; iter(b) &lt;dict_keyiterator object at 0x10b61cc20&gt; &gt;&gt;&gt; b.__dir__() [&#39;__repr__&#39;, &#39;__hash__&#39;, &#39;__getattribute__&#39;, &#39;__lt__&#39;, &#39;__le__&#39;, &#39;__eq__&#39;, &#39;__ne__&#39;, &#39;__gt__&#39;, &#39;__ge__&#39;, &#39;__iter__&#39;, &#39;__init__&#39;, &#39;__len__&#39;, &#39;__getitem__&#39;, &#39;__setitem__&#39;, &#39;__delitem__&#39;, &#39;__contains__&#39;, &#39;__new__&#39;, &#39;__sizeof__&#39;, &#39;get&#39;, &#39;setdefault&#39;, &#39;pop&#39;, &#39;popitem&#39;, &#39;keys&#39;, &#39;items&#39;, &#39;values&#39;, &#39;update&#39;, &#39;fromkeys&#39;, &#39;clear&#39;, &#39;copy&#39;, &#39;__reversed__&#39;, &#39;__doc__&#39;, &#39;__str__&#39;, &#39;__setattr__&#39;, &#39;__delattr__&#39;, &#39;__reduce_ex__&#39;, &#39;__reduce__&#39;, &#39;__subclasshook__&#39;, &#39;__init_subclass__&#39;, &#39;__format__&#39;, &#39;__dir__&#39;, &#39;__class__&#39;] &gt;&gt;&gt; b.__iter__() &lt;dict_keyiterator object at 0x10b61cc20&gt; &gt;&gt;&gt; b.__getitem__(0) Traceback (most recent call last):   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt; KeyError: 0   Bạn đã thấy sự khác nhau chưa, vậy là điểm chung duy nhất của các iterable là có nhiều phần tử và cho phép mình lặp qua chúng nó đấy.  Tuy nhiên, số lượng phần tử trong iterable có thể là hữu hạn hoặc vô hạn, ở các ví dụ trên rõ là chúng nó có số lượng hữu hạn. Giờ thì cũng đi qua một ví dụ với số lượng phần tử vô hạn nhé.    Trong ví dụ này, mình sử dụng hàm count từ itertools để tạo một bộ đếm là bội của 3.  Khi thực hiện lặp qua bộ đếm này với vòng lặp for và in các phần tử ra thì nó sẽ chạy mãi mãi cho đến khi mình ngừng chương trình hoặc mình phải thêm điều kiện dừng cho vòng lặp for là khi n &gt; 200 thì thoát khỏi vòng lặp như trong ví dụ trên.  Với số lượng phần tử vô hạn như vậy thì mình không thể chuyển các bạn ấy về kiểu danh sách được. Chưa kể với số lượng phần tử quá lớn sẽ gây hại cho bộ nhớ và hiệu suất của chương trình.  Hehe, thực ra tớ chuyển thử rồi, và nó kill luôn PI và tự thoát ra ngoài luôn 😅  &gt;&gt;&gt; list(multiples_of_three) [1]    5953 killed     python   Vì những nguyên nhân đó, sư phụ Iterable đã nhận một đệ tử đầu tiên, chính là bạn tiểu yêu màu hồng, bạn mà sau này biến thành quái thú màu hồng trong con quái thú hai đầu đó, bạn ấy tên là Iterator.  Cùng xem bạn Iterator giúp giải quyết vấn đề trên ra sao nhé!  Iterator Thực ra iterator là một khái niệm trong lĩnh vực khoa học máy tính đấy nhé. Đây là xuất thân của Iterator từ Wikipedia:     In computer programming, an iterator is an object that enables a programmer to traverse a container, particularly lists.   Mình tạm dịch là: Trong lĩnh vực khoa học máy tính, một iterator là một đối tượng cho phép các nhà lập trình có thể duyệt qua một vùng chứa các dữ liệu, như danh sách.  Còn trong Python, iterator được định nghĩa trong Python wiki là:     iterator là đối tượng có phương thức __next__, và phương thức này sẽ trả về phần tử tiếp theo của đối tượng, nếu đối tượng không còn phần tử nào để lặp qua thì nó sẽ báo lỗi StopIteration.     Bạn đã thấy iterator lần nào chưa nhỉ?  Thực ra mình đã thấy bạn ấy khi mình gọi iter(a) ở ví dụ trên đấy, cùng xem mình gọi __next__ thì bạn ấy sẽ trả ra gì nhé:  &gt;&gt;&gt; a = [&quot;BeautyOnCode&quot;, &quot;blog&quot;] &gt;&gt;&gt; x = iter(a) &gt;&gt;&gt; x &lt;list_iterator object at 0x10b5dbd60&gt; &gt;&gt;&gt; x.__next__() &#39;BeautyOnCode&#39; &gt;&gt;&gt; x.__next__() &#39;blog&#39; &gt;&gt;&gt; x.__next__() Traceback (most recent call last):   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt; StopIteration &gt;&gt;&gt;   Ồ hay chưa, mình có thể đi qua các phần tử trong a bằng phương thức __next__, thay vì dùng for nè. Khi đi đến phần tử cuối cùng rồi, thì nó sẽ báo lỗi StopIteration để báo cho mình biết hết đồ để đi tiếp rồi nghen 🤣  Thêm nữa, iterator cũng là iterable đó, cùng xem tớ lặp qua nó với for nè, và cả gọi iter() cho x thì nó trả về chính nó luôn.  &gt;&gt;&gt; a = [&quot;BeautyOnCode&quot;, &quot;blog&quot;] &gt;&gt;&gt; x = iter(a) &gt;&gt;&gt; for s in x: ...     print(s) ... BeautyOnCode blog &gt;&gt;&gt; iter(x) &lt;list_iterator object at 0x10b5a84f0&gt; &gt;&gt;&gt; x &lt;list_iterator object at 0x10b5a84f0&gt; &gt;&gt;&gt;   Ra vậy, để lặp qua một iterable vô hạn, như cái ví dụ bội số của 3 ở trên, mình cần biến nó thành iterator bằng hàm iter(), rồi sau đó có thể dùng __next__() hoặc next() để đi qua lần lượt các phần tử. Nhưng vì đang nói đến iterable vô hạn, cho nên nó sẽ không bao giờ có ngoại lệ StopIteration luôn ấy.  Cùng xem cách mình đã lặp qua “multiplesofthree” dùng iterator thay cho for nhé:    Thật thú vị đúng không nào, mình không dùng for mà vẫn lặp qua các đối tượng của một iterable đấy.  Và bật mí với các bạn, đây cũng chính là cơ chế lặp được sử dụng nhiều trong Python đấy, cụ thể là cho vòng lặp for nè, rồi xác định nhiều giá trị trong tuple nè, rồi list comprehension(ví dụ cho bạn nào quên nè, [i +1 for i in a]), ….  Trước khi đi tiếp mình xin tóm tóm lại một xíu cho bạn đỡ ngợp nha.  Mình đã tìm hiểu qua về: Iterable, Iterator  😊  Iterable được xác định bằng 3 cách:          dùng được với for           iter(X) không báo lỗi           có phương thức __iter__      😊  Iterator được xác định bằng:          Y = iter(X), với X là một iterable, thì Y là một iterator           next(Y) sẽ trả về giá trị phần tử tiếp theo hoặc ngoại lệ StopIteration, thì Y là iterator.           iter(Y) sẽ trả về Y, thì Y là iterator(tức iterator cũng chính là iterable)      Nhìn tóm tắt trên bạn thử hình dung xem nếu mình muốn tạo một iterable cho riêng mình thì mình cần phải định nghĩa những gì để Python hiểu nó là một iterable nhỉ?  Để xem nào, hẳn là nó cần có một phương thức là __iter__, và phương thức này cần trả về một bạn iterator.  Cùng mình thử sức định nghĩa một iterable của riêng bạn nhé!    class BlogPostIterator:     def __init__(self, blogpost):         self._blogpost = blogpost         self._current = 0      def __next__(self):         &quot;&quot;&quot;Trả về bạn post tiếp theo nhé&quot;&quot;&quot;         # Số posts trong blog nè         posts = self._blogpost._posts         if self._current &lt; len(posts):             # lấy phần tử với chỉ sổ index là _current ra nha             next = posts[self._current]             # tăng _current lên 1 nhé             self._current += 1             return next          # Nếu chỉ số index vượt quá số posts có thì         # la làng ngoại lệ StopIteration         raise StopIteration  class BlogPost:     &quot;&quot;&quot;Posts in blog&quot;&quot;&quot;     def __init__(self):         self._posts = []      def add_post(self, posts):         &quot;&quot;&quot;Thêm posts vào nhé&quot;&quot;&quot;         self._posts += posts      def __iter__(self):         &quot;&quot;&quot;Trả về iterator nhé&quot;&quot;&quot;         return BlogPostIterator(self)   Ở trên, lớp BlogPost có thể tạo ra các đối tượng là iterable đó, cùng thử nghiệm nha:    Mình có thực hành và giải thích ở trên video này nè  Ui, mãi quần quật với hai bạn này mà mình sắp trễ thời gian rồi, nhanh nhanh đi tiếp đến chú tiểu yêu tiếp theo cần phải chinh phục, đó là chú màu xanh generator .  Generator  Đây là xuất thân của Generator từ Wikipedia:     In computer science, a generator is a routine that can be used to control the iteration behaviour of a loop. All generators are also iterators.   Mình tạm dịch là: Trong lĩnh vực khoa học máy tính, một generator là một bộ các quy trình các có thể dùng để kiểm soát hành động của một vòng lặp. Và tất cả generator cũng là iterators.  Còn trong Python, generator được định nghĩa trong Python wiki là:  generator hay gọi là hàm generator, cho phép bạn tạo ra một hàm hoạt động tương tự như một iterator, tức là nó cũng là iterable, và có thể dùng với vòng lặp for.  Dùng generator trong trường hợp nào  Mình là một bạn nhỏ hay thắc mắc, mình cũng rất tò mò lý do vì sao cần có hàm generator ấy nhỉ? Nó cũng tạo ra iterator đúng hem, thế sao không dùng luôn iterator thôi nhỉ?  Bạn đoán thử cùng mình xem sao?  Mình nghĩ là nếu tạo một iterator khoai như ở trên, thì buồn thật đấy, khi nào cũng viết phương thức __iter__ rồi nó phải trả về iterator, rồi muốn trả về iterator thì lại phải đi định nghĩa phương thức __next__ và viết cái logic khác nữa. Thật tình mà nói thì cũng hơi khó gặm đó nha 🥲.  Hẳn là mấy chú Python thấy thế bèn nghĩ ra một cách, hay là mình cho tụi nhỏ viết một hàm thôi, và hàm đó hoạt động như là một iterator, còn những thứ lằng nhằng kia hãy để các chú lo, phải không? 🥰  Hihi, đoán bậy vậy mà nó trúng rồi nha, chính xác là generator giúp mình tạo iterator một cách dễ dàng hơn nhiều. Và thêm nữa, generator sẽ thường sử dụng cho các trường hợp cần cân nhắc về chuyện hiệu suất của chương trình, ví dụ như là khi mình làm việc với số siêu lớn, hay làm việc với các file có dung lượng lớn cần xử lý.  Vì sao? Vì khi đó nếu dùng một kiểu dữ liệu tuần tự để lưu hay xử lý thì chương trình sẽ ngốn nhiều dung lượng RAM, dẫn đến tràn RAM và gây lỗi về bộ nhớ(Memory Error).  Nếu bạn gặp các trường hợp này, thì generator chính là chân ái của đời bạn đó, nhớ nhé 😘  Ví dụ giùm cái  Đề bài: tạo một danh sách các số từ 0 đến n, sau đó tính tổng của chúng nó. Hãy thử nghiệm với n = 1000000000 nhé.  Nào, giờ mình sẽ đi cùng với mọi người giải bài toán bằng ba cách nhé  Cách 1: dùng một danh sách để lưu các số.  def list_n_list(n):     num, nums = 0, []     while num &lt; n:         nums.append(num)         num += 1         return nums  sum(list_n_list(1000000000))   Và mình chạy thử xem nó tốn bao nhiêu time:  $ python list_n_list.py time execute 0:06:51.453351   Rồi, đoạn code này khá là đơn giản phải không, logic rất dễ hiểu, nhưng nó đang tạo một list với tất cả các phần tử từ 0 đến n, rồi cộng lại. Rõ là phương án này nhìn thì đơn giản, nhưng rất khó chấp nhận trong trường hợp n là một số siêu lớn, vì làm sao mà mình lưu tất cả 1000000000… phần tử trong bộ nhớ được.  Với n = 1000000000000000, chương trình sẽ bị đứng sau một hồi cố gắng hiu hiu, thương ghê!  $ python generator.py [1]    2247 killed     python generator.py   Cách 2: dùng iterator  Đầu tiên, mình sẽ tiếp cận cách số 2 với bạn iterator trước nha, vì bạn này cũng giúp mình không lưu cả dãy như ở trên, và vẫn có thể xử lý trong tình huống này ha.  Ôkê, vì bạn ni hơi cực, nên mình lại nhắc xíu là mình tính làm gì nha. Đầu tiên là mình cần tạo một lớp có phương thức __iter__ sau đó phương thức này trả ra iterator, ở đây là mình muốn gom hết vào một chỗ luôn, vì mình hiểu là iterator cũng là iterable nên mình sẽ return self ở đây. Sau đó mình sẽ tạo tiếp một phương thức __next__ để self chính là iterator.  Cùng xem code nha:  class list_n_iterator(object):     def __init__(self, n):         # giới hạn là n         self.n = n         # bắt đầu từ 0         self.next = 0      def __iter__(self):         # list_n vừa là iterable, vừa là iterator         # vì nó có phương thức __iter__ và __next__         return self      def __next__(self):         if self.next &lt; self.n:             # gán giá trị hiện tại của next             current = self.next             # tăng 1 cho next             self.next = current + 1             return current         raise StopIteration  sum(list_n_iterator(100000000))   Còn đây là thời gian chạy của đoạn code với iterator nhé:  $ python list_n_iterator.py time execute 0:06:08.411233   Và tất nhiên là đoạn code trên có thể hoạt động ổn hơn rồi.  Tuy nhiên có vài vấn đề mà mình từng đoán trước đây như là:  – Nhiều code quá, gồm lớp rồi phương thức, …  – Và logic khá rối, trừ khi bạn hiểu sâu về iterator, iterable còn không thì nhìn vào đã hoa mắt rồi  Chưa hết, nếu dùng đoạn code này lại ở nhiều nơi sẽ làm cho code càng dài hơn đấy. Vì thế, Python đã hỗ trợ mình bạn generator, bạn này được giới thiệu từ PEP255.  Cách 3: dùng người anh hùng generator, chân ái khi làm việc với số lớn và dữ liệu lớn  Cùng viết lại code trên với generator nhé! Bạn sẽ ngạc nhiên vì độ thanh lịch của nó đấy!  def list_n_generator(n):     num = 0     while num &lt; n:         yield num         num += 1  sum(list_n_generator(1000000000))   Và thời gian của bạn này chạy là:  $ python list_n_generator.py time execute 0:02:07.852190   *Lưu ý nhỏ là thời gian chỉ mang tính chất so sánh khách quan thôi nha, vì nó còn phụ thuộc vào máy của tớ nữa ý. *  Cách tạo generator  Cách 1: Dùng hàm generator  Đây chính là cách mà ví dụ ở trên dùng đấy.  Để tạo hàm generator thì mình tạo hàm như bình thường và thay vì dùng return để trả về giá trị thì mình dùng yield để trả về giá trị.  Cách 2: Dùng biểu thức generator  Ngoài ra còn có thể dùng biểu thức generator để tạo nữa, biểu thức này tương tự như list comprehension ấy, mà thay dấu [] bằng dấu () thôi  &gt;&gt;&gt; list_odds = [1, 3, 5, 7, 9] &gt;&gt;&gt; (x**2 for x in list_odds) &lt;generator object &lt;genexpr&gt; at 0x10b914b30&gt;   Vậy là hôm nay mình đã cùng gặp qua sư phụ iterable, và chiến đấu với hai bạn tiểu yêu iterator và generator rồi. Bạn quái thú hai đầu này dù có sự giúp sức của sư phụ iterable nữa nhưng vẫn đầu hàng trước sự cố gắng của tụi mình và cả ba đều biến thành các bạn tiểu yêu xinh xắn rồi đó. 🥳  Những khái niệm này dễ gây nhầm lẫn nên mình và các bạn hãy chú ý khi sử dụng nha.">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/site-logo.png">
+
+
+
+  <meta name="twitter:site" content="@mmistakes">
+  <meta name="twitter:title" content="Iterable, Iterator và Generator trong Python">
+  <meta name="twitter:description" content="Chào cả nhà 🥳! Chào BeautyOnCode  🤣  Just for vui tí, thực ra đó là cách gia đình mình chào nhau dạo gần đây lol  Ba bảo: “Chào Minh Hoàng!”. Chicken bảo: “Chào Ba Lộc!” . Mẹ Út bảo: “Chào Minh Hoàng”. Chicken bảo: “Chào Mẹ Út” 🤣  Hôm nay tụi mình sẽ cầm gương lên, dũng cảm xông pha ra trận chém con thú hai đầu, một đầu nó có màu hồng tên là “Iterator“, một đầu màu xanh tên là “Generator“.  Để mình kể bạn nghe, đây là một câu chuyện có thật, từ chiếc ti vi, kênh Cartoon Network, chương trình hoạt hình “Biệt đội Titan xuất kích”. Hai bạn quái vật này được nhốt trong một cái hộp thần bí, Raven đã dặn các bạn không được mở nó ra vì nó rất nguy hiểm, nhưng StarFire đã không kiềm được tò mò và mở ra. Hai bạn này siêu dễ thương luôn, cùng vui chơi với các bạn nhỏ, nhưng khi hai bạn đó được StarFire không kiềm được mà hôn cho một cái thì lập tức hai bạn biến hình thành một con quái vật có hai đầu đi phá thành phố. Sau đó, StarFire đã nói ra những lời đau lòng đến mức từ con quái vật hai đầu khổng lồ hai bạn càng ngày càng thu bé lại và biến thành hai con tiểu yêu khóc nức nở vì không được yêu thương nữa.  Câu chuyện vậy đó, khi mình soạn bài này tự dưng mình thấy cũng trùng hợp ghê, hai bạn “Iterator” và “Generator” này cũng dễ thương như vậy, nhưng cũng có thể biến thành quái vật khi mình chủ quan về các bạn ấy đúng không nào. Còn mình mà đã hiểu á, thì sẽ biến lại thành hai bạn tiểu yêu xinh xắn dễ cưng thôi.  Cho nên là hôm nay, mình cùng quyết tâm chinh phục con quái thú hai đầu này nha! 👻  Ý quên, còn gặp cả sư phụ của tụi nhỏ nữa đấy.  Bài blog này thuộc series “Khám phá Đại Bản Doanh Python”.  (Image by artemtation from Pixabay)  Mở đầu Trong nội dung bài “Các công cụ điều khiển luồng dữ liệu”, mình đã biết cách lặp qua các phần tử của các kiểu dữ liệu là tập hợp nhiều phần tử trong đó, như là string, list, dict rồi, dùng for phần_tử in danh_sách. Và mình cũng đã học cách sử dụng enumerate() để có thể vừa lặp qua vừa sử dụng chỉ số index của phần tử, ví dụ:  &gt;&gt;&gt; a = [&quot;Thanh&quot;, &quot;has&quot;, &quot;a&quot;, &quot;blog&quot;] &gt;&gt;&gt; for i, s in enumerate(a): ...     print(&quot;chuoi hien tai la:&quot;, s) ...     if i &lt; len(a) - 1: ...             print(&quot;chuoi tiep theo la:&quot;, a[i+1]) ...     else: ...             print(&quot;day la chuoi cuoi cung!&quot;) ... chuoi hien tai la: Thanh chuoi tiep theo la: has chuoi hien tai la: has chuoi tiep theo la: a chuoi hien tai la: a chuoi tiep theo la: blog chuoi hien tai la: blog day la chuoi cuoi cung! &gt;&gt;&gt;  “a” đang là một danh sách. Nếu a là một set thì sao nhỉ? Cùng xem ví dụ ở trên với b có giá trị tương tự a nhưng là kiểu dữ liệu set nhé. (Đọc thêm về các loại dữ liệu ở bài “Cấu trúc dữ liệu trong Python” nhé)  &gt;&gt;&gt; b = {&quot;Thanh&quot;, &quot;has&quot;, &quot;a&quot;, &quot;blog&quot;} &gt;&gt;&gt; for i, s in enumerate(b): ...     print(&quot;chuoi hien tai la:&quot;, s) ...     if i &lt; len(b) - 1: ...             print(&quot;chuoi tiep theo la:&quot;, b[i+1]) ...     else: ...             print(&quot;day la chuoi cuoi cung!&quot;) ... chuoi hien tai la: blog Traceback (most recent call last):   File &quot;&lt;stdin&gt;&quot;, line 4, in &lt;module&gt; TypeError: &#39;set&#39; object is not subscriptable &gt;&gt;&gt;   Ôi nó bị sao thế nhỉ, lỗi “TypeError: ‘set’ object is not subscriptable” có nghĩa là kiểu dữ liệu “set” không hỗ trợ truy cập phần tử theo chỉ mục index.  Hiểu nôm na thì nếu a là list, nó có thể truy cập đến phần tử đầu tiên bằng index là 0 với a[0], còn b là set thì nó không có chỉ số index như vậy nên b[0] sẽ báo lỗi như trên.    Thế còn kiểu dữ liệu dict thì sao nhỉ? Không biết bạn này có hỗ trợ truy cập theo chỉ mục index không ta?  &gt;&gt;&gt; a = {&quot;name&quot;: &quot;Thanh&quot;, &quot;age&quot;: 29} &gt;&gt;&gt; for i, key in enumerate(a): ...     print(&quot;tu khoa: &quot;, key) ...     print(f&quot;gia tri cua tu khoa {key} la: {a[key]}&quot;) ...     print(f&quot;gia tri cua a tại index {i} la: {a[i]}&quot;) ... tu khoa:  name gia tri cua tu khoa name la: Thanh Traceback (most recent call last):   File &quot;&lt;stdin&gt;&quot;, line 4, in &lt;module&gt; KeyError: 0 &gt;&gt;&gt;   Úi, vậy là kiểu dữ liệu dict cũng không truy cập theo chỉ mục index được.  Vậy là, trong Python cùng là kiểu dữ liệu có thể chứa nhiều phần tử(string, list, set, dict, …) nhưng các bạn này lại chia làm hai nhóm:  🥰  Nhóm dữ liệu tuần tự(sequence): string, list, … cho phép mình truy cập qua các phần tử trong bộ sưu tập bằng chỉ mục, hay gọi là số index, các bạn này có chỉ số index được đánh dấu từ 0 đến len – 1(chiều dài của nó trừ đi 1).  🥰  Nhóm dữ liệu tập hợp(collection): set, dict, … không truy cập được theo chỉ mục index.    Rồi sao nữa 😊  Hehe, rồi thì luật sinh ra là để lách luật đó mấy bạn 😅  Muốn lách luật tức là muốn duyệt có trình tự mấy kiểu dữ liệu tập hợp như set, dict trên, thì mình cần hiểu bản chất và cơ chế của luật này cái đã. Đây chính là sư phụ của hai bạn tiểu yêu trên, tớ tạm gọi là sư phụ iterable  Iterable  Thực ra nãy giờ mình từng gặp nhiều bạn là iterable rồi ấy 👉  a và b của những ví dụ trên đều là các iterable.  Một đối tượng là iterable nghĩa là nó có thể lặp qua, hiểu nôm na nếu a là một iterable thì:  👉  có thể lặp qua a được, tức có thể viết *“for x in a” *  👉  gọi iter(a), sẽ trả về một iterator  👉  a có phương thức __iter__ cũng trả về một iterator, hoặc đôi khi A có phương thức \getitem\ nếu a thuộc nhóm dữ liệu tuần tử có thể truy cập phần tử theo chỉ số index đã nói ở trên.  Xem ví dụ với iterable là list:  &gt;&gt;&gt; a = [&quot;Thanh&quot;, &quot;has&quot;, &quot;a&quot;, &quot;blog&quot;]] &gt;&gt;&gt; a = [&quot;BeautyOnCode&quot;, &quot;blog&quot;] &gt;&gt;&gt; for s in a: ...     print(s) ... BeautyOnCode blog &gt;&gt;&gt; iter(a) &lt;list_iterator object at 0x10b5dbd60&gt; &gt;&gt;&gt; a.__dir__() [&#39;__repr__&#39;, &#39;__hash__&#39;, &#39;__getattribute__&#39;, &#39;__lt__&#39;, &#39;__le__&#39;, &#39;__eq__&#39;, &#39;__ne__&#39;, &#39;__gt__&#39;, &#39;__ge__&#39;, &#39;__iter__&#39;, &#39;__init__&#39;, &#39;__len__&#39;, &#39;__getitem__&#39;, &#39;__setitem__&#39;, &#39;__delitem__&#39;, &#39;__add__&#39;, &#39;__mul__&#39;, &#39;__rmul__&#39;, &#39;__contains__&#39;, &#39;__iadd__&#39;, &#39;__imul__&#39;, &#39;__new__&#39;, &#39;__reversed__&#39;, &#39;__sizeof__&#39;, &#39;clear&#39;, &#39;copy&#39;, &#39;append&#39;, &#39;insert&#39;, &#39;extend&#39;, &#39;pop&#39;, &#39;remove&#39;, &#39;index&#39;, &#39;count&#39;, &#39;reverse&#39;, &#39;sort&#39;, &#39;__doc__&#39;, &#39;__str__&#39;, &#39;__setattr__&#39;, &#39;__delattr__&#39;, &#39;__reduce_ex__&#39;, &#39;__reduce__&#39;, &#39;__subclasshook__&#39;, &#39;__init_subclass__&#39;, &#39;__format__&#39;, &#39;__dir__&#39;, &#39;__class__&#39;] &gt;&gt;&gt; a.__iter__() &lt;list_iterator object at 0x10b5dbd60&gt; &gt;&gt;&gt; a.__getitem__(0) &#39;BeautyOnCode&#39; &gt;&gt;&gt;   Tiếp theo b là một dict nè:  &gt;&gt;&gt; b = {&quot;name&quot;: &quot;Thanh&quot;, &quot;age&quot;: 29} &gt;&gt;&gt; for x in b: ...     print(x) ... name age &gt;&gt;&gt; iter(b) &lt;dict_keyiterator object at 0x10b61cc20&gt; &gt;&gt;&gt; b.__dir__() [&#39;__repr__&#39;, &#39;__hash__&#39;, &#39;__getattribute__&#39;, &#39;__lt__&#39;, &#39;__le__&#39;, &#39;__eq__&#39;, &#39;__ne__&#39;, &#39;__gt__&#39;, &#39;__ge__&#39;, &#39;__iter__&#39;, &#39;__init__&#39;, &#39;__len__&#39;, &#39;__getitem__&#39;, &#39;__setitem__&#39;, &#39;__delitem__&#39;, &#39;__contains__&#39;, &#39;__new__&#39;, &#39;__sizeof__&#39;, &#39;get&#39;, &#39;setdefault&#39;, &#39;pop&#39;, &#39;popitem&#39;, &#39;keys&#39;, &#39;items&#39;, &#39;values&#39;, &#39;update&#39;, &#39;fromkeys&#39;, &#39;clear&#39;, &#39;copy&#39;, &#39;__reversed__&#39;, &#39;__doc__&#39;, &#39;__str__&#39;, &#39;__setattr__&#39;, &#39;__delattr__&#39;, &#39;__reduce_ex__&#39;, &#39;__reduce__&#39;, &#39;__subclasshook__&#39;, &#39;__init_subclass__&#39;, &#39;__format__&#39;, &#39;__dir__&#39;, &#39;__class__&#39;] &gt;&gt;&gt; b.__iter__() &lt;dict_keyiterator object at 0x10b61cc20&gt; &gt;&gt;&gt; b.__getitem__(0) Traceback (most recent call last):   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt; KeyError: 0   Bạn đã thấy sự khác nhau chưa, vậy là điểm chung duy nhất của các iterable là có nhiều phần tử và cho phép mình lặp qua chúng nó đấy.  Tuy nhiên, số lượng phần tử trong iterable có thể là hữu hạn hoặc vô hạn, ở các ví dụ trên rõ là chúng nó có số lượng hữu hạn. Giờ thì cũng đi qua một ví dụ với số lượng phần tử vô hạn nhé.    Trong ví dụ này, mình sử dụng hàm count từ itertools để tạo một bộ đếm là bội của 3.  Khi thực hiện lặp qua bộ đếm này với vòng lặp for và in các phần tử ra thì nó sẽ chạy mãi mãi cho đến khi mình ngừng chương trình hoặc mình phải thêm điều kiện dừng cho vòng lặp for là khi n &gt; 200 thì thoát khỏi vòng lặp như trong ví dụ trên.  Với số lượng phần tử vô hạn như vậy thì mình không thể chuyển các bạn ấy về kiểu danh sách được. Chưa kể với số lượng phần tử quá lớn sẽ gây hại cho bộ nhớ và hiệu suất của chương trình.  Hehe, thực ra tớ chuyển thử rồi, và nó kill luôn PI và tự thoát ra ngoài luôn 😅  &gt;&gt;&gt; list(multiples_of_three) [1]    5953 killed     python   Vì những nguyên nhân đó, sư phụ Iterable đã nhận một đệ tử đầu tiên, chính là bạn tiểu yêu màu hồng, bạn mà sau này biến thành quái thú màu hồng trong con quái thú hai đầu đó, bạn ấy tên là Iterator.  Cùng xem bạn Iterator giúp giải quyết vấn đề trên ra sao nhé!  Iterator Thực ra iterator là một khái niệm trong lĩnh vực khoa học máy tính đấy nhé. Đây là xuất thân của Iterator từ Wikipedia:     In computer programming, an iterator is an object that enables a programmer to traverse a container, particularly lists.   Mình tạm dịch là: Trong lĩnh vực khoa học máy tính, một iterator là một đối tượng cho phép các nhà lập trình có thể duyệt qua một vùng chứa các dữ liệu, như danh sách.  Còn trong Python, iterator được định nghĩa trong Python wiki là:     iterator là đối tượng có phương thức __next__, và phương thức này sẽ trả về phần tử tiếp theo của đối tượng, nếu đối tượng không còn phần tử nào để lặp qua thì nó sẽ báo lỗi StopIteration.     Bạn đã thấy iterator lần nào chưa nhỉ?  Thực ra mình đã thấy bạn ấy khi mình gọi iter(a) ở ví dụ trên đấy, cùng xem mình gọi __next__ thì bạn ấy sẽ trả ra gì nhé:  &gt;&gt;&gt; a = [&quot;BeautyOnCode&quot;, &quot;blog&quot;] &gt;&gt;&gt; x = iter(a) &gt;&gt;&gt; x &lt;list_iterator object at 0x10b5dbd60&gt; &gt;&gt;&gt; x.__next__() &#39;BeautyOnCode&#39; &gt;&gt;&gt; x.__next__() &#39;blog&#39; &gt;&gt;&gt; x.__next__() Traceback (most recent call last):   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt; StopIteration &gt;&gt;&gt;   Ồ hay chưa, mình có thể đi qua các phần tử trong a bằng phương thức __next__, thay vì dùng for nè. Khi đi đến phần tử cuối cùng rồi, thì nó sẽ báo lỗi StopIteration để báo cho mình biết hết đồ để đi tiếp rồi nghen 🤣  Thêm nữa, iterator cũng là iterable đó, cùng xem tớ lặp qua nó với for nè, và cả gọi iter() cho x thì nó trả về chính nó luôn.  &gt;&gt;&gt; a = [&quot;BeautyOnCode&quot;, &quot;blog&quot;] &gt;&gt;&gt; x = iter(a) &gt;&gt;&gt; for s in x: ...     print(s) ... BeautyOnCode blog &gt;&gt;&gt; iter(x) &lt;list_iterator object at 0x10b5a84f0&gt; &gt;&gt;&gt; x &lt;list_iterator object at 0x10b5a84f0&gt; &gt;&gt;&gt;   Ra vậy, để lặp qua một iterable vô hạn, như cái ví dụ bội số của 3 ở trên, mình cần biến nó thành iterator bằng hàm iter(), rồi sau đó có thể dùng __next__() hoặc next() để đi qua lần lượt các phần tử. Nhưng vì đang nói đến iterable vô hạn, cho nên nó sẽ không bao giờ có ngoại lệ StopIteration luôn ấy.  Cùng xem cách mình đã lặp qua “multiplesofthree” dùng iterator thay cho for nhé:    Thật thú vị đúng không nào, mình không dùng for mà vẫn lặp qua các đối tượng của một iterable đấy.  Và bật mí với các bạn, đây cũng chính là cơ chế lặp được sử dụng nhiều trong Python đấy, cụ thể là cho vòng lặp for nè, rồi xác định nhiều giá trị trong tuple nè, rồi list comprehension(ví dụ cho bạn nào quên nè, [i +1 for i in a]), ….  Trước khi đi tiếp mình xin tóm tóm lại một xíu cho bạn đỡ ngợp nha.  Mình đã tìm hiểu qua về: Iterable, Iterator  😊  Iterable được xác định bằng 3 cách:          dùng được với for           iter(X) không báo lỗi           có phương thức __iter__      😊  Iterator được xác định bằng:          Y = iter(X), với X là một iterable, thì Y là một iterator           next(Y) sẽ trả về giá trị phần tử tiếp theo hoặc ngoại lệ StopIteration, thì Y là iterator.           iter(Y) sẽ trả về Y, thì Y là iterator(tức iterator cũng chính là iterable)      Nhìn tóm tắt trên bạn thử hình dung xem nếu mình muốn tạo một iterable cho riêng mình thì mình cần phải định nghĩa những gì để Python hiểu nó là một iterable nhỉ?  Để xem nào, hẳn là nó cần có một phương thức là __iter__, và phương thức này cần trả về một bạn iterator.  Cùng mình thử sức định nghĩa một iterable của riêng bạn nhé!    class BlogPostIterator:     def __init__(self, blogpost):         self._blogpost = blogpost         self._current = 0      def __next__(self):         &quot;&quot;&quot;Trả về bạn post tiếp theo nhé&quot;&quot;&quot;         # Số posts trong blog nè         posts = self._blogpost._posts         if self._current &lt; len(posts):             # lấy phần tử với chỉ sổ index là _current ra nha             next = posts[self._current]             # tăng _current lên 1 nhé             self._current += 1             return next          # Nếu chỉ số index vượt quá số posts có thì         # la làng ngoại lệ StopIteration         raise StopIteration  class BlogPost:     &quot;&quot;&quot;Posts in blog&quot;&quot;&quot;     def __init__(self):         self._posts = []      def add_post(self, posts):         &quot;&quot;&quot;Thêm posts vào nhé&quot;&quot;&quot;         self._posts += posts      def __iter__(self):         &quot;&quot;&quot;Trả về iterator nhé&quot;&quot;&quot;         return BlogPostIterator(self)   Ở trên, lớp BlogPost có thể tạo ra các đối tượng là iterable đó, cùng thử nghiệm nha:    Mình có thực hành và giải thích ở trên video này nè  Ui, mãi quần quật với hai bạn này mà mình sắp trễ thời gian rồi, nhanh nhanh đi tiếp đến chú tiểu yêu tiếp theo cần phải chinh phục, đó là chú màu xanh generator .  Generator  Đây là xuất thân của Generator từ Wikipedia:     In computer science, a generator is a routine that can be used to control the iteration behaviour of a loop. All generators are also iterators.   Mình tạm dịch là: Trong lĩnh vực khoa học máy tính, một generator là một bộ các quy trình các có thể dùng để kiểm soát hành động của một vòng lặp. Và tất cả generator cũng là iterators.  Còn trong Python, generator được định nghĩa trong Python wiki là:  generator hay gọi là hàm generator, cho phép bạn tạo ra một hàm hoạt động tương tự như một iterator, tức là nó cũng là iterable, và có thể dùng với vòng lặp for.  Dùng generator trong trường hợp nào  Mình là một bạn nhỏ hay thắc mắc, mình cũng rất tò mò lý do vì sao cần có hàm generator ấy nhỉ? Nó cũng tạo ra iterator đúng hem, thế sao không dùng luôn iterator thôi nhỉ?  Bạn đoán thử cùng mình xem sao?  Mình nghĩ là nếu tạo một iterator khoai như ở trên, thì buồn thật đấy, khi nào cũng viết phương thức __iter__ rồi nó phải trả về iterator, rồi muốn trả về iterator thì lại phải đi định nghĩa phương thức __next__ và viết cái logic khác nữa. Thật tình mà nói thì cũng hơi khó gặm đó nha 🥲.  Hẳn là mấy chú Python thấy thế bèn nghĩ ra một cách, hay là mình cho tụi nhỏ viết một hàm thôi, và hàm đó hoạt động như là một iterator, còn những thứ lằng nhằng kia hãy để các chú lo, phải không? 🥰  Hihi, đoán bậy vậy mà nó trúng rồi nha, chính xác là generator giúp mình tạo iterator một cách dễ dàng hơn nhiều. Và thêm nữa, generator sẽ thường sử dụng cho các trường hợp cần cân nhắc về chuyện hiệu suất của chương trình, ví dụ như là khi mình làm việc với số siêu lớn, hay làm việc với các file có dung lượng lớn cần xử lý.  Vì sao? Vì khi đó nếu dùng một kiểu dữ liệu tuần tự để lưu hay xử lý thì chương trình sẽ ngốn nhiều dung lượng RAM, dẫn đến tràn RAM và gây lỗi về bộ nhớ(Memory Error).  Nếu bạn gặp các trường hợp này, thì generator chính là chân ái của đời bạn đó, nhớ nhé 😘  Ví dụ giùm cái  Đề bài: tạo một danh sách các số từ 0 đến n, sau đó tính tổng của chúng nó. Hãy thử nghiệm với n = 1000000000 nhé.  Nào, giờ mình sẽ đi cùng với mọi người giải bài toán bằng ba cách nhé  Cách 1: dùng một danh sách để lưu các số.  def list_n_list(n):     num, nums = 0, []     while num &lt; n:         nums.append(num)         num += 1         return nums  sum(list_n_list(1000000000))   Và mình chạy thử xem nó tốn bao nhiêu time:  $ python list_n_list.py time execute 0:06:51.453351   Rồi, đoạn code này khá là đơn giản phải không, logic rất dễ hiểu, nhưng nó đang tạo một list với tất cả các phần tử từ 0 đến n, rồi cộng lại. Rõ là phương án này nhìn thì đơn giản, nhưng rất khó chấp nhận trong trường hợp n là một số siêu lớn, vì làm sao mà mình lưu tất cả 1000000000… phần tử trong bộ nhớ được.  Với n = 1000000000000000, chương trình sẽ bị đứng sau một hồi cố gắng hiu hiu, thương ghê!  $ python generator.py [1]    2247 killed     python generator.py   Cách 2: dùng iterator  Đầu tiên, mình sẽ tiếp cận cách số 2 với bạn iterator trước nha, vì bạn này cũng giúp mình không lưu cả dãy như ở trên, và vẫn có thể xử lý trong tình huống này ha.  Ôkê, vì bạn ni hơi cực, nên mình lại nhắc xíu là mình tính làm gì nha. Đầu tiên là mình cần tạo một lớp có phương thức __iter__ sau đó phương thức này trả ra iterator, ở đây là mình muốn gom hết vào một chỗ luôn, vì mình hiểu là iterator cũng là iterable nên mình sẽ return self ở đây. Sau đó mình sẽ tạo tiếp một phương thức __next__ để self chính là iterator.  Cùng xem code nha:  class list_n_iterator(object):     def __init__(self, n):         # giới hạn là n         self.n = n         # bắt đầu từ 0         self.next = 0      def __iter__(self):         # list_n vừa là iterable, vừa là iterator         # vì nó có phương thức __iter__ và __next__         return self      def __next__(self):         if self.next &lt; self.n:             # gán giá trị hiện tại của next             current = self.next             # tăng 1 cho next             self.next = current + 1             return current         raise StopIteration  sum(list_n_iterator(100000000))   Còn đây là thời gian chạy của đoạn code với iterator nhé:  $ python list_n_iterator.py time execute 0:06:08.411233   Và tất nhiên là đoạn code trên có thể hoạt động ổn hơn rồi.  Tuy nhiên có vài vấn đề mà mình từng đoán trước đây như là:  – Nhiều code quá, gồm lớp rồi phương thức, …  – Và logic khá rối, trừ khi bạn hiểu sâu về iterator, iterable còn không thì nhìn vào đã hoa mắt rồi  Chưa hết, nếu dùng đoạn code này lại ở nhiều nơi sẽ làm cho code càng dài hơn đấy. Vì thế, Python đã hỗ trợ mình bạn generator, bạn này được giới thiệu từ PEP255.  Cách 3: dùng người anh hùng generator, chân ái khi làm việc với số lớn và dữ liệu lớn  Cùng viết lại code trên với generator nhé! Bạn sẽ ngạc nhiên vì độ thanh lịch của nó đấy!  def list_n_generator(n):     num = 0     while num &lt; n:         yield num         num += 1  sum(list_n_generator(1000000000))   Và thời gian của bạn này chạy là:  $ python list_n_generator.py time execute 0:02:07.852190   *Lưu ý nhỏ là thời gian chỉ mang tính chất so sánh khách quan thôi nha, vì nó còn phụ thuộc vào máy của tớ nữa ý. *  Cách tạo generator  Cách 1: Dùng hàm generator  Đây chính là cách mà ví dụ ở trên dùng đấy.  Để tạo hàm generator thì mình tạo hàm như bình thường và thay vì dùng return để trả về giá trị thì mình dùng yield để trả về giá trị.  Cách 2: Dùng biểu thức generator  Ngoài ra còn có thể dùng biểu thức generator để tạo nữa, biểu thức này tương tự như list comprehension ấy, mà thay dấu [] bằng dấu () thôi  &gt;&gt;&gt; list_odds = [1, 3, 5, 7, 9] &gt;&gt;&gt; (x**2 for x in list_odds) &lt;generator object &lt;genexpr&gt; at 0x10b914b30&gt;   Vậy là hôm nay mình đã cùng gặp qua sư phụ iterable, và chiến đấu với hai bạn tiểu yêu iterator và generator rồi. Bạn quái thú hai đầu này dù có sự giúp sức của sư phụ iterable nữa nhưng vẫn đầu hàng trước sự cố gắng của tụi mình và cả ba đều biến thành các bạn tiểu yêu xinh xắn rồi đó. 🥳  Những khái niệm này dễ gây nhầm lẫn nên mình và các bạn hãy chú ý khi sử dụng nha.">
+  <meta name="twitter:url" content="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/iterator-va-generator-trong-python/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/assets/images/site-logo.png">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2020-09-09T00:00:00-04:00">
+
+
+
+  <meta property="article:modified_time" content="2020-09-09T15:12:19-04:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/iterator-va-generator-trong-python/">
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="BeautyOnCode Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  window.enable_copy_code_button = true;
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo/logo-circle.webp" alt="BeautyOnCode"></a>
+        
+        <a class="site-title" href="/">
+          BeautyOnCode
+          <span class="site-subtitle">Code Your Life In An Elegant Way</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/docs/quick-start-guide/"
+                
+                
+              >Quick-Start Guide</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/year-archive/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/collection-archive/"
+                
+                
+              >Collections</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/logo/thanh-nguyen.jpg" alt="Thanh Nguyen" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Thanh Nguyen</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Web developer, nature lover, curious soul, and laid-back mom balancing code with life’s simple joys.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Da Nang, VN</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://beautyoncode.com" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">BeautyOnCode</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/graphicdthanh/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">Linkedin</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/GraphicDThanh" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.facebook.com/beautyoncode" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span class="label">Facebook</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Iterable, Iterator và Generator trong Python">
+    <meta itemprop="description" content="Chào cả nhà 🥳! Chào BeautyOnCode  🤣Just for vui tí, thực ra đó là cách gia đình mình chào nhau dạo gần đây lolBa bảo: “Chào Minh Hoàng!”. Chicken bảo: “Chào Ba Lộc!” . Mẹ Út bảo: “Chào Minh Hoàng”. Chicken bảo: “Chào Mẹ Út” 🤣Hôm nay tụi mình sẽ cầm gương lên, dũng cảm xông pha ra trận chém con thú hai đầu, một đầu nó có màu hồng tên là “Iterator“, một đầu màu xanh tên là “Generator“.Để mình kể bạn nghe, đây là một câu chuyện có thật, từ chiếc ti vi, kênh Cartoon Network, chương trình hoạt hình “Biệt đội Titan xuất kích”. Hai bạn quái vật này được nhốt trong một cái hộp thần bí, Raven đã dặn các bạn không được mở nó ra vì nó rất nguy hiểm, nhưng StarFire đã không kiềm được tò mò và mở ra. Hai bạn này siêu dễ thương luôn, cùng vui chơi với các bạn nhỏ, nhưng khi hai bạn đó được StarFire không kiềm được mà hôn cho một cái thì lập tức hai bạn biến hình thành một con quái vật có hai đầu đi phá thành phố. Sau đó, StarFire đã nói ra những lời đau lòng đến mức từ con quái vật hai đầu khổng lồ hai bạn càng ngày càng thu bé lại và biến thành hai con tiểu yêu khóc nức nở vì không được yêu thương nữa.Câu chuyện vậy đó, khi mình soạn bài này tự dưng mình thấy cũng trùng hợp ghê, hai bạn “Iterator” và “Generator” này cũng dễ thương như vậy, nhưng cũng có thể biến thành quái vật khi mình chủ quan về các bạn ấy đúng không nào. Còn mình mà đã hiểu á, thì sẽ biến lại thành hai bạn tiểu yêu xinh xắn dễ cưng thôi.Cho nên là hôm nay, mình cùng quyết tâm chinh phục con quái thú hai đầu này nha! 👻  Ý quên, còn gặp cả sư phụ của tụi nhỏ nữa đấy.Bài blog này thuộc series “Khám phá Đại Bản Doanh Python”.(Image by artemtation from Pixabay)Mở đầuTrong nội dung bài “Các công cụ điều khiển luồng dữ liệu”, mình đã biết cách lặp qua các phần tử của các kiểu dữ liệu là tập hợp nhiều phần tử trong đó, như là string, list, dict rồi, dùng for phần_tử in danh_sách. Và mình cũng đã học cách sử dụng enumerate() để có thể vừa lặp qua vừa sử dụng chỉ số index của phần tử, ví dụ:&gt;&gt;&gt; a = [&quot;Thanh&quot;, &quot;has&quot;, &quot;a&quot;, &quot;blog&quot;]&gt;&gt;&gt; for i, s in enumerate(a):...     print(&quot;chuoi hien tai la:&quot;, s)...     if i &lt; len(a) - 1:...             print(&quot;chuoi tiep theo la:&quot;, a[i+1])...     else:...             print(&quot;day la chuoi cuoi cung!&quot;)...chuoi hien tai la: Thanhchuoi tiep theo la: haschuoi hien tai la: haschuoi tiep theo la: achuoi hien tai la: achuoi tiep theo la: blogchuoi hien tai la: blogday la chuoi cuoi cung!&gt;&gt;&gt;“a” đang là một danh sách. Nếu a là một set thì sao nhỉ? Cùng xem ví dụ ở trên với b có giá trị tương tự a nhưng là kiểu dữ liệu set nhé. (Đọc thêm về các loại dữ liệu ở bài “Cấu trúc dữ liệu trong Python” nhé)&gt;&gt;&gt; b = {&quot;Thanh&quot;, &quot;has&quot;, &quot;a&quot;, &quot;blog&quot;}&gt;&gt;&gt; for i, s in enumerate(b):...     print(&quot;chuoi hien tai la:&quot;, s)...     if i &lt; len(b) - 1:...             print(&quot;chuoi tiep theo la:&quot;, b[i+1])...     else:...             print(&quot;day la chuoi cuoi cung!&quot;)...chuoi hien tai la: blogTraceback (most recent call last):  File &quot;&lt;stdin&gt;&quot;, line 4, in &lt;module&gt;TypeError: &#39;set&#39; object is not subscriptable&gt;&gt;&gt;Ôi nó bị sao thế nhỉ, lỗi “TypeError: ‘set’ object is not subscriptable” có nghĩa là kiểu dữ liệu “set” không hỗ trợ truy cập phần tử theo chỉ mục index.Hiểu nôm na thì nếu a là list, nó có thể truy cập đến phần tử đầu tiên bằng index là 0 với a[0], còn b là set thì nó không có chỉ số index như vậy nên b[0] sẽ báo lỗi như trên.Thế còn kiểu dữ liệu dict thì sao nhỉ? Không biết bạn này có hỗ trợ truy cập theo chỉ mục index không ta?&gt;&gt;&gt; a = {&quot;name&quot;: &quot;Thanh&quot;, &quot;age&quot;: 29}&gt;&gt;&gt; for i, key in enumerate(a):...     print(&quot;tu khoa: &quot;, key)...     print(f&quot;gia tri cua tu khoa {key} la: {a[key]}&quot;)...     print(f&quot;gia tri cua a tại index {i} la: {a[i]}&quot;)...tu khoa:  namegia tri cua tu khoa name la: ThanhTraceback (most recent call last):  File &quot;&lt;stdin&gt;&quot;, line 4, in &lt;module&gt;KeyError: 0&gt;&gt;&gt;Úi, vậy là kiểu dữ liệu dict cũng không truy cập theo chỉ mục index được.Vậy là, trong Python cùng là kiểu dữ liệu có thể chứa nhiều phần tử(string, list, set, dict, …) nhưng các bạn này lại chia làm hai nhóm:🥰  Nhóm dữ liệu tuần tự(sequence): string, list, … cho phép mình truy cập qua các phần tử trong bộ sưu tập bằng chỉ mục, hay gọi là số index, các bạn này có chỉ số index được đánh dấu từ 0 đến len – 1(chiều dài của nó trừ đi 1).🥰  Nhóm dữ liệu tập hợp(collection): set, dict, … không truy cập được theo chỉ mục index.Rồi sao nữa 😊  Hehe, rồi thì luật sinh ra là để lách luật đó mấy bạn 😅Muốn lách luật tức là muốn duyệt có trình tự mấy kiểu dữ liệu tập hợp như set, dict trên, thì mình cần hiểu bản chất và cơ chế của luật này cái đã. Đây chính là sư phụ của hai bạn tiểu yêu trên, tớ tạm gọi là sư phụ iterableIterableThực ra nãy giờ mình từng gặp nhiều bạn là iterable rồi ấy 👉  a và b của những ví dụ trên đều là các iterable.Một đối tượng là iterable nghĩa là nó có thể lặp qua, hiểu nôm na nếu a là một iterable thì:👉  có thể lặp qua a được, tức có thể viết *“for x in a” *👉  gọi iter(a), sẽ trả về một iterator👉  a có phương thức __iter__ cũng trả về một iterator, hoặc đôi khi A có phương thức \getitem\ nếu a thuộc nhóm dữ liệu tuần tử có thể truy cập phần tử theo chỉ số index đã nói ở trên.Xem ví dụ với iterable là list:&gt;&gt;&gt; a = [&quot;Thanh&quot;, &quot;has&quot;, &quot;a&quot;, &quot;blog&quot;]]&gt;&gt;&gt; a = [&quot;BeautyOnCode&quot;, &quot;blog&quot;]&gt;&gt;&gt; for s in a:...     print(s)...BeautyOnCodeblog&gt;&gt;&gt; iter(a)&lt;list_iterator object at 0x10b5dbd60&gt;&gt;&gt;&gt; a.__dir__()[&#39;__repr__&#39;, &#39;__hash__&#39;, &#39;__getattribute__&#39;, &#39;__lt__&#39;, &#39;__le__&#39;, &#39;__eq__&#39;, &#39;__ne__&#39;, &#39;__gt__&#39;, &#39;__ge__&#39;, &#39;__iter__&#39;, &#39;__init__&#39;, &#39;__len__&#39;, &#39;__getitem__&#39;, &#39;__setitem__&#39;, &#39;__delitem__&#39;, &#39;__add__&#39;, &#39;__mul__&#39;, &#39;__rmul__&#39;, &#39;__contains__&#39;, &#39;__iadd__&#39;, &#39;__imul__&#39;, &#39;__new__&#39;, &#39;__reversed__&#39;, &#39;__sizeof__&#39;, &#39;clear&#39;, &#39;copy&#39;, &#39;append&#39;, &#39;insert&#39;, &#39;extend&#39;, &#39;pop&#39;, &#39;remove&#39;, &#39;index&#39;, &#39;count&#39;, &#39;reverse&#39;, &#39;sort&#39;, &#39;__doc__&#39;, &#39;__str__&#39;, &#39;__setattr__&#39;, &#39;__delattr__&#39;, &#39;__reduce_ex__&#39;, &#39;__reduce__&#39;, &#39;__subclasshook__&#39;, &#39;__init_subclass__&#39;, &#39;__format__&#39;, &#39;__dir__&#39;, &#39;__class__&#39;]&gt;&gt;&gt; a.__iter__()&lt;list_iterator object at 0x10b5dbd60&gt;&gt;&gt;&gt; a.__getitem__(0)&#39;BeautyOnCode&#39;&gt;&gt;&gt;Tiếp theo b là một dict nè:&gt;&gt;&gt; b = {&quot;name&quot;: &quot;Thanh&quot;, &quot;age&quot;: 29}&gt;&gt;&gt; for x in b:...     print(x)...nameage&gt;&gt;&gt; iter(b)&lt;dict_keyiterator object at 0x10b61cc20&gt;&gt;&gt;&gt; b.__dir__()[&#39;__repr__&#39;, &#39;__hash__&#39;, &#39;__getattribute__&#39;, &#39;__lt__&#39;, &#39;__le__&#39;, &#39;__eq__&#39;, &#39;__ne__&#39;, &#39;__gt__&#39;, &#39;__ge__&#39;, &#39;__iter__&#39;, &#39;__init__&#39;, &#39;__len__&#39;, &#39;__getitem__&#39;, &#39;__setitem__&#39;, &#39;__delitem__&#39;, &#39;__contains__&#39;, &#39;__new__&#39;, &#39;__sizeof__&#39;, &#39;get&#39;, &#39;setdefault&#39;, &#39;pop&#39;, &#39;popitem&#39;, &#39;keys&#39;, &#39;items&#39;, &#39;values&#39;, &#39;update&#39;, &#39;fromkeys&#39;, &#39;clear&#39;, &#39;copy&#39;, &#39;__reversed__&#39;, &#39;__doc__&#39;, &#39;__str__&#39;, &#39;__setattr__&#39;, &#39;__delattr__&#39;, &#39;__reduce_ex__&#39;, &#39;__reduce__&#39;, &#39;__subclasshook__&#39;, &#39;__init_subclass__&#39;, &#39;__format__&#39;, &#39;__dir__&#39;, &#39;__class__&#39;]&gt;&gt;&gt; b.__iter__()&lt;dict_keyiterator object at 0x10b61cc20&gt;&gt;&gt;&gt; b.__getitem__(0)Traceback (most recent call last):  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;KeyError: 0Bạn đã thấy sự khác nhau chưa, vậy là điểm chung duy nhất của các iterable là có nhiều phần tử và cho phép mình lặp qua chúng nó đấy.Tuy nhiên, số lượng phần tử trong iterable có thể là hữu hạn hoặc vô hạn, ở các ví dụ trên rõ là chúng nó có số lượng hữu hạn. Giờ thì cũng đi qua một ví dụ với số lượng phần tử vô hạn nhé.Trong ví dụ này, mình sử dụng hàm count từ itertools để tạo một bộ đếm là bội của 3.Khi thực hiện lặp qua bộ đếm này với vòng lặp for và in các phần tử ra thì nó sẽ chạy mãi mãi cho đến khi mình ngừng chương trình hoặc mình phải thêm điều kiện dừng cho vòng lặp for là khi n &gt; 200 thì thoát khỏi vòng lặp như trong ví dụ trên.Với số lượng phần tử vô hạn như vậy thì mình không thể chuyển các bạn ấy về kiểu danh sách được. Chưa kể với số lượng phần tử quá lớn sẽ gây hại cho bộ nhớ và hiệu suất của chương trình.Hehe, thực ra tớ chuyển thử rồi, và nó kill luôn PI và tự thoát ra ngoài luôn 😅&gt;&gt;&gt; list(multiples_of_three)[1]    5953 killed     pythonVì những nguyên nhân đó, sư phụ Iterable đã nhận một đệ tử đầu tiên, chính là bạn tiểu yêu màu hồng, bạn mà sau này biến thành quái thú màu hồng trong con quái thú hai đầu đó, bạn ấy tên là Iterator.Cùng xem bạn Iterator giúp giải quyết vấn đề trên ra sao nhé!IteratorThực ra iterator là một khái niệm trong lĩnh vực khoa học máy tính đấy nhé. Đây là xuất thân của Iterator từ Wikipedia:  In computer programming, an iterator is an object that enables a programmer to traverse a container, particularly lists.Mình tạm dịch là: Trong lĩnh vực khoa học máy tính, một iterator là một đối tượng cho phép các nhà lập trình có thể duyệt qua một vùng chứa các dữ liệu, như danh sách.Còn trong Python, iterator được định nghĩa trong Python wiki là:  iterator là đối tượng có phương thức __next__, và phương thức này sẽ trả về phần tử tiếp theo của đối tượng, nếu đối tượng không còn phần tử nào để lặp qua thì nó sẽ báo lỗi StopIteration.Bạn đã thấy iterator lần nào chưa nhỉ?Thực ra mình đã thấy bạn ấy khi mình gọi iter(a) ở ví dụ trên đấy, cùng xem mình gọi __next__ thì bạn ấy sẽ trả ra gì nhé:&gt;&gt;&gt; a = [&quot;BeautyOnCode&quot;, &quot;blog&quot;]&gt;&gt;&gt; x = iter(a)&gt;&gt;&gt; x&lt;list_iterator object at 0x10b5dbd60&gt;&gt;&gt;&gt; x.__next__()&#39;BeautyOnCode&#39;&gt;&gt;&gt; x.__next__()&#39;blog&#39;&gt;&gt;&gt; x.__next__()Traceback (most recent call last):  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;StopIteration&gt;&gt;&gt;Ồ hay chưa, mình có thể đi qua các phần tử trong a bằng phương thức __next__, thay vì dùng for nè. Khi đi đến phần tử cuối cùng rồi, thì nó sẽ báo lỗi StopIteration để báo cho mình biết hết đồ để đi tiếp rồi nghen 🤣Thêm nữa, iterator cũng là iterable đó, cùng xem tớ lặp qua nó với for nè, và cả gọi iter() cho x thì nó trả về chính nó luôn.&gt;&gt;&gt; a = [&quot;BeautyOnCode&quot;, &quot;blog&quot;]&gt;&gt;&gt; x = iter(a)&gt;&gt;&gt; for s in x:...     print(s)...BeautyOnCodeblog&gt;&gt;&gt; iter(x)&lt;list_iterator object at 0x10b5a84f0&gt;&gt;&gt;&gt; x&lt;list_iterator object at 0x10b5a84f0&gt;&gt;&gt;&gt;Ra vậy, để lặp qua một iterable vô hạn, như cái ví dụ bội số của 3 ở trên, mình cần biến nó thành iterator bằng hàm iter(), rồi sau đó có thể dùng __next__() hoặc next() để đi qua lần lượt các phần tử. Nhưng vì đang nói đến iterable vô hạn, cho nên nó sẽ không bao giờ có ngoại lệ StopIteration luôn ấy.Cùng xem cách mình đã lặp qua “multiplesofthree” dùng iterator thay cho for nhé:Thật thú vị đúng không nào, mình không dùng for mà vẫn lặp qua các đối tượng của một iterable đấy.Và bật mí với các bạn, đây cũng chính là cơ chế lặp được sử dụng nhiều trong Python đấy, cụ thể là cho vòng lặp for nè, rồi xác định nhiều giá trị trong tuple nè, rồi list comprehension(ví dụ cho bạn nào quên nè, [i +1 for i in a]), ….Trước khi đi tiếp mình xin tóm tóm lại một xíu cho bạn đỡ ngợp nha.Mình đã tìm hiểu qua về: Iterable, Iterator😊  Iterable được xác định bằng 3 cách:      dùng được với for        iter(X) không báo lỗi        có phương thức __iter__  😊  Iterator được xác định bằng:      Y = iter(X), với X là một iterable, thì Y là một iterator        next(Y) sẽ trả về giá trị phần tử tiếp theo hoặc ngoại lệ StopIteration, thì Y là iterator.        iter(Y) sẽ trả về Y, thì Y là iterator(tức iterator cũng chính là iterable)  Nhìn tóm tắt trên bạn thử hình dung xem nếu mình muốn tạo một iterable cho riêng mình thì mình cần phải định nghĩa những gì để Python hiểu nó là một iterable nhỉ?Để xem nào, hẳn là nó cần có một phương thức là __iter__, và phương thức này cần trả về một bạn iterator.Cùng mình thử sức định nghĩa một iterable của riêng bạn nhé!class BlogPostIterator:    def __init__(self, blogpost):        self._blogpost = blogpost        self._current = 0    def __next__(self):        &quot;&quot;&quot;Trả về bạn post tiếp theo nhé&quot;&quot;&quot;        # Số posts trong blog nè        posts = self._blogpost._posts        if self._current &lt; len(posts):            # lấy phần tử với chỉ sổ index là _current ra nha            next = posts[self._current]            # tăng _current lên 1 nhé            self._current += 1            return next        # Nếu chỉ số index vượt quá số posts có thì        # la làng ngoại lệ StopIteration        raise StopIterationclass BlogPost:    &quot;&quot;&quot;Posts in blog&quot;&quot;&quot;    def __init__(self):        self._posts = []    def add_post(self, posts):        &quot;&quot;&quot;Thêm posts vào nhé&quot;&quot;&quot;        self._posts += posts    def __iter__(self):        &quot;&quot;&quot;Trả về iterator nhé&quot;&quot;&quot;        return BlogPostIterator(self)Ở trên, lớp BlogPost có thể tạo ra các đối tượng là iterable đó, cùng thử nghiệm nha:Mình có thực hành và giải thích ở trên video này nèUi, mãi quần quật với hai bạn này mà mình sắp trễ thời gian rồi, nhanh nhanh đi tiếp đến chú tiểu yêu tiếp theo cần phải chinh phục, đó là chú màu xanh generator .GeneratorĐây là xuất thân của Generator từ Wikipedia:  In computer science, a generator is a routine that can be used to control the iteration behaviour of a loop. All generators are also iterators.Mình tạm dịch là: Trong lĩnh vực khoa học máy tính, một generator là một bộ các quy trình các có thể dùng để kiểm soát hành động của một vòng lặp. Và tất cả generator cũng là iterators.Còn trong Python, generator được định nghĩa trong Python wiki là:generator hay gọi là hàm generator, cho phép bạn tạo ra một hàm hoạt động tương tự như một iterator, tức là nó cũng là iterable, và có thể dùng với vòng lặp for.Dùng generator trong trường hợp nàoMình là một bạn nhỏ hay thắc mắc, mình cũng rất tò mò lý do vì sao cần có hàm generator ấy nhỉ? Nó cũng tạo ra iterator đúng hem, thế sao không dùng luôn iterator thôi nhỉ?Bạn đoán thử cùng mình xem sao?Mình nghĩ là nếu tạo một iterator khoai như ở trên, thì buồn thật đấy, khi nào cũng viết phương thức __iter__ rồi nó phải trả về iterator, rồi muốn trả về iterator thì lại phải đi định nghĩa phương thức __next__ và viết cái logic khác nữa. Thật tình mà nói thì cũng hơi khó gặm đó nha 🥲.Hẳn là mấy chú Python thấy thế bèn nghĩ ra một cách, hay là mình cho tụi nhỏ viết một hàm thôi, và hàm đó hoạt động như là một iterator, còn những thứ lằng nhằng kia hãy để các chú lo, phải không? 🥰Hihi, đoán bậy vậy mà nó trúng rồi nha, chính xác là generator giúp mình tạo iterator một cách dễ dàng hơn nhiều. Và thêm nữa, generator sẽ thường sử dụng cho các trường hợp cần cân nhắc về chuyện hiệu suất của chương trình, ví dụ như là khi mình làm việc với số siêu lớn, hay làm việc với các file có dung lượng lớn cần xử lý.Vì sao? Vì khi đó nếu dùng một kiểu dữ liệu tuần tự để lưu hay xử lý thì chương trình sẽ ngốn nhiều dung lượng RAM, dẫn đến tràn RAM và gây lỗi về bộ nhớ(Memory Error).Nếu bạn gặp các trường hợp này, thì generator chính là chân ái của đời bạn đó, nhớ nhé 😘Ví dụ giùm cáiĐề bài: tạo một danh sách các số từ 0 đến n, sau đó tính tổng của chúng nó. Hãy thử nghiệm với n = 1000000000 nhé.Nào, giờ mình sẽ đi cùng với mọi người giải bài toán bằng ba cách nhéCách 1: dùng một danh sách để lưu các số.def list_n_list(n):    num, nums = 0, []    while num &lt; n:        nums.append(num)        num += 1        return numssum(list_n_list(1000000000))Và mình chạy thử xem nó tốn bao nhiêu time:$ python list_n_list.pytime execute 0:06:51.453351Rồi, đoạn code này khá là đơn giản phải không, logic rất dễ hiểu, nhưng nó đang tạo một list với tất cả các phần tử từ 0 đến n, rồi cộng lại. Rõ là phương án này nhìn thì đơn giản, nhưng rất khó chấp nhận trong trường hợp n là một số siêu lớn, vì làm sao mà mình lưu tất cả 1000000000… phần tử trong bộ nhớ được.Với n = 1000000000000000, chương trình sẽ bị đứng sau một hồi cố gắng hiu hiu, thương ghê!$ python generator.py[1]    2247 killed     python generator.pyCách 2: dùng iteratorĐầu tiên, mình sẽ tiếp cận cách số 2 với bạn iterator trước nha, vì bạn này cũng giúp mình không lưu cả dãy như ở trên, và vẫn có thể xử lý trong tình huống này ha.Ôkê, vì bạn ni hơi cực, nên mình lại nhắc xíu là mình tính làm gì nha. Đầu tiên là mình cần tạo một lớp có phương thức __iter__ sau đó phương thức này trả ra iterator, ở đây là mình muốn gom hết vào một chỗ luôn, vì mình hiểu là iterator cũng là iterable nên mình sẽ return self ở đây. Sau đó mình sẽ tạo tiếp một phương thức __next__ để self chính là iterator.Cùng xem code nha:class list_n_iterator(object):    def __init__(self, n):        # giới hạn là n        self.n = n        # bắt đầu từ 0        self.next = 0    def __iter__(self):        # list_n vừa là iterable, vừa là iterator        # vì nó có phương thức __iter__ và __next__        return self    def __next__(self):        if self.next &lt; self.n:            # gán giá trị hiện tại của next            current = self.next            # tăng 1 cho next            self.next = current + 1            return current        raise StopIterationsum(list_n_iterator(100000000))Còn đây là thời gian chạy của đoạn code với iterator nhé:$ python list_n_iterator.pytime execute 0:06:08.411233Và tất nhiên là đoạn code trên có thể hoạt động ổn hơn rồi.Tuy nhiên có vài vấn đề mà mình từng đoán trước đây như là:– Nhiều code quá, gồm lớp rồi phương thức, …– Và logic khá rối, trừ khi bạn hiểu sâu về iterator, iterable còn không thì nhìn vào đã hoa mắt rồiChưa hết, nếu dùng đoạn code này lại ở nhiều nơi sẽ làm cho code càng dài hơn đấy. Vì thế, Python đã hỗ trợ mình bạn generator, bạn này được giới thiệu từ PEP255.Cách 3: dùng người anh hùng generator, chân ái khi làm việc với số lớn và dữ liệu lớnCùng viết lại code trên với generator nhé! Bạn sẽ ngạc nhiên vì độ thanh lịch của nó đấy!def list_n_generator(n):    num = 0    while num &lt; n:        yield num        num += 1sum(list_n_generator(1000000000))Và thời gian của bạn này chạy là:$ python list_n_generator.pytime execute 0:02:07.852190*Lưu ý nhỏ là thời gian chỉ mang tính chất so sánh khách quan thôi nha, vì nó còn phụ thuộc vào máy của tớ nữa ý. *Cách tạo generatorCách 1: Dùng hàm generatorĐây chính là cách mà ví dụ ở trên dùng đấy.Để tạo hàm generator thì mình tạo hàm như bình thường và thay vì dùng return để trả về giá trị thì mình dùng yield để trả về giá trị.Cách 2: Dùng biểu thức generatorNgoài ra còn có thể dùng biểu thức generator để tạo nữa, biểu thức này tương tự như list comprehension ấy, mà thay dấu [] bằng dấu () thôi&gt;&gt;&gt; list_odds = [1, 3, 5, 7, 9]&gt;&gt;&gt; (x**2 for x in list_odds)&lt;generator object &lt;genexpr&gt; at 0x10b914b30&gt;Vậy là hôm nay mình đã cùng gặp qua sư phụ iterable, và chiến đấu với hai bạn tiểu yêu iterator và generator rồi. Bạn quái thú hai đầu này dù có sự giúp sức của sư phụ iterable nữa nhưng vẫn đầu hàng trước sự cố gắng của tụi mình và cả ba đều biến thành các bạn tiểu yêu xinh xắn rồi đó. 🥳Những khái niệm này dễ gây nhầm lẫn nên mình và các bạn hãy chú ý khi sử dụng nha.">
+    <meta itemprop="datePublished" content="2020-09-09T00:00:00-04:00">
+    <meta itemprop="dateModified" content="2020-09-09T15:12:19-04:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/iterator-va-generator-trong-python/" itemprop="url">Iterable, Iterator và Generator trong Python
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          17 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>Chào cả nhà 🥳! Chào BeautyOnCode  🤣</p>
+
+<p>Just for vui tí, thực ra đó là cách gia đình mình chào nhau dạo gần đây lol</p>
+
+<p>Ba bảo: “Chào Minh Hoàng!”. Chicken bảo: “Chào Ba Lộc!” . Mẹ Út bảo: “Chào Minh Hoàng”. Chicken bảo: “Chào Mẹ Út” 🤣</p>
+
+<p>Hôm nay tụi mình sẽ cầm gương lên, dũng cảm xông pha ra trận chém con thú hai đầu, một đầu nó có màu hồng tên là “Iterator“, một đầu màu xanh tên là “Generator“.</p>
+
+<p>Để mình kể bạn nghe, đây là một câu chuyện có thật, từ chiếc ti vi, kênh Cartoon Network, chương trình hoạt hình “Biệt đội Titan xuất kích”. Hai bạn quái vật này được nhốt trong một cái hộp thần bí, Raven đã dặn các bạn không được mở nó ra vì nó rất nguy hiểm, nhưng StarFire đã không kiềm được tò mò và mở ra. Hai bạn này siêu dễ thương luôn, cùng vui chơi với các bạn nhỏ, nhưng khi hai bạn đó được StarFire không kiềm được mà hôn cho một cái thì lập tức hai bạn biến hình thành một con quái vật có hai đầu đi phá thành phố. Sau đó, StarFire đã nói ra những lời đau lòng đến mức từ con quái vật hai đầu khổng lồ hai bạn càng ngày càng thu bé lại và biến thành hai con tiểu yêu khóc nức nở vì không được yêu thương nữa.</p>
+
+<p>Câu chuyện vậy đó, khi mình soạn bài này tự dưng mình thấy cũng trùng hợp ghê, hai bạn “Iterator” và “Generator” này cũng dễ thương như vậy, nhưng cũng có thể biến thành quái vật khi mình chủ quan về các bạn ấy đúng không nào. Còn mình mà đã hiểu á, thì sẽ biến lại thành hai bạn tiểu yêu xinh xắn dễ cưng thôi.</p>
+
+<p>Cho nên là hôm nay, mình cùng quyết tâm chinh phục con quái thú hai đầu này nha! 👻  Ý quên, còn gặp cả sư phụ của tụi nhỏ nữa đấy.</p>
+
+<p>Bài blog này thuộc series <a href="https://beautyoncode.com/dai-ban-doanh-python-series-overview/">“Khám phá Đại Bản Doanh Python”</a>.</p>
+
+<p>(Image by <a href="https://pixabay.com/users/artemtation-45390/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=948563">artemtation</a> from Pixabay)</p>
+
+<h1 id="mở-đầu">Mở đầu</h1>
+<p>Trong nội dung bài <a href="https://beautyoncode.com/control-flow-in-python/">“Các công cụ điều khiển luồng dữ liệu”</a>, mình đã biết cách lặp qua các phần tử của các kiểu dữ liệu là tập hợp nhiều phần tử trong đó, như là string, list, dict rồi, dùng for phần_tử in danh_sách. Và mình cũng đã học cách sử dụng enumerate() để có thể vừa lặp qua vừa sử dụng chỉ số index của phần tử, ví dụ:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Thanh"</span><span class="p">,</span> <span class="s">"has"</span><span class="p">,</span> <span class="s">"a"</span><span class="p">,</span> <span class="s">"blog"</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+<span class="p">...</span>     <span class="k">print</span><span class="p">(</span><span class="s">"chuoi hien tai la:"</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="p">...</span>     <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+<span class="p">...</span>             <span class="k">print</span><span class="p">(</span><span class="s">"chuoi tiep theo la:"</span><span class="p">,</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+<span class="p">...</span>     <span class="k">else</span><span class="p">:</span>
+<span class="p">...</span>             <span class="k">print</span><span class="p">(</span><span class="s">"day la chuoi cuoi cung!"</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="n">chuoi</span> <span class="n">hien</span> <span class="n">tai</span> <span class="n">la</span><span class="p">:</span> <span class="n">Thanh</span>
+<span class="n">chuoi</span> <span class="n">tiep</span> <span class="n">theo</span> <span class="n">la</span><span class="p">:</span> <span class="n">has</span>
+<span class="n">chuoi</span> <span class="n">hien</span> <span class="n">tai</span> <span class="n">la</span><span class="p">:</span> <span class="n">has</span>
+<span class="n">chuoi</span> <span class="n">tiep</span> <span class="n">theo</span> <span class="n">la</span><span class="p">:</span> <span class="n">a</span>
+<span class="n">chuoi</span> <span class="n">hien</span> <span class="n">tai</span> <span class="n">la</span><span class="p">:</span> <span class="n">a</span>
+<span class="n">chuoi</span> <span class="n">tiep</span> <span class="n">theo</span> <span class="n">la</span><span class="p">:</span> <span class="n">blog</span>
+<span class="n">chuoi</span> <span class="n">hien</span> <span class="n">tai</span> <span class="n">la</span><span class="p">:</span> <span class="n">blog</span>
+<span class="n">day</span> <span class="n">la</span> <span class="n">chuoi</span> <span class="n">cuoi</span> <span class="n">cung</span><span class="err">!</span>
+<span class="o">&gt;&gt;&gt;</span>
+</code></pre></div></div>
+<p>“a” đang là một danh sách. Nếu a là một set thì sao nhỉ? Cùng xem ví dụ ở trên với b có giá trị tương tự a nhưng là kiểu dữ liệu set nhé. (Đọc thêm về các loại dữ liệu ở bài <a href="https://beautyoncode.com/data-structure-in-python/">“Cấu trúc dữ liệu trong Python”</a> nhé)</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="s">"Thanh"</span><span class="p">,</span> <span class="s">"has"</span><span class="p">,</span> <span class="s">"a"</span><span class="p">,</span> <span class="s">"blog"</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+<span class="p">...</span>     <span class="k">print</span><span class="p">(</span><span class="s">"chuoi hien tai la:"</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<span class="p">...</span>     <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+<span class="p">...</span>             <span class="k">print</span><span class="p">(</span><span class="s">"chuoi tiep theo la:"</span><span class="p">,</span> <span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+<span class="p">...</span>     <span class="k">else</span><span class="p">:</span>
+<span class="p">...</span>             <span class="k">print</span><span class="p">(</span><span class="s">"day la chuoi cuoi cung!"</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="n">chuoi</span> <span class="n">hien</span> <span class="n">tai</span> <span class="n">la</span><span class="p">:</span> <span class="n">blog</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">4</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="nb">TypeError</span><span class="p">:</span> <span class="s">'set'</span> <span class="nb">object</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">subscriptable</span>
+<span class="o">&gt;&gt;&gt;</span>
+</code></pre></div></div>
+
+<p>Ôi nó bị sao thế nhỉ, lỗi <em>“TypeError: ‘set’ object is not subscriptable”</em> có nghĩa là kiểu dữ liệu “set” không hỗ trợ truy cập phần tử theo chỉ mục index.</p>
+
+<p>Hiểu nôm na thì nếu a là list, nó có thể truy cập đến phần tử đầu tiên bằng index là 0 với a[0], còn b là set thì nó không có chỉ số index như vậy nên b[0] sẽ báo lỗi như trên.</p>
+
+<hr />
+
+<p>Thế còn kiểu dữ liệu dict thì sao nhỉ? Không biết bạn này có hỗ trợ truy cập theo chỉ mục index không ta?</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s">"name"</span><span class="p">:</span> <span class="s">"Thanh"</span><span class="p">,</span> <span class="s">"age"</span><span class="p">:</span> <span class="mi">29</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+<span class="p">...</span>     <span class="k">print</span><span class="p">(</span><span class="s">"tu khoa: "</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+<span class="p">...</span>     <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"gia tri cua tu khoa </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s"> la: </span><span class="si">{</span><span class="n">a</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="p">...</span>     <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"gia tri cua a tại index </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s"> la: </span><span class="si">{</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="n">tu</span> <span class="n">khoa</span><span class="p">:</span>  <span class="n">name</span>
+<span class="n">gia</span> <span class="n">tri</span> <span class="n">cua</span> <span class="n">tu</span> <span class="n">khoa</span> <span class="n">name</span> <span class="n">la</span><span class="p">:</span> <span class="n">Thanh</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">4</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="nb">KeyError</span><span class="p">:</span> <span class="mi">0</span>
+<span class="o">&gt;&gt;&gt;</span>
+</code></pre></div></div>
+
+<p>Úi, vậy là kiểu dữ liệu dict cũng không truy cập theo chỉ mục index được.</p>
+
+<p>Vậy là, trong Python cùng là kiểu dữ liệu có thể chứa nhiều phần tử(string, list, set, dict, …) nhưng các bạn này lại chia làm <strong>hai nhóm</strong>:</p>
+
+<p>🥰  <strong>Nhóm dữ liệu tuần tự(sequence): string, list, …</strong> cho phép mình truy cập qua các phần tử trong bộ sưu tập bằng chỉ mục, hay gọi là số index, các bạn này có chỉ số index được đánh dấu từ 0 đến len – 1(chiều dài của nó trừ đi 1).</p>
+
+<p>🥰  <strong>Nhóm dữ liệu tập hợp(collection): set, dict, …</strong> không truy cập được theo chỉ mục index.</p>
+
+<hr />
+<p>Rồi sao nữa 😊  Hehe, rồi thì luật sinh ra là để lách luật đó mấy bạn 😅</p>
+
+<p>Muốn lách luật tức là muốn duyệt có trình tự mấy kiểu dữ liệu tập hợp như set, dict trên, thì mình cần hiểu bản chất và cơ chế của luật này cái đã. Đây chính là sư phụ của hai bạn tiểu yêu trên, tớ tạm gọi là sư phụ <strong>iterable</strong></p>
+
+<h1 id="iterable">Iterable</h1>
+
+<p>Thực ra nãy giờ mình từng gặp nhiều bạn là iterable rồi ấy 👉  <strong>a</strong> và <strong>b</strong> của những ví dụ trên đều là các iterable.</p>
+
+<p>Một đối tượng là <strong>iterable</strong> nghĩa là nó có thể lặp qua, hiểu nôm na nếu <strong>a</strong> là một <strong>iterable</strong> thì:</p>
+
+<p>👉  có thể lặp qua a được, tức có thể viết *“for x in a” *</p>
+
+<p>👉  gọi <em>iter(a)</em>, sẽ trả về một iterator</p>
+
+<p>👉  a có phương thức <em>__iter__</em> cũng trả về một iterator, hoặc đôi khi A có phương thức <em>\getitem\</em> nếu a thuộc nhóm dữ liệu tuần tử có thể truy cập phần tử theo chỉ số index đã nói ở trên.</p>
+
+<p>Xem ví dụ với iterable là list:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s">"Thanh"</span><span class="p">,</span> <span class="s">"has"</span><span class="p">,</span> <span class="s">"a"</span><span class="p">,</span> <span class="s">"blog"</span><span class="p">]]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s">"BeautyOnCode"</span><span class="p">,</span> <span class="s">"blog"</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">a</span><span class="p">:</span>
+<span class="p">...</span>     <span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="n">BeautyOnCode</span>
+<span class="n">blog</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">iter</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">list_iterator</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10b5dbd60</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">__dir__</span><span class="p">()</span>
+<span class="p">[</span><span class="s">'__repr__'</span><span class="p">,</span> <span class="s">'__hash__'</span><span class="p">,</span> <span class="s">'__getattribute__'</span><span class="p">,</span> <span class="s">'__lt__'</span><span class="p">,</span> <span class="s">'__le__'</span><span class="p">,</span> <span class="s">'__eq__'</span><span class="p">,</span> <span class="s">'__ne__'</span><span class="p">,</span> <span class="s">'__gt__'</span><span class="p">,</span> <span class="s">'__ge__'</span><span class="p">,</span> <span class="s">'__iter__'</span><span class="p">,</span> <span class="s">'__init__'</span><span class="p">,</span> <span class="s">'__len__'</span><span class="p">,</span> <span class="s">'__getitem__'</span><span class="p">,</span> <span class="s">'__setitem__'</span><span class="p">,</span> <span class="s">'__delitem__'</span><span class="p">,</span> <span class="s">'__add__'</span><span class="p">,</span> <span class="s">'__mul__'</span><span class="p">,</span> <span class="s">'__rmul__'</span><span class="p">,</span> <span class="s">'__contains__'</span><span class="p">,</span> <span class="s">'__iadd__'</span><span class="p">,</span> <span class="s">'__imul__'</span><span class="p">,</span> <span class="s">'__new__'</span><span class="p">,</span> <span class="s">'__reversed__'</span><span class="p">,</span> <span class="s">'__sizeof__'</span><span class="p">,</span> <span class="s">'clear'</span><span class="p">,</span> <span class="s">'copy'</span><span class="p">,</span> <span class="s">'append'</span><span class="p">,</span> <span class="s">'insert'</span><span class="p">,</span> <span class="s">'extend'</span><span class="p">,</span> <span class="s">'pop'</span><span class="p">,</span> <span class="s">'remove'</span><span class="p">,</span> <span class="s">'index'</span><span class="p">,</span> <span class="s">'count'</span><span class="p">,</span> <span class="s">'reverse'</span><span class="p">,</span> <span class="s">'sort'</span><span class="p">,</span> <span class="s">'__doc__'</span><span class="p">,</span> <span class="s">'__str__'</span><span class="p">,</span> <span class="s">'__setattr__'</span><span class="p">,</span> <span class="s">'__delattr__'</span><span class="p">,</span> <span class="s">'__reduce_ex__'</span><span class="p">,</span> <span class="s">'__reduce__'</span><span class="p">,</span> <span class="s">'__subclasshook__'</span><span class="p">,</span> <span class="s">'__init_subclass__'</span><span class="p">,</span> <span class="s">'__format__'</span><span class="p">,</span> <span class="s">'__dir__'</span><span class="p">,</span> <span class="s">'__class__'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">__iter__</span><span class="p">()</span>
+<span class="o">&lt;</span><span class="n">list_iterator</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10b5dbd60</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="p">.</span><span class="n">__getitem__</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="s">'BeautyOnCode'</span>
+<span class="o">&gt;&gt;&gt;</span>
+</code></pre></div></div>
+
+<p>Tiếp theo b là một dict nè:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="p">{</span><span class="s">"name"</span><span class="p">:</span> <span class="s">"Thanh"</span><span class="p">,</span> <span class="s">"age"</span><span class="p">:</span> <span class="mi">29</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">b</span><span class="p">:</span>
+<span class="p">...</span>     <span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="n">name</span>
+<span class="n">age</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">iter</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">dict_keyiterator</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10b61cc20</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">.</span><span class="n">__dir__</span><span class="p">()</span>
+<span class="p">[</span><span class="s">'__repr__'</span><span class="p">,</span> <span class="s">'__hash__'</span><span class="p">,</span> <span class="s">'__getattribute__'</span><span class="p">,</span> <span class="s">'__lt__'</span><span class="p">,</span> <span class="s">'__le__'</span><span class="p">,</span> <span class="s">'__eq__'</span><span class="p">,</span> <span class="s">'__ne__'</span><span class="p">,</span> <span class="s">'__gt__'</span><span class="p">,</span> <span class="s">'__ge__'</span><span class="p">,</span> <span class="s">'__iter__'</span><span class="p">,</span> <span class="s">'__init__'</span><span class="p">,</span> <span class="s">'__len__'</span><span class="p">,</span> <span class="s">'__getitem__'</span><span class="p">,</span> <span class="s">'__setitem__'</span><span class="p">,</span> <span class="s">'__delitem__'</span><span class="p">,</span> <span class="s">'__contains__'</span><span class="p">,</span> <span class="s">'__new__'</span><span class="p">,</span> <span class="s">'__sizeof__'</span><span class="p">,</span> <span class="s">'get'</span><span class="p">,</span> <span class="s">'setdefault'</span><span class="p">,</span> <span class="s">'pop'</span><span class="p">,</span> <span class="s">'popitem'</span><span class="p">,</span> <span class="s">'keys'</span><span class="p">,</span> <span class="s">'items'</span><span class="p">,</span> <span class="s">'values'</span><span class="p">,</span> <span class="s">'update'</span><span class="p">,</span> <span class="s">'fromkeys'</span><span class="p">,</span> <span class="s">'clear'</span><span class="p">,</span> <span class="s">'copy'</span><span class="p">,</span> <span class="s">'__reversed__'</span><span class="p">,</span> <span class="s">'__doc__'</span><span class="p">,</span> <span class="s">'__str__'</span><span class="p">,</span> <span class="s">'__setattr__'</span><span class="p">,</span> <span class="s">'__delattr__'</span><span class="p">,</span> <span class="s">'__reduce_ex__'</span><span class="p">,</span> <span class="s">'__reduce__'</span><span class="p">,</span> <span class="s">'__subclasshook__'</span><span class="p">,</span> <span class="s">'__init_subclass__'</span><span class="p">,</span> <span class="s">'__format__'</span><span class="p">,</span> <span class="s">'__dir__'</span><span class="p">,</span> <span class="s">'__class__'</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">.</span><span class="n">__iter__</span><span class="p">()</span>
+<span class="o">&lt;</span><span class="n">dict_keyiterator</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10b61cc20</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span><span class="p">.</span><span class="n">__getitem__</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="nb">KeyError</span><span class="p">:</span> <span class="mi">0</span>
+</code></pre></div></div>
+
+<p>Bạn đã thấy sự khác nhau chưa, vậy là điểm chung duy nhất của các iterable là <strong>có nhiều phần tử</strong> và cho <strong>phép mình lặp qua</strong> chúng nó đấy.</p>
+
+<p>Tuy nhiên, số lượng phần tử trong iterable có thể là hữu hạn hoặc vô hạn, ở các ví dụ trên rõ là chúng nó có số lượng hữu hạn. Giờ thì cũng đi qua một ví dụ với số lượng phần tử vô hạn nhé.</p>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2021/05/count-iterable.gif?fit=640%2C430&amp;ssl=1" alt="" /></p>
+
+<p>Trong ví dụ này, mình sử dụng hàm <strong>count</strong> từ <a href="https://docs.python.org/3/library/itertools.html">itertools</a> để tạo một bộ đếm là bội của 3.</p>
+
+<p>Khi thực hiện lặp qua bộ đếm này với vòng lặp for và in các phần tử ra thì nó sẽ chạy mãi mãi cho đến khi mình ngừng chương trình hoặc mình phải thêm điều kiện dừng cho vòng lặp for là khi n &gt; 200 thì thoát khỏi vòng lặp như trong ví dụ trên.</p>
+
+<p>Với số lượng phần tử vô hạn như vậy thì mình không thể chuyển các bạn ấy về kiểu danh sách được. Chưa kể với số lượng phần tử quá lớn sẽ gây hại cho bộ nhớ và hiệu suất của chương trình.</p>
+
+<p>Hehe, thực ra tớ chuyển thử rồi, và nó kill luôn PI và tự thoát ra ngoài luôn 😅</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">list</span><span class="p">(</span><span class="n">multiples_of_three</span><span class="p">)</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">]</span>    <span class="mi">5953</span> <span class="n">killed</span>     <span class="n">python</span>
+</code></pre></div></div>
+
+<p>Vì những nguyên nhân đó, <strong>sư phụ Iterable</strong> đã nhận một đệ tử đầu tiên, chính là bạn tiểu yêu màu hồng, bạn mà sau này biến thành quái thú màu hồng trong con quái thú hai đầu đó, bạn ấy tên là Iterator.</p>
+
+<p>Cùng xem bạn Iterator giúp giải quyết vấn đề trên ra sao nhé!</p>
+
+<h1 id="iterator">Iterator</h1>
+<p>Thực ra iterator là một khái niệm trong lĩnh vực khoa học máy tính đấy nhé. <a href="https://en.wikipedia.org/wiki/Iterator">Đây</a> là xuất thân của Iterator từ Wikipedia:</p>
+
+<blockquote>
+  <p>In computer programming, an <strong>iterator</strong> is an object that enables a programmer to traverse a container, particularly lists.</p>
+</blockquote>
+
+<p>Mình tạm dịch là: Trong lĩnh vực khoa học máy tính, một iterator là một đối tượng cho phép các nhà lập trình có thể duyệt qua một vùng chứa các dữ liệu, như danh sách.</p>
+
+<p>Còn trong Python, iterator được định nghĩa trong <a href="https://wiki.python.org/">Python wiki</a> là:</p>
+
+<blockquote>
+  <p><a href="https://wiki.python.org/moin/Iterator">iterator</a> là đối tượng có phương thức <strong>__next__</strong>, và phương thức này sẽ trả về phần tử tiếp theo của đối tượng, nếu đối tượng không còn phần tử nào để lặp qua thì nó sẽ báo lỗi <strong>StopIteration</strong>.</p>
+</blockquote>
+
+<hr />
+
+<p>Bạn đã thấy iterator lần nào chưa nhỉ?</p>
+
+<p>Thực ra mình đã thấy bạn ấy khi mình gọi iter(a) ở ví dụ trên đấy, cùng xem mình gọi <strong>__next__</strong> thì bạn ấy sẽ trả ra gì nhé:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s">"BeautyOnCode"</span><span class="p">,</span> <span class="s">"blog"</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<span class="o">&lt;</span><span class="n">list_iterator</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10b5dbd60</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">.</span><span class="n">__next__</span><span class="p">()</span>
+<span class="s">'BeautyOnCode'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">.</span><span class="n">__next__</span><span class="p">()</span>
+<span class="s">'blog'</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span><span class="p">.</span><span class="n">__next__</span><span class="p">()</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s">"&lt;stdin&gt;"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="nb">StopIteration</span>
+<span class="o">&gt;&gt;&gt;</span>
+</code></pre></div></div>
+
+<p>Ồ hay chưa, mình có thể đi qua các phần tử trong a bằng phương thức <strong>__next__</strong>, thay vì dùng for nè. Khi đi đến phần tử cuối cùng rồi, thì nó sẽ báo lỗi <em>StopIteration</em> để báo cho mình biết hết đồ để đi tiếp rồi nghen 🤣</p>
+
+<p>Thêm nữa, <strong>iterator cũng là iterable</strong> đó, cùng xem tớ lặp qua nó với for nè, và cả gọi iter() cho x thì nó trả về chính nó luôn.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s">"BeautyOnCode"</span><span class="p">,</span> <span class="s">"blog"</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+<span class="p">...</span>     <span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="p">...</span>
+<span class="n">BeautyOnCode</span>
+<span class="n">blog</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">iter</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">list_iterator</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10b5a84f0</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<span class="o">&lt;</span><span class="n">list_iterator</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x10b5a84f0</span><span class="o">&gt;</span>
+<span class="o">&gt;&gt;&gt;</span>
+</code></pre></div></div>
+
+<p>Ra vậy, để lặp qua một iterable vô hạn, như cái ví dụ bội số của 3 ở trên, mình cần biến nó thành iterator bằng hàm iter(), rồi sau đó có thể dùng <strong>__next__()</strong> hoặc <strong>next()</strong> để đi qua lần lượt các phần tử. Nhưng vì đang nói đến iterable vô hạn, cho nên nó sẽ không bao giờ có ngoại lệ StopIteration luôn ấy.</p>
+
+<p>Cùng xem cách mình đã lặp qua “<em>multiplesofthree</em>” dùng iterator thay cho for nhé:</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2021/05/iterator-example-unlimit.gif?fit=640%2C616&amp;ssl=1" alt="" /></p>
+
+<p>Thật thú vị đúng không nào, mình không dùng for mà vẫn lặp qua các đối tượng của một iterable đấy.</p>
+
+<p>Và bật mí với các bạn, đây cũng chính là cơ chế lặp được sử dụng nhiều trong Python đấy, cụ thể là cho vòng lặp for nè, rồi xác định nhiều giá trị trong tuple nè, rồi list comprehension(ví dụ cho bạn nào quên nè, [i +1 for i in a]), ….</p>
+
+<p>Trước khi đi tiếp mình xin tóm tóm lại một xíu cho bạn đỡ ngợp nha.</p>
+
+<p>Mình đã tìm hiểu qua về: <strong>Iterable</strong>, <strong>Iterator</strong></p>
+
+<p>😊  <strong>Iterable được xác định bằng 3 cách:</strong></p>
+
+<ol>
+  <li>
+    <p>dùng được với for</p>
+  </li>
+  <li>
+    <p>iter(X) không báo lỗi</p>
+  </li>
+  <li>
+    <p>có phương thức __iter__</p>
+  </li>
+</ol>
+
+<p>😊  <strong>Iterator được xác định bằng:</strong></p>
+
+<ol>
+  <li>
+    <p>Y = iter(X), với X là một iterable, thì Y là một iterator</p>
+  </li>
+  <li>
+    <p>next(Y) sẽ trả về giá trị phần tử tiếp theo hoặc ngoại lệ StopIteration, thì Y là iterator.</p>
+  </li>
+  <li>
+    <p>iter(Y) sẽ trả về Y, thì Y là iterator(tức iterator cũng chính là iterable)</p>
+  </li>
+</ol>
+
+<p>Nhìn tóm tắt trên bạn thử hình dung xem nếu mình muốn tạo một iterable cho riêng mình thì mình cần phải định nghĩa những gì để Python hiểu nó là một iterable nhỉ?</p>
+
+<p>Để xem nào, hẳn là nó cần có một phương thức là <strong>__iter__</strong>, và phương thức này cần trả về một bạn <strong>iterator</strong>.</p>
+
+<p>Cùng mình thử sức định nghĩa một iterable của riêng bạn nhé!</p>
+
+<hr />
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">BlogPostIterator</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">blogpost</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_blogpost</span> <span class="o">=</span> <span class="n">blogpost</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_current</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""Trả về bạn post tiếp theo nhé"""</span>
+        <span class="c1"># Số posts trong blog nè
+</span>        <span class="n">posts</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="n">_blogpost</span><span class="p">.</span><span class="n">_posts</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="n">_current</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">posts</span><span class="p">):</span>
+            <span class="c1"># lấy phần tử với chỉ sổ index là _current ra nha
+</span>            <span class="nb">next</span> <span class="o">=</span> <span class="n">posts</span><span class="p">[</span><span class="bp">self</span><span class="p">.</span><span class="n">_current</span><span class="p">]</span>
+            <span class="c1"># tăng _current lên 1 nhé
+</span>            <span class="bp">self</span><span class="p">.</span><span class="n">_current</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="nb">next</span>
+
+        <span class="c1"># Nếu chỉ số index vượt quá số posts có thì
+</span>        <span class="c1"># la làng ngoại lệ StopIteration
+</span>        <span class="k">raise</span> <span class="nb">StopIteration</span>
+
+<span class="k">class</span> <span class="nc">BlogPost</span><span class="p">:</span>
+    <span class="s">"""Posts in blog"""</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_posts</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">add_post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">posts</span><span class="p">):</span>
+        <span class="s">"""Thêm posts vào nhé"""</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">_posts</span> <span class="o">+=</span> <span class="n">posts</span>
+
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">"""Trả về iterator nhé"""</span>
+        <span class="k">return</span> <span class="n">BlogPostIterator</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Ở trên, lớp BlogPost có thể tạo ra các đối tượng là iterable đó, cùng thử nghiệm nha:</p>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2021/05/custom-iterable-run.gif?fit=640%2C357&amp;ssl=1" alt="" /></p>
+
+<p>Mình có thực hành và giải thích ở trên <a href="https://youtu.be/nEIV8lXn1Hs">video này</a> nè</p>
+
+<p>Ui, mãi quần quật với hai bạn này mà mình sắp trễ thời gian rồi, nhanh nhanh đi tiếp đến chú tiểu yêu tiếp theo cần phải chinh phục, đó là chú màu xanh <strong>generator</strong> .</p>
+
+<h1 id="generator">Generator</h1>
+
+<p><a href="https://en.wikipedia.org/wiki/Generator_(computer_programming)">Đây</a> là xuất thân của Generator từ Wikipedia:</p>
+
+<blockquote>
+  <p>In computer science, a <strong>generator</strong> is a routine that can be used to control the iteration behaviour of a loop. All generators are also iterators.</p>
+</blockquote>
+
+<p>Mình tạm dịch là: Trong lĩnh vực khoa học máy tính, một generator là một bộ các quy trình các có thể dùng để kiểm soát hành động của một vòng lặp. Và tất cả generator cũng là iterators.</p>
+
+<p>Còn trong Python, generator được định nghĩa trong Python wiki là:</p>
+
+<p><a href="https://wiki.python.org/moin/Generators">generator</a> hay gọi là <strong>hàm generato</strong>r, cho phép bạn tạo ra một hàm hoạt động tương tự như một iterator, tức là nó cũng là iterable, và có thể dùng với vòng lặp for.</p>
+
+<h2 id="dùng-generator-trong-trường-hợp-nào">Dùng generator trong trường hợp nào</h2>
+
+<p>Mình là một bạn nhỏ hay thắc mắc, mình cũng rất tò mò lý do vì sao cần có hàm generator ấy nhỉ? Nó cũng tạo ra iterator đúng hem, thế sao không dùng luôn iterator thôi nhỉ?</p>
+
+<p>Bạn đoán thử cùng mình xem sao?</p>
+
+<p>Mình nghĩ là nếu tạo một iterator khoai như ở trên, thì buồn thật đấy, khi nào cũng viết phương thức <strong>__iter__</strong> rồi nó phải trả về iterator, rồi muốn trả về iterator thì lại phải đi định nghĩa phương thức <strong>__next__</strong> và viết cái logic khác nữa. Thật tình mà nói thì cũng hơi khó gặm đó nha 🥲.</p>
+
+<p>Hẳn là mấy chú Python thấy thế bèn nghĩ ra một cách, hay là mình cho tụi nhỏ viết một hàm thôi, và hàm đó hoạt động như là một iterator, còn những thứ lằng nhằng kia hãy để các chú lo, phải không? 🥰</p>
+
+<p>Hihi, đoán bậy vậy mà nó trúng rồi nha, chính xác là generator giúp mình tạo iterator một cách dễ dàng hơn nhiều. Và thêm nữa, generator sẽ thường sử dụng cho các trường hợp cần cân nhắc về chuyện hiệu suất của chương trình, ví dụ như là khi mình làm việc với số siêu lớn, hay làm việc với các file có dung lượng lớn cần xử lý.</p>
+
+<p>Vì sao? Vì khi đó nếu dùng một kiểu dữ liệu tuần tự để lưu hay xử lý thì chương trình sẽ ngốn nhiều dung lượng RAM, dẫn đến tràn RAM và gây lỗi về bộ nhớ(<em>Memory Error</em>).</p>
+
+<p>Nếu bạn gặp các trường hợp này, thì generator chính là chân ái của đời bạn đó, nhớ nhé 😘</p>
+
+<h2 id="ví-dụ-giùm-cái">Ví dụ giùm cái</h2>
+
+<p><strong>Đề bài:</strong> tạo một danh sách các số từ 0 đến n, sau đó tính tổng của chúng nó. Hãy thử nghiệm với n = 1000000000 nhé.</p>
+
+<p>Nào, giờ mình sẽ đi cùng với mọi người giải bài toán bằng ba cách nhé</p>
+
+<h3 id="cách-1-dùng-một-danh-sách-để-lưu-các-số">Cách 1: dùng một danh sách để lưu các số.</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">list_n_list</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">num</span><span class="p">,</span> <span class="n">nums</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="p">[]</span>
+    <span class="k">while</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="n">nums</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+        <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">nums</span>
+
+<span class="nb">sum</span><span class="p">(</span><span class="n">list_n_list</span><span class="p">(</span><span class="mi">1000000000</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Và mình chạy thử xem nó tốn bao nhiêu time:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">python</span> <span class="n">list_n_list</span><span class="p">.</span><span class="n">py</span>
+<span class="n">time</span> <span class="n">execute</span> <span class="mi">0</span><span class="p">:</span><span class="mi">06</span><span class="p">:</span><span class="mf">51.453351</span>
+</code></pre></div></div>
+
+<p>Rồi, đoạn code này khá là đơn giản phải không, logic rất dễ hiểu, nhưng nó đang tạo một list với tất cả các phần tử từ 0 đến n, rồi cộng lại. Rõ là phương án này nhìn thì đơn giản, nhưng rất khó chấp nhận trong trường hợp n là một số siêu lớn, vì làm sao mà mình lưu tất cả 1000000000… phần tử trong bộ nhớ được.</p>
+
+<p>Với n = 1000000000000000, chương trình sẽ bị đứng sau một hồi cố gắng hiu hiu, thương ghê!</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">python</span> <span class="n">generator</span><span class="p">.</span><span class="n">py</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">]</span>    <span class="mi">2247</span> <span class="n">killed</span>     <span class="n">python</span> <span class="n">generator</span><span class="p">.</span><span class="n">py</span>
+</code></pre></div></div>
+
+<h3 id="cách-2-dùng-iterator">Cách 2: dùng iterator</h3>
+
+<p>Đầu tiên, mình sẽ tiếp cận cách số 2 với bạn iterator trước nha, vì bạn này cũng giúp mình không lưu cả dãy như ở trên, và vẫn có thể xử lý trong tình huống này ha.</p>
+
+<p>Ôkê, vì bạn ni hơi cực, nên mình lại nhắc xíu là mình tính làm gì nha. Đầu tiên là mình cần tạo một lớp có phương thức <strong>__iter__</strong> sau đó phương thức này trả ra iterator, ở đây là mình muốn gom hết vào một chỗ luôn, vì mình hiểu là iterator cũng là iterable nên mình sẽ return self ở đây. Sau đó mình sẽ tạo tiếp một phương thức <strong>__next__</strong> để self chính là iterator.</p>
+
+<p>Cùng xem code nha:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">list_n_iterator</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+        <span class="c1"># giới hạn là n
+</span>        <span class="bp">self</span><span class="p">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span>
+        <span class="c1"># bắt đầu từ 0
+</span>        <span class="bp">self</span><span class="p">.</span><span class="nb">next</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># list_n vừa là iterable, vừa là iterator
+</span>        <span class="c1"># vì nó có phương thức __iter__ và __next__
+</span>        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span> <span class="nf">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="p">.</span><span class="nb">next</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="p">.</span><span class="n">n</span><span class="p">:</span>
+            <span class="c1"># gán giá trị hiện tại của next
+</span>            <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="p">.</span><span class="nb">next</span>
+            <span class="c1"># tăng 1 cho next
+</span>            <span class="bp">self</span><span class="p">.</span><span class="nb">next</span> <span class="o">=</span> <span class="n">current</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="k">return</span> <span class="n">current</span>
+        <span class="k">raise</span> <span class="nb">StopIteration</span>
+
+<span class="nb">sum</span><span class="p">(</span><span class="n">list_n_iterator</span><span class="p">(</span><span class="mi">100000000</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Còn đây là thời gian chạy của đoạn code với iterator nhé:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">python</span> <span class="n">list_n_iterator</span><span class="p">.</span><span class="n">py</span>
+<span class="n">time</span> <span class="n">execute</span> <span class="mi">0</span><span class="p">:</span><span class="mi">06</span><span class="p">:</span><span class="mf">08.411233</span>
+</code></pre></div></div>
+
+<p>Và tất nhiên là đoạn code trên có thể hoạt động ổn hơn rồi.</p>
+
+<p>Tuy nhiên có vài vấn đề mà mình từng đoán trước đây như là:</p>
+
+<p>– Nhiều code quá, gồm lớp rồi phương thức, …</p>
+
+<p>– Và logic khá rối, trừ khi bạn hiểu sâu về iterator, iterable còn không thì nhìn vào đã hoa mắt rồi</p>
+
+<p>Chưa hết, nếu dùng đoạn code này lại ở nhiều nơi sẽ làm cho code càng dài hơn đấy. Vì thế, Python đã hỗ trợ mình bạn generator, bạn này được giới thiệu từ <a href="https://www.python.org/dev/peps/pep-0255/">PEP255</a>.</p>
+
+<p>Cách 3: dùng người anh hùng generator, chân ái khi làm việc với số lớn và dữ liệu lớn</p>
+
+<p>Cùng viết lại code trên với generator nhé! Bạn sẽ ngạc nhiên vì độ thanh lịch của nó đấy!</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">list_n_generator</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">num</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">num</span>
+        <span class="n">num</span> <span class="o">+=</span> <span class="mi">1</span>
+
+<span class="nb">sum</span><span class="p">(</span><span class="n">list_n_generator</span><span class="p">(</span><span class="mi">1000000000</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Và thời gian của bạn này chạy là:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">python</span> <span class="n">list_n_generator</span><span class="p">.</span><span class="n">py</span>
+<span class="n">time</span> <span class="n">execute</span> <span class="mi">0</span><span class="p">:</span><span class="mi">02</span><span class="p">:</span><span class="mf">07.852190</span>
+</code></pre></div></div>
+
+<p>*Lưu ý nhỏ là thời gian chỉ mang tính chất so sánh khách quan thôi nha, vì nó còn phụ thuộc vào máy của tớ nữa ý. *</p>
+
+<h2 id="cách-tạo-generator">Cách tạo generator</h2>
+
+<h3 id="cách-1-dùng-hàm-generator">Cách 1: Dùng hàm generator</h3>
+
+<p>Đây chính là cách mà ví dụ ở trên dùng đấy.</p>
+
+<p>Để tạo hàm generator thì mình tạo hàm như bình thường và thay vì dùng return để trả về giá trị thì mình dùng yield để trả về giá trị.</p>
+
+<h3 id="cách-2-dùng-biểu-thức-generator">Cách 2: Dùng biểu thức generator</h3>
+
+<p>Ngoài ra còn có thể dùng biểu thức generator để tạo nữa, biểu thức này tương tự như list comprehension ấy, mà thay dấu [] bằng dấu () thôi</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="n">list_odds</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">list_odds</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">generator</span> <span class="nb">object</span> <span class="o">&lt;</span><span class="n">genexpr</span><span class="o">&gt;</span> <span class="n">at</span> <span class="mh">0x10b914b30</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<p>Vậy là hôm nay mình đã cùng gặp qua sư phụ iterable, và chiến đấu với hai bạn tiểu yêu <strong>iterator</strong> và <strong>generator</strong> rồi. Bạn quái thú hai đầu này dù có sự giúp sức của sư phụ <strong>iterable</strong> nữa nhưng vẫn đầu hàng trước sự cố gắng của tụi mình và cả ba đều biến thành các bạn tiểu yêu xinh xắn rồi đó. 🥳</p>
+
+<p>Những khái niệm này dễ gây nhầm lẫn nên mình và các bạn hãy chú ý khi sử dụng nha.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#python" class="page__taxonomy-item p-category" rel="tag">python</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#%C4%91%E1%BA%A1i-b%E1%BA%A3n-doanh-python" class="page__taxonomy-item p-category" rel="tag">Đại Bản Doanh Python</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2020-09-09">September 9, 2020</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  <h4 class="page__share-title">Share on</h4>
+
+  <a href="https://twitter.com/intent/tweet?via=mmistakes&text=Iterable%2C+Iterator+v%C3%A0+Generator+trong+Python%20http%3A%2F%2Flocalhost%3A4000%2F%25C4%2591%25E1%25BA%25A1i%2520b%25E1%25BA%25A3n%2520doanh%2520python%2Fiterator-va-generator-trong-python%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F%25C4%2591%25E1%25BA%25A1i%2520b%25E1%25BA%25A3n%2520doanh%2520python%2Fiterator-va-generator-trong-python%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/iterator-va-generator-trong-python/" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/loi-va-xu-ly-ngoai-le-python/" class="pagination--pager" title="Lỗi và xử lý ngoại lệ trong Python
+">Previous</a>
+    
+    
+      <a href="/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/khong-gian-ten-va-pham-vi-trong-python/" class="pagination--pager" title="Không gian tên(namespace) và phạm vi(scope) trong Python
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  <div align="center" style="margin: 1em 0;">
+  <ins class="adsbygoogle"
+        style="display:block; border-bottom: initial;"
+        data-ad-client="ca-pub-7328585512091257"
+        data-ad-slot="3049671934"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+</div>
+
+
+  <h2 class="page__related-title">You May Also Enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/django/relation-fields-in-drf-serializer/" rel="permalink">Relation fields in Django Rest Framework Serializer
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+The Django model offers various types of relationships such as OneToOneField, ForeignKey, ManyToManyField, and GenericForeignKey.
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/django/export-multiple-csv-to-zip-django/" rel="permalink">Export Multiple CSVs file into a ZIP in Django Application
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/django/export-docx-in-django/" rel="permalink">Export a docx file in Django application
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          8 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/js/scope-trong-javascript/" rel="permalink">Scope trong JavaScript
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      <div align="center" style="margin: 1em 0;">
+  <ins class="adsbygoogle"
+        style="display:block; border-bottom: initial;"
+        data-ad-client="ca-pub-7328585512091257"
+        data-ad-slot="3049671934"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="search-searchbar"></div>
+  <div class="search-hits"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/mmistakes" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/mmistakes" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/mmistakes" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 <a href="http://localhost:4000">BeautyOnCode</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+<script>
+// Including InstantSearch.js library and styling
+const loadSearch = function() {
+  const loadCSS = function(src) {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = src;
+    link.media = 'all';
+    document.head.appendChild(link);
+  };
+
+  var script = document.createElement('script');
+  script.setAttribute("type", "text/javascript");
+  script.setAttribute("src", "https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.js");
+  script.addEventListener("load", function() {
+    // Instantiating InstantSearch.js with Algolia credentials
+    const search = instantsearch({
+      appId: 'QB6HVGBSBA',
+      apiKey: '9d5014e5bbc77372547bce778dfa5663',
+      indexName: 'minimal_mistakes',
+      searchParameters: {
+        restrictSearchableAttributes: ['title', 'content']
+      }
+    });
+
+    const hitTemplate = function(hit) {
+      const url = hit.url;
+      const hightlight = hit._highlightResult;
+      const title = hightlight.title && hightlight.title.value  || "";
+      const content = hightlight.html && hightlight.html.value  || "";
+
+      return `
+        <div class="list__item">
+          <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+            <h2 class="archive__item-title" itemprop="headline"><a href="/${url}">${title}</a></h2>
+            <div class="archive__item-excerpt" itemprop="description">${content}</div>
+          </article>
+        </div>
+      `;
+    }
+
+    // Adding searchbar and results widgets
+    search.addWidget(
+      instantsearch.widgets.searchBox({
+        container: '.search-searchbar',
+        poweredBy: true,
+        placeholder: 'Enter your search term...'
+      })
+    );
+    search.addWidget(
+      instantsearch.widgets.hits({
+        container: '.search-hits',
+        templates: {
+          item: hitTemplate,
+          empty: 'No results',
+        }
+      })
+    );
+
+    if (!search.started) {
+      search.start();
+    }
+  });
+  document.body.appendChild(script);
+
+  loadCSS("https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.css");
+  loadCSS("https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch-theme-algolia.min.css");
+};
+
+// Starting the search only when toggle is clicked
+$(document).ready(function() {
+  var scriptLoaded = false;
+
+  $(".search__toggle").on("click", function() {
+    if (!scriptLoaded) {
+      loadSearch();
+      scriptLoaded = true;
+    }
+  });
+});
+</script>
+
+
+
+
+<style>
+.google-auto-placed {
+  margin: 2em auto;
+}
+</style>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
+
+
+  </body>
+</html>

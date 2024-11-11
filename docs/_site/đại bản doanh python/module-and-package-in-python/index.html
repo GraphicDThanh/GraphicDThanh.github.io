@@ -1,0 +1,1048 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en-US" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Mô đun và Gói trong Python - BeautyOnCode</title>
+<meta name="description" content="Chào mừng mọi người đến với bài tiếp theo của phần “The Python Tutorial” của series “Khám phá Đại Bản Doanh Python“.  Bài trước, mình đã học thêm về “Cấu trúc dữ liệu trong Python”. Hôm ni, mình học tiếp về bạn “Mô-đun” nha.  (Những nội dung trong bài series này từ chủ yếu mình lấy từ python.org rồi viết lại hoặc dịch lại theo ngôn ngữ của mình)  Mô-đun  Khi thoát khỏi PI, các dự liệu(biến, hàm, …) được khai báo trước đây sẽ bị mất như ví dụ sau:    Do đó, cần chuẩn bị đầu vào cho trình thông dịch để có thể dùng được bất cứ khi nào mình cần, các file chứa những đoạn mã như vậy được gọi là các script  Để làm được như vậy, cách mình cần làm với Python là tạo một file có đuôi là “.py” rồi bỏ code vào đó. File này được gọi là mô-đun.  Một mô-đun có thể được sử dụng trong một mô-đun khác, cũng có thể sử dụng trong trình thông dịch PI.  Tên của mô-đun được lưu dưới biến name của chính mô-đun đó.     Mô-đun là tệp chứa các định nghĩa và các câu lệnh Python     Trên đây là cách dùng một mô-đun trong PI, mình cần nạp nó vào bằng lệnh “import”.  Lưu ý nhỏ: Đến đây, mình đã cần sử dụng đến trình soạn thảo(editor) để tạo file và viết những đoạn code dài hơn. Editor mình đang dùng là “Visual Studio Code“  Cách nạp mô-đun để sử dụng  Nạp mô-đun vào đâu để sử dụng? Là nạp vào mô-đun khác hoặc nạp vào khi mình đang ở trong trình thông dịch PI như ví dụ trên đây.  Khi mình nạp một mô-đun, các thành phần của nó sẽ được khởi tạo.  Mỗi mô-đun như một cái gói bọc hết các giá trị được khởi tạo của nó trong đó, do đó khi cần dùng mình phải trỏ từ tên mô-đun vào lấy các thành phần khác. Ví dụ, bạn muốn dùng biến “name” trong module “person”, thì nó là: “person.name”  Có nhiều cách nạp mô-đun và các thành phần của nó:  → Nạp luôn cả mô-đun: import person  Khi nạp một mô-đun như vậy, mình cần gọi các thành phần bên trong nó từ mô-đun này, ví dụ “person.first_name”  → Nạp từng thành phần của mô-đun với from person import first_name, last_name  Khi nạp từng thành phần như trên thì mô-đun person không có được nạp vào, chỉ có hai hàm first_name và last_name, nên không gọi person.first_name được, chỉ dùng first_name thôi nghen.  → Nạp hết tất cả thành phần với *: from person import *  Tương tự như trên, tất cả các thành phần trong mô-đun person được nạp vào nhưng chính bản thân nó thì không.  → Nạp mô-đun và sử dụng với tên khác với “as“: from person import full_name as name  Hàm full_name được kết nối với tên thay thế là “name”, nên gọi name chính là gọi full_name  ### Cách cập nhật nội dung của mô-đun  Khi làm việc với mô-đun trong PI, đôi khi mình sửa code nhưng không thấy kết quả được cập nhật, đó là do nội dung mô-đun bạn nạp trước đây vẫn tồn tại và bạn cần tải lại mô-đun để có nội dung mới nhất.  Có hai cách cập nhật nội dung của mô-đun:  Cách 1: thoát PI và tải lại mô-đun đó   Cách 2: gọi đến mô-đun importlib và gọi lệnh để reload mô-đun mình cần     import importlib; importlib.reload()     Thực thi một mô-đun như là một script  Ngoài cách vào trình thông dịch PI, nạp mô-đun mà gọi lệnh thực thi chương trình để kiểm thử, bạn có một cách khác nhanh hơn là viết sẵn chương trình bạn cần làm trong mô-đun luôn và gọi lệnh để thực thi script đó.  Để thực thi một mô đun trong PI, bạn dùng từ khoá “python”:       python calculator.py   Kết quả của lệnh trên sẽ là: Total 5  Gọi vậy thì mô-đun sẽ được thực thi như khi bạn import nó vào mô-đun khác.  Điều khác duy nhất khi thực thi bằng lệnh “python” là tên name của mô-đun sẽ được gán với giá trị main.  Bạn để ý chỗ ni xíu, vì khúc này liên quan tới một câu lệnh mình hay dùng mà hỏng hiểu tại sao, câu lệnh đó là:     if name == “main”:    # code thực thi đặt vào đây      Bạn có thấy câu lệnh ni quen không? Nếu bạn từng học qua Python hẳn bạn đã gặp rồi.  Người ta hay bỏ câu lệnh như vậy vào chương trình để mần chi nhỉ?  Để cho các code trong chỗ “#code thực thi thì đặt vào đây” ấy, chỉ được chạy khi mà mình chạy nó như một script với lệnh “python” thôi. Còn khi import nó vào mô-đun khác thì hỏng có chạy.  Đây là cách tiện hay dùng để kiểm thử một mô-đun đồng thời khi dùng nó trong mô-đun khác lại không bị ảnh hưởng.  Bạn thấy chỗ ni hay hông? Mình thấy siêu hay luôn, vì khúc ni trước mình xài mà hông có hiểu mấy ^^  Python tìm mô-đun ở đâu?  Khi làm việc với mô-đun, bạn có thể sẽ gặp lỗi không tìm thấy mô-đun như thế này.    Khi một mô-đun nạp đúng, bạn có để ý PI biết chính xác mô-đun của bạn đang ở đâu.    Vậy thì PI đã tìm mô-đun ở những nơi nào?  → Đầu tiên, PI sẽ đi kiếm nó trong built-in mô-đun(là những mô-đun được Python xây dựng sẵn, hay còn gọi là những mô-đun tiêu chuẩn)  → Nếu tìm chưa thấy, nó sẽ tiếp tục tìm trong sys.path, sys.path được định nghĩa ở những nơi sau:     Thư mục hiện tại(nơi bạn đứng và truy cập vào PI) là giá trị của sys.path[0], nên được tìm kiếm đầu tiên.   PYTHONPATH   Thư mục cài đặt mặc định   Lưu ý: Nếu mô-đun trùng tên với built-in mô-đun, thì mô-đun ở folder hiện tại sẽ được nạp vào, chớ không phải built-ins mô-đun nghen.  Nếu bạn chưa nạp được mô-đun của mình trong PI, vui lòng hãy dòm qua cái sys.path thử có cái đường dẫn đến thư mục mô-đun của bạn chưa, nếu chưa có thì bạn đứng sai chỗ rồi đó.  Biên dịch các file .py  Quá trình biên dịch này diễn ra hoàn toàn tự động, cho nên khi làm việc với Python bạn sẽ thấy folder pycache này thường xuyên, mình cùng đọc cho biết thêm ha.  Để tăng tốc độ tải các mô-đun, Python lưu phiên bản biên dịch của từng version khác nhau của mô-đun dưới định dạng module.version.pyc trong thư mục pycache.  Quy ước đặt tên này cho phép Python có thể biên dịch lại từ các version khác nhau.  Ví dụ dưới đây thể hiện version python 3.8 mình đang sử dụng    Các mô-đun chuẩn  Python có sẵn thư viện của các mô-đun tiêu chuẩn, được viết ở “The Python Standard Library“, bao gồm những nhóm chính như là:  – Built-in functions: các hàm dựng sẵn  – Built-in constants: các biến dựng sẵn  – Built-in types: các kiểu dữ liệu dựng sẵn  – Built-in exceptions: các ngoại lệ dựng sẵn  – Data types: các kiểu dữ liệu …  Các mô-đun này có thể khác nhau tuỳ theo nền tảng chạy Python, ví dụ mô-đun winreg chỉ có ở hệ điều hành Window, hoặc hai giá trị sys.ps1 và sys.ps2 của mô-đun sys chỉ có trong PI, còn sys.path lại thể hiện các nơi có thể tìm kiếm mô-đun.  Trò chơi nhỏ: cùng xem sys.ps1 và sys.ps2 có giá trị gì trong PI của máy bạn sau đó gán nó bằng một giá trị bất kỳ rồi thử in ra một câu xem có gì thú vị sẽ xảy ra nhé.  (Nếu bạn đang không vui, hãy bỏ qua mấy trò nhảm của mình ạ)  Hàm dir()  Nhìn một mô-đun mình chẳng biết nó có gì cả, bạn dir() này như kiểu chụp X-quang cắt lớp xem cái mô-đun của mình chứa những biến gì, những hàm nào, nhưng ở dạng rất sơ khai, là một mảng các tên được sắp xếp theo thứ tự A đến Z.    Chưa hết, gọi dir() không có giá trị truyền vào trong PI sẽ thấy được những biến, hàm có thể sử dụng ở PI hiện tại:    Lưu ý nhỏ là dir() không list ra được những hàm và giá trị được dựng sẵn(mấy bạn built-ins). Muốn xem mấy bạn này, mình phải dùng cái gọi là dir(builtins)    Gói  Gói(package) là một nhóm các mô-đun khác nhau. Nó tương tự như thư mục chứa nhiều tệp tin vậy, nhưng cần phải đăng ký nhẹ với python để nó biết đó là gói, bằng cách thêm file init.py là python biết mình khởi tạo gói.  Một gói cũng có thể chứa nhiều gói con khác nằm bên trong nó.  Ví dụ mình muốn thiết kế một gói tên là “calculators” chứa hai gói con là máy tính “casio_fx115” và “casio_fx9750” đồng thời chứa các mô-đun “utils” thì sẽ có cấu trúc thư mục là:    Nạp gói, mô-đun và các lưu ý  Lỗi khi import mô-đun là lỗi khá phổ biến với người mới học. Do đó, khi thực hiện import, bạn hãy nhớ đến 2 câu thần chú: “Tôi đang đứng ở đâu? Thứ tôi cần đang ở đâu?”  Nghe khá tào lao nhưng bạn lấy thư mục/gói chứa điểm chung gần nhất của nơi bạn đứng và nơi bạn cần sẽ là điểm bạn thực hiện import từ đó.  Chắc bạn không hiểu đâu, để mình ví dụ nè:  (ví dụ hơi lộn xộn, bạn phải thật bình tĩnh khi đọc và dòm cái hình bên trên nữa nhé)  Ví dụ 1: Import hàm total từ utils.py vào total.py trong thư mục casio_fx115  Thì mình sẽ làm thế này:  – Mình xác định mình đang đứng ở “casio_fx9570/total.py” tức là đứng trong gói “casio_fx9570“  – Thứ mình cần đang ở “utils.py” là mô-đun của gói “calculators”  =&gt; Do đó, gói chung gần nhất của hai bạn này là “calculators”, vì bạn ni bọc bạn “casio_fx9570“.  Cho nên, mình sẽ import từ thằng cha, cụ thể là trong “casio_fx9570/total.py” cần:     from calculators.utils import total   Ví dụ 2: Import hàm “total_fx9750” từ mô-đun “total.py” trong thư mục “casio_fx9570″ vào mô-đun “total.py” nằm trong thư mục “casio_fx115″  Thì mình sẽ làm thế này:  – Mình xác định mình đang đứng ở “casio_fx115/total.py” tức là đứng trong gói “casio_fx115“  – Thứ mình cần đang ở “total.py” là mô-đun của gói “total_fx9750“  =&gt; Do đó, gói chung gần nhất của hai bạn này là “calculators”, vì hai bạn này đều là gói con của “calculators”. Cho nên, mình cần import từ gói cha, cụ thể trong “casio_fx115/total.py” cần:     from calculators. casio_fx115.total import total_fx9750   **Lưu ý 1: “from  import A&quot;**  Cú pháp **“from  import A“**, thì A có thể là:  – một gói con nằm trong “gói”  – một mô-đun con nằm trong “gói”  – một hàm, một biến nằm trong gói(nằm trong file init.py)  Thứ tự kiểm tra của câu lệnh import này là:  – Đầu tiên, cho A là gói và kiếm nó để nạp vào  – Nếu A không phải gói, nó lại giả định A là mô-đun và kiếm nó để nạp vào  – Nếu A không phải mô-đun, tiếp tục giả đinh A là hàm, là biến số để kiếm và nạp vào  – Nếu đến cuối vẫn không tìm thấy A, ImportError sẽ la làng lên.  Lưu ý 2: “import A.B.C”  Cú pháp “import A.B.C”, thì:  – A, B phải là các gói  – C có thể là gói hoặc mô-đun, nhưng C KHÔNG THỂ là một hàm, một biến được  Tệp init.py  Thường thường, init.py là một tệp rỗng, tuy nhiên init.py cũng có thể dùng để chứa code khởi tạo cho gói đó hoặc dùng để gán biến all , thể hiện khi import với * thì sẽ có những mô-đun nào được nạp. Nếu biến này không được gán, python hiểu là tất cả các mô-đun trong gói đều được nạp khi gọi import với *.  Ví dụ, trong gói calculators gán trong file init.py:     all = [“utils”]   thì khi gọi “from calculators import *” sẽ có mô-đun “utils” được nạp vào. _______________________________________________ Nội dung bài mô-đun trong Python Tutorial đến đây tạm hết rồi, cám ơn mọi người đã đọc.  Hôm nay mình tìm được một bản dịch The Python Tutorial qua tiếng Việt khá đầy đủ, bản dịch này của cộng đồng python Việt Nam, nó ở đây. Mọi người ghé đọc nhé, nội dung rất đầy đủ, kiểu như dịch từng chữ trong bản gốc ra luôn ấy, chứ không phải kiểu học hiểu ý rồi viết lại như mình.  Đọc bản dịch này làm mình cảm thấy thật là hổ thẹn với những thứ mình viết ra ở bài này và những bài trước. Và mình phân vân không biết có nên viết tiếp về ba phần chính còn lại của tutorial này là: “Đầu vào và đầu ra”, “Lỗi và các ngoại lệ”, “Lớp” hay không nữa vì bản dịch rất đầy đủ rồi.  Nghĩ từ chiều tới tối thì mình đã đưa ra quyết định là sẽ tiếp tục viết ba bài còn lại cho hoàn thành nội dung của The Python Tutorial theo ngôn ngữ của BeautyOnCode.  Thực sự là mình không có dịch hết nội dung của sê-ri, mình đọc làm và viết lại, hay gọi nôm na là thổi hồn và chút hài hước theo ngôn ngữ dân dã vô cái đám kiến thức khá là khô khan này.  Với mình, học xong, hiểu rồi, viết lại tốn khá là nhiều thời gian, nhưng càng làm mình lại càng thấm, mình thấy yêu thương từng câu từ, từng hình ảnh, demo, từng đoạn code mà mình viết và lập trình không còn khô khan nữa.  Mình lảm nhảm đến đây cũng tạm rồi hehe, chốt lại là có bản dịch đó, mọi người cứ vào đọc cho gọn, còn mình cứ tiếp tục học và viết theo cách của mình thôi à.  Thay lời tạm biệt, gửi bạn một bài blog của RealPython “Python Modules and Packages: Introduction” rất đầy đủ và bổ ích &lt;3">
+
+
+  <meta name="author" content="Thanh Nguyen">
+  
+  <meta property="article:author" content="Thanh Nguyen">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="BeautyOnCode">
+<meta property="og:title" content="Mô đun và Gói trong Python">
+<meta property="og:url" content="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/module-and-package-in-python/">
+
+
+  <meta property="og:description" content="Chào mừng mọi người đến với bài tiếp theo của phần “The Python Tutorial” của series “Khám phá Đại Bản Doanh Python“.  Bài trước, mình đã học thêm về “Cấu trúc dữ liệu trong Python”. Hôm ni, mình học tiếp về bạn “Mô-đun” nha.  (Những nội dung trong bài series này từ chủ yếu mình lấy từ python.org rồi viết lại hoặc dịch lại theo ngôn ngữ của mình)  Mô-đun  Khi thoát khỏi PI, các dự liệu(biến, hàm, …) được khai báo trước đây sẽ bị mất như ví dụ sau:    Do đó, cần chuẩn bị đầu vào cho trình thông dịch để có thể dùng được bất cứ khi nào mình cần, các file chứa những đoạn mã như vậy được gọi là các script  Để làm được như vậy, cách mình cần làm với Python là tạo một file có đuôi là “.py” rồi bỏ code vào đó. File này được gọi là mô-đun.  Một mô-đun có thể được sử dụng trong một mô-đun khác, cũng có thể sử dụng trong trình thông dịch PI.  Tên của mô-đun được lưu dưới biến name của chính mô-đun đó.     Mô-đun là tệp chứa các định nghĩa và các câu lệnh Python     Trên đây là cách dùng một mô-đun trong PI, mình cần nạp nó vào bằng lệnh “import”.  Lưu ý nhỏ: Đến đây, mình đã cần sử dụng đến trình soạn thảo(editor) để tạo file và viết những đoạn code dài hơn. Editor mình đang dùng là “Visual Studio Code“  Cách nạp mô-đun để sử dụng  Nạp mô-đun vào đâu để sử dụng? Là nạp vào mô-đun khác hoặc nạp vào khi mình đang ở trong trình thông dịch PI như ví dụ trên đây.  Khi mình nạp một mô-đun, các thành phần của nó sẽ được khởi tạo.  Mỗi mô-đun như một cái gói bọc hết các giá trị được khởi tạo của nó trong đó, do đó khi cần dùng mình phải trỏ từ tên mô-đun vào lấy các thành phần khác. Ví dụ, bạn muốn dùng biến “name” trong module “person”, thì nó là: “person.name”  Có nhiều cách nạp mô-đun và các thành phần của nó:  → Nạp luôn cả mô-đun: import person  Khi nạp một mô-đun như vậy, mình cần gọi các thành phần bên trong nó từ mô-đun này, ví dụ “person.first_name”  → Nạp từng thành phần của mô-đun với from person import first_name, last_name  Khi nạp từng thành phần như trên thì mô-đun person không có được nạp vào, chỉ có hai hàm first_name và last_name, nên không gọi person.first_name được, chỉ dùng first_name thôi nghen.  → Nạp hết tất cả thành phần với *: from person import *  Tương tự như trên, tất cả các thành phần trong mô-đun person được nạp vào nhưng chính bản thân nó thì không.  → Nạp mô-đun và sử dụng với tên khác với “as“: from person import full_name as name  Hàm full_name được kết nối với tên thay thế là “name”, nên gọi name chính là gọi full_name  ### Cách cập nhật nội dung của mô-đun  Khi làm việc với mô-đun trong PI, đôi khi mình sửa code nhưng không thấy kết quả được cập nhật, đó là do nội dung mô-đun bạn nạp trước đây vẫn tồn tại và bạn cần tải lại mô-đun để có nội dung mới nhất.  Có hai cách cập nhật nội dung của mô-đun:  Cách 1: thoát PI và tải lại mô-đun đó   Cách 2: gọi đến mô-đun importlib và gọi lệnh để reload mô-đun mình cần     import importlib; importlib.reload()     Thực thi một mô-đun như là một script  Ngoài cách vào trình thông dịch PI, nạp mô-đun mà gọi lệnh thực thi chương trình để kiểm thử, bạn có một cách khác nhanh hơn là viết sẵn chương trình bạn cần làm trong mô-đun luôn và gọi lệnh để thực thi script đó.  Để thực thi một mô đun trong PI, bạn dùng từ khoá “python”:       python calculator.py   Kết quả của lệnh trên sẽ là: Total 5  Gọi vậy thì mô-đun sẽ được thực thi như khi bạn import nó vào mô-đun khác.  Điều khác duy nhất khi thực thi bằng lệnh “python” là tên name của mô-đun sẽ được gán với giá trị main.  Bạn để ý chỗ ni xíu, vì khúc này liên quan tới một câu lệnh mình hay dùng mà hỏng hiểu tại sao, câu lệnh đó là:     if name == “main”:    # code thực thi đặt vào đây      Bạn có thấy câu lệnh ni quen không? Nếu bạn từng học qua Python hẳn bạn đã gặp rồi.  Người ta hay bỏ câu lệnh như vậy vào chương trình để mần chi nhỉ?  Để cho các code trong chỗ “#code thực thi thì đặt vào đây” ấy, chỉ được chạy khi mà mình chạy nó như một script với lệnh “python” thôi. Còn khi import nó vào mô-đun khác thì hỏng có chạy.  Đây là cách tiện hay dùng để kiểm thử một mô-đun đồng thời khi dùng nó trong mô-đun khác lại không bị ảnh hưởng.  Bạn thấy chỗ ni hay hông? Mình thấy siêu hay luôn, vì khúc ni trước mình xài mà hông có hiểu mấy ^^  Python tìm mô-đun ở đâu?  Khi làm việc với mô-đun, bạn có thể sẽ gặp lỗi không tìm thấy mô-đun như thế này.    Khi một mô-đun nạp đúng, bạn có để ý PI biết chính xác mô-đun của bạn đang ở đâu.    Vậy thì PI đã tìm mô-đun ở những nơi nào?  → Đầu tiên, PI sẽ đi kiếm nó trong built-in mô-đun(là những mô-đun được Python xây dựng sẵn, hay còn gọi là những mô-đun tiêu chuẩn)  → Nếu tìm chưa thấy, nó sẽ tiếp tục tìm trong sys.path, sys.path được định nghĩa ở những nơi sau:     Thư mục hiện tại(nơi bạn đứng và truy cập vào PI) là giá trị của sys.path[0], nên được tìm kiếm đầu tiên.   PYTHONPATH   Thư mục cài đặt mặc định   Lưu ý: Nếu mô-đun trùng tên với built-in mô-đun, thì mô-đun ở folder hiện tại sẽ được nạp vào, chớ không phải built-ins mô-đun nghen.  Nếu bạn chưa nạp được mô-đun của mình trong PI, vui lòng hãy dòm qua cái sys.path thử có cái đường dẫn đến thư mục mô-đun của bạn chưa, nếu chưa có thì bạn đứng sai chỗ rồi đó.  Biên dịch các file .py  Quá trình biên dịch này diễn ra hoàn toàn tự động, cho nên khi làm việc với Python bạn sẽ thấy folder pycache này thường xuyên, mình cùng đọc cho biết thêm ha.  Để tăng tốc độ tải các mô-đun, Python lưu phiên bản biên dịch của từng version khác nhau của mô-đun dưới định dạng module.version.pyc trong thư mục pycache.  Quy ước đặt tên này cho phép Python có thể biên dịch lại từ các version khác nhau.  Ví dụ dưới đây thể hiện version python 3.8 mình đang sử dụng    Các mô-đun chuẩn  Python có sẵn thư viện của các mô-đun tiêu chuẩn, được viết ở “The Python Standard Library“, bao gồm những nhóm chính như là:  – Built-in functions: các hàm dựng sẵn  – Built-in constants: các biến dựng sẵn  – Built-in types: các kiểu dữ liệu dựng sẵn  – Built-in exceptions: các ngoại lệ dựng sẵn  – Data types: các kiểu dữ liệu …  Các mô-đun này có thể khác nhau tuỳ theo nền tảng chạy Python, ví dụ mô-đun winreg chỉ có ở hệ điều hành Window, hoặc hai giá trị sys.ps1 và sys.ps2 của mô-đun sys chỉ có trong PI, còn sys.path lại thể hiện các nơi có thể tìm kiếm mô-đun.  Trò chơi nhỏ: cùng xem sys.ps1 và sys.ps2 có giá trị gì trong PI của máy bạn sau đó gán nó bằng một giá trị bất kỳ rồi thử in ra một câu xem có gì thú vị sẽ xảy ra nhé.  (Nếu bạn đang không vui, hãy bỏ qua mấy trò nhảm của mình ạ)  Hàm dir()  Nhìn một mô-đun mình chẳng biết nó có gì cả, bạn dir() này như kiểu chụp X-quang cắt lớp xem cái mô-đun của mình chứa những biến gì, những hàm nào, nhưng ở dạng rất sơ khai, là một mảng các tên được sắp xếp theo thứ tự A đến Z.    Chưa hết, gọi dir() không có giá trị truyền vào trong PI sẽ thấy được những biến, hàm có thể sử dụng ở PI hiện tại:    Lưu ý nhỏ là dir() không list ra được những hàm và giá trị được dựng sẵn(mấy bạn built-ins). Muốn xem mấy bạn này, mình phải dùng cái gọi là dir(builtins)    Gói  Gói(package) là một nhóm các mô-đun khác nhau. Nó tương tự như thư mục chứa nhiều tệp tin vậy, nhưng cần phải đăng ký nhẹ với python để nó biết đó là gói, bằng cách thêm file init.py là python biết mình khởi tạo gói.  Một gói cũng có thể chứa nhiều gói con khác nằm bên trong nó.  Ví dụ mình muốn thiết kế một gói tên là “calculators” chứa hai gói con là máy tính “casio_fx115” và “casio_fx9750” đồng thời chứa các mô-đun “utils” thì sẽ có cấu trúc thư mục là:    Nạp gói, mô-đun và các lưu ý  Lỗi khi import mô-đun là lỗi khá phổ biến với người mới học. Do đó, khi thực hiện import, bạn hãy nhớ đến 2 câu thần chú: “Tôi đang đứng ở đâu? Thứ tôi cần đang ở đâu?”  Nghe khá tào lao nhưng bạn lấy thư mục/gói chứa điểm chung gần nhất của nơi bạn đứng và nơi bạn cần sẽ là điểm bạn thực hiện import từ đó.  Chắc bạn không hiểu đâu, để mình ví dụ nè:  (ví dụ hơi lộn xộn, bạn phải thật bình tĩnh khi đọc và dòm cái hình bên trên nữa nhé)  Ví dụ 1: Import hàm total từ utils.py vào total.py trong thư mục casio_fx115  Thì mình sẽ làm thế này:  – Mình xác định mình đang đứng ở “casio_fx9570/total.py” tức là đứng trong gói “casio_fx9570“  – Thứ mình cần đang ở “utils.py” là mô-đun của gói “calculators”  =&gt; Do đó, gói chung gần nhất của hai bạn này là “calculators”, vì bạn ni bọc bạn “casio_fx9570“.  Cho nên, mình sẽ import từ thằng cha, cụ thể là trong “casio_fx9570/total.py” cần:     from calculators.utils import total   Ví dụ 2: Import hàm “total_fx9750” từ mô-đun “total.py” trong thư mục “casio_fx9570″ vào mô-đun “total.py” nằm trong thư mục “casio_fx115″  Thì mình sẽ làm thế này:  – Mình xác định mình đang đứng ở “casio_fx115/total.py” tức là đứng trong gói “casio_fx115“  – Thứ mình cần đang ở “total.py” là mô-đun của gói “total_fx9750“  =&gt; Do đó, gói chung gần nhất của hai bạn này là “calculators”, vì hai bạn này đều là gói con của “calculators”. Cho nên, mình cần import từ gói cha, cụ thể trong “casio_fx115/total.py” cần:     from calculators. casio_fx115.total import total_fx9750   **Lưu ý 1: “from  import A&quot;**  Cú pháp **“from  import A“**, thì A có thể là:  – một gói con nằm trong “gói”  – một mô-đun con nằm trong “gói”  – một hàm, một biến nằm trong gói(nằm trong file init.py)  Thứ tự kiểm tra của câu lệnh import này là:  – Đầu tiên, cho A là gói và kiếm nó để nạp vào  – Nếu A không phải gói, nó lại giả định A là mô-đun và kiếm nó để nạp vào  – Nếu A không phải mô-đun, tiếp tục giả đinh A là hàm, là biến số để kiếm và nạp vào  – Nếu đến cuối vẫn không tìm thấy A, ImportError sẽ la làng lên.  Lưu ý 2: “import A.B.C”  Cú pháp “import A.B.C”, thì:  – A, B phải là các gói  – C có thể là gói hoặc mô-đun, nhưng C KHÔNG THỂ là một hàm, một biến được  Tệp init.py  Thường thường, init.py là một tệp rỗng, tuy nhiên init.py cũng có thể dùng để chứa code khởi tạo cho gói đó hoặc dùng để gán biến all , thể hiện khi import với * thì sẽ có những mô-đun nào được nạp. Nếu biến này không được gán, python hiểu là tất cả các mô-đun trong gói đều được nạp khi gọi import với *.  Ví dụ, trong gói calculators gán trong file init.py:     all = [“utils”]   thì khi gọi “from calculators import *” sẽ có mô-đun “utils” được nạp vào. _______________________________________________ Nội dung bài mô-đun trong Python Tutorial đến đây tạm hết rồi, cám ơn mọi người đã đọc.  Hôm nay mình tìm được một bản dịch The Python Tutorial qua tiếng Việt khá đầy đủ, bản dịch này của cộng đồng python Việt Nam, nó ở đây. Mọi người ghé đọc nhé, nội dung rất đầy đủ, kiểu như dịch từng chữ trong bản gốc ra luôn ấy, chứ không phải kiểu học hiểu ý rồi viết lại như mình.  Đọc bản dịch này làm mình cảm thấy thật là hổ thẹn với những thứ mình viết ra ở bài này và những bài trước. Và mình phân vân không biết có nên viết tiếp về ba phần chính còn lại của tutorial này là: “Đầu vào và đầu ra”, “Lỗi và các ngoại lệ”, “Lớp” hay không nữa vì bản dịch rất đầy đủ rồi.  Nghĩ từ chiều tới tối thì mình đã đưa ra quyết định là sẽ tiếp tục viết ba bài còn lại cho hoàn thành nội dung của The Python Tutorial theo ngôn ngữ của BeautyOnCode.  Thực sự là mình không có dịch hết nội dung của sê-ri, mình đọc làm và viết lại, hay gọi nôm na là thổi hồn và chút hài hước theo ngôn ngữ dân dã vô cái đám kiến thức khá là khô khan này.  Với mình, học xong, hiểu rồi, viết lại tốn khá là nhiều thời gian, nhưng càng làm mình lại càng thấm, mình thấy yêu thương từng câu từ, từng hình ảnh, demo, từng đoạn code mà mình viết và lập trình không còn khô khan nữa.  Mình lảm nhảm đến đây cũng tạm rồi hehe, chốt lại là có bản dịch đó, mọi người cứ vào đọc cho gọn, còn mình cứ tiếp tục học và viết theo cách của mình thôi à.  Thay lời tạm biệt, gửi bạn một bài blog của RealPython “Python Modules and Packages: Introduction” rất đầy đủ và bổ ích &lt;3">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/2020/04/2020-08-tai-lieu-hoc-va-nghien-cuu-python-cover.webp">
+
+
+
+  <meta name="twitter:site" content="@mmistakes">
+  <meta name="twitter:title" content="Mô đun và Gói trong Python">
+  <meta name="twitter:description" content="Chào mừng mọi người đến với bài tiếp theo của phần “The Python Tutorial” của series “Khám phá Đại Bản Doanh Python“.  Bài trước, mình đã học thêm về “Cấu trúc dữ liệu trong Python”. Hôm ni, mình học tiếp về bạn “Mô-đun” nha.  (Những nội dung trong bài series này từ chủ yếu mình lấy từ python.org rồi viết lại hoặc dịch lại theo ngôn ngữ của mình)  Mô-đun  Khi thoát khỏi PI, các dự liệu(biến, hàm, …) được khai báo trước đây sẽ bị mất như ví dụ sau:    Do đó, cần chuẩn bị đầu vào cho trình thông dịch để có thể dùng được bất cứ khi nào mình cần, các file chứa những đoạn mã như vậy được gọi là các script  Để làm được như vậy, cách mình cần làm với Python là tạo một file có đuôi là “.py” rồi bỏ code vào đó. File này được gọi là mô-đun.  Một mô-đun có thể được sử dụng trong một mô-đun khác, cũng có thể sử dụng trong trình thông dịch PI.  Tên của mô-đun được lưu dưới biến name của chính mô-đun đó.     Mô-đun là tệp chứa các định nghĩa và các câu lệnh Python     Trên đây là cách dùng một mô-đun trong PI, mình cần nạp nó vào bằng lệnh “import”.  Lưu ý nhỏ: Đến đây, mình đã cần sử dụng đến trình soạn thảo(editor) để tạo file và viết những đoạn code dài hơn. Editor mình đang dùng là “Visual Studio Code“  Cách nạp mô-đun để sử dụng  Nạp mô-đun vào đâu để sử dụng? Là nạp vào mô-đun khác hoặc nạp vào khi mình đang ở trong trình thông dịch PI như ví dụ trên đây.  Khi mình nạp một mô-đun, các thành phần của nó sẽ được khởi tạo.  Mỗi mô-đun như một cái gói bọc hết các giá trị được khởi tạo của nó trong đó, do đó khi cần dùng mình phải trỏ từ tên mô-đun vào lấy các thành phần khác. Ví dụ, bạn muốn dùng biến “name” trong module “person”, thì nó là: “person.name”  Có nhiều cách nạp mô-đun và các thành phần của nó:  → Nạp luôn cả mô-đun: import person  Khi nạp một mô-đun như vậy, mình cần gọi các thành phần bên trong nó từ mô-đun này, ví dụ “person.first_name”  → Nạp từng thành phần của mô-đun với from person import first_name, last_name  Khi nạp từng thành phần như trên thì mô-đun person không có được nạp vào, chỉ có hai hàm first_name và last_name, nên không gọi person.first_name được, chỉ dùng first_name thôi nghen.  → Nạp hết tất cả thành phần với *: from person import *  Tương tự như trên, tất cả các thành phần trong mô-đun person được nạp vào nhưng chính bản thân nó thì không.  → Nạp mô-đun và sử dụng với tên khác với “as“: from person import full_name as name  Hàm full_name được kết nối với tên thay thế là “name”, nên gọi name chính là gọi full_name  ### Cách cập nhật nội dung của mô-đun  Khi làm việc với mô-đun trong PI, đôi khi mình sửa code nhưng không thấy kết quả được cập nhật, đó là do nội dung mô-đun bạn nạp trước đây vẫn tồn tại và bạn cần tải lại mô-đun để có nội dung mới nhất.  Có hai cách cập nhật nội dung của mô-đun:  Cách 1: thoát PI và tải lại mô-đun đó   Cách 2: gọi đến mô-đun importlib và gọi lệnh để reload mô-đun mình cần     import importlib; importlib.reload()     Thực thi một mô-đun như là một script  Ngoài cách vào trình thông dịch PI, nạp mô-đun mà gọi lệnh thực thi chương trình để kiểm thử, bạn có một cách khác nhanh hơn là viết sẵn chương trình bạn cần làm trong mô-đun luôn và gọi lệnh để thực thi script đó.  Để thực thi một mô đun trong PI, bạn dùng từ khoá “python”:       python calculator.py   Kết quả của lệnh trên sẽ là: Total 5  Gọi vậy thì mô-đun sẽ được thực thi như khi bạn import nó vào mô-đun khác.  Điều khác duy nhất khi thực thi bằng lệnh “python” là tên name của mô-đun sẽ được gán với giá trị main.  Bạn để ý chỗ ni xíu, vì khúc này liên quan tới một câu lệnh mình hay dùng mà hỏng hiểu tại sao, câu lệnh đó là:     if name == “main”:    # code thực thi đặt vào đây      Bạn có thấy câu lệnh ni quen không? Nếu bạn từng học qua Python hẳn bạn đã gặp rồi.  Người ta hay bỏ câu lệnh như vậy vào chương trình để mần chi nhỉ?  Để cho các code trong chỗ “#code thực thi thì đặt vào đây” ấy, chỉ được chạy khi mà mình chạy nó như một script với lệnh “python” thôi. Còn khi import nó vào mô-đun khác thì hỏng có chạy.  Đây là cách tiện hay dùng để kiểm thử một mô-đun đồng thời khi dùng nó trong mô-đun khác lại không bị ảnh hưởng.  Bạn thấy chỗ ni hay hông? Mình thấy siêu hay luôn, vì khúc ni trước mình xài mà hông có hiểu mấy ^^  Python tìm mô-đun ở đâu?  Khi làm việc với mô-đun, bạn có thể sẽ gặp lỗi không tìm thấy mô-đun như thế này.    Khi một mô-đun nạp đúng, bạn có để ý PI biết chính xác mô-đun của bạn đang ở đâu.    Vậy thì PI đã tìm mô-đun ở những nơi nào?  → Đầu tiên, PI sẽ đi kiếm nó trong built-in mô-đun(là những mô-đun được Python xây dựng sẵn, hay còn gọi là những mô-đun tiêu chuẩn)  → Nếu tìm chưa thấy, nó sẽ tiếp tục tìm trong sys.path, sys.path được định nghĩa ở những nơi sau:     Thư mục hiện tại(nơi bạn đứng và truy cập vào PI) là giá trị của sys.path[0], nên được tìm kiếm đầu tiên.   PYTHONPATH   Thư mục cài đặt mặc định   Lưu ý: Nếu mô-đun trùng tên với built-in mô-đun, thì mô-đun ở folder hiện tại sẽ được nạp vào, chớ không phải built-ins mô-đun nghen.  Nếu bạn chưa nạp được mô-đun của mình trong PI, vui lòng hãy dòm qua cái sys.path thử có cái đường dẫn đến thư mục mô-đun của bạn chưa, nếu chưa có thì bạn đứng sai chỗ rồi đó.  Biên dịch các file .py  Quá trình biên dịch này diễn ra hoàn toàn tự động, cho nên khi làm việc với Python bạn sẽ thấy folder pycache này thường xuyên, mình cùng đọc cho biết thêm ha.  Để tăng tốc độ tải các mô-đun, Python lưu phiên bản biên dịch của từng version khác nhau của mô-đun dưới định dạng module.version.pyc trong thư mục pycache.  Quy ước đặt tên này cho phép Python có thể biên dịch lại từ các version khác nhau.  Ví dụ dưới đây thể hiện version python 3.8 mình đang sử dụng    Các mô-đun chuẩn  Python có sẵn thư viện của các mô-đun tiêu chuẩn, được viết ở “The Python Standard Library“, bao gồm những nhóm chính như là:  – Built-in functions: các hàm dựng sẵn  – Built-in constants: các biến dựng sẵn  – Built-in types: các kiểu dữ liệu dựng sẵn  – Built-in exceptions: các ngoại lệ dựng sẵn  – Data types: các kiểu dữ liệu …  Các mô-đun này có thể khác nhau tuỳ theo nền tảng chạy Python, ví dụ mô-đun winreg chỉ có ở hệ điều hành Window, hoặc hai giá trị sys.ps1 và sys.ps2 của mô-đun sys chỉ có trong PI, còn sys.path lại thể hiện các nơi có thể tìm kiếm mô-đun.  Trò chơi nhỏ: cùng xem sys.ps1 và sys.ps2 có giá trị gì trong PI của máy bạn sau đó gán nó bằng một giá trị bất kỳ rồi thử in ra một câu xem có gì thú vị sẽ xảy ra nhé.  (Nếu bạn đang không vui, hãy bỏ qua mấy trò nhảm của mình ạ)  Hàm dir()  Nhìn một mô-đun mình chẳng biết nó có gì cả, bạn dir() này như kiểu chụp X-quang cắt lớp xem cái mô-đun của mình chứa những biến gì, những hàm nào, nhưng ở dạng rất sơ khai, là một mảng các tên được sắp xếp theo thứ tự A đến Z.    Chưa hết, gọi dir() không có giá trị truyền vào trong PI sẽ thấy được những biến, hàm có thể sử dụng ở PI hiện tại:    Lưu ý nhỏ là dir() không list ra được những hàm và giá trị được dựng sẵn(mấy bạn built-ins). Muốn xem mấy bạn này, mình phải dùng cái gọi là dir(builtins)    Gói  Gói(package) là một nhóm các mô-đun khác nhau. Nó tương tự như thư mục chứa nhiều tệp tin vậy, nhưng cần phải đăng ký nhẹ với python để nó biết đó là gói, bằng cách thêm file init.py là python biết mình khởi tạo gói.  Một gói cũng có thể chứa nhiều gói con khác nằm bên trong nó.  Ví dụ mình muốn thiết kế một gói tên là “calculators” chứa hai gói con là máy tính “casio_fx115” và “casio_fx9750” đồng thời chứa các mô-đun “utils” thì sẽ có cấu trúc thư mục là:    Nạp gói, mô-đun và các lưu ý  Lỗi khi import mô-đun là lỗi khá phổ biến với người mới học. Do đó, khi thực hiện import, bạn hãy nhớ đến 2 câu thần chú: “Tôi đang đứng ở đâu? Thứ tôi cần đang ở đâu?”  Nghe khá tào lao nhưng bạn lấy thư mục/gói chứa điểm chung gần nhất của nơi bạn đứng và nơi bạn cần sẽ là điểm bạn thực hiện import từ đó.  Chắc bạn không hiểu đâu, để mình ví dụ nè:  (ví dụ hơi lộn xộn, bạn phải thật bình tĩnh khi đọc và dòm cái hình bên trên nữa nhé)  Ví dụ 1: Import hàm total từ utils.py vào total.py trong thư mục casio_fx115  Thì mình sẽ làm thế này:  – Mình xác định mình đang đứng ở “casio_fx9570/total.py” tức là đứng trong gói “casio_fx9570“  – Thứ mình cần đang ở “utils.py” là mô-đun của gói “calculators”  =&gt; Do đó, gói chung gần nhất của hai bạn này là “calculators”, vì bạn ni bọc bạn “casio_fx9570“.  Cho nên, mình sẽ import từ thằng cha, cụ thể là trong “casio_fx9570/total.py” cần:     from calculators.utils import total   Ví dụ 2: Import hàm “total_fx9750” từ mô-đun “total.py” trong thư mục “casio_fx9570″ vào mô-đun “total.py” nằm trong thư mục “casio_fx115″  Thì mình sẽ làm thế này:  – Mình xác định mình đang đứng ở “casio_fx115/total.py” tức là đứng trong gói “casio_fx115“  – Thứ mình cần đang ở “total.py” là mô-đun của gói “total_fx9750“  =&gt; Do đó, gói chung gần nhất của hai bạn này là “calculators”, vì hai bạn này đều là gói con của “calculators”. Cho nên, mình cần import từ gói cha, cụ thể trong “casio_fx115/total.py” cần:     from calculators. casio_fx115.total import total_fx9750   **Lưu ý 1: “from  import A&quot;**  Cú pháp **“from  import A“**, thì A có thể là:  – một gói con nằm trong “gói”  – một mô-đun con nằm trong “gói”  – một hàm, một biến nằm trong gói(nằm trong file init.py)  Thứ tự kiểm tra của câu lệnh import này là:  – Đầu tiên, cho A là gói và kiếm nó để nạp vào  – Nếu A không phải gói, nó lại giả định A là mô-đun và kiếm nó để nạp vào  – Nếu A không phải mô-đun, tiếp tục giả đinh A là hàm, là biến số để kiếm và nạp vào  – Nếu đến cuối vẫn không tìm thấy A, ImportError sẽ la làng lên.  Lưu ý 2: “import A.B.C”  Cú pháp “import A.B.C”, thì:  – A, B phải là các gói  – C có thể là gói hoặc mô-đun, nhưng C KHÔNG THỂ là một hàm, một biến được  Tệp init.py  Thường thường, init.py là một tệp rỗng, tuy nhiên init.py cũng có thể dùng để chứa code khởi tạo cho gói đó hoặc dùng để gán biến all , thể hiện khi import với * thì sẽ có những mô-đun nào được nạp. Nếu biến này không được gán, python hiểu là tất cả các mô-đun trong gói đều được nạp khi gọi import với *.  Ví dụ, trong gói calculators gán trong file init.py:     all = [“utils”]   thì khi gọi “from calculators import *” sẽ có mô-đun “utils” được nạp vào. _______________________________________________ Nội dung bài mô-đun trong Python Tutorial đến đây tạm hết rồi, cám ơn mọi người đã đọc.  Hôm nay mình tìm được một bản dịch The Python Tutorial qua tiếng Việt khá đầy đủ, bản dịch này của cộng đồng python Việt Nam, nó ở đây. Mọi người ghé đọc nhé, nội dung rất đầy đủ, kiểu như dịch từng chữ trong bản gốc ra luôn ấy, chứ không phải kiểu học hiểu ý rồi viết lại như mình.  Đọc bản dịch này làm mình cảm thấy thật là hổ thẹn với những thứ mình viết ra ở bài này và những bài trước. Và mình phân vân không biết có nên viết tiếp về ba phần chính còn lại của tutorial này là: “Đầu vào và đầu ra”, “Lỗi và các ngoại lệ”, “Lớp” hay không nữa vì bản dịch rất đầy đủ rồi.  Nghĩ từ chiều tới tối thì mình đã đưa ra quyết định là sẽ tiếp tục viết ba bài còn lại cho hoàn thành nội dung của The Python Tutorial theo ngôn ngữ của BeautyOnCode.  Thực sự là mình không có dịch hết nội dung của sê-ri, mình đọc làm và viết lại, hay gọi nôm na là thổi hồn và chút hài hước theo ngôn ngữ dân dã vô cái đám kiến thức khá là khô khan này.  Với mình, học xong, hiểu rồi, viết lại tốn khá là nhiều thời gian, nhưng càng làm mình lại càng thấm, mình thấy yêu thương từng câu từ, từng hình ảnh, demo, từng đoạn code mà mình viết và lập trình không còn khô khan nữa.  Mình lảm nhảm đến đây cũng tạm rồi hehe, chốt lại là có bản dịch đó, mọi người cứ vào đọc cho gọn, còn mình cứ tiếp tục học và viết theo cách của mình thôi à.  Thay lời tạm biệt, gửi bạn một bài blog của RealPython “Python Modules and Packages: Introduction” rất đầy đủ và bổ ích &lt;3">
+  <meta name="twitter:url" content="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/module-and-package-in-python/">
+
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/2020/04/2020-08-tai-lieu-hoc-va-nghien-cuu-python-cover.webp">
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2020-04-29T00:00:00-04:00">
+
+
+
+  <meta property="article:modified_time" content="2020-04-29T15:12:19-04:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/module-and-package-in-python/">
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="BeautyOnCode Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  window.enable_copy_code_button = true;
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo/logo-circle.webp" alt="BeautyOnCode"></a>
+        
+        <a class="site-title" href="/">
+          BeautyOnCode
+          <span class="site-subtitle">Code Your Life In An Elegant Way</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/docs/quick-start-guide/"
+                
+                
+              >Quick-Start Guide</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/year-archive/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/collection-archive/"
+                
+                
+              >Collections</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/logo/thanh-nguyen.jpg" alt="Thanh Nguyen" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Thanh Nguyen</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Web developer, nature lover, curious soul, and laid-back mom balancing code with life’s simple joys.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Da Nang, VN</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://beautyoncode.com" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">BeautyOnCode</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/graphicdthanh/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">Linkedin</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/GraphicDThanh" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.facebook.com/beautyoncode" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span class="label">Facebook</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Mô đun và Gói trong Python">
+    <meta itemprop="description" content="Chào mừng mọi người đến với bài tiếp theo của phần “The Python Tutorial” của series “Khám phá Đại Bản Doanh Python“.Bài trước, mình đã học thêm về “Cấu trúc dữ liệu trong Python”. Hôm ni, mình học tiếp về bạn “Mô-đun” nha.(Những nội dung trong bài series này từ chủ yếu mình lấy từ python.org rồi viết lại hoặc dịch lại theo ngôn ngữ của mình)Mô-đunKhi thoát khỏi PI, các dự liệu(biến, hàm, …) được khai báo trước đây sẽ bị mất như ví dụ sau:Do đó, cần chuẩn bị đầu vào cho trình thông dịch để có thể dùng được bất cứ khi nào mình cần, các file chứa những đoạn mã như vậy được gọi là các scriptĐể làm được như vậy, cách mình cần làm với Python là tạo một file có đuôi là “.py” rồi bỏ code vào đó. File này được gọi là mô-đun.Một mô-đun có thể được sử dụng trong một mô-đun khác, cũng có thể sử dụng trong trình thông dịch PI.Tên của mô-đun được lưu dưới biến name của chính mô-đun đó.  Mô-đun là tệp chứa các định nghĩa và các câu lệnh PythonTrên đây là cách dùng một mô-đun trong PI, mình cần nạp nó vào bằng lệnh “import”.Lưu ý nhỏ: Đến đây, mình đã cần sử dụng đến trình soạn thảo(editor) để tạo file và viết những đoạn code dài hơn. Editor mình đang dùng là “Visual Studio Code“Cách nạp mô-đun để sử dụngNạp mô-đun vào đâu để sử dụng? Là nạp vào mô-đun khác hoặc nạp vào khi mình đang ở trong trình thông dịch PI như ví dụ trên đây.Khi mình nạp một mô-đun, các thành phần của nó sẽ được khởi tạo.Mỗi mô-đun như một cái gói bọc hết các giá trị được khởi tạo của nó trong đó, do đó khi cần dùng mình phải trỏ từ tên mô-đun vào lấy các thành phần khác. Ví dụ, bạn muốn dùng biến “name” trong module “person”, thì nó là: “person.name”Có nhiều cách nạp mô-đun và các thành phần của nó:→ Nạp luôn cả mô-đun: import personKhi nạp một mô-đun như vậy, mình cần gọi các thành phần bên trong nó từ mô-đun này, ví dụ “person.first_name”→ Nạp từng thành phần của mô-đun với from person import first_name, last_nameKhi nạp từng thành phần như trên thì mô-đun person không có được nạp vào, chỉ có hai hàm first_name và last_name, nên không gọi person.first_name được, chỉ dùng first_name thôi nghen.→ Nạp hết tất cả thành phần với *: from person import *Tương tự như trên, tất cả các thành phần trong mô-đun person được nạp vào nhưng chính bản thân nó thì không.→ Nạp mô-đun và sử dụng với tên khác với “as“: from person import full_name as nameHàm full_name được kết nối với tên thay thế là “name”, nên gọi name chính là gọi full_name### Cách cập nhật nội dung của mô-đunKhi làm việc với mô-đun trong PI, đôi khi mình sửa code nhưng không thấy kết quả được cập nhật, đó là do nội dung mô-đun bạn nạp trước đây vẫn tồn tại và bạn cần tải lại mô-đun để có nội dung mới nhất.Có hai cách cập nhật nội dung của mô-đun:Cách 1: thoát PI và tải lại mô-đun đóCách 2: gọi đến mô-đun importlib và gọi lệnh để reload mô-đun mình cần  import importlib; importlib.reload()Thực thi một mô-đun như là một scriptNgoài cách vào trình thông dịch PI, nạp mô-đun mà gọi lệnh thực thi chương trình để kiểm thử, bạn có một cách khác nhanh hơn là viết sẵn chương trình bạn cần làm trong mô-đun luôn và gọi lệnh để thực thi script đó.Để thực thi một mô đun trong PI, bạn dùng từ khoá “python”:  python calculator.pyKết quả của lệnh trên sẽ là: Total 5Gọi vậy thì mô-đun sẽ được thực thi như khi bạn import nó vào mô-đun khác.Điều khác duy nhất khi thực thi bằng lệnh “python” là tên name của mô-đun sẽ được gán với giá trị main.Bạn để ý chỗ ni xíu, vì khúc này liên quan tới một câu lệnh mình hay dùng mà hỏng hiểu tại sao, câu lệnh đó là:  if name == “main”:  # code thực thi đặt vào đây  Bạn có thấy câu lệnh ni quen không? Nếu bạn từng học qua Python hẳn bạn đã gặp rồi.Người ta hay bỏ câu lệnh như vậy vào chương trình để mần chi nhỉ?Để cho các code trong chỗ “#code thực thi thì đặt vào đây” ấy, chỉ được chạy khi mà mình chạy nó như một script với lệnh “python” thôi. Còn khi import nó vào mô-đun khác thì hỏng có chạy.Đây là cách tiện hay dùng để kiểm thử một mô-đun đồng thời khi dùng nó trong mô-đun khác lại không bị ảnh hưởng.Bạn thấy chỗ ni hay hông? Mình thấy siêu hay luôn, vì khúc ni trước mình xài mà hông có hiểu mấy ^^Python tìm mô-đun ở đâu?Khi làm việc với mô-đun, bạn có thể sẽ gặp lỗi không tìm thấy mô-đun như thế này.Khi một mô-đun nạp đúng, bạn có để ý PI biết chính xác mô-đun của bạn đang ở đâu.Vậy thì PI đã tìm mô-đun ở những nơi nào?→ Đầu tiên, PI sẽ đi kiếm nó trong built-in mô-đun(là những mô-đun được Python xây dựng sẵn, hay còn gọi là những mô-đun tiêu chuẩn)→ Nếu tìm chưa thấy, nó sẽ tiếp tục tìm trong sys.path, sys.path được định nghĩa ở những nơi sau:  Thư mục hiện tại(nơi bạn đứng và truy cập vào PI) là giá trị của sys.path[0], nên được tìm kiếm đầu tiên.  PYTHONPATH  Thư mục cài đặt mặc địnhLưu ý: Nếu mô-đun trùng tên với built-in mô-đun, thì mô-đun ở folder hiện tại sẽ được nạp vào, chớ không phải built-ins mô-đun nghen.Nếu bạn chưa nạp được mô-đun của mình trong PI, vui lòng hãy dòm qua cái sys.path thử có cái đường dẫn đến thư mục mô-đun của bạn chưa, nếu chưa có thì bạn đứng sai chỗ rồi đó.Biên dịch các file .pyQuá trình biên dịch này diễn ra hoàn toàn tự động, cho nên khi làm việc với Python bạn sẽ thấy folder pycache này thường xuyên, mình cùng đọc cho biết thêm ha.Để tăng tốc độ tải các mô-đun, Python lưu phiên bản biên dịch của từng version khác nhau của mô-đun dưới định dạng module.version.pyc trong thư mục pycache.Quy ước đặt tên này cho phép Python có thể biên dịch lại từ các version khác nhau.Ví dụ dưới đây thể hiện version python 3.8 mình đang sử dụngCác mô-đun chuẩnPython có sẵn thư viện của các mô-đun tiêu chuẩn, được viết ở “The Python Standard Library“, bao gồm những nhóm chính như là:– Built-in functions: các hàm dựng sẵn– Built-in constants: các biến dựng sẵn– Built-in types: các kiểu dữ liệu dựng sẵn– Built-in exceptions: các ngoại lệ dựng sẵn– Data types: các kiểu dữ liệu …Các mô-đun này có thể khác nhau tuỳ theo nền tảng chạy Python, ví dụ mô-đun winreg chỉ có ở hệ điều hành Window, hoặc hai giá trị sys.ps1 và sys.ps2 của mô-đun sys chỉ có trong PI, còn sys.path lại thể hiện các nơi có thể tìm kiếm mô-đun.Trò chơi nhỏ: cùng xem sys.ps1 và sys.ps2 có giá trị gì trong PI của máy bạn sau đó gán nó bằng một giá trị bất kỳ rồi thử in ra một câu xem có gì thú vị sẽ xảy ra nhé.(Nếu bạn đang không vui, hãy bỏ qua mấy trò nhảm của mình ạ)Hàm dir()Nhìn một mô-đun mình chẳng biết nó có gì cả, bạn dir() này như kiểu chụp X-quang cắt lớp xem cái mô-đun của mình chứa những biến gì, những hàm nào, nhưng ở dạng rất sơ khai, là một mảng các tên được sắp xếp theo thứ tự A đến Z.Chưa hết, gọi dir() không có giá trị truyền vào trong PI sẽ thấy được những biến, hàm có thể sử dụng ở PI hiện tại:Lưu ý nhỏ là dir() không list ra được những hàm và giá trị được dựng sẵn(mấy bạn built-ins). Muốn xem mấy bạn này, mình phải dùng cái gọi là dir(builtins)GóiGói(package) là một nhóm các mô-đun khác nhau. Nó tương tự như thư mục chứa nhiều tệp tin vậy, nhưng cần phải đăng ký nhẹ với python để nó biết đó là gói, bằng cách thêm file init.py là python biết mình khởi tạo gói.Một gói cũng có thể chứa nhiều gói con khác nằm bên trong nó.Ví dụ mình muốn thiết kế một gói tên là “calculators” chứa hai gói con là máy tính “casio_fx115” và “casio_fx9750” đồng thời chứa các mô-đun “utils” thì sẽ có cấu trúc thư mục là:Nạp gói, mô-đun và các lưu ýLỗi khi import mô-đun là lỗi khá phổ biến với người mới học. Do đó, khi thực hiện import, bạn hãy nhớ đến 2 câu thần chú: “Tôi đang đứng ở đâu? Thứ tôi cần đang ở đâu?”Nghe khá tào lao nhưng bạn lấy thư mục/gói chứa điểm chung gần nhất của nơi bạn đứng và nơi bạn cần sẽ là điểm bạn thực hiện import từ đó.Chắc bạn không hiểu đâu, để mình ví dụ nè:(ví dụ hơi lộn xộn, bạn phải thật bình tĩnh khi đọc và dòm cái hình bên trên nữa nhé)Ví dụ 1: Import hàm total từ utils.py vào total.py trong thư mục casio_fx115Thì mình sẽ làm thế này:– Mình xác định mình đang đứng ở “casio_fx9570/total.py” tức là đứng trong gói “casio_fx9570“– Thứ mình cần đang ở “utils.py” là mô-đun của gói “calculators”=&gt; Do đó, gói chung gần nhất của hai bạn này là “calculators”, vì bạn ni bọc bạn “casio_fx9570“.Cho nên, mình sẽ import từ thằng cha, cụ thể là trong “casio_fx9570/total.py” cần:  from calculators.utils import totalVí dụ 2: Import hàm “total_fx9750” từ mô-đun “total.py” trong thư mục “casio_fx9570″ vào mô-đun “total.py” nằm trong thư mục “casio_fx115″Thì mình sẽ làm thế này:– Mình xác định mình đang đứng ở “casio_fx115/total.py” tức là đứng trong gói “casio_fx115“– Thứ mình cần đang ở “total.py” là mô-đun của gói “total_fx9750“=&gt; Do đó, gói chung gần nhất của hai bạn này là “calculators”, vì hai bạn này đều là gói con của “calculators”. Cho nên, mình cần import từ gói cha, cụ thể trong “casio_fx115/total.py” cần:  from calculators. casio_fx115.total import total_fx9750**Lưu ý 1: “from  import A&quot;**Cú pháp **“from  import A“**, thì A có thể là:– một gói con nằm trong “gói”– một mô-đun con nằm trong “gói”– một hàm, một biến nằm trong gói(nằm trong file init.py)Thứ tự kiểm tra của câu lệnh import này là:– Đầu tiên, cho A là gói và kiếm nó để nạp vào– Nếu A không phải gói, nó lại giả định A là mô-đun và kiếm nó để nạp vào– Nếu A không phải mô-đun, tiếp tục giả đinh A là hàm, là biến số để kiếm và nạp vào– Nếu đến cuối vẫn không tìm thấy A, ImportError sẽ la làng lên.Lưu ý 2: “import A.B.C”Cú pháp “import A.B.C”, thì:– A, B phải là các gói– C có thể là gói hoặc mô-đun, nhưng C KHÔNG THỂ là một hàm, một biến đượcTệp init.pyThường thường, init.py là một tệp rỗng, tuy nhiên init.py cũng có thể dùng để chứa code khởi tạo cho gói đó hoặc dùng để gán biến all , thể hiện khi import với * thì sẽ có những mô-đun nào được nạp. Nếu biến này không được gán, python hiểu là tất cả các mô-đun trong gói đều được nạp khi gọi import với *.Ví dụ, trong gói calculators gán trong file init.py:  all = [“utils”]thì khi gọi “from calculators import *” sẽ có mô-đun “utils” được nạp vào._______________________________________________Nội dung bài mô-đun trong Python Tutorial đến đây tạm hết rồi, cám ơn mọi người đã đọc.Hôm nay mình tìm được một bản dịch The Python Tutorial qua tiếng Việt khá đầy đủ, bản dịch này của cộng đồng python Việt Nam, nó ở đây. Mọi người ghé đọc nhé, nội dung rất đầy đủ, kiểu như dịch từng chữ trong bản gốc ra luôn ấy, chứ không phải kiểu học hiểu ý rồi viết lại như mình.Đọc bản dịch này làm mình cảm thấy thật là hổ thẹn với những thứ mình viết ra ở bài này và những bài trước. Và mình phân vân không biết có nên viết tiếp về ba phần chính còn lại của tutorial này là: “Đầu vào và đầu ra”, “Lỗi và các ngoại lệ”, “Lớp” hay không nữa vì bản dịch rất đầy đủ rồi.Nghĩ từ chiều tới tối thì mình đã đưa ra quyết định là sẽ tiếp tục viết ba bài còn lại cho hoàn thành nội dung của The Python Tutorial theo ngôn ngữ của BeautyOnCode.Thực sự là mình không có dịch hết nội dung của sê-ri, mình đọc làm và viết lại, hay gọi nôm na là thổi hồn và chút hài hước theo ngôn ngữ dân dã vô cái đám kiến thức khá là khô khan này.Với mình, học xong, hiểu rồi, viết lại tốn khá là nhiều thời gian, nhưng càng làm mình lại càng thấm, mình thấy yêu thương từng câu từ, từng hình ảnh, demo, từng đoạn code mà mình viết và lập trình không còn khô khan nữa.Mình lảm nhảm đến đây cũng tạm rồi hehe, chốt lại là có bản dịch đó, mọi người cứ vào đọc cho gọn, còn mình cứ tiếp tục học và viết theo cách của mình thôi à.Thay lời tạm biệt, gửi bạn một bài blog của RealPython “Python Modules and Packages: Introduction” rất đầy đủ và bổ ích &lt;3">
+    <meta itemprop="datePublished" content="2020-04-29T00:00:00-04:00">
+    <meta itemprop="dateModified" content="2020-04-29T15:12:19-04:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/module-and-package-in-python/" itemprop="url">Mô đun và Gói trong Python
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          11 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>Chào mừng mọi người đến với bài tiếp theo của phần “The Python Tutorial” của series “Khám phá Đại Bản Doanh Python“.</p>
+
+<p>Bài trước, mình đã học thêm về “Cấu trúc dữ liệu trong Python”. Hôm ni, mình học tiếp về bạn “Mô-đun” nha.</p>
+
+<p>(Những nội dung trong bài series này từ chủ yếu mình lấy từ python.org rồi viết lại hoặc dịch lại theo ngôn ngữ của mình)</p>
+
+<h2 id="mô-đun">Mô-đun</h2>
+
+<p>Khi thoát khỏi PI, các dự liệu(biến, hàm, …) được khai báo trước đây sẽ bị mất như ví dụ sau:</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2020/06/pi-not-keep-data.gif?fit=654%2C504&amp;ssl=1" alt="" /></p>
+
+<p>Do đó, cần chuẩn bị đầu vào cho trình thông dịch để có thể dùng được bất cứ khi nào mình cần, các file chứa những đoạn mã như vậy được gọi là các script</p>
+
+<p>Để làm được như vậy, cách mình cần làm với Python là tạo một file có đuôi là “.py” rồi bỏ code vào đó. File này được gọi là mô-đun.</p>
+
+<p>Một mô-đun có thể được sử dụng trong một mô-đun khác, cũng có thể sử dụng trong trình thông dịch PI.</p>
+
+<p>Tên của mô-đun được lưu dưới biến <strong>name</strong> của chính mô-đun đó.</p>
+
+<blockquote>
+  <p>Mô-đun là tệp chứa các định nghĩa và các câu lệnh Python</p>
+</blockquote>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/06/calculator.gif?fit=908%2C678&amp;ssl=1" alt="" /></p>
+
+<p>Trên đây là cách dùng một mô-đun trong PI, mình cần nạp nó vào bằng lệnh “import”.</p>
+
+<p>Lưu ý nhỏ: Đến đây, mình đã cần sử dụng đến trình soạn thảo(editor) để tạo file và viết những đoạn code dài hơn. Editor mình đang dùng là “<a href="https://code.visualstudio.com/">Visual Studio Code</a>“</p>
+
+<h3 id="cách-nạp-mô-đun-để-sử-dụng">Cách nạp mô-đun để sử dụng</h3>
+
+<p>Nạp mô-đun vào đâu để sử dụng? Là nạp vào mô-đun khác hoặc nạp vào khi mình đang ở trong trình thông dịch PI như ví dụ trên đây.</p>
+
+<p>Khi mình nạp một mô-đun, các thành phần của nó sẽ được khởi tạo.</p>
+
+<p>Mỗi mô-đun như một cái gói bọc hết các giá trị được khởi tạo của nó trong đó, do đó khi cần dùng mình phải trỏ từ tên mô-đun vào lấy các thành phần khác. Ví dụ, bạn muốn dùng biến “name” trong module “person”, thì nó là: “person.name”</p>
+
+<p>Có nhiều cách nạp mô-đun và các thành phần của nó:</p>
+
+<p>→ <strong>Nạp luôn cả mô-đun</strong>: import person</p>
+
+<p>Khi nạp một mô-đun như vậy, mình cần gọi các thành phần bên trong nó từ mô-đun này, ví dụ “person.first_name”</p>
+
+<p>→ <strong>Nạp từng thành phần của mô-đun</strong> với from person import first_name, last_name</p>
+
+<p>Khi nạp từng thành phần như trên thì mô-đun person không có được nạp vào, chỉ có hai hàm first_name và last_name, nên không gọi person.first_name được, chỉ dùng first_name thôi nghen.</p>
+
+<p>→ <strong>Nạp hết tất cả thành phần</strong> với *: from person import *</p>
+
+<p>Tương tự như trên, tất cả các thành phần trong mô-đun person được nạp vào nhưng chính bản thân nó thì không.</p>
+
+<p>→ <strong>Nạp mô-đun và sử dụng với tên khác với “as“</strong>: from person import full_name as name</p>
+
+<p>Hàm full_name được kết nối với tên thay thế là “name”, nên gọi name chính là gọi full_name</p>
+
+<p>### Cách cập nhật nội dung của mô-đun</p>
+
+<p>Khi làm việc với mô-đun trong PI, đôi khi mình sửa code nhưng không thấy kết quả được cập nhật, đó là do nội dung mô-đun bạn nạp trước đây vẫn tồn tại và bạn cần tải lại mô-đun để có nội dung mới nhất.</p>
+
+<h4 id="có-hai-cách-cập-nhật-nội-dung-của-mô-đun">Có hai cách cập nhật nội dung của mô-đun:</h4>
+
+<p><strong>Cách 1: thoát PI và tải lại mô-đun đó</strong>
+<img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2020/06/reloadPI.gif?fit=908%2C678&amp;ssl=1" alt="" /></p>
+
+<p><strong>Cách 2: gọi đến mô-đun importlib và gọi lệnh để reload mô-đun mình cần</strong></p>
+
+<blockquote>
+  <p>import importlib; importlib.reload(<mô-đun>)</mô-đun></p>
+</blockquote>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2020/06/reload-inside-PI.gif?fit=910%2C678&amp;ssl=1" alt="" /></p>
+
+<h4 id="thực-thi-một-mô-đun-như-là-một-script">Thực thi một mô-đun như là một script</h4>
+
+<p>Ngoài cách vào trình thông dịch PI, nạp mô-đun mà gọi lệnh thực thi chương trình để kiểm thử, bạn có một cách khác nhanh hơn là viết sẵn chương trình bạn cần làm trong mô-đun luôn và gọi lệnh để thực thi script đó.</p>
+
+<p>Để thực thi một mô đun trong PI, bạn dùng từ khoá “python”:</p>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2020/06/Screen-Shot-2020-06-27-at-11.04.24-PM.png?w=810&amp;ssl=1" alt="" /></p>
+
+<blockquote>
+  <p>python calculator.py</p>
+</blockquote>
+
+<p>Kết quả của lệnh trên sẽ là: Total 5</p>
+
+<p>Gọi vậy thì mô-đun sẽ được thực thi như khi bạn import nó vào mô-đun khác.</p>
+
+<p>Điều khác duy nhất khi thực thi bằng lệnh “python” là tên <strong>name</strong> của mô-đun sẽ được gán với giá trị <strong>main</strong>.</p>
+
+<p>Bạn để ý chỗ ni xíu, vì khúc này liên quan tới một câu lệnh mình hay dùng mà hỏng hiểu tại sao, câu lệnh đó là:</p>
+
+<blockquote>
+  <p>if <strong>name</strong> == “<strong>main</strong>”:</p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># code thực thi đặt vào đây
+</code></pre></div>  </div>
+</blockquote>
+
+<p>Bạn có thấy câu lệnh ni quen không? Nếu bạn từng học qua Python hẳn bạn đã gặp rồi.</p>
+
+<p>Người ta hay bỏ câu lệnh như vậy vào chương trình để mần chi nhỉ?</p>
+
+<p>Để cho các code trong chỗ “#code thực thi thì đặt vào đây” ấy, chỉ được chạy khi mà mình chạy nó như một script với lệnh “python” thôi. Còn khi import nó vào mô-đun khác thì hỏng có chạy.</p>
+
+<p>Đây là cách tiện hay dùng để kiểm thử một mô-đun đồng thời khi dùng nó trong mô-đun khác lại không bị ảnh hưởng.</p>
+
+<p>Bạn thấy chỗ ni hay hông? Mình thấy siêu hay luôn, vì khúc ni trước mình xài mà hông có hiểu mấy ^^</p>
+
+<h4 id="python-tìm-mô-đun-ở-đâu">Python tìm mô-đun ở đâu?</h4>
+
+<p>Khi làm việc với mô-đun, bạn có thể sẽ gặp lỗi không tìm thấy mô-đun như thế này.</p>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2020/06/Screen-Shot-2020-06-17-at-6.32.15-PM.png?w=1288&amp;ssl=1" alt="" /></p>
+
+<p>Khi một mô-đun nạp đúng, bạn có để ý PI biết chính xác mô-đun của bạn đang ở đâu.</p>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2020/06/Screen-Shot-2020-06-17-at-6.32.41-PM.png?resize=1024%2C133&amp;ssl=1" alt="" /></p>
+
+<p><strong>Vậy thì PI đã tìm mô-đun ở những nơi nào?</strong></p>
+
+<p>→ Đầu tiên, PI sẽ đi kiếm nó trong built-in mô-đun(là những mô-đun được Python xây dựng sẵn, hay còn gọi là những mô-đun tiêu chuẩn)</p>
+
+<p>→ Nếu tìm chưa thấy, nó sẽ tiếp tục tìm trong sys.path, sys.path được định nghĩa ở những nơi sau:</p>
+
+<ul>
+  <li>Thư mục hiện tại(nơi bạn đứng và truy cập vào PI) là giá trị của sys.path[0], nên được tìm kiếm đầu tiên.</li>
+  <li>PYTHONPATH</li>
+  <li>Thư mục cài đặt mặc định</li>
+</ul>
+
+<p><strong>Lưu ý</strong>: Nếu mô-đun trùng tên với built-in mô-đun, thì mô-đun ở folder hiện tại sẽ được nạp vào, chớ không phải built-ins mô-đun nghen.</p>
+
+<p>Nếu bạn chưa nạp được mô-đun của mình trong PI, vui lòng hãy dòm qua cái sys.path thử có cái đường dẫn đến thư mục mô-đun của bạn chưa, nếu chưa có thì bạn đứng sai chỗ rồi đó.</p>
+
+<h4 id="biên-dịch-các-file-py">Biên dịch các file .py</h4>
+
+<p>Quá trình biên dịch này diễn ra hoàn toàn tự động, cho nên khi làm việc với Python bạn sẽ thấy folder <strong>pycache</strong> này thường xuyên, mình cùng đọc cho biết thêm ha.</p>
+
+<p>Để tăng tốc độ tải các mô-đun, Python lưu phiên bản biên dịch của từng version khác nhau của mô-đun dưới định dạng module.version.pyc trong thư mục <strong>pycache</strong>.</p>
+
+<p>Quy ước đặt tên này cho phép Python có thể biên dịch lại từ các version khác nhau.</p>
+
+<p>Ví dụ dưới đây thể hiện version python 3.8 mình đang sử dụng</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2020/06/Screen-Shot-2020-06-24-at-5.26.41-AM.png?resize=1024%2C379&amp;ssl=1" alt="" /></p>
+
+<h2 id="các-mô-đun-chuẩn">Các mô-đun chuẩn</h2>
+
+<p>Python có sẵn thư viện của các mô-đun tiêu chuẩn, được viết ở “<a href="https://docs.python.org/3/library/">The Python Standard Library</a>“, bao gồm những nhóm chính như là:</p>
+
+<p>– <strong>Built-in functions</strong>: các hàm dựng sẵn</p>
+
+<p>– <strong>Built-in constants</strong>: các biến dựng sẵn</p>
+
+<p>– <strong>Built-in types</strong>: các kiểu dữ liệu dựng sẵn</p>
+
+<p>– <strong>Built-in exceptions</strong>: các ngoại lệ dựng sẵn</p>
+
+<p>– <strong>Data types</strong>: các kiểu dữ liệu …</p>
+
+<p>Các mô-đun này có thể khác nhau tuỳ theo nền tảng chạy Python, ví dụ mô-đun winreg chỉ có ở hệ điều hành Window, hoặc hai giá trị sys.ps1 và sys.ps2 của mô-đun sys chỉ có trong PI, còn sys.path lại thể hiện các nơi có thể tìm kiếm mô-đun.</p>
+
+<p><em>Trò chơi nhỏ</em>: cùng xem sys.ps1 và sys.ps2 có giá trị gì trong PI của máy bạn sau đó gán nó bằng một giá trị bất kỳ rồi thử in ra một câu xem có gì thú vị sẽ xảy ra nhé.</p>
+
+<p>(Nếu bạn đang không vui, hãy bỏ qua mấy trò nhảm của mình ạ)</p>
+
+<h2 id="hàm-dir">Hàm dir()</h2>
+
+<p>Nhìn một mô-đun mình chẳng biết nó có gì cả, bạn <strong>dir()</strong> này như kiểu chụp X-quang cắt lớp xem cái mô-đun của mình chứa những biến gì, những hàm nào, nhưng ở dạng rất sơ khai, là một mảng các tên được sắp xếp theo thứ tự A đến Z.</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2020/06/Screen-Shot-2020-06-24-at-5.41.57-AM.png?resize=1024%2C127&amp;ssl=1" alt="" /></p>
+
+<p>Chưa hết, gọi dir() không có giá trị truyền vào trong PI sẽ thấy được những biến, hàm có thể sử dụng ở PI hiện tại:</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/06/Screen-Shot-2020-06-24-at-5.43.37-AM.png?resize=1024%2C98&amp;ssl=1" alt="" /></p>
+
+<p>Lưu ý nhỏ là dir() không list ra được những hàm và giá trị được dựng sẵn(mấy bạn built-ins). Muốn xem mấy bạn này, mình phải dùng cái gọi là <strong>dir(builtins)</strong></p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/06/Screen-Shot-2020-06-24-at-5.46.08-AM.png?w=1280&amp;ssl=1" alt="" /></p>
+
+<h2 id="gói">Gói</h2>
+
+<p>Gói(package) là một nhóm các mô-đun khác nhau. Nó tương tự như thư mục chứa nhiều tệp tin vậy, nhưng cần phải đăng ký nhẹ với python để nó biết đó là gói, bằng cách thêm file <strong>init.py</strong> là python biết mình khởi tạo gói.</p>
+
+<p>Một gói cũng có thể chứa nhiều gói con khác nằm bên trong nó.</p>
+
+<p>Ví dụ mình muốn thiết kế một gói tên là “calculators” chứa hai gói con là máy tính “casio_fx115” và “casio_fx9750” đồng thời chứa các mô-đun “utils” thì sẽ có cấu trúc thư mục là:</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/06/package-in-python.png?w=1280&amp;ssl=1" alt="" /></p>
+
+<h3 id="nạp-gói-mô-đun-và-các-lưu-ý">Nạp gói, mô-đun và các lưu ý</h3>
+
+<p>Lỗi khi import mô-đun là lỗi khá phổ biến với người mới học. Do đó, khi thực hiện import, bạn hãy nhớ đến 2 câu thần chú: “<em>Tôi đang đứng ở đâu? Thứ tôi cần đang ở đâu?</em>”</p>
+
+<p>Nghe khá tào lao nhưng bạn lấy thư mục/gói chứa điểm chung gần nhất của nơi bạn đứng và nơi bạn cần sẽ là điểm bạn thực hiện import từ đó.</p>
+
+<p>Chắc bạn không hiểu đâu, để mình ví dụ nè:</p>
+
+<p>(ví dụ hơi lộn xộn, bạn phải thật bình tĩnh khi đọc và dòm cái hình bên trên nữa nhé)</p>
+
+<p><strong>Ví dụ 1:</strong> Import hàm total từ utils.py vào total.py trong thư mục casio_fx115</p>
+
+<p><em>Thì mình sẽ làm thế này:</em></p>
+
+<p>– Mình xác định mình đang đứng ở “casio_fx9570/total.py” tức là đứng trong gói “casio_fx9570“</p>
+
+<p>– Thứ mình cần đang ở “utils.py” là mô-đun của gói “calculators”</p>
+
+<p>=&gt; Do đó, gói chung gần nhất của hai bạn này là “calculators”, vì bạn ni bọc bạn “casio_fx9570“.</p>
+
+<p>Cho nên, mình sẽ import từ thằng cha, cụ thể là trong “casio_fx9570/total.py” cần:</p>
+
+<blockquote>
+  <p>from calculators.utils import total</p>
+</blockquote>
+
+<p><strong>Ví dụ 2:</strong> Import hàm “total_fx9750” từ mô-đun “total.py” trong thư mục “casio_fx9570″ vào mô-đun “total.py” nằm trong thư mục “casio_fx115″</p>
+
+<p><em>Thì mình sẽ làm thế này:</em></p>
+
+<p>– Mình xác định mình đang đứng ở “casio_fx115/total.py” tức là đứng trong gói “casio_fx115“</p>
+
+<p>– Thứ mình cần đang ở “total.py” là mô-đun của gói “total_fx9750“</p>
+
+<p>=&gt; Do đó, gói chung gần nhất của hai bạn này là “calculators”, vì hai bạn này đều là gói con của “calculators”. Cho nên, mình cần import từ gói cha, cụ thể trong “casio_fx115/total.py” cần:</p>
+
+<blockquote>
+  <p>from calculators. casio_fx115.total import total_fx9750</p>
+</blockquote>
+
+<p>**Lưu ý 1: “from <gói> import A"**</gói></p>
+
+<p>Cú pháp **“from <gói> import A“**, thì A có thể là:</gói></p>
+
+<p>– một gói con nằm trong “gói”</p>
+
+<p>– một mô-đun con nằm trong “gói”</p>
+
+<p>– một hàm, một biến nằm trong gói(nằm trong file <strong>init</strong>.py)</p>
+
+<p><em>Thứ tự kiểm tra của câu lệnh import này là:</em></p>
+
+<p>– Đầu tiên, cho A là gói và kiếm nó để nạp vào</p>
+
+<p>– Nếu A không phải gói, nó lại giả định A là mô-đun và kiếm nó để nạp vào</p>
+
+<p>– Nếu A không phải mô-đun, tiếp tục giả đinh A là hàm, là biến số để kiếm và nạp vào</p>
+
+<p>– Nếu đến cuối vẫn không tìm thấy A, ImportError sẽ la làng lên.</p>
+
+<p><strong>Lưu ý 2: “import A.B.C”</strong></p>
+
+<p>Cú pháp <strong>“import A.B.C”</strong>, thì:</p>
+
+<p>– A, B phải là các gói</p>
+
+<p>– C có thể là gói hoặc mô-đun, nhưng C <strong>KHÔNG THỂ</strong> là một hàm, một biến được</p>
+
+<h2 id="tệp-initpy">Tệp <strong>init</strong>.py</h2>
+
+<p>Thường thường, <strong>init</strong>.py là một tệp rỗng, tuy nhiên <strong>init</strong>.py cũng có thể dùng để chứa code khởi tạo cho gói đó hoặc dùng để gán biến <strong>all</strong> , thể hiện khi import với * thì sẽ có những mô-đun nào được nạp. Nếu biến này không được gán, python hiểu là tất cả các mô-đun trong gói đều được nạp khi gọi import với *.</p>
+
+<p>Ví dụ, trong gói calculators gán trong file <strong>init</strong>.py:</p>
+
+<blockquote>
+  <p><strong>all</strong> = [“utils”]</p>
+</blockquote>
+
+<p>thì khi gọi “from calculators import *” sẽ có mô-đun “utils” được nạp vào.
+<strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong><strong>__</strong>___
+Nội dung bài mô-đun trong Python Tutorial đến đây tạm hết rồi, cám ơn mọi người đã đọc.</p>
+
+<p>Hôm nay mình tìm được một bản dịch The Python Tutorial qua tiếng Việt khá đầy đủ, bản dịch này của cộng đồng python Việt Nam, nó ở <a href="https://tutorial.pythonvietnam.info/">đây</a>. Mọi người ghé đọc nhé, nội dung rất đầy đủ, kiểu như dịch từng chữ trong bản gốc ra luôn ấy, chứ không phải kiểu học hiểu ý rồi viết lại như mình.</p>
+
+<p>Đọc bản dịch này làm mình cảm thấy thật là hổ thẹn với những thứ mình viết ra ở bài này và những bài trước. Và mình phân vân không biết có nên viết tiếp về ba phần chính còn lại của tutorial này là: “Đầu vào và đầu ra”, “Lỗi và các ngoại lệ”, “Lớp” hay không nữa vì bản dịch rất đầy đủ rồi.</p>
+
+<p>Nghĩ từ chiều tới tối thì mình đã đưa ra quyết định là sẽ tiếp tục viết ba bài còn lại cho hoàn thành nội dung của The Python Tutorial theo ngôn ngữ của BeautyOnCode.</p>
+
+<p>Thực sự là mình không có dịch hết nội dung của sê-ri, mình đọc làm và viết lại, hay gọi nôm na là thổi hồn và chút hài hước theo ngôn ngữ dân dã vô cái đám kiến thức khá là khô khan này.</p>
+
+<p>Với mình, học xong, hiểu rồi, viết lại tốn khá là nhiều thời gian, nhưng càng làm mình lại càng thấm, mình thấy yêu thương từng câu từ, từng hình ảnh, demo, từng đoạn code mà mình viết và lập trình không còn khô khan nữa.</p>
+
+<p>Mình lảm nhảm đến đây cũng tạm rồi hehe, chốt lại là có bản dịch đó, mọi người cứ vào đọc cho gọn, còn mình cứ tiếp tục học và viết theo cách của mình thôi à.</p>
+
+<p>Thay lời tạm biệt, gửi bạn một bài blog của RealPython “<a href="https://realpython.com/python-modules-packages">Python Modules and Packages: Introduction</a>” rất đầy đủ và bổ ích &lt;3</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#python" class="page__taxonomy-item p-category" rel="tag">python</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#%C4%91%E1%BA%A1i-b%E1%BA%A3n-doanh-python" class="page__taxonomy-item p-category" rel="tag">Đại Bản Doanh Python</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2020-04-29">April 29, 2020</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  <h4 class="page__share-title">Share on</h4>
+
+  <a href="https://twitter.com/intent/tweet?via=mmistakes&text=M%C3%B4+%C4%91un+v%C3%A0+G%C3%B3i+trong+Python%20http%3A%2F%2Flocalhost%3A4000%2F%25C4%2591%25E1%25BA%25A1i%2520b%25E1%25BA%25A3n%2520doanh%2520python%2Fmodule-and-package-in-python%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F%25C4%2591%25E1%25BA%25A1i%2520b%25E1%25BA%25A3n%2520doanh%2520python%2Fmodule-and-package-in-python%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/module-and-package-in-python/" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/tai-lieu-hoc-va-nghien-cuu-python/" class="pagination--pager" title="Tài liệu học và nghiên cứu Python
+">Previous</a>
+    
+    
+      <a href="/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/chiec-may-tinh-PI/" class="pagination--pager" title="Chiếc máy tính PI(Python Interpreter)
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  <div align="center" style="margin: 1em 0;">
+  <ins class="adsbygoogle"
+        style="display:block; border-bottom: initial;"
+        data-ad-client="ca-pub-7328585512091257"
+        data-ad-slot="3049671934"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+</div>
+
+
+  <h2 class="page__related-title">You May Also Enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/django/relation-fields-in-drf-serializer/" rel="permalink">Relation fields in Django Rest Framework Serializer
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+The Django model offers various types of relationships such as OneToOneField, ForeignKey, ManyToManyField, and GenericForeignKey.
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/django/export-multiple-csv-to-zip-django/" rel="permalink">Export Multiple CSVs file into a ZIP in Django Application
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/django/export-docx-in-django/" rel="permalink">Export a docx file in Django application
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          8 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/js/scope-trong-javascript/" rel="permalink">Scope trong JavaScript
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      <div align="center" style="margin: 1em 0;">
+  <ins class="adsbygoogle"
+        style="display:block; border-bottom: initial;"
+        data-ad-client="ca-pub-7328585512091257"
+        data-ad-slot="3049671934"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="search-searchbar"></div>
+  <div class="search-hits"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/mmistakes" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/mmistakes" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/mmistakes" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 <a href="http://localhost:4000">BeautyOnCode</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+<script>
+// Including InstantSearch.js library and styling
+const loadSearch = function() {
+  const loadCSS = function(src) {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = src;
+    link.media = 'all';
+    document.head.appendChild(link);
+  };
+
+  var script = document.createElement('script');
+  script.setAttribute("type", "text/javascript");
+  script.setAttribute("src", "https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.js");
+  script.addEventListener("load", function() {
+    // Instantiating InstantSearch.js with Algolia credentials
+    const search = instantsearch({
+      appId: 'QB6HVGBSBA',
+      apiKey: '9d5014e5bbc77372547bce778dfa5663',
+      indexName: 'minimal_mistakes',
+      searchParameters: {
+        restrictSearchableAttributes: ['title', 'content']
+      }
+    });
+
+    const hitTemplate = function(hit) {
+      const url = hit.url;
+      const hightlight = hit._highlightResult;
+      const title = hightlight.title && hightlight.title.value  || "";
+      const content = hightlight.html && hightlight.html.value  || "";
+
+      return `
+        <div class="list__item">
+          <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+            <h2 class="archive__item-title" itemprop="headline"><a href="/${url}">${title}</a></h2>
+            <div class="archive__item-excerpt" itemprop="description">${content}</div>
+          </article>
+        </div>
+      `;
+    }
+
+    // Adding searchbar and results widgets
+    search.addWidget(
+      instantsearch.widgets.searchBox({
+        container: '.search-searchbar',
+        poweredBy: true,
+        placeholder: 'Enter your search term...'
+      })
+    );
+    search.addWidget(
+      instantsearch.widgets.hits({
+        container: '.search-hits',
+        templates: {
+          item: hitTemplate,
+          empty: 'No results',
+        }
+      })
+    );
+
+    if (!search.started) {
+      search.start();
+    }
+  });
+  document.body.appendChild(script);
+
+  loadCSS("https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.css");
+  loadCSS("https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch-theme-algolia.min.css");
+};
+
+// Starting the search only when toggle is clicked
+$(document).ready(function() {
+  var scriptLoaded = false;
+
+  $(".search__toggle").on("click", function() {
+    if (!scriptLoaded) {
+      loadSearch();
+      scriptLoaded = true;
+    }
+  });
+});
+</script>
+
+
+
+
+<style>
+.google-auto-placed {
+  margin: 2em auto;
+}
+</style>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
+
+
+  </body>
+</html>

@@ -2,14 +2,14 @@
 > This github pages use [jekyll](https://jekyllrb.com/docs/installation/)
 
 ## Run App
-### Install gem 
+### Install gem
 ```bash
 $ cd docs
 $ bundle install
 ```
 ### Run app
 ```
-$ bundle exec jekyll serve 
+$ bundle exec jekyll serve
 ```
 
 ```
@@ -33,7 +33,6 @@ $ rbenv init
 $ eval "$(rbenv init - zsh)" > ~/.zshrc
 $ rbenv install 3.1.4
 $ rbenv local 3.1.4
-rbenv rehash
 ```
 
 ### Install gem
@@ -48,4 +47,4 @@ $ bundle install
 
 ## Theme
 - https://mmistakes.github.io/minimal-mistakes/docs/structure/
-- 
+-

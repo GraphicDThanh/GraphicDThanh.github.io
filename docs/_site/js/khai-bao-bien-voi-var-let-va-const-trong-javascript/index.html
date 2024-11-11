@@ -1,0 +1,112 @@
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/10/var-let-const.png?w=1280&amp;ssl=1" alt="" /></p>
+
+<p>Ba cách giúp bạn khai báo biến trong JavaScript là sử dụng từ khóa <code class="language-plaintext highlighter-rouge">var</code>, <code class="language-plaintext highlighter-rouge">let</code>, <code class="language-plaintext highlighter-rouge">const</code>.</p>
+
+<p>Bài viết này mình sẽ tóm tắt lại sự khác nhau của ba cách khai báo này và cách sử dụng.</p>
+
+<p>Đồng thời cũng làm quen với các loại scoped như <code class="language-plaintext highlighter-rouge">local scoped</code>, <code class="language-plaintext highlighter-rouge">global scoped</code>, <code class="language-plaintext highlighter-rouge">block scoped</code>, khái niệm <code class="language-plaintext highlighter-rouge">Temporal Dead Zone</code>, và một số loại lỗi hay gặp khi làm việc với các từ khóa này như <code class="language-plaintext highlighter-rouge">SyntaxError</code>,  <code class="language-plaintext highlighter-rouge">ReferenceError</code>, <code class="language-plaintext highlighter-rouge">TypeError</code></p>
+
+<h2 id="var-và-let">var và let</h2>
+
+<h3 id="var">var</h3>
+
+<p>Thường thì sẽ so sánh <code class="language-plaintext highlighter-rouge">var</code> và <code class="language-plaintext highlighter-rouge">let</code> trước, vì cả hai đều dùng để khai báo một biến có thể thay đổi giá trị được.</p>
+
+<p>Ví dụ:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">2</span><span class="p">:</span>
+</code></pre></div></div>
+
+<p>Khi khai báo với <code class="language-plaintext highlighter-rouge">var</code>, biến của bạn sẽ được <code class="language-plaintext highlighter-rouge">hoisting</code> trước khi gán giá trị, tức là biến này được định nghĩa ngay trước khi chương trình thực thi, trong giai đoạn <code class="language-plaintext highlighter-rouge">Memory Creation</code> trong ngữ cảnh thực thi.</p>
+
+<p>Nếu chưa rõ bạn có thể đọc bài <a href="https://beautyoncode.com/dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript/">“Điều gì xảy ra khi chạy chương trình JS”</a> và bài <a href="https://beautyoncode.com/hoisting-trong-javascript/">“Hoisting trong JavaScript”</a></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span><span class="p">.</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="mi">2</span><span class="p">.</span> <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="mi">3</span><span class="p">.</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>ở đây chương trình sẽ in ra giá trị <code class="language-plaintext highlighter-rouge">undefined</code> ở dòng số 1, và in ra số 1 ở dòng số 3</p>
+
+<p>Bên cạnh đó, biến được khai báo với <code class="language-plaintext highlighter-rouge">var</code> sẽ nằm trong <code class="language-plaintext highlighter-rouge">global scoped</code>, chỉ khi khai báo với var trong <strong>hàm</strong> mới có scope là <code class="language-plaintext highlighter-rouge">function scoped</code> hay <code class="language-plaintext highlighter-rouge">local scoped</code>.</p>
+
+<p>Đây là lý do vì sao nếu bạn khai báo như trên có thể dùng <code class="language-plaintext highlighter-rouge">window.a</code> hay <code class="language-plaintext highlighter-rouge">this.a</code> (với this này là window) để truy cập vào a vì nó nằm ở <code class="language-plaintext highlighter-rouge">global scope</code>.</p>
+
+<h3 id="let">let</h3>
+
+<p>Khi khai báo với let, biến của bạn và vẫn được hoisting, tuy nhiên biến này được lưu trong một khu vực gọi là Temporal Dead Zone và làm cho nó không truy cập được trước khi khai báo.</p>
+
+<p>Ví dụ:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/10/let-error-access-tdz-1.png?w=1280&amp;ssl=1" alt="" /></p>
+
+<p>ở đây chương trình sẽ bị lỗi <code class="language-plaintext highlighter-rouge">ReferenceError</code> không thể truy cập <code class="language-plaintext highlighter-rouge">b</code> trước khi được khởi tạo</p>
+
+<p>Và biến được khai báo với <code class="language-plaintext highlighter-rouge">let</code> sẽ nằm trong <code class="language-plaintext highlighter-rouge">block scoped</code></p>
+
+<p>Ví dụ biến b dưới đây nằm trong một <code class="language-plaintext highlighter-rouge">block scoped</code> của <code class="language-plaintext highlighter-rouge">if</code> với <code class="language-plaintext highlighter-rouge">{}</code> và không thể sử dụng ở bên ngoài.</p>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/10/let-block-scope.png?w=1280&amp;ssl=1" alt="" /></p>
+
+<hr />
+
+<p>Một điểm khác nhau nữa của <code class="language-plaintext highlighter-rouge">var</code> và <code class="language-plaintext highlighter-rouge">let</code> nữa là việc khai báo hai biến cùng tên hay <code class="language-plaintext highlighter-rouge">re-declaration</code>. Có thể khai báo hai biến cùng tên với <code class="language-plaintext highlighter-rouge">var</code>, nhưng với <code class="language-plaintext highlighter-rouge">let</code> làm như thế sẽ báo lỗi <code class="language-plaintext highlighter-rouge">Syntax Error</code> và không cho phép chương trình thực thi.</p>
+
+<p>Có thể khai báo hai biến cùng tên với <code class="language-plaintext highlighter-rouge">var</code>:</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/elementor/thumbs/var-re-declare-pw401gsly8iz6e0wwpugd8kqtcsupaxplvqapagwmg.png?w=640&amp;ssl=1" alt="" /></p>
+
+<p>Nhưng với <code class="language-plaintext highlighter-rouge">let</code> sẽ báo lỗi <code class="language-plaintext highlighter-rouge">Syntax Error</code> và không cho phép chương trình thực thi.</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/10/re-declare-let.png?w=1280&amp;ssl=1" alt="" /></p>
+
+<h2 id="let-var-và-const">let, var và const</h2>
+
+<p><code class="language-plaintext highlighter-rouge">let</code> và <code class="language-plaintext highlighter-rouge">var</code> cho phép khai báo tên một biến mà không cần giá trị khởi tạo, còn const chỉ cho phép khai báo với một giá trị ban đầu.</p>
+
+<p>Ví dụ:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">a</span><span class="p">;</span> 
+<span class="kd">let</span> <span class="nx">b</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">c</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>Nếu không có giá trị khởi tạo cho const bạn sẽ bị lỗi <code class="language-plaintext highlighter-rouge">SyntaxError</code>. 
+<img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/elementor/thumbs/const-missing-init-pw409hd2uavxrdsh53o9x79fie691bdkopk13gk65w.png?w=640&amp;ssl=1" alt="" /></p>
+
+<p>Thêm nữa, bạn có thể thay đổi giá trị cho biến khai báo với <code class="language-plaintext highlighter-rouge">let</code> hay <code class="language-plaintext highlighter-rouge">var</code>, nhưng bạn không thể thay đổi giá trị cho biến khai báo với <code class="language-plaintext highlighter-rouge">const</code>.</p>
+
+<p>Nếu bạn gán giá trị cho một biến khai báo với const bạn sẽ bị lỗi <code class="language-plaintext highlighter-rouge">TypeError</code></p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/elementor/thumbs/const-assign-val-pw40dmtf0ykj1drdwe9yfnjpynpm16uw99a8egekyk.png?w=640&amp;ssl=1" alt="" /></p>
+
+<p><strong>Cuối cùng let và const là cú pháp của ES6.</strong></p>
+
+<h2 id="cách-sử-dụng-var-let-const">Cách sử dụng var, let, const</h2>
+
+<p>Biết khác nhau thế nào rồi thì bạn sẽ sử dụng chúng như thế nào?</p>
+
+<p><strong>const</strong>: sử dụng khai báo hằng số, các giá trị không thay đổi trong suốt chương trình, và cố gắng dùng nhiều nhất có thể vì nó chặt chẽ nhất.</p>
+
+<p><strong>let</strong>: ưu tiên tiếp theo sau <code class="language-plaintext highlighter-rouge">const</code>, cố gắng sử dụng bất cứ khi nào có thể vì let có <code class="language-plaintext highlighter-rouge">Temporal Dead Zone</code> giúp bạn không truy cập trước khi khai báo tránh các lỗi về <code class="language-plaintext highlighter-rouge">undefined</code> như khi dùng với var</p>
+
+<p><strong>var</strong>: không nên dùng, hạn chế tối đa (hiểu để đọc code những chương trình viết với <code class="language-plaintext highlighter-rouge">ES5</code>)</p>
+
+<h3 id="vậy-làm-sao-để-tránh-lỗi-referenceerror-khi-sử-dụng-let">Vậy làm sao để tránh lỗi ReferenceError khi sử dụng let?</h3>
+
+<p>Tốt nhất là hãy đặt tất cả các khai báo và khởi tạo về biến lên trên cùng của chương trình, module, hàm, scope.</p>
+
+<p>Khi đó biến sẽ được khai báo trước khi sử dụng để đảm bảo bạn không truy cập trước khi nó được khai báo sẽ tránh lỗi trên.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Chúc các bạn hiểu và tự tin khai báo biến mình cần sử dụng nhé.</p>
+
+<p>(<a href="https://www.youtube.com/watch?v=BNC6slYCj50">Ref</a>)</p>
