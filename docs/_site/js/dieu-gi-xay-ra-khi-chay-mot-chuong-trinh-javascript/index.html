@@ -1,0 +1,100 @@
+<blockquote>
+  <p>Mọi thứ trong JavaScript diễn ra bên trong một <strong>“Execution Context”</strong>(ngữ cảnh thực thi)</p>
+</blockquote>
+
+<p>Có hai giai đoạn trong <strong>“Execution Context”</strong> gồm:</p>
+
+<p>– Giai đoạn <strong>“Memory Creation”</strong> (cấp phát bộ nhớ): là lúc tất cả các biến và hàm được cấp phát bộ nhớ dưới dạng <strong>key: value</strong>.</p>
+
+<p>Một tên khác cho phần này là <strong>“Variable Environment”</strong></p>
+
+<p>– Giai đoạn <strong>“Code Execution”</strong> (thực thi code): là lúc code được thực thi theo thứ tự từ trên xuống dưới, từng dòng một.</p>
+
+<p>Một tên khác cho phần này là <strong>“Thread of Execution”</strong></p>
+
+<p>Vì thế:</p>
+
+<blockquote>
+  <p>JavaScript is a <strong>synchronous</strong> <strong>single-threaded</strong> language</p>
+</blockquote>
+
+<hr />
+
+<p>Giả sử có chương trình tính bình phương như sau:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="mi">1</span><span class="p">.</span> <span class="kd">let</span> <span class="nx">n</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="mi">2</span><span class="p">.</span> <span class="kd">function</span> <span class="nx">square</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span> <span class="p">{</span>
+<span class="mi">3</span><span class="p">.</span> 	<span class="kd">let</span> <span class="nx">ans</span> <span class="o">=</span> <span class="nx">num</span><span class="p">.</span> <span class="o">*</span> <span class="nx">num</span><span class="p">;</span>
+<span class="mi">4</span><span class="p">.</span> 	<span class="k">return</span> <span class="nx">ans</span><span class="p">;</span>
+<span class="mi">5</span><span class="p">.</span> <span class="p">}</span>
+<span class="mi">6</span><span class="p">.</span> <span class="kd">const</span> <span class="nx">square2</span> <span class="o">=</span> <span class="nx">square</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
+<span class="mi">7</span><span class="p">.</span> <span class="kd">const</span> <span class="nx">square4</span> <span class="o">=</span> <span class="nx">square</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>Khi chương trình JS khởi chạy, một <strong>execution context</strong> ở global sẽ được tạo.</p>
+
+<p>Ở giai đoạn <strong>“Memory Creation Phase”</strong>, bộ nhớ được cấp cho tất cả các biến và các hàm.</p>
+
+<p>Chương trình bắt đầu đọc từ trên xuống dưới và cấp bộ nhớ:</p>
+
+<p>– Dòng 1 cấp biến <code class="language-plaintext highlighter-rouge">n</code> với <code class="language-plaintext highlighter-rouge">undefined</code></p>
+
+<p>– Dòng 2 cấp cho hàm <code class="language-plaintext highlighter-rouge">square</code> bộ nhớ cho toàn bộ nội dung của nó,</p>
+
+<p>– Dòng 6 cấp biến <code class="language-plaintext highlighter-rouge">square2</code> với <code class="language-plaintext highlighter-rouge">undefined</code></p>
+
+<p>– Dòng 7 cấp biến <code class="language-plaintext highlighter-rouge">square4</code> với <code class="language-plaintext highlighter-rouge">undefined</code></p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/08/js-execute1.png" alt="" /></p>
+
+<p>Tiếp tục qua giai đoạn <strong>“Code Execution”</strong>, code sẽ được thực thi theo thứ tự:</p>
+
+<p>– Dòng 1, gán 2 cho biến <code class="language-plaintext highlighter-rouge">n</code></p>
+
+<p>– Dòng 2 đến 5 bỏ qua vì không có gì để thực thi</p>
+
+<p>– Dòng 6, hàm <code class="language-plaintext highlighter-rouge">square(2)</code> được gọi, một <strong>execution context</strong> giành riêng cho hàm này được tạo, mình tạm gọi là <strong>“square execution context”</strong></p>
+
+<p>– Giai đoạn <strong>Memory Creation Phase</strong> của <strong>“square execution context”</strong>, cấp bộ nhớ cho <code class="language-plaintext highlighter-rouge">num</code> và <code class="language-plaintext highlighter-rouge">ans</code></p>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/08/js-execute2.png" alt="" /></p>
+
+<p>– Giai đoạn <strong>Code Execution</strong> của <strong>“square execution context”</strong>, thực thi:</p>
+
+<p>– Dòng 2, <code class="language-plaintext highlighter-rouge">num</code> được gán giá trị là <code class="language-plaintext highlighter-rouge">2</code> từ đầu vào khi gọi hàm <code class="language-plaintext highlighter-rouge">square(n)</code></p>
+
+<p>– Dòng 3, <code class="language-plaintext highlighter-rouge">ans</code> được gán giá trị 2 * 2, là <code class="language-plaintext highlighter-rouge">4</code>.</p>
+
+<p>– Dòng 4, trả về giá trị của ans cho <strong>global execution context</strong> ở dòng số 6, là nơi gọi hàm <code class="language-plaintext highlighter-rouge">square(n)</code>. Sau khi trả về giá trị, toàn bộ <strong>square execution context</strong> bị xóa đi.</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/08/js-execute3.png" alt="" /></p>
+
+<p>– Dòng 7, hàm <code class="language-plaintext highlighter-rouge">square(4)</code> được gọi, một execution context giành riêng cho hàm này được tạo, mình tạm gọi là “square 4 execution context”</p>
+
+<p>– Hai giai đoạn tương tự như khi gọi <code class="language-plaintext highlighter-rouge">square(2)</code> ở trên</p>
+
+<p>– Dòng 4, trả về giá trị của <code class="language-plaintext highlighter-rouge">ans</code> cho <strong>global execution context</strong> ở dòng số 7, là nơi gọi hàm <code class="language-plaintext highlighter-rouge">square(4)</code></p>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/08/js-execute-4.png" alt="" /></p>
+
+<p>Quá trình ở trên thường được gọi là <strong>call stack</strong></p>
+
+<p>Mỗi <strong>execution context</strong> được tạo sẽ được bỏ vào(<strong>push</strong>) vào ngăn xếp(<strong>stack</strong>)</p>
+
+<p>Mỗi <strong>execution context</strong> bị xóa sẽ được lấy ra khỏi(<strong>pop</strong>) ngăn xếp(<strong>stack</strong>)</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/08/js-execute5.png" alt="" /></p>
+
+<blockquote>
+  <p>Call Stack maintain the “order of execution” of execution context</p>
+</blockquote>
+
+<p>Bạn có thể trực tiếp xem được callstack của chương trình với devtools của Chrome. Hình minh họa sau được mình lấy bằng cách chạy chương trình trên với breakpoint ở dòng số 4 trong hàm square khi gọi với square(n)</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/08/call-stack.png" alt="" /></p>
+
+<p>Call Stack còn có nhiều tên tương tự khác như là: “Execution Context Stack”, “Program Stack”, “Control Stack”, “Runtime Stack”, “Machine Stack”</p>
+
+<p>Đây chính là cách JS Engine thực thi code.</p>
+
+<p>(Ref: https://www.youtube.com/watch?v=iLWTnMzWtj4)</p>

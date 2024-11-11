@@ -1,0 +1,911 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en-US" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Cấu trúc dữ liệu​ trong Python - BeautyOnCode</title>
+<meta name="description" content="Chào mừng mọi người đến với bài post tiếp theo của phần “The Python Tutorial” của series Khám phá Đại Bản Doanh Python. The Python Tutorial mang đến những khái niệm và các tính năng cơ bản nhất của Python và cú pháp của nó.  Mình đã biết qua về những công cụ điều khiển luồng dữ liệu và hàm ở bài trước. Trong bài này, mình học tiếp về các cách mà Python có thể giúp mình lưu trữ những dạng dữ liệu khác nhau nhé.  (Những nội dung trong bài series này từ chủ yếu mình lấy từ python.org rồi viết lại hoặc dịch lại theo ngôn ngữ của mình)  Cấu trúc dữ liệu  Cấu trúc dữ liệu là cách Python giúp tụi mình thể hiện, sắp xếp dữ liệu như thế nào.  Python có nhiều dạng cấu trúc khác nhau như: list, tuples, set, dictionary. Mỗi loại này sẽ thích hợp để thể hiện những dạng dữ liệu khác nhau tuỳ vào đặc điểm của loại dữ liệu đó.  Note: Trong PI(Python Interpreter), để kiểm tra những thuộc tính của như phương thức của một giá trị ta dùng dir() hoặc help() để xem tài liệu liên quan đến nó.  Lists(danh sách)  List là kiểu dữ diệu danh sách, kiểm tra nhanh cách phương thức được hỗ trợ bởi list bằng lệnh dir() ta thấy có .append(), .clear(), .copy(), .extend(), .index(), .insert(), .pop(), .remove(), .reverse(), .sort() là các phương thức chính.  Lưu ý nho nhỏ ở đây mình không nói đến những phương thức đặt biệt trong Python, những phương thức bắt đầu và kết thúc bằng __ như “add()”, “str()”. Mời bạn đọc thêm về các phương thức đặt biệt này tại Special Method Names.    Để biết rõ hơn các phương thức trên hoạt động ra sao, mình dùng help() để xem tài liệu về chúng.  Bạn có thấy đối số đặt biệt / bên dưới chứ, hi vọng bạn biết chúng dùng để làm gì ^^(nếu chưa rõ mời bạn ghé đọc phần Function trong bài này nhé)    Một vài cách tiếp cận tương đương:     list.append(x) tương đương với a[len(a):] = [x] hoặc a.insert(len(a), x)    list.extend(iterable) tương đương a[len(a):] = iterable    list.clear() tương đương với del a[:]    list.copy() tương đương với a[:]    list.pop(x) sẽ xoá một giá trị có index là x ra khỏi list và trả về giá trị đó    còn del(a[x]) sẽ đi xoá giá trị có index là x của list a, hoặc có thể xoá cả list a với del(a).   Những phương thức gọi có thể gây lỗi như list.remove(x), list.index(x) raise ValueError nếu x không tồn tại.  Những phương thức như insert(), remove(), sort() trả về None(vì làm thay đổi các dữ liệu gốc)  Với list, ta có thể sử dụng nó như là một ngăn xếp(stack), thêm giá trị vào ngăn xếp với append(), lấy giá trị mới nhất được thêm vào ra ngoài ngăn xếp bằng pop().  Với list, cũng có thể dùng như một hàng đợi(queue), thêm giá trị vào hàng đợi với append(), lấy bạn đợi lâu nhất ra trước với popleft().  Ngoài ra, list comprehension là cách tạo list đơn ngắn gọn, ví dụ: numbers = [x for x in range(10)] sẽ tương đương với      numbers = []    for x in range(10):     number.append(x)      Tuples  Tuple cũng là một kiểu dữ kiệu chuỗi và các giá trị được bọc bên trong hai dấu ngoặc đơn ngăn cách bằng dấu phẩy, ví dụ: a = (‘hi’, ‘there’)  Tuple tương tự như list, chỉ khác là tuple là kiểu dữ liệu immutable(không thay đổi được), còn list thì mutable(có thể thay đối).  Là kiểu dữ liệu immutable nhưng tuple có thể chứa các dữ liệu mutable được, ví dụ: b = ([1,2], [3,4])  Tuple có khả năng packing(tự nối lại được), như sau: a = ‘hi’, ‘there‘ hay c = ‘hi’  (chú ý dấu phẩy ở cuối trong trường hợp tuple chỉ chứa một phần tử con)  Và ngược lại, nó cũng có khả năng unpacking(tự tách ra được):** x, y = a** thì x sẽ có giá trị là ‘hi’ và y là ‘there’.    tuple là kiểu dữ liệu không thay đổi được nên nó chỉ có phương thức count() và index()  Sets  Set là bộ sưu tập không theo thứ tự các phần tử không trùng nhau, được bọc bởi hai dấu ngoặc nhọn {} hoặc khởi tạo bằng set().  Set có hỗ trợ các phương thức của tổ hợp như là phép toán giao, phép toán hợp, phép đối xứng, phép loại trừ.  Set có hỗ trợ set comprehensions.  Lưu ý không khởi tạo set rỗng bằng {} được, phải dùng set(), vì {} thể hiện cho kiểu dữ liệu dict      Dictionary(từ điển)  Nếu như list, tuple, set là các kiểu dữ liệu có thứ tự là các chữ số thì dict là kiểu dữ liệu có thứ tự là các từ khoá, và từ khoá là kiểu dữ liệu immutable như strings, numbers, tuples(không chứa giá trị mutable).  Có thể hiểu đơn giản dictionary là một bộ sưu tập của các giá trị key: value, với điều kiện key là không trùng nhau.  Dict khai báo với dict() hoặc {}, ví dụ: dict(name=’Thanh’) hay {‘name’: ‘Thanh’}      Kỹ thuật lặp qua các loại dữ liệu có trình tự  Ta thường làm việc với các loại dữ liệu có trình tự bằng cách duyệt qua tất cả các phần tử của nó với for và kết hợp:  → dùng .items() để lặp qua key, value của một dictionary    → dùng enumerate([‘a’, ‘b’, ‘c’]) để lặp qua chỉ số index và giá trị của chỉ số đó trong một list   → dùng zip() có thể lặp qua nhiều loại dữ liệu trình tự, ví dụ: zip([1, 2, 3], [‘a’, ‘b’, ‘c’])    → dùng reversed() có thể lặp theo thứ tự ngược lại    → dùng sorted() có thể tạo list mới theo thứ tự mà không làm thay đổi mảng ban đầu.    Các dạng so sánh  Trong các câu lệnh điều kiện, thường đi cùng với các dạng so sánh:  → bằng/lớn hơn/nhỏ hơn với “==“,  “&gt;“, “&lt;“  → giá trị thuộc một kiểu dữ liệu có trình tự với “in“, “not in“  → so sánh hai đối tượng với “is” hoặc “is not“  Kết hợp nhiều dang so sánh với nhau bằng “and“, “or“. Phủ định bằng “not“.  Bài học cơ bản về các kiểu dữ liệu trong Python đến đây là hết rồi.  Ở bài viết sau, mình sẽ đi học tiếp về “mô-đun, các dữ liệu vào/ra kết hợp quản lý lỗi và các ngoại lệ” trong Python.  “The Python Tutorial” thuộc sê ri “Khám phá Đại Bản Doanh Python” học mãi vẫn chưa hết, cố lên nào!">
+
+
+  <meta name="author" content="Thanh Nguyen">
+  
+  <meta property="article:author" content="Thanh Nguyen">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="BeautyOnCode">
+<meta property="og:title" content="Cấu trúc dữ liệu​ trong Python">
+<meta property="og:url" content="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/cau-truc-du-lieu-python/">
+
+
+  <meta property="og:description" content="Chào mừng mọi người đến với bài post tiếp theo của phần “The Python Tutorial” của series Khám phá Đại Bản Doanh Python. The Python Tutorial mang đến những khái niệm và các tính năng cơ bản nhất của Python và cú pháp của nó.  Mình đã biết qua về những công cụ điều khiển luồng dữ liệu và hàm ở bài trước. Trong bài này, mình học tiếp về các cách mà Python có thể giúp mình lưu trữ những dạng dữ liệu khác nhau nhé.  (Những nội dung trong bài series này từ chủ yếu mình lấy từ python.org rồi viết lại hoặc dịch lại theo ngôn ngữ của mình)  Cấu trúc dữ liệu  Cấu trúc dữ liệu là cách Python giúp tụi mình thể hiện, sắp xếp dữ liệu như thế nào.  Python có nhiều dạng cấu trúc khác nhau như: list, tuples, set, dictionary. Mỗi loại này sẽ thích hợp để thể hiện những dạng dữ liệu khác nhau tuỳ vào đặc điểm của loại dữ liệu đó.  Note: Trong PI(Python Interpreter), để kiểm tra những thuộc tính của như phương thức của một giá trị ta dùng dir() hoặc help() để xem tài liệu liên quan đến nó.  Lists(danh sách)  List là kiểu dữ diệu danh sách, kiểm tra nhanh cách phương thức được hỗ trợ bởi list bằng lệnh dir() ta thấy có .append(), .clear(), .copy(), .extend(), .index(), .insert(), .pop(), .remove(), .reverse(), .sort() là các phương thức chính.  Lưu ý nho nhỏ ở đây mình không nói đến những phương thức đặt biệt trong Python, những phương thức bắt đầu và kết thúc bằng __ như “add()”, “str()”. Mời bạn đọc thêm về các phương thức đặt biệt này tại Special Method Names.    Để biết rõ hơn các phương thức trên hoạt động ra sao, mình dùng help() để xem tài liệu về chúng.  Bạn có thấy đối số đặt biệt / bên dưới chứ, hi vọng bạn biết chúng dùng để làm gì ^^(nếu chưa rõ mời bạn ghé đọc phần Function trong bài này nhé)    Một vài cách tiếp cận tương đương:     list.append(x) tương đương với a[len(a):] = [x] hoặc a.insert(len(a), x)    list.extend(iterable) tương đương a[len(a):] = iterable    list.clear() tương đương với del a[:]    list.copy() tương đương với a[:]    list.pop(x) sẽ xoá một giá trị có index là x ra khỏi list và trả về giá trị đó    còn del(a[x]) sẽ đi xoá giá trị có index là x của list a, hoặc có thể xoá cả list a với del(a).   Những phương thức gọi có thể gây lỗi như list.remove(x), list.index(x) raise ValueError nếu x không tồn tại.  Những phương thức như insert(), remove(), sort() trả về None(vì làm thay đổi các dữ liệu gốc)  Với list, ta có thể sử dụng nó như là một ngăn xếp(stack), thêm giá trị vào ngăn xếp với append(), lấy giá trị mới nhất được thêm vào ra ngoài ngăn xếp bằng pop().  Với list, cũng có thể dùng như một hàng đợi(queue), thêm giá trị vào hàng đợi với append(), lấy bạn đợi lâu nhất ra trước với popleft().  Ngoài ra, list comprehension là cách tạo list đơn ngắn gọn, ví dụ: numbers = [x for x in range(10)] sẽ tương đương với      numbers = []    for x in range(10):     number.append(x)      Tuples  Tuple cũng là một kiểu dữ kiệu chuỗi và các giá trị được bọc bên trong hai dấu ngoặc đơn ngăn cách bằng dấu phẩy, ví dụ: a = (‘hi’, ‘there’)  Tuple tương tự như list, chỉ khác là tuple là kiểu dữ liệu immutable(không thay đổi được), còn list thì mutable(có thể thay đối).  Là kiểu dữ liệu immutable nhưng tuple có thể chứa các dữ liệu mutable được, ví dụ: b = ([1,2], [3,4])  Tuple có khả năng packing(tự nối lại được), như sau: a = ‘hi’, ‘there‘ hay c = ‘hi’  (chú ý dấu phẩy ở cuối trong trường hợp tuple chỉ chứa một phần tử con)  Và ngược lại, nó cũng có khả năng unpacking(tự tách ra được):** x, y = a** thì x sẽ có giá trị là ‘hi’ và y là ‘there’.    tuple là kiểu dữ liệu không thay đổi được nên nó chỉ có phương thức count() và index()  Sets  Set là bộ sưu tập không theo thứ tự các phần tử không trùng nhau, được bọc bởi hai dấu ngoặc nhọn {} hoặc khởi tạo bằng set().  Set có hỗ trợ các phương thức của tổ hợp như là phép toán giao, phép toán hợp, phép đối xứng, phép loại trừ.  Set có hỗ trợ set comprehensions.  Lưu ý không khởi tạo set rỗng bằng {} được, phải dùng set(), vì {} thể hiện cho kiểu dữ liệu dict      Dictionary(từ điển)  Nếu như list, tuple, set là các kiểu dữ liệu có thứ tự là các chữ số thì dict là kiểu dữ liệu có thứ tự là các từ khoá, và từ khoá là kiểu dữ liệu immutable như strings, numbers, tuples(không chứa giá trị mutable).  Có thể hiểu đơn giản dictionary là một bộ sưu tập của các giá trị key: value, với điều kiện key là không trùng nhau.  Dict khai báo với dict() hoặc {}, ví dụ: dict(name=’Thanh’) hay {‘name’: ‘Thanh’}      Kỹ thuật lặp qua các loại dữ liệu có trình tự  Ta thường làm việc với các loại dữ liệu có trình tự bằng cách duyệt qua tất cả các phần tử của nó với for và kết hợp:  → dùng .items() để lặp qua key, value của một dictionary    → dùng enumerate([‘a’, ‘b’, ‘c’]) để lặp qua chỉ số index và giá trị của chỉ số đó trong một list   → dùng zip() có thể lặp qua nhiều loại dữ liệu trình tự, ví dụ: zip([1, 2, 3], [‘a’, ‘b’, ‘c’])    → dùng reversed() có thể lặp theo thứ tự ngược lại    → dùng sorted() có thể tạo list mới theo thứ tự mà không làm thay đổi mảng ban đầu.    Các dạng so sánh  Trong các câu lệnh điều kiện, thường đi cùng với các dạng so sánh:  → bằng/lớn hơn/nhỏ hơn với “==“,  “&gt;“, “&lt;“  → giá trị thuộc một kiểu dữ liệu có trình tự với “in“, “not in“  → so sánh hai đối tượng với “is” hoặc “is not“  Kết hợp nhiều dang so sánh với nhau bằng “and“, “or“. Phủ định bằng “not“.  Bài học cơ bản về các kiểu dữ liệu trong Python đến đây là hết rồi.  Ở bài viết sau, mình sẽ đi học tiếp về “mô-đun, các dữ liệu vào/ra kết hợp quản lý lỗi và các ngoại lệ” trong Python.  “The Python Tutorial” thuộc sê ri “Khám phá Đại Bản Doanh Python” học mãi vẫn chưa hết, cố lên nào!">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/2020/06/2020-06-cau-truc-du-lieu-python-cover.webp">
+
+
+
+  <meta name="twitter:site" content="@mmistakes">
+  <meta name="twitter:title" content="Cấu trúc dữ liệu​ trong Python">
+  <meta name="twitter:description" content="Chào mừng mọi người đến với bài post tiếp theo của phần “The Python Tutorial” của series Khám phá Đại Bản Doanh Python. The Python Tutorial mang đến những khái niệm và các tính năng cơ bản nhất của Python và cú pháp của nó.  Mình đã biết qua về những công cụ điều khiển luồng dữ liệu và hàm ở bài trước. Trong bài này, mình học tiếp về các cách mà Python có thể giúp mình lưu trữ những dạng dữ liệu khác nhau nhé.  (Những nội dung trong bài series này từ chủ yếu mình lấy từ python.org rồi viết lại hoặc dịch lại theo ngôn ngữ của mình)  Cấu trúc dữ liệu  Cấu trúc dữ liệu là cách Python giúp tụi mình thể hiện, sắp xếp dữ liệu như thế nào.  Python có nhiều dạng cấu trúc khác nhau như: list, tuples, set, dictionary. Mỗi loại này sẽ thích hợp để thể hiện những dạng dữ liệu khác nhau tuỳ vào đặc điểm của loại dữ liệu đó.  Note: Trong PI(Python Interpreter), để kiểm tra những thuộc tính của như phương thức của một giá trị ta dùng dir() hoặc help() để xem tài liệu liên quan đến nó.  Lists(danh sách)  List là kiểu dữ diệu danh sách, kiểm tra nhanh cách phương thức được hỗ trợ bởi list bằng lệnh dir() ta thấy có .append(), .clear(), .copy(), .extend(), .index(), .insert(), .pop(), .remove(), .reverse(), .sort() là các phương thức chính.  Lưu ý nho nhỏ ở đây mình không nói đến những phương thức đặt biệt trong Python, những phương thức bắt đầu và kết thúc bằng __ như “add()”, “str()”. Mời bạn đọc thêm về các phương thức đặt biệt này tại Special Method Names.    Để biết rõ hơn các phương thức trên hoạt động ra sao, mình dùng help() để xem tài liệu về chúng.  Bạn có thấy đối số đặt biệt / bên dưới chứ, hi vọng bạn biết chúng dùng để làm gì ^^(nếu chưa rõ mời bạn ghé đọc phần Function trong bài này nhé)    Một vài cách tiếp cận tương đương:     list.append(x) tương đương với a[len(a):] = [x] hoặc a.insert(len(a), x)    list.extend(iterable) tương đương a[len(a):] = iterable    list.clear() tương đương với del a[:]    list.copy() tương đương với a[:]    list.pop(x) sẽ xoá một giá trị có index là x ra khỏi list và trả về giá trị đó    còn del(a[x]) sẽ đi xoá giá trị có index là x của list a, hoặc có thể xoá cả list a với del(a).   Những phương thức gọi có thể gây lỗi như list.remove(x), list.index(x) raise ValueError nếu x không tồn tại.  Những phương thức như insert(), remove(), sort() trả về None(vì làm thay đổi các dữ liệu gốc)  Với list, ta có thể sử dụng nó như là một ngăn xếp(stack), thêm giá trị vào ngăn xếp với append(), lấy giá trị mới nhất được thêm vào ra ngoài ngăn xếp bằng pop().  Với list, cũng có thể dùng như một hàng đợi(queue), thêm giá trị vào hàng đợi với append(), lấy bạn đợi lâu nhất ra trước với popleft().  Ngoài ra, list comprehension là cách tạo list đơn ngắn gọn, ví dụ: numbers = [x for x in range(10)] sẽ tương đương với      numbers = []    for x in range(10):     number.append(x)      Tuples  Tuple cũng là một kiểu dữ kiệu chuỗi và các giá trị được bọc bên trong hai dấu ngoặc đơn ngăn cách bằng dấu phẩy, ví dụ: a = (‘hi’, ‘there’)  Tuple tương tự như list, chỉ khác là tuple là kiểu dữ liệu immutable(không thay đổi được), còn list thì mutable(có thể thay đối).  Là kiểu dữ liệu immutable nhưng tuple có thể chứa các dữ liệu mutable được, ví dụ: b = ([1,2], [3,4])  Tuple có khả năng packing(tự nối lại được), như sau: a = ‘hi’, ‘there‘ hay c = ‘hi’  (chú ý dấu phẩy ở cuối trong trường hợp tuple chỉ chứa một phần tử con)  Và ngược lại, nó cũng có khả năng unpacking(tự tách ra được):** x, y = a** thì x sẽ có giá trị là ‘hi’ và y là ‘there’.    tuple là kiểu dữ liệu không thay đổi được nên nó chỉ có phương thức count() và index()  Sets  Set là bộ sưu tập không theo thứ tự các phần tử không trùng nhau, được bọc bởi hai dấu ngoặc nhọn {} hoặc khởi tạo bằng set().  Set có hỗ trợ các phương thức của tổ hợp như là phép toán giao, phép toán hợp, phép đối xứng, phép loại trừ.  Set có hỗ trợ set comprehensions.  Lưu ý không khởi tạo set rỗng bằng {} được, phải dùng set(), vì {} thể hiện cho kiểu dữ liệu dict      Dictionary(từ điển)  Nếu như list, tuple, set là các kiểu dữ liệu có thứ tự là các chữ số thì dict là kiểu dữ liệu có thứ tự là các từ khoá, và từ khoá là kiểu dữ liệu immutable như strings, numbers, tuples(không chứa giá trị mutable).  Có thể hiểu đơn giản dictionary là một bộ sưu tập của các giá trị key: value, với điều kiện key là không trùng nhau.  Dict khai báo với dict() hoặc {}, ví dụ: dict(name=’Thanh’) hay {‘name’: ‘Thanh’}      Kỹ thuật lặp qua các loại dữ liệu có trình tự  Ta thường làm việc với các loại dữ liệu có trình tự bằng cách duyệt qua tất cả các phần tử của nó với for và kết hợp:  → dùng .items() để lặp qua key, value của một dictionary    → dùng enumerate([‘a’, ‘b’, ‘c’]) để lặp qua chỉ số index và giá trị của chỉ số đó trong một list   → dùng zip() có thể lặp qua nhiều loại dữ liệu trình tự, ví dụ: zip([1, 2, 3], [‘a’, ‘b’, ‘c’])    → dùng reversed() có thể lặp theo thứ tự ngược lại    → dùng sorted() có thể tạo list mới theo thứ tự mà không làm thay đổi mảng ban đầu.    Các dạng so sánh  Trong các câu lệnh điều kiện, thường đi cùng với các dạng so sánh:  → bằng/lớn hơn/nhỏ hơn với “==“,  “&gt;“, “&lt;“  → giá trị thuộc một kiểu dữ liệu có trình tự với “in“, “not in“  → so sánh hai đối tượng với “is” hoặc “is not“  Kết hợp nhiều dang so sánh với nhau bằng “and“, “or“. Phủ định bằng “not“.  Bài học cơ bản về các kiểu dữ liệu trong Python đến đây là hết rồi.  Ở bài viết sau, mình sẽ đi học tiếp về “mô-đun, các dữ liệu vào/ra kết hợp quản lý lỗi và các ngoại lệ” trong Python.  “The Python Tutorial” thuộc sê ri “Khám phá Đại Bản Doanh Python” học mãi vẫn chưa hết, cố lên nào!">
+  <meta name="twitter:url" content="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/cau-truc-du-lieu-python/">
+
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="http://localhost:4000/assets/images/2020/06/2020-06-cau-truc-du-lieu-python-cover.webp">
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2020-06-17T00:00:00-04:00">
+
+
+
+  <meta property="article:modified_time" content="2020-06-03T15:12:19-04:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/cau-truc-du-lieu-python/">
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="BeautyOnCode Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  window.enable_copy_code_button = true;
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo/logo-circle.webp" alt="BeautyOnCode"></a>
+        
+        <a class="site-title" href="/">
+          BeautyOnCode
+          <span class="site-subtitle">Code Your Life In An Elegant Way</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/docs/quick-start-guide/"
+                
+                
+              >Quick-Start Guide</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/year-archive/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/collection-archive/"
+                
+                
+              >Collections</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/logo/thanh-nguyen.jpg" alt="Thanh Nguyen" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Thanh Nguyen</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Web developer, nature lover, curious soul, and laid-back mom balancing code with life’s simple joys.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Da Nang, VN</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://beautyoncode.com" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">BeautyOnCode</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/graphicdthanh/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">Linkedin</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/GraphicDThanh" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.facebook.com/beautyoncode" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span class="label">Facebook</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Cấu trúc dữ liệu​ trong Python">
+    <meta itemprop="description" content="Chào mừng mọi người đến với bài post tiếp theo của phần “The Python Tutorial” của series Khám phá Đại Bản Doanh Python. The Python Tutorial mang đến những khái niệm và các tính năng cơ bản nhất của Python và cú pháp của nó.Mình đã biết qua về những công cụ điều khiển luồng dữ liệu và hàm ở bài trước. Trong bài này, mình học tiếp về các cách mà Python có thể giúp mình lưu trữ những dạng dữ liệu khác nhau nhé.(Những nội dung trong bài series này từ chủ yếu mình lấy từ python.org rồi viết lại hoặc dịch lại theo ngôn ngữ của mình)Cấu trúc dữ liệuCấu trúc dữ liệu là cách Python giúp tụi mình thể hiện, sắp xếp dữ liệu như thế nào.Python có nhiều dạng cấu trúc khác nhau như: list, tuples, set, dictionary. Mỗi loại này sẽ thích hợp để thể hiện những dạng dữ liệu khác nhau tuỳ vào đặc điểm của loại dữ liệu đó.Note: Trong PI(Python Interpreter), để kiểm tra những thuộc tính của như phương thức của một giá trị ta dùng dir() hoặc help() để xem tài liệu liên quan đến nó.Lists(danh sách)List là kiểu dữ diệu danh sách, kiểm tra nhanh cách phương thức được hỗ trợ bởi list bằng lệnh dir() ta thấy có .append(), .clear(), .copy(), .extend(), .index(), .insert(), .pop(), .remove(), .reverse(), .sort() là các phương thức chính.Lưu ý nho nhỏ ở đây mình không nói đến những phương thức đặt biệt trong Python, những phương thức bắt đầu và kết thúc bằng __ như “add()”, “str()”. Mời bạn đọc thêm về các phương thức đặt biệt này tại Special Method Names.Để biết rõ hơn các phương thức trên hoạt động ra sao, mình dùng help() để xem tài liệu về chúng.Bạn có thấy đối số đặt biệt / bên dưới chứ, hi vọng bạn biết chúng dùng để làm gì ^^(nếu chưa rõ mời bạn ghé đọc phần Function trong bài này nhé)Một vài cách tiếp cận tương đương:  list.append(x) tương đương với a[len(a):] = [x] hoặc a.insert(len(a), x)  list.extend(iterable) tương đương a[len(a):] = iterable  list.clear() tương đương với del a[:]  list.copy() tương đương với a[:]  list.pop(x) sẽ xoá một giá trị có index là x ra khỏi list và trả về giá trị đó  còn del(a[x]) sẽ đi xoá giá trị có index là x của list a, hoặc có thể xoá cả list a với del(a).Những phương thức gọi có thể gây lỗi như list.remove(x), list.index(x) raise ValueError nếu x không tồn tại.Những phương thức như insert(), remove(), sort() trả về None(vì làm thay đổi các dữ liệu gốc)Với list, ta có thể sử dụng nó như là một ngăn xếp(stack), thêm giá trị vào ngăn xếp với append(), lấy giá trị mới nhất được thêm vào ra ngoài ngăn xếp bằng pop().Với list, cũng có thể dùng như một hàng đợi(queue), thêm giá trị vào hàng đợi với append(), lấy bạn đợi lâu nhất ra trước với popleft().Ngoài ra, list comprehension là cách tạo list đơn ngắn gọn, ví dụ: numbers = [x for x in range(10)] sẽ tương đương với  numbers = []  for x in range(10):   number.append(x)  TuplesTuple cũng là một kiểu dữ kiệu chuỗi và các giá trị được bọc bên trong hai dấu ngoặc đơn ngăn cách bằng dấu phẩy, ví dụ: a = (‘hi’, ‘there’)Tuple tương tự như list, chỉ khác là tuple là kiểu dữ liệu immutable(không thay đổi được), còn list thì mutable(có thể thay đối).Là kiểu dữ liệu immutable nhưng tuple có thể chứa các dữ liệu mutable được, ví dụ: b = ([1,2], [3,4])Tuple có khả năng packing(tự nối lại được), như sau: a = ‘hi’, ‘there‘ hay c = ‘hi’(chú ý dấu phẩy ở cuối trong trường hợp tuple chỉ chứa một phần tử con)Và ngược lại, nó cũng có khả năng unpacking(tự tách ra được):** x, y = a** thì x sẽ có giá trị là ‘hi’ và y là ‘there’.tuple là kiểu dữ liệu không thay đổi được nên nó chỉ có phương thức count() và index()SetsSet là bộ sưu tập không theo thứ tự các phần tử không trùng nhau, được bọc bởi hai dấu ngoặc nhọn {} hoặc khởi tạo bằng set().Set có hỗ trợ các phương thức của tổ hợp như là phép toán giao, phép toán hợp, phép đối xứng, phép loại trừ.Set có hỗ trợ set comprehensions.Lưu ý không khởi tạo set rỗng bằng {} được, phải dùng set(), vì {} thể hiện cho kiểu dữ liệu dictDictionary(từ điển)Nếu như list, tuple, set là các kiểu dữ liệu có thứ tự là các chữ số thì dict là kiểu dữ liệu có thứ tự là các từ khoá, và từ khoá là kiểu dữ liệu immutable như strings, numbers, tuples(không chứa giá trị mutable).Có thể hiểu đơn giản dictionary là một bộ sưu tập của các giá trị key: value, với điều kiện key là không trùng nhau.Dict khai báo với dict() hoặc {}, ví dụ: dict(name=’Thanh’) hay {‘name’: ‘Thanh’}Kỹ thuật lặp qua các loại dữ liệu có trình tựTa thường làm việc với các loại dữ liệu có trình tự bằng cách duyệt qua tất cả các phần tử của nó với for và kết hợp:→ dùng .items() để lặp qua key, value của một dictionary→ dùng enumerate([‘a’, ‘b’, ‘c’]) để lặp qua chỉ số index và giá trị của chỉ số đó trong một list→ dùng zip() có thể lặp qua nhiều loại dữ liệu trình tự, ví dụ: zip([1, 2, 3], [‘a’, ‘b’, ‘c’])→ dùng reversed() có thể lặp theo thứ tự ngược lại→ dùng sorted() có thể tạo list mới theo thứ tự mà không làm thay đổi mảng ban đầu.Các dạng so sánhTrong các câu lệnh điều kiện, thường đi cùng với các dạng so sánh:→ bằng/lớn hơn/nhỏ hơn với “==“,  “&gt;“, “&lt;“→ giá trị thuộc một kiểu dữ liệu có trình tự với “in“, “not in“→ so sánh hai đối tượng với “is” hoặc “is not“Kết hợp nhiều dang so sánh với nhau bằng “and“, “or“. Phủ định bằng “not“.Bài học cơ bản về các kiểu dữ liệu trong Python đến đây là hết rồi.Ở bài viết sau, mình sẽ đi học tiếp về “mô-đun, các dữ liệu vào/ra kết hợp quản lý lỗi và các ngoại lệ” trong Python.“The Python Tutorial” thuộc sê ri “Khám phá Đại Bản Doanh Python” học mãi vẫn chưa hết, cố lên nào!">
+    <meta itemprop="datePublished" content="2020-06-17T00:00:00-04:00">
+    <meta itemprop="dateModified" content="2020-06-03T15:12:19-04:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/cau-truc-du-lieu-python/" itemprop="url">Cấu trúc dữ liệu​ trong Python
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p><img src="/assets/images/2020/06/2020-06-cau-truc-du-lieu-python-cover.webp" alt="" /></p>
+
+<p>Chào mừng mọi người đến với bài post tiếp theo của phần <a href="https://docs.python.org/3/tutorial/">“The Python Tutorial”</a> của series <a href="https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/07/dai-ban-doanh-python-series-overview.html">Khám phá Đại Bản Doanh Python</a>. The Python Tutorial mang đến những khái niệm và các tính năng cơ bản nhất của Python và cú pháp của nó.</p>
+
+<p>Mình đã biết qua về những công cụ điều khiển luồng dữ liệu và hàm ở <a href="https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/03/dieu-khien-luong-du-lieu-python.html">bài trước</a>. Trong bài này, mình học tiếp về các cách mà Python có thể giúp mình lưu trữ những dạng dữ liệu khác nhau nhé.</p>
+
+<p>(Những nội dung trong bài series này từ chủ yếu mình lấy từ python.org rồi viết lại hoặc dịch lại theo ngôn ngữ của mình)</p>
+
+<h2 id="cấu-trúc-dữ-liệu">Cấu trúc dữ liệu</h2>
+
+<p>Cấu trúc dữ liệu là cách Python giúp tụi mình thể hiện, sắp xếp dữ liệu như thế nào.</p>
+
+<p>Python có nhiều dạng cấu trúc khác nhau như: list, tuples, set, dictionary. Mỗi loại này sẽ thích hợp để thể hiện những dạng dữ liệu khác nhau tuỳ vào đặc điểm của loại dữ liệu đó.</p>
+
+<p>Note: Trong PI(Python Interpreter), để kiểm tra những thuộc tính của như phương thức của một giá trị ta dùng dir() hoặc help() để xem tài liệu liên quan đến nó.</p>
+
+<h3 id="listsdanh-sách">Lists(danh sách)</h3>
+
+<p>List là kiểu dữ diệu danh sách, kiểm tra nhanh cách phương thức được hỗ trợ bởi list bằng lệnh <strong>dir()</strong> ta thấy có <strong>.append(), .clear(), .copy(), .extend(), .index(), .insert(), .pop(), .remove(), .reverse(), .sort()</strong> là các phương thức chính.</p>
+
+<p>Lưu ý nho nhỏ ở đây mình không nói đến những phương thức đặt biệt trong Python, những phương thức bắt đầu và kết thúc bằng __ như “<strong>add</strong>()”, “<strong>str</strong>()”. Mời bạn đọc thêm về các phương thức đặt biệt này tại <a href="https://docs.python.org/3/reference/datamodel.html#special-method-names">Special Method Names.</a></p>
+
+<p><img src="/assets/images/2020/06/2020-06-cau-truc-du-lieu-python-image-1-list.webp" alt="" /></p>
+
+<p>Để biết rõ hơn các phương thức trên hoạt động ra sao, mình dùng <strong>help()</strong> để xem tài liệu về chúng.</p>
+
+<p>Bạn có thấy đối số đặt biệt <strong>/</strong> bên dưới chứ, hi vọng bạn biết chúng dùng để làm gì ^^(nếu chưa rõ mời bạn ghé đọc phần Function trong <a href="https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/03/dieu-khien-luong-du-lieu-python.html">bài này</a> nhé)</p>
+
+<p><img src="/assets/images/2020/06/2020-06-cau-truc-du-lieu-python-image-2-list-2.webp" alt="" /></p>
+
+<p>Một vài cách tiếp cận tương đương:</p>
+
+<blockquote>
+  <p><strong>list.append(x)</strong> tương đương với a[len(a):] = [x] hoặc a.insert(len(a), x)</p>
+
+  <p><strong>list.extend(iterable)</strong> tương đương a[len(a):] = iterable</p>
+
+  <p><strong>list.clear()</strong> tương đương với del a[:]</p>
+
+  <p><strong>list.copy()</strong> tương đương với a[:]</p>
+
+  <p><strong>list.pop(x)</strong> sẽ xoá một giá trị có index là x ra khỏi list và trả về giá trị đó</p>
+
+  <p>còn <strong>del(a[x])</strong> sẽ đi xoá giá trị có index là x của list a, hoặc có thể xoá cả list a với <strong>del(a)</strong>.</p>
+</blockquote>
+
+<p>Những phương thức gọi có thể gây lỗi như <strong>list.remove(x)</strong>, <strong>list.index(x)</strong> raise <strong>ValueError</strong> nếu x không tồn tại.</p>
+
+<p>Những phương thức như <strong>insert(), remove(), sort()</strong> trả về <strong>None</strong>(vì làm thay đổi các dữ liệu gốc)</p>
+
+<p>Với list, ta có thể sử dụng nó như là một <strong>ngăn xếp(stack)</strong>, thêm giá trị vào ngăn xếp với <strong>append()</strong>, lấy giá trị mới nhất được thêm vào ra ngoài ngăn xếp bằng <strong>pop()</strong>.</p>
+
+<p>Với list, cũng có thể dùng như một <strong>hàng đợi(queue)</strong>, thêm giá trị vào hàng đợi với <strong>append()</strong>, lấy bạn đợi lâu nhất ra trước với <strong>popleft()</strong>.</p>
+
+<p>Ngoài ra, <strong>list comprehension</strong> là cách tạo list đơn ngắn gọn, ví dụ: nu<strong>mbers = [x for x in range(10)]</strong> sẽ tương đương với</p>
+
+<blockquote>
+
+  <p>numbers = []</p>
+
+  <p>for x in range(10):</p>
+
+  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> number.append(x)
+</code></pre></div>  </div>
+</blockquote>
+
+<h3 id="tuples">Tuples</h3>
+
+<p>Tuple cũng là một kiểu dữ kiệu chuỗi và các giá trị được bọc bên trong hai dấu ngoặc đơn ngăn cách bằng dấu phẩy, ví dụ: a = (‘hi’, ‘there’)</p>
+
+<p>Tuple tương tự như list, chỉ khác là tuple là kiểu dữ liệu <strong>immutable</strong>(không thay đổi được), còn list thì <strong>mutable</strong>(có thể thay đối).</p>
+
+<p>Là kiểu dữ liệu immutable nhưng tuple có thể chứa các dữ liệu mutable được, ví dụ: b = ([1,2], [3,4])</p>
+
+<p>Tuple có khả năng <strong>packing</strong>(tự nối lại được), như sau: <em>a = ‘hi’, ‘there‘</em> hay <em>c = ‘hi’</em></p>
+
+<p>(chú ý dấu phẩy ở cuối trong trường hợp tuple chỉ chứa một phần tử con)</p>
+
+<p>Và ngược lại, nó cũng có khả năng unpacking(tự tách ra được):** x, y = a** thì x sẽ có giá trị là ‘hi’ và y là ‘there’.</p>
+
+<p><img src="/assets/images/2020/06/2020-06-cau-truc-du-lieu-python-image-3-tuple.webp" alt="" /></p>
+
+<p>tuple là kiểu dữ liệu không thay đổi được nên nó chỉ có phương thức <strong>count()</strong> và <strong>index()</strong></p>
+
+<h3 id="sets">Sets</h3>
+
+<p>Set là bộ sưu tập không theo thứ tự các phần tử không trùng nhau, được bọc bởi hai dấu ngoặc nhọn <strong>{}</strong> hoặc khởi tạo bằng <strong>set()</strong>.</p>
+
+<p>Set có hỗ trợ các phương thức của tổ hợp như là phép toán giao, phép toán hợp, phép đối xứng, phép loại trừ.</p>
+
+<p>Set có hỗ trợ set comprehensions.</p>
+
+<p><em>Lưu ý không khởi tạo set rỗng bằng {} được, phải dùng set(), vì {} thể hiện cho kiểu dữ liệu dict</em></p>
+
+<p><img src="/assets/images/2020/06/2020-06-cau-truc-du-lieu-python-image-4-set-1.webp" alt="" /></p>
+
+<p><img src="/assets/images/2020/06/2020-06-cau-truc-du-lieu-python-image-5-set-2.webp" alt="" /></p>
+
+<h3 id="dictionarytừ-điển">Dictionary(từ điển)</h3>
+
+<p>Nếu như list, tuple, set là các kiểu dữ liệu có thứ tự là các chữ số thì dict là kiểu dữ liệu có thứ tự là các từ khoá, và từ khoá là kiểu dữ liệu immutable như strings, numbers, tuples(không chứa giá trị mutable).</p>
+
+<p>Có thể hiểu đơn giản dictionary là một bộ sưu tập của các giá trị <strong>key: value</strong>, với điều kiện key là không trùng nhau.</p>
+
+<p>Dict khai báo với <strong>dict()</strong> hoặc <strong>{}</strong>, ví dụ: <strong>dict(name=’Thanh’)</strong> hay <strong>{‘name’: ‘Thanh’}</strong></p>
+
+<p><img src="/assets/images/2020/06/2020-06-cau-truc-du-lieu-python-image-6-dict-1.webp" alt="" /></p>
+
+<p><img src="/assets/images/2020/06/2020-06-cau-truc-du-lieu-python-image-7-dict-2.webp" alt="" /></p>
+
+<h3 id="kỹ-thuật-lặp-qua-các-loại-dữ-liệu-có-trình-tự">Kỹ thuật lặp qua các loại dữ liệu có trình tự</h3>
+
+<p>Ta thường làm việc với các loại dữ liệu có trình tự bằng cách duyệt qua tất cả các phần tử của nó với <strong>for</strong> và kết hợp:</p>
+
+<p>→ dùng <strong>.items()</strong> để lặp qua key, value của một dictionary</p>
+
+<p><img src="/assets/images/2020/06/2020-06-cau-truc-du-lieu-python-image-8-loop-1.webp" alt="" /></p>
+
+<p>→ dùng <strong>enumerate</strong>([‘a’, ‘b’, ‘c’]) để lặp qua chỉ số index và giá trị của chỉ số đó trong một list
+<img src="/assets/images/2020/06/2020-06-cau-truc-du-lieu-python-image-9-loop-2.webp" alt="" /></p>
+
+<p>→ dùng <strong>zip()</strong> có thể lặp qua nhiều loại dữ liệu trình tự, ví dụ: zip([1, 2, 3], [‘a’, ‘b’, ‘c’])</p>
+
+<p><img src="/assets/images/2020/06/2020-06-cau-truc-du-lieu-python-image-10-loop-3.webp" alt="" /></p>
+
+<p>→ dùng <strong>reversed()</strong> có thể lặp theo thứ tự ngược lại</p>
+
+<p><img src="/assets/images/2020/06/2020-06-cau-truc-du-lieu-python-image-11-loop-4.webp" alt="" /></p>
+
+<p>→ dùng <strong>sorted()</strong> có thể tạo list mới theo thứ tự mà không làm thay đổi mảng ban đầu.</p>
+
+<p><img src="/assets/images/2020/06/2020-06-cau-truc-du-lieu-python-image-12-loop-5.webp" alt="" /></p>
+
+<h3 id="các-dạng-so-sánh">Các dạng so sánh</h3>
+
+<p>Trong các câu lệnh điều kiện, thường đi cùng với các dạng so sánh:</p>
+
+<p>→ bằng/lớn hơn/nhỏ hơn với “<strong>==</strong>“,  “<strong>&gt;</strong>“, “<strong>&lt;</strong>“</p>
+
+<p>→ giá trị thuộc một kiểu dữ liệu có trình tự với “<strong>in</strong>“, “<strong>not in</strong>“</p>
+
+<p>→ so sánh hai đối tượng với “<strong>is</strong>” hoặc “<strong>is not</strong>“</p>
+
+<p>Kết hợp nhiều dang so sánh với nhau bằng “<strong>and</strong>“, “<strong>or</strong>“. Phủ định bằng “<strong>not</strong>“.</p>
+
+<p>Bài học cơ bản về các kiểu dữ liệu trong Python đến đây là hết rồi.</p>
+
+<p>Ở bài viết sau, mình sẽ đi học tiếp về “mô-đun, các dữ liệu vào/ra kết hợp quản lý lỗi và các ngoại lệ” trong Python.</p>
+
+<p>“The Python Tutorial” thuộc sê ri “Khám phá Đại Bản Doanh Python” học mãi vẫn chưa hết, cố lên nào!</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#python" class="page__taxonomy-item p-category" rel="tag">python</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#%C4%91%E1%BA%A1i-b%E1%BA%A3n-doanh-python" class="page__taxonomy-item p-category" rel="tag">Đại Bản Doanh Python</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2020-06-03">June 3, 2020</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  <h4 class="page__share-title">Share on</h4>
+
+  <a href="https://twitter.com/intent/tweet?via=mmistakes&text=C%E1%BA%A5u+tr%C3%BAc+d%E1%BB%AF+li%E1%BB%87u%E2%80%8B+trong+Python%20http%3A%2F%2Flocalhost%3A4000%2F%25C4%2591%25E1%25BA%25A1i%2520b%25E1%25BA%25A3n%2520doanh%2520python%2Fcau-truc-du-lieu-python%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F%25C4%2591%25E1%25BA%25A1i%2520b%25E1%25BA%25A3n%2520doanh%2520python%2Fcau-truc-du-lieu-python%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/cau-truc-du-lieu-python/" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/dieu-khien-luong-du-lieu-python/" class="pagination--pager" title="Các công cụ điều khiển luồng dữ liệu trong Python
+">Previous</a>
+    
+    
+      <a href="/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/input-output-python/" class="pagination--pager" title="Input/Output(I/O)​ trong Python
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  <div align="center" style="margin: 1em 0;">
+  <ins class="adsbygoogle"
+        style="display:block; border-bottom: initial;"
+        data-ad-client="ca-pub-7328585512091257"
+        data-ad-slot="3049671934"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+</div>
+
+
+  <h2 class="page__related-title">You May Also Enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/django/relation-fields-in-drf-serializer/" rel="permalink">Relation fields in Django Rest Framework Serializer
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+The Django model offers various types of relationships such as OneToOneField, ForeignKey, ManyToManyField, and GenericForeignKey.
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/django/export-multiple-csv-to-zip-django/" rel="permalink">Export Multiple CSVs file into a ZIP in Django Application
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/django/export-docx-in-django/" rel="permalink">Export a docx file in Django application
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          8 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/js/scope-trong-javascript/" rel="permalink">Scope trong JavaScript
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      <div align="center" style="margin: 1em 0;">
+  <ins class="adsbygoogle"
+        style="display:block; border-bottom: initial;"
+        data-ad-client="ca-pub-7328585512091257"
+        data-ad-slot="3049671934"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="search-searchbar"></div>
+  <div class="search-hits"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/mmistakes" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/mmistakes" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/mmistakes" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 <a href="http://localhost:4000">BeautyOnCode</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+<script>
+// Including InstantSearch.js library and styling
+const loadSearch = function() {
+  const loadCSS = function(src) {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = src;
+    link.media = 'all';
+    document.head.appendChild(link);
+  };
+
+  var script = document.createElement('script');
+  script.setAttribute("type", "text/javascript");
+  script.setAttribute("src", "https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.js");
+  script.addEventListener("load", function() {
+    // Instantiating InstantSearch.js with Algolia credentials
+    const search = instantsearch({
+      appId: 'QB6HVGBSBA',
+      apiKey: '9d5014e5bbc77372547bce778dfa5663',
+      indexName: 'minimal_mistakes',
+      searchParameters: {
+        restrictSearchableAttributes: ['title', 'content']
+      }
+    });
+
+    const hitTemplate = function(hit) {
+      const url = hit.url;
+      const hightlight = hit._highlightResult;
+      const title = hightlight.title && hightlight.title.value  || "";
+      const content = hightlight.html && hightlight.html.value  || "";
+
+      return `
+        <div class="list__item">
+          <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+            <h2 class="archive__item-title" itemprop="headline"><a href="/${url}">${title}</a></h2>
+            <div class="archive__item-excerpt" itemprop="description">${content}</div>
+          </article>
+        </div>
+      `;
+    }
+
+    // Adding searchbar and results widgets
+    search.addWidget(
+      instantsearch.widgets.searchBox({
+        container: '.search-searchbar',
+        poweredBy: true,
+        placeholder: 'Enter your search term...'
+      })
+    );
+    search.addWidget(
+      instantsearch.widgets.hits({
+        container: '.search-hits',
+        templates: {
+          item: hitTemplate,
+          empty: 'No results',
+        }
+      })
+    );
+
+    if (!search.started) {
+      search.start();
+    }
+  });
+  document.body.appendChild(script);
+
+  loadCSS("https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.css");
+  loadCSS("https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch-theme-algolia.min.css");
+};
+
+// Starting the search only when toggle is clicked
+$(document).ready(function() {
+  var scriptLoaded = false;
+
+  $(".search__toggle").on("click", function() {
+    if (!scriptLoaded) {
+      loadSearch();
+      scriptLoaded = true;
+    }
+  });
+});
+</script>
+
+
+
+
+<style>
+.google-auto-placed {
+  margin: 2em auto;
+}
+</style>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
+
+
+  </body>
+</html>

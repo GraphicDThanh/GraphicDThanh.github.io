@@ -1,0 +1,1084 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.26.2 by Michael Rose
+  Copyright 2013-2024 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+
+<html lang="en-US" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Lỗi và xử lý ngoại lệ trong Python - BeautyOnCode</title>
+<meta name="description" content="Hôm ni, mình học tiếp về bạn “Lỗi và ngoại lệ”, bài blog tiếp theo nằm trong series “Khám phá Đại Bản Doanh Python”, thuộc phần Python Tutorial nha.  Ở bài này, mình sẽ đi tìm hiểu các loại lỗi và ngoại lệ trong Python cũng như cách xử lý và tạo ngoại lệ riêng của mình.  (Những nội dung trong bài series này từ chủ yếu mình lấy từ python.org rồi viết lại hoặc dịch lại theo ngôn ngữ của mình)  Nếu bạn đọc từ đầu sê-ri đến đây, hẳn là bạn có thấy vài đoạn code mình cố tình ví dụ cho nó xuất hiện lỗi, trong bài “I/O trong Python”:     Hình trên cho mình thấy có hai loại lỗi có thể phân biệt được, đó là: “lỗi cú pháp” và “ngoại lệ“.  Lỗi cú pháp  Lỗi cú pháp là lỗi xảy ra khi phân tích cú pháp, là loại lỗi mình hay gặp nhất.  Trình phân tích cú pháp sẽ lặp lại dòng bị lỗi và hiển thị một dấu mũi tên nhỏ tạo vị trí là thời điểm sớm nhất trong dòng nơi lỗi được phát hiện.  Ở ví dụ trên thể hiện lỗi được phát hiện tại vị trí hàm print được gọi, lý do là bị thiếu dấu “:”  Đôi khi lỗi syntax nhưng không có vị trí được phát hiện, ví dụ như ở đầu bài “SyntaxError: positional argument follows keyword argument” thể hiện phải đặt biến theo vị trí trước biến theo từ khoá.  Ngoại lệ  Ngay cả khi cú pháp đã đúng, mã vẫn có thể gây ra lỗi trong quá trình thực thi. Những lỗi phát hiện trong quá trình thực thi code được gọi là các ngoại lệ.    Như bạn thấy ở trên thì ngoại lệ có nhiều loại khác nhau và sẽ được in kèm thông tin của lỗi.  Ở ví dụ trên, tụi mình có các ngoại lệ như là “ZeroDivisionError“, “NameError“, “TypeError“  Xử lý ngoại lệ  Khi viết chương trình với Python, đôi khi mình sẽ cố tình để ngoại lễ xảy ra để xử lý chúng. Như ở ví dụ dưới đây, đầu vào được nhập từ phía người dùng có thể gây ngoại lệ “ValueErrror” và mình đi xử lý bằng cách gửi thông tin cho người dùng biết họ đã nhập sai.    Ở ví dụ trên đã dùng nhóm lệnh “try … except” để bắt và sử lý ngoại lệ.  Đoạn code trên hoạt động như sau:  – Đầu tiên, mã trong mệnh đề “try” được thực hiện  – Nếu không có ngoại lệ xảy ra, mệnh đề “except” sẽ bị bỏ qua và kết thúc chương trình(như khi mình nhập 9)  – Nếu có ngoại lệ xảy ra trong lúc thực thi mã trong mệnh đề try thì các đoạn mã bên dưới nó sẽ bị bỏ qua. Nếu lỗi ngoại lệ trùng với lỗi mình bắt(sau từ khoá “except”, ở đây là ValueError), thì đoạn mã trong except sẽ được thực thi(in ra “Oops! …”). Và đoạn mã trong try sẽ tiếp tục được thực hiện.  – Còn nếu ngoại lệ xảy ra nhưng không trùng với ngoại lệ mình đã bắt thì chương trình sẽ dừng lại và in ngoại lệ ra màn hình(ngoại lệ chưa được xử lý).  Vì có thể có nhiều ngoại lệ xảy ra nên:  – một “try” có thể đi cùng với nhiều “except”: hay sử dụng khi mình muốn xử lý từng except khác nhau.  – một except có thể bắt nhiều loại ngoại lệ, ví dụ: except(RuntimeError, TypeError): hay sử dụng khi mình muốn gom nhiều loại except vào sử lý một lần.  Xe cấp cứu nào đến trước  Có hai đoạn code như hai hình dưới đây, cùng đoán thứ tự in ra khi hai example 1, 2 được thực thi nhé 😀  Lưu ý là “RotDH_NV1” được extend từ class Exception    Bạn nghiên cứu kỹ chưa, đã đoán được thứ tự in ra ở hai ví dụ là gì chưa nhỉ?  Trước khi dòm đáp án, hãy cố thử đưa ra kết quả của mình trước nha.   Đây là đáp án của mình, để mình làm thử coi đúng không hen:  Đầu tiên là cả thứ tự kế thừa của mấy bạn này:  Exception &gt; RotDH_NV1 &gt; RotDH_NV2 &gt; RotDH_NV3  Như vậy là khi vòng lặp thực thi từng đối tượng:  Example 1:  – raise RotDH_NV1 thì kiểm tra:  -&gt; trùng với except RotDH_NV3 -&gt; False, đi tiếp  -&gt; trùng với except RotDH_NV2 -&gt; False, đi tiếp  -&gt; trùng với except RotDH_NV1 -&gt; True, đi in ra “RotDH_NV1“  – raise RotDH_NV2 thì kiểm tra:  -&gt; trùng với except RotDH_NV3 -&gt; False, đi tiếp  -&gt; trùng với except RotDH_NV2 -&gt; True, đi in ra “RotDH_NV2“  – raise RotDH_NV3 thì kiểm tra:  -&gt; trùng với except RotDH_NV3 -&gt; True, đi in ra “RotDH_NV3“  Vậy kết quả in ra ở example 1 là:     RotDH_NV1    RotDH_NV2    RotDH_NV3   **Example 2: **  – raise RotDH_NV1 thì kiểm tra:  -&gt; trùng với except RotDH_NV1 -&gt; True, đi in ra “RotDH_NV1“  – raise RotDH_NV2 thì kiểm tra:  -&gt; trùng với except RotDH_NV1 -&gt; True, đi in ra “RotDH_NV1“  – raise RotDH_NV3 thì kiểm tra:  -&gt; trùng với except RotDH_NV1 -&gt; True, đi in ra “RotDH_NV1“  Vậy kết quả in ra ở example 2 là:     RotDH_NV1    RotDH_NV1    RotDH_NV1   Từ ví dụ trên, mình thấy được khi có ngoại lệ được raise lên, đụng bạn nào là bạn ấy thực thi trước, nó cũng giống như việc cấp cứu vậy, xe cấp cứu nào đến trước thì chở người ta đi bệnh viện trước.  Đôi khi sẽ có lỗi xảy ra nhưng mình chưa đoán được loại exception đó là gì, và mình thường xử dụng “except:” không đi kèm với loại ngoại lệ nào, để hốt trọn mấy bạn còn lại.  Tuy nhiên nhớ cẩn trọng khi xài bạn này nha, vì bạn ấy hốt cả rổ nên sẽ dễ che dấu lỗi của chương trình và gây khó khăn cho việc kiểm lỗi ý.  Do đó, tốt nhất là nên dùng bạn ấy cho tụi còn lại, in lỗi ra ngoài và raise lại bạn ấy lên để biết mà chủ động bảo vệ code nha.  Làm ri nè: bắt coi mặt mũi thằng lỗi ra sao rồi raise error lên lại để cho bạn lỗi ngoài ý muốn không cứ thế mà lặng thinh lơ đi.  except:       print(‘Lỗi chi mà hông rõ nè”, sys.exc_info()[0])       raise   Đoạn ni cho mình lưu ý xí nữa nha. Có bạn nào hay xài “except Exception as e:” để bắt các loại ngoại lệ còn lại không nhỉ?  Khi mình xài cái “except Exception as e:” thì có cái tiện là mình có thể truy cập vào các thuộc tính của đổi tượng “e” như e.message hay e.args.  Nhưng bạn lưu ý xíu là cái “except Exception as e:” nó khác với cái “except:” nha. Cụ thể:  – “except:” bắt tất cả các loại ngoại lệ.  – “except Exception:” hoặc “except Exception as e:” bắt tất cả các loại ngoại lệ nhưng TRỪ “BaseException”, “SystemExist”, “KeyboardInterupt” và “GeneratorExist”(Có nghĩa là gặp các bạn bị trừ đi này vẫn la làng  chứ không có im lặng đâu nha)  Làm cho tôi điều này nếu không bị dính ngoại lệ nào(Do it if no exception raise)  Ngoài ra, nhóm “try … except” còn có một mệnh đề đi kèm không bắt buộc là “else”, đi sau tất cả các loại “except”.  Mệnh đề này thường chứa các đoạn mã cần thực thi nếu mệnh đề try không có bất cứ ngoại lệ nào.  try:    # code cần thực thi except OSError:    # xử lý ngoại lệ OSError else:    # thực thi đoạn này dù ngoại lệ có bị bắt hay không   Dùng mệnh đề else như trên thì tốt hơn so với việc bỏ đoạn code cần thực thi đó luôn trong mệnh đề try như thế này:  try:    # code cần thực thi    # thực thi đoạn này dù ngoại lệ có bị bắt hay không except OSError:    # xử lý ngoại lệ OSError   Chụp cắt lớp ngoại lệ  Khi ngoại lệ xảy ra, bạn ấy có một vài giá trị để thể hiện mình, kiểu như mình tên gì, nhà ở đâu hay gia đình có mấy người ý, mấy bạn này hay được gọi với tên tiếng anh là “exception’s argument”.  Mình có từng nhắc đến các bạn này ở trên đoạn “except Exception as e” có e.message và e.args ý ạ.  Ngoài mấy bạn mặc định được trả ra như trên, thì khi mình raise ngoại lệ, mình cũng có thể truyền cho bạn ấy những giá trị cụ thể như sau: “raise Exception(“value 1”, “value 2″)”  Để cho tiện thì các giá trị được truyền vào này mặc định sẽ được trả ra ở hàm khởi tạo __str__() của exception, cho nên khi gọi print(e) của e trong “except Exception as e”  thì nó có giá trị là (“value 1”, “value 2”). Hoặc e.args cũng có giá trị như trên.  La làng khi có ngoại lệ  Ở các nội dung trên, rất nhiều lần tụi mình đã la làng mỗi khi code có vấn đề, bạn đã biết cách la làng khi có ngoại lệ rồi phải không?  Đó chính là sử dụng cuộc gọi cấp cứu 115 =))  Mình đùa thôi, đó là dùng từ khoá “raise” đi kèm với ngoại lệ hoặc đi một mình bạn ấy cũng được.  Đổ lỗi  Ha ha, bạn có tin ngoại lệ đổ lỗi cho nhau được không?  Nếu bạn muốn thì nó được. Thật á!  Đây là ví dụ cho sự đổ lỗi, hay gọi hoa mỹ hơn là các ngoại lệ được xâu chuỗi với nhau, mời bạn xem đoạn code này:    Ở trên, rõ là exception IOError được bắt, nhưng mình cố tình đổi lỗi thành RuntimeError bằng cách sử dụng “from”, cú pháp giúp mình có thể xâu chuỗi lỗi IOError qua lỗi RuntimeError và in cả hai bạn này ra màn hình như trên.  Nhưng nếu bạn chỉ muốn in lỗi “RuntimError” thôi, và không muốn hiện lỗi IOError nữa, thì có thể dùng “from None” để vô hiệu hoá quá trình xâu exception của bạn from.  Khi đó nó sẽ làm việc như thế này:    Yeah, vậy là tụi mình có thể đổi lỗi trắng trợn mà không truy được nguồn gốc luôn(trừ khi nhìn vô code).  E hèm, tuy nhiên, bạn này khá là nguy hiểm nha vì đổi tứ tung lên cả lại làm khó khi debug ấy, nên thận trọng khi dùng thì hơn.  Ngoại lệ của mình  Đó giờ(ý là từ đầu bài tới chừ), mình làm việc với ngoại lệ của người ta(ngoại lệ mặc định của Python), giờ mình cũng thích tạo ngoại lệ của riêng mình rồi, đơn giản là nói tiếng người, á nhầm, tiếng của người dùng, và tiếng của lập trình viên thì đôi khi có ý nghĩa và thân thiện hơn mà, hihi.  Khi mình viết chương trình của mình, mình có thể tạo ngoại lệ bằng cách kế thừa từ lớp “Exception”, cả bằng cách trực tiếp lẫn gián tiếp.  Trực tiếp thì khỏi giải thích ha, còn gián tiếp là mình kế thừa từ bạn ngoại lệ nào đó đã kế thừa từ “Exception”, vậy hoai.  Thường thường, người ta hay tạo một base exception kế thừa trực tiếp, rồi những loại ngoại lệ khác kế thừa gián tiếp “Exception” bằng cái base exception đó.  À, còn về cách đặt tên, họ cũng đặt tên theo cùng họ luôn, ví dụ họ ở đây có thể là Error: Input Error, StupidError, NevermindError, … Kiểu vậy á 😀  Mọi người cùng dòm qua ví dụ nha:    Làm cho tôi điều này bất cứ giá nào(Do it no matter what)  Ở phần “Làm cho tôi điều này nếu không bị dính ngoại lệ nào”, tụi mình xài “else” sau except á nạ, nhớ hông, đó là mình thực thi code khi không có ngoại lệ xảy ra.  Còn ở đây, là “Làm cho tôi điều này bất cứ giá nào”, thì mình xài với “finally“, đó là mình thực thi đám code trong finally dù có ngoại lệ xảy ra hay không.  Tức là đoạn code ở finally này thể nào cũng phải làm, họ gọi là mát mẻ là “clean-up actions”.  Mời bạn xem ví dụ nha:    Bạn có thắc mắc vì sao gặp exception mà đoạn print vẫn in được không?  Đó là cơ chế của finally đó, cùng mình tìm hiểu thêm về cách hoạt động của bạn ấy nào.  Nếu có mệnh đề “finally” xuất hiện, thì code thuộc mệnh đề này sẽ thực thi như là công việc cuối cùng trước khi lệnh try kết thúc.  Dưới đây là cơ chế hoạt động cho những tình huống khá phức tạp với finally:  – Nếu có ngoại lệ xảy ra trong khi thực thi nhóm lệnh trong “try”, nếu ngoại lệ la làng lên nhưng chưa bị bắt lại bằng “except”, thì nhóm lệnh trong “finally” vẫn chạy trước, sau đó ngoại lệ mới được la làng sau đó.  – Nếu có ngoại lệ xảy ra bởi nhóm lệnh trong except hoặc else. Một lần nữa, nhóm lệnh trong finally được chạy trước sau đó  ngoại lệ trong đám phát sinh này mới được la làng lên.  – Nếu khối lệnh trong try có các lệnh đặt biệt như “break”, “continue” hay “return” làm dừng thực thi giữa chừng thì nhóm lệnh trong finally cũng thực hiện trước khi đám này được gọi.  – Nếu khối lệnh trong finally có chứa lệnh “return” thì giá trị trả về sẽ là giá trị từ finally chứ không phải giá trị trả về từ khối code trong try.  Trong thực tế, finally là nơi chứa các nhóm lệnh phục vụ cho việc giải phóng các tài nguyên như là file hay các kết nối mạng, bất kể các tài nguyên này có được dùng hay không.  Một vài ví dụ thú vị về finally đây ạ: &gt;&gt;&gt; def bool_return(): ...   try: ...      return True ...   finally: ...      return False ... &gt;&gt;&gt; bool_return() False   &gt;&gt;&gt; def divide(x, y): ...     try: ...         result = x / y ...     except ZeroDivisionError: ...         print(&quot;division by zero!&quot;) ...     else: ...         print(&quot;result is&quot;, result) ...     finally: ...         print(&quot;executing finally clause&quot;) ... &gt;&gt;&gt; divide(2, 1) result is 2.0 executing finally clause &gt;&gt;&gt; divide(2, 0) division by zero! executing finally clause &gt;&gt;&gt; divide(&quot;2&quot;, &quot;1&quot;) executing finally clause Traceback (most recent call last):   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;   File &quot;&lt;stdin&gt;&quot;, line 3, in divide TypeError: unsupported operand type(s) for /: &#39;str&#39; and &#39;str&#39;   Nè, nhớ nghiền ngẫm bạn finally trước khi đi tiếp nha.  Dòm lại lần nữa coi có hiểu ví dụ hông?  Định nghĩa trước công việc làm sạch  Trong Python, có một vài loại object được định nghĩa sẵn các hành động làm sạch để trả lại tài nguyên khi mình không xài nữa mà không cần biết tài nguyên đó có được sử dụng thành công hay không(như khi chính ta thực hiện làm sạch tài nguyên với finally ở trên).  Loại object như vậy có thể kể điển hình là khi mình làm việc với một file.  Thường thì khi mình mở một file mình sẽ dùng open(“filename.txt”). Vấn đề ở đây là tụi mình mở người ta rồi nhưng không nhớ mà đóng lại để thu hồi tài nguyên bộ nhớ về, và có thể gây vấn đề về bộ nhớ cho các dự án lớn hoặc file quá nặng.  Với lệnh “with” cho phép những object như là file có thể đảm bảo việc bộ nhớ sẽ được giải phóng mỗi khi thực thi xong đoạn code nằm trong nhóm lệnh này. Do đó đảm bảo tài nguyên được thu hồi kịp thời và chính xác.  Hãy nhớ ví dụ này nha, và luôn dùng bạn ấy khi mở file như là best practice.   Hôm nay mình đã biết thêm ít kiến thức về lỗi và các ngoại lệ rồi.  Sau phần này, tụi mình sẽ cùng nhau đọc tiếp phần “Lớp trong Python” nhé.">
+
+
+  <meta name="author" content="Thanh Nguyen">
+  
+  <meta property="article:author" content="Thanh Nguyen">
+  
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="BeautyOnCode">
+<meta property="og:title" content="Lỗi và xử lý ngoại lệ trong Python">
+<meta property="og:url" content="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/loi-va-xu-ly-ngoai-le-python/">
+
+
+  <meta property="og:description" content="Hôm ni, mình học tiếp về bạn “Lỗi và ngoại lệ”, bài blog tiếp theo nằm trong series “Khám phá Đại Bản Doanh Python”, thuộc phần Python Tutorial nha.  Ở bài này, mình sẽ đi tìm hiểu các loại lỗi và ngoại lệ trong Python cũng như cách xử lý và tạo ngoại lệ riêng của mình.  (Những nội dung trong bài series này từ chủ yếu mình lấy từ python.org rồi viết lại hoặc dịch lại theo ngôn ngữ của mình)  Nếu bạn đọc từ đầu sê-ri đến đây, hẳn là bạn có thấy vài đoạn code mình cố tình ví dụ cho nó xuất hiện lỗi, trong bài “I/O trong Python”:     Hình trên cho mình thấy có hai loại lỗi có thể phân biệt được, đó là: “lỗi cú pháp” và “ngoại lệ“.  Lỗi cú pháp  Lỗi cú pháp là lỗi xảy ra khi phân tích cú pháp, là loại lỗi mình hay gặp nhất.  Trình phân tích cú pháp sẽ lặp lại dòng bị lỗi và hiển thị một dấu mũi tên nhỏ tạo vị trí là thời điểm sớm nhất trong dòng nơi lỗi được phát hiện.  Ở ví dụ trên thể hiện lỗi được phát hiện tại vị trí hàm print được gọi, lý do là bị thiếu dấu “:”  Đôi khi lỗi syntax nhưng không có vị trí được phát hiện, ví dụ như ở đầu bài “SyntaxError: positional argument follows keyword argument” thể hiện phải đặt biến theo vị trí trước biến theo từ khoá.  Ngoại lệ  Ngay cả khi cú pháp đã đúng, mã vẫn có thể gây ra lỗi trong quá trình thực thi. Những lỗi phát hiện trong quá trình thực thi code được gọi là các ngoại lệ.    Như bạn thấy ở trên thì ngoại lệ có nhiều loại khác nhau và sẽ được in kèm thông tin của lỗi.  Ở ví dụ trên, tụi mình có các ngoại lệ như là “ZeroDivisionError“, “NameError“, “TypeError“  Xử lý ngoại lệ  Khi viết chương trình với Python, đôi khi mình sẽ cố tình để ngoại lễ xảy ra để xử lý chúng. Như ở ví dụ dưới đây, đầu vào được nhập từ phía người dùng có thể gây ngoại lệ “ValueErrror” và mình đi xử lý bằng cách gửi thông tin cho người dùng biết họ đã nhập sai.    Ở ví dụ trên đã dùng nhóm lệnh “try … except” để bắt và sử lý ngoại lệ.  Đoạn code trên hoạt động như sau:  – Đầu tiên, mã trong mệnh đề “try” được thực hiện  – Nếu không có ngoại lệ xảy ra, mệnh đề “except” sẽ bị bỏ qua và kết thúc chương trình(như khi mình nhập 9)  – Nếu có ngoại lệ xảy ra trong lúc thực thi mã trong mệnh đề try thì các đoạn mã bên dưới nó sẽ bị bỏ qua. Nếu lỗi ngoại lệ trùng với lỗi mình bắt(sau từ khoá “except”, ở đây là ValueError), thì đoạn mã trong except sẽ được thực thi(in ra “Oops! …”). Và đoạn mã trong try sẽ tiếp tục được thực hiện.  – Còn nếu ngoại lệ xảy ra nhưng không trùng với ngoại lệ mình đã bắt thì chương trình sẽ dừng lại và in ngoại lệ ra màn hình(ngoại lệ chưa được xử lý).  Vì có thể có nhiều ngoại lệ xảy ra nên:  – một “try” có thể đi cùng với nhiều “except”: hay sử dụng khi mình muốn xử lý từng except khác nhau.  – một except có thể bắt nhiều loại ngoại lệ, ví dụ: except(RuntimeError, TypeError): hay sử dụng khi mình muốn gom nhiều loại except vào sử lý một lần.  Xe cấp cứu nào đến trước  Có hai đoạn code như hai hình dưới đây, cùng đoán thứ tự in ra khi hai example 1, 2 được thực thi nhé 😀  Lưu ý là “RotDH_NV1” được extend từ class Exception    Bạn nghiên cứu kỹ chưa, đã đoán được thứ tự in ra ở hai ví dụ là gì chưa nhỉ?  Trước khi dòm đáp án, hãy cố thử đưa ra kết quả của mình trước nha.   Đây là đáp án của mình, để mình làm thử coi đúng không hen:  Đầu tiên là cả thứ tự kế thừa của mấy bạn này:  Exception &gt; RotDH_NV1 &gt; RotDH_NV2 &gt; RotDH_NV3  Như vậy là khi vòng lặp thực thi từng đối tượng:  Example 1:  – raise RotDH_NV1 thì kiểm tra:  -&gt; trùng với except RotDH_NV3 -&gt; False, đi tiếp  -&gt; trùng với except RotDH_NV2 -&gt; False, đi tiếp  -&gt; trùng với except RotDH_NV1 -&gt; True, đi in ra “RotDH_NV1“  – raise RotDH_NV2 thì kiểm tra:  -&gt; trùng với except RotDH_NV3 -&gt; False, đi tiếp  -&gt; trùng với except RotDH_NV2 -&gt; True, đi in ra “RotDH_NV2“  – raise RotDH_NV3 thì kiểm tra:  -&gt; trùng với except RotDH_NV3 -&gt; True, đi in ra “RotDH_NV3“  Vậy kết quả in ra ở example 1 là:     RotDH_NV1    RotDH_NV2    RotDH_NV3   **Example 2: **  – raise RotDH_NV1 thì kiểm tra:  -&gt; trùng với except RotDH_NV1 -&gt; True, đi in ra “RotDH_NV1“  – raise RotDH_NV2 thì kiểm tra:  -&gt; trùng với except RotDH_NV1 -&gt; True, đi in ra “RotDH_NV1“  – raise RotDH_NV3 thì kiểm tra:  -&gt; trùng với except RotDH_NV1 -&gt; True, đi in ra “RotDH_NV1“  Vậy kết quả in ra ở example 2 là:     RotDH_NV1    RotDH_NV1    RotDH_NV1   Từ ví dụ trên, mình thấy được khi có ngoại lệ được raise lên, đụng bạn nào là bạn ấy thực thi trước, nó cũng giống như việc cấp cứu vậy, xe cấp cứu nào đến trước thì chở người ta đi bệnh viện trước.  Đôi khi sẽ có lỗi xảy ra nhưng mình chưa đoán được loại exception đó là gì, và mình thường xử dụng “except:” không đi kèm với loại ngoại lệ nào, để hốt trọn mấy bạn còn lại.  Tuy nhiên nhớ cẩn trọng khi xài bạn này nha, vì bạn ấy hốt cả rổ nên sẽ dễ che dấu lỗi của chương trình và gây khó khăn cho việc kiểm lỗi ý.  Do đó, tốt nhất là nên dùng bạn ấy cho tụi còn lại, in lỗi ra ngoài và raise lại bạn ấy lên để biết mà chủ động bảo vệ code nha.  Làm ri nè: bắt coi mặt mũi thằng lỗi ra sao rồi raise error lên lại để cho bạn lỗi ngoài ý muốn không cứ thế mà lặng thinh lơ đi.  except:       print(‘Lỗi chi mà hông rõ nè”, sys.exc_info()[0])       raise   Đoạn ni cho mình lưu ý xí nữa nha. Có bạn nào hay xài “except Exception as e:” để bắt các loại ngoại lệ còn lại không nhỉ?  Khi mình xài cái “except Exception as e:” thì có cái tiện là mình có thể truy cập vào các thuộc tính của đổi tượng “e” như e.message hay e.args.  Nhưng bạn lưu ý xíu là cái “except Exception as e:” nó khác với cái “except:” nha. Cụ thể:  – “except:” bắt tất cả các loại ngoại lệ.  – “except Exception:” hoặc “except Exception as e:” bắt tất cả các loại ngoại lệ nhưng TRỪ “BaseException”, “SystemExist”, “KeyboardInterupt” và “GeneratorExist”(Có nghĩa là gặp các bạn bị trừ đi này vẫn la làng  chứ không có im lặng đâu nha)  Làm cho tôi điều này nếu không bị dính ngoại lệ nào(Do it if no exception raise)  Ngoài ra, nhóm “try … except” còn có một mệnh đề đi kèm không bắt buộc là “else”, đi sau tất cả các loại “except”.  Mệnh đề này thường chứa các đoạn mã cần thực thi nếu mệnh đề try không có bất cứ ngoại lệ nào.  try:    # code cần thực thi except OSError:    # xử lý ngoại lệ OSError else:    # thực thi đoạn này dù ngoại lệ có bị bắt hay không   Dùng mệnh đề else như trên thì tốt hơn so với việc bỏ đoạn code cần thực thi đó luôn trong mệnh đề try như thế này:  try:    # code cần thực thi    # thực thi đoạn này dù ngoại lệ có bị bắt hay không except OSError:    # xử lý ngoại lệ OSError   Chụp cắt lớp ngoại lệ  Khi ngoại lệ xảy ra, bạn ấy có một vài giá trị để thể hiện mình, kiểu như mình tên gì, nhà ở đâu hay gia đình có mấy người ý, mấy bạn này hay được gọi với tên tiếng anh là “exception’s argument”.  Mình có từng nhắc đến các bạn này ở trên đoạn “except Exception as e” có e.message và e.args ý ạ.  Ngoài mấy bạn mặc định được trả ra như trên, thì khi mình raise ngoại lệ, mình cũng có thể truyền cho bạn ấy những giá trị cụ thể như sau: “raise Exception(“value 1”, “value 2″)”  Để cho tiện thì các giá trị được truyền vào này mặc định sẽ được trả ra ở hàm khởi tạo __str__() của exception, cho nên khi gọi print(e) của e trong “except Exception as e”  thì nó có giá trị là (“value 1”, “value 2”). Hoặc e.args cũng có giá trị như trên.  La làng khi có ngoại lệ  Ở các nội dung trên, rất nhiều lần tụi mình đã la làng mỗi khi code có vấn đề, bạn đã biết cách la làng khi có ngoại lệ rồi phải không?  Đó chính là sử dụng cuộc gọi cấp cứu 115 =))  Mình đùa thôi, đó là dùng từ khoá “raise” đi kèm với ngoại lệ hoặc đi một mình bạn ấy cũng được.  Đổ lỗi  Ha ha, bạn có tin ngoại lệ đổ lỗi cho nhau được không?  Nếu bạn muốn thì nó được. Thật á!  Đây là ví dụ cho sự đổ lỗi, hay gọi hoa mỹ hơn là các ngoại lệ được xâu chuỗi với nhau, mời bạn xem đoạn code này:    Ở trên, rõ là exception IOError được bắt, nhưng mình cố tình đổi lỗi thành RuntimeError bằng cách sử dụng “from”, cú pháp giúp mình có thể xâu chuỗi lỗi IOError qua lỗi RuntimeError và in cả hai bạn này ra màn hình như trên.  Nhưng nếu bạn chỉ muốn in lỗi “RuntimError” thôi, và không muốn hiện lỗi IOError nữa, thì có thể dùng “from None” để vô hiệu hoá quá trình xâu exception của bạn from.  Khi đó nó sẽ làm việc như thế này:    Yeah, vậy là tụi mình có thể đổi lỗi trắng trợn mà không truy được nguồn gốc luôn(trừ khi nhìn vô code).  E hèm, tuy nhiên, bạn này khá là nguy hiểm nha vì đổi tứ tung lên cả lại làm khó khi debug ấy, nên thận trọng khi dùng thì hơn.  Ngoại lệ của mình  Đó giờ(ý là từ đầu bài tới chừ), mình làm việc với ngoại lệ của người ta(ngoại lệ mặc định của Python), giờ mình cũng thích tạo ngoại lệ của riêng mình rồi, đơn giản là nói tiếng người, á nhầm, tiếng của người dùng, và tiếng của lập trình viên thì đôi khi có ý nghĩa và thân thiện hơn mà, hihi.  Khi mình viết chương trình của mình, mình có thể tạo ngoại lệ bằng cách kế thừa từ lớp “Exception”, cả bằng cách trực tiếp lẫn gián tiếp.  Trực tiếp thì khỏi giải thích ha, còn gián tiếp là mình kế thừa từ bạn ngoại lệ nào đó đã kế thừa từ “Exception”, vậy hoai.  Thường thường, người ta hay tạo một base exception kế thừa trực tiếp, rồi những loại ngoại lệ khác kế thừa gián tiếp “Exception” bằng cái base exception đó.  À, còn về cách đặt tên, họ cũng đặt tên theo cùng họ luôn, ví dụ họ ở đây có thể là Error: Input Error, StupidError, NevermindError, … Kiểu vậy á 😀  Mọi người cùng dòm qua ví dụ nha:    Làm cho tôi điều này bất cứ giá nào(Do it no matter what)  Ở phần “Làm cho tôi điều này nếu không bị dính ngoại lệ nào”, tụi mình xài “else” sau except á nạ, nhớ hông, đó là mình thực thi code khi không có ngoại lệ xảy ra.  Còn ở đây, là “Làm cho tôi điều này bất cứ giá nào”, thì mình xài với “finally“, đó là mình thực thi đám code trong finally dù có ngoại lệ xảy ra hay không.  Tức là đoạn code ở finally này thể nào cũng phải làm, họ gọi là mát mẻ là “clean-up actions”.  Mời bạn xem ví dụ nha:    Bạn có thắc mắc vì sao gặp exception mà đoạn print vẫn in được không?  Đó là cơ chế của finally đó, cùng mình tìm hiểu thêm về cách hoạt động của bạn ấy nào.  Nếu có mệnh đề “finally” xuất hiện, thì code thuộc mệnh đề này sẽ thực thi như là công việc cuối cùng trước khi lệnh try kết thúc.  Dưới đây là cơ chế hoạt động cho những tình huống khá phức tạp với finally:  – Nếu có ngoại lệ xảy ra trong khi thực thi nhóm lệnh trong “try”, nếu ngoại lệ la làng lên nhưng chưa bị bắt lại bằng “except”, thì nhóm lệnh trong “finally” vẫn chạy trước, sau đó ngoại lệ mới được la làng sau đó.  – Nếu có ngoại lệ xảy ra bởi nhóm lệnh trong except hoặc else. Một lần nữa, nhóm lệnh trong finally được chạy trước sau đó  ngoại lệ trong đám phát sinh này mới được la làng lên.  – Nếu khối lệnh trong try có các lệnh đặt biệt như “break”, “continue” hay “return” làm dừng thực thi giữa chừng thì nhóm lệnh trong finally cũng thực hiện trước khi đám này được gọi.  – Nếu khối lệnh trong finally có chứa lệnh “return” thì giá trị trả về sẽ là giá trị từ finally chứ không phải giá trị trả về từ khối code trong try.  Trong thực tế, finally là nơi chứa các nhóm lệnh phục vụ cho việc giải phóng các tài nguyên như là file hay các kết nối mạng, bất kể các tài nguyên này có được dùng hay không.  Một vài ví dụ thú vị về finally đây ạ: &gt;&gt;&gt; def bool_return(): ...   try: ...      return True ...   finally: ...      return False ... &gt;&gt;&gt; bool_return() False   &gt;&gt;&gt; def divide(x, y): ...     try: ...         result = x / y ...     except ZeroDivisionError: ...         print(&quot;division by zero!&quot;) ...     else: ...         print(&quot;result is&quot;, result) ...     finally: ...         print(&quot;executing finally clause&quot;) ... &gt;&gt;&gt; divide(2, 1) result is 2.0 executing finally clause &gt;&gt;&gt; divide(2, 0) division by zero! executing finally clause &gt;&gt;&gt; divide(&quot;2&quot;, &quot;1&quot;) executing finally clause Traceback (most recent call last):   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;   File &quot;&lt;stdin&gt;&quot;, line 3, in divide TypeError: unsupported operand type(s) for /: &#39;str&#39; and &#39;str&#39;   Nè, nhớ nghiền ngẫm bạn finally trước khi đi tiếp nha.  Dòm lại lần nữa coi có hiểu ví dụ hông?  Định nghĩa trước công việc làm sạch  Trong Python, có một vài loại object được định nghĩa sẵn các hành động làm sạch để trả lại tài nguyên khi mình không xài nữa mà không cần biết tài nguyên đó có được sử dụng thành công hay không(như khi chính ta thực hiện làm sạch tài nguyên với finally ở trên).  Loại object như vậy có thể kể điển hình là khi mình làm việc với một file.  Thường thì khi mình mở một file mình sẽ dùng open(“filename.txt”). Vấn đề ở đây là tụi mình mở người ta rồi nhưng không nhớ mà đóng lại để thu hồi tài nguyên bộ nhớ về, và có thể gây vấn đề về bộ nhớ cho các dự án lớn hoặc file quá nặng.  Với lệnh “with” cho phép những object như là file có thể đảm bảo việc bộ nhớ sẽ được giải phóng mỗi khi thực thi xong đoạn code nằm trong nhóm lệnh này. Do đó đảm bảo tài nguyên được thu hồi kịp thời và chính xác.  Hãy nhớ ví dụ này nha, và luôn dùng bạn ấy khi mở file như là best practice.   Hôm nay mình đã biết thêm ít kiến thức về lỗi và các ngoại lệ rồi.  Sau phần này, tụi mình sẽ cùng nhau đọc tiếp phần “Lớp trong Python” nhé.">
+
+
+
+  <meta property="og:image" content="http://localhost:4000/assets/images/site-logo.png">
+
+
+
+  <meta name="twitter:site" content="@mmistakes">
+  <meta name="twitter:title" content="Lỗi và xử lý ngoại lệ trong Python">
+  <meta name="twitter:description" content="Hôm ni, mình học tiếp về bạn “Lỗi và ngoại lệ”, bài blog tiếp theo nằm trong series “Khám phá Đại Bản Doanh Python”, thuộc phần Python Tutorial nha.  Ở bài này, mình sẽ đi tìm hiểu các loại lỗi và ngoại lệ trong Python cũng như cách xử lý và tạo ngoại lệ riêng của mình.  (Những nội dung trong bài series này từ chủ yếu mình lấy từ python.org rồi viết lại hoặc dịch lại theo ngôn ngữ của mình)  Nếu bạn đọc từ đầu sê-ri đến đây, hẳn là bạn có thấy vài đoạn code mình cố tình ví dụ cho nó xuất hiện lỗi, trong bài “I/O trong Python”:     Hình trên cho mình thấy có hai loại lỗi có thể phân biệt được, đó là: “lỗi cú pháp” và “ngoại lệ“.  Lỗi cú pháp  Lỗi cú pháp là lỗi xảy ra khi phân tích cú pháp, là loại lỗi mình hay gặp nhất.  Trình phân tích cú pháp sẽ lặp lại dòng bị lỗi và hiển thị một dấu mũi tên nhỏ tạo vị trí là thời điểm sớm nhất trong dòng nơi lỗi được phát hiện.  Ở ví dụ trên thể hiện lỗi được phát hiện tại vị trí hàm print được gọi, lý do là bị thiếu dấu “:”  Đôi khi lỗi syntax nhưng không có vị trí được phát hiện, ví dụ như ở đầu bài “SyntaxError: positional argument follows keyword argument” thể hiện phải đặt biến theo vị trí trước biến theo từ khoá.  Ngoại lệ  Ngay cả khi cú pháp đã đúng, mã vẫn có thể gây ra lỗi trong quá trình thực thi. Những lỗi phát hiện trong quá trình thực thi code được gọi là các ngoại lệ.    Như bạn thấy ở trên thì ngoại lệ có nhiều loại khác nhau và sẽ được in kèm thông tin của lỗi.  Ở ví dụ trên, tụi mình có các ngoại lệ như là “ZeroDivisionError“, “NameError“, “TypeError“  Xử lý ngoại lệ  Khi viết chương trình với Python, đôi khi mình sẽ cố tình để ngoại lễ xảy ra để xử lý chúng. Như ở ví dụ dưới đây, đầu vào được nhập từ phía người dùng có thể gây ngoại lệ “ValueErrror” và mình đi xử lý bằng cách gửi thông tin cho người dùng biết họ đã nhập sai.    Ở ví dụ trên đã dùng nhóm lệnh “try … except” để bắt và sử lý ngoại lệ.  Đoạn code trên hoạt động như sau:  – Đầu tiên, mã trong mệnh đề “try” được thực hiện  – Nếu không có ngoại lệ xảy ra, mệnh đề “except” sẽ bị bỏ qua và kết thúc chương trình(như khi mình nhập 9)  – Nếu có ngoại lệ xảy ra trong lúc thực thi mã trong mệnh đề try thì các đoạn mã bên dưới nó sẽ bị bỏ qua. Nếu lỗi ngoại lệ trùng với lỗi mình bắt(sau từ khoá “except”, ở đây là ValueError), thì đoạn mã trong except sẽ được thực thi(in ra “Oops! …”). Và đoạn mã trong try sẽ tiếp tục được thực hiện.  – Còn nếu ngoại lệ xảy ra nhưng không trùng với ngoại lệ mình đã bắt thì chương trình sẽ dừng lại và in ngoại lệ ra màn hình(ngoại lệ chưa được xử lý).  Vì có thể có nhiều ngoại lệ xảy ra nên:  – một “try” có thể đi cùng với nhiều “except”: hay sử dụng khi mình muốn xử lý từng except khác nhau.  – một except có thể bắt nhiều loại ngoại lệ, ví dụ: except(RuntimeError, TypeError): hay sử dụng khi mình muốn gom nhiều loại except vào sử lý một lần.  Xe cấp cứu nào đến trước  Có hai đoạn code như hai hình dưới đây, cùng đoán thứ tự in ra khi hai example 1, 2 được thực thi nhé 😀  Lưu ý là “RotDH_NV1” được extend từ class Exception    Bạn nghiên cứu kỹ chưa, đã đoán được thứ tự in ra ở hai ví dụ là gì chưa nhỉ?  Trước khi dòm đáp án, hãy cố thử đưa ra kết quả của mình trước nha.   Đây là đáp án của mình, để mình làm thử coi đúng không hen:  Đầu tiên là cả thứ tự kế thừa của mấy bạn này:  Exception &gt; RotDH_NV1 &gt; RotDH_NV2 &gt; RotDH_NV3  Như vậy là khi vòng lặp thực thi từng đối tượng:  Example 1:  – raise RotDH_NV1 thì kiểm tra:  -&gt; trùng với except RotDH_NV3 -&gt; False, đi tiếp  -&gt; trùng với except RotDH_NV2 -&gt; False, đi tiếp  -&gt; trùng với except RotDH_NV1 -&gt; True, đi in ra “RotDH_NV1“  – raise RotDH_NV2 thì kiểm tra:  -&gt; trùng với except RotDH_NV3 -&gt; False, đi tiếp  -&gt; trùng với except RotDH_NV2 -&gt; True, đi in ra “RotDH_NV2“  – raise RotDH_NV3 thì kiểm tra:  -&gt; trùng với except RotDH_NV3 -&gt; True, đi in ra “RotDH_NV3“  Vậy kết quả in ra ở example 1 là:     RotDH_NV1    RotDH_NV2    RotDH_NV3   **Example 2: **  – raise RotDH_NV1 thì kiểm tra:  -&gt; trùng với except RotDH_NV1 -&gt; True, đi in ra “RotDH_NV1“  – raise RotDH_NV2 thì kiểm tra:  -&gt; trùng với except RotDH_NV1 -&gt; True, đi in ra “RotDH_NV1“  – raise RotDH_NV3 thì kiểm tra:  -&gt; trùng với except RotDH_NV1 -&gt; True, đi in ra “RotDH_NV1“  Vậy kết quả in ra ở example 2 là:     RotDH_NV1    RotDH_NV1    RotDH_NV1   Từ ví dụ trên, mình thấy được khi có ngoại lệ được raise lên, đụng bạn nào là bạn ấy thực thi trước, nó cũng giống như việc cấp cứu vậy, xe cấp cứu nào đến trước thì chở người ta đi bệnh viện trước.  Đôi khi sẽ có lỗi xảy ra nhưng mình chưa đoán được loại exception đó là gì, và mình thường xử dụng “except:” không đi kèm với loại ngoại lệ nào, để hốt trọn mấy bạn còn lại.  Tuy nhiên nhớ cẩn trọng khi xài bạn này nha, vì bạn ấy hốt cả rổ nên sẽ dễ che dấu lỗi của chương trình và gây khó khăn cho việc kiểm lỗi ý.  Do đó, tốt nhất là nên dùng bạn ấy cho tụi còn lại, in lỗi ra ngoài và raise lại bạn ấy lên để biết mà chủ động bảo vệ code nha.  Làm ri nè: bắt coi mặt mũi thằng lỗi ra sao rồi raise error lên lại để cho bạn lỗi ngoài ý muốn không cứ thế mà lặng thinh lơ đi.  except:       print(‘Lỗi chi mà hông rõ nè”, sys.exc_info()[0])       raise   Đoạn ni cho mình lưu ý xí nữa nha. Có bạn nào hay xài “except Exception as e:” để bắt các loại ngoại lệ còn lại không nhỉ?  Khi mình xài cái “except Exception as e:” thì có cái tiện là mình có thể truy cập vào các thuộc tính của đổi tượng “e” như e.message hay e.args.  Nhưng bạn lưu ý xíu là cái “except Exception as e:” nó khác với cái “except:” nha. Cụ thể:  – “except:” bắt tất cả các loại ngoại lệ.  – “except Exception:” hoặc “except Exception as e:” bắt tất cả các loại ngoại lệ nhưng TRỪ “BaseException”, “SystemExist”, “KeyboardInterupt” và “GeneratorExist”(Có nghĩa là gặp các bạn bị trừ đi này vẫn la làng  chứ không có im lặng đâu nha)  Làm cho tôi điều này nếu không bị dính ngoại lệ nào(Do it if no exception raise)  Ngoài ra, nhóm “try … except” còn có một mệnh đề đi kèm không bắt buộc là “else”, đi sau tất cả các loại “except”.  Mệnh đề này thường chứa các đoạn mã cần thực thi nếu mệnh đề try không có bất cứ ngoại lệ nào.  try:    # code cần thực thi except OSError:    # xử lý ngoại lệ OSError else:    # thực thi đoạn này dù ngoại lệ có bị bắt hay không   Dùng mệnh đề else như trên thì tốt hơn so với việc bỏ đoạn code cần thực thi đó luôn trong mệnh đề try như thế này:  try:    # code cần thực thi    # thực thi đoạn này dù ngoại lệ có bị bắt hay không except OSError:    # xử lý ngoại lệ OSError   Chụp cắt lớp ngoại lệ  Khi ngoại lệ xảy ra, bạn ấy có một vài giá trị để thể hiện mình, kiểu như mình tên gì, nhà ở đâu hay gia đình có mấy người ý, mấy bạn này hay được gọi với tên tiếng anh là “exception’s argument”.  Mình có từng nhắc đến các bạn này ở trên đoạn “except Exception as e” có e.message và e.args ý ạ.  Ngoài mấy bạn mặc định được trả ra như trên, thì khi mình raise ngoại lệ, mình cũng có thể truyền cho bạn ấy những giá trị cụ thể như sau: “raise Exception(“value 1”, “value 2″)”  Để cho tiện thì các giá trị được truyền vào này mặc định sẽ được trả ra ở hàm khởi tạo __str__() của exception, cho nên khi gọi print(e) của e trong “except Exception as e”  thì nó có giá trị là (“value 1”, “value 2”). Hoặc e.args cũng có giá trị như trên.  La làng khi có ngoại lệ  Ở các nội dung trên, rất nhiều lần tụi mình đã la làng mỗi khi code có vấn đề, bạn đã biết cách la làng khi có ngoại lệ rồi phải không?  Đó chính là sử dụng cuộc gọi cấp cứu 115 =))  Mình đùa thôi, đó là dùng từ khoá “raise” đi kèm với ngoại lệ hoặc đi một mình bạn ấy cũng được.  Đổ lỗi  Ha ha, bạn có tin ngoại lệ đổ lỗi cho nhau được không?  Nếu bạn muốn thì nó được. Thật á!  Đây là ví dụ cho sự đổ lỗi, hay gọi hoa mỹ hơn là các ngoại lệ được xâu chuỗi với nhau, mời bạn xem đoạn code này:    Ở trên, rõ là exception IOError được bắt, nhưng mình cố tình đổi lỗi thành RuntimeError bằng cách sử dụng “from”, cú pháp giúp mình có thể xâu chuỗi lỗi IOError qua lỗi RuntimeError và in cả hai bạn này ra màn hình như trên.  Nhưng nếu bạn chỉ muốn in lỗi “RuntimError” thôi, và không muốn hiện lỗi IOError nữa, thì có thể dùng “from None” để vô hiệu hoá quá trình xâu exception của bạn from.  Khi đó nó sẽ làm việc như thế này:    Yeah, vậy là tụi mình có thể đổi lỗi trắng trợn mà không truy được nguồn gốc luôn(trừ khi nhìn vô code).  E hèm, tuy nhiên, bạn này khá là nguy hiểm nha vì đổi tứ tung lên cả lại làm khó khi debug ấy, nên thận trọng khi dùng thì hơn.  Ngoại lệ của mình  Đó giờ(ý là từ đầu bài tới chừ), mình làm việc với ngoại lệ của người ta(ngoại lệ mặc định của Python), giờ mình cũng thích tạo ngoại lệ của riêng mình rồi, đơn giản là nói tiếng người, á nhầm, tiếng của người dùng, và tiếng của lập trình viên thì đôi khi có ý nghĩa và thân thiện hơn mà, hihi.  Khi mình viết chương trình của mình, mình có thể tạo ngoại lệ bằng cách kế thừa từ lớp “Exception”, cả bằng cách trực tiếp lẫn gián tiếp.  Trực tiếp thì khỏi giải thích ha, còn gián tiếp là mình kế thừa từ bạn ngoại lệ nào đó đã kế thừa từ “Exception”, vậy hoai.  Thường thường, người ta hay tạo một base exception kế thừa trực tiếp, rồi những loại ngoại lệ khác kế thừa gián tiếp “Exception” bằng cái base exception đó.  À, còn về cách đặt tên, họ cũng đặt tên theo cùng họ luôn, ví dụ họ ở đây có thể là Error: Input Error, StupidError, NevermindError, … Kiểu vậy á 😀  Mọi người cùng dòm qua ví dụ nha:    Làm cho tôi điều này bất cứ giá nào(Do it no matter what)  Ở phần “Làm cho tôi điều này nếu không bị dính ngoại lệ nào”, tụi mình xài “else” sau except á nạ, nhớ hông, đó là mình thực thi code khi không có ngoại lệ xảy ra.  Còn ở đây, là “Làm cho tôi điều này bất cứ giá nào”, thì mình xài với “finally“, đó là mình thực thi đám code trong finally dù có ngoại lệ xảy ra hay không.  Tức là đoạn code ở finally này thể nào cũng phải làm, họ gọi là mát mẻ là “clean-up actions”.  Mời bạn xem ví dụ nha:    Bạn có thắc mắc vì sao gặp exception mà đoạn print vẫn in được không?  Đó là cơ chế của finally đó, cùng mình tìm hiểu thêm về cách hoạt động của bạn ấy nào.  Nếu có mệnh đề “finally” xuất hiện, thì code thuộc mệnh đề này sẽ thực thi như là công việc cuối cùng trước khi lệnh try kết thúc.  Dưới đây là cơ chế hoạt động cho những tình huống khá phức tạp với finally:  – Nếu có ngoại lệ xảy ra trong khi thực thi nhóm lệnh trong “try”, nếu ngoại lệ la làng lên nhưng chưa bị bắt lại bằng “except”, thì nhóm lệnh trong “finally” vẫn chạy trước, sau đó ngoại lệ mới được la làng sau đó.  – Nếu có ngoại lệ xảy ra bởi nhóm lệnh trong except hoặc else. Một lần nữa, nhóm lệnh trong finally được chạy trước sau đó  ngoại lệ trong đám phát sinh này mới được la làng lên.  – Nếu khối lệnh trong try có các lệnh đặt biệt như “break”, “continue” hay “return” làm dừng thực thi giữa chừng thì nhóm lệnh trong finally cũng thực hiện trước khi đám này được gọi.  – Nếu khối lệnh trong finally có chứa lệnh “return” thì giá trị trả về sẽ là giá trị từ finally chứ không phải giá trị trả về từ khối code trong try.  Trong thực tế, finally là nơi chứa các nhóm lệnh phục vụ cho việc giải phóng các tài nguyên như là file hay các kết nối mạng, bất kể các tài nguyên này có được dùng hay không.  Một vài ví dụ thú vị về finally đây ạ: &gt;&gt;&gt; def bool_return(): ...   try: ...      return True ...   finally: ...      return False ... &gt;&gt;&gt; bool_return() False   &gt;&gt;&gt; def divide(x, y): ...     try: ...         result = x / y ...     except ZeroDivisionError: ...         print(&quot;division by zero!&quot;) ...     else: ...         print(&quot;result is&quot;, result) ...     finally: ...         print(&quot;executing finally clause&quot;) ... &gt;&gt;&gt; divide(2, 1) result is 2.0 executing finally clause &gt;&gt;&gt; divide(2, 0) division by zero! executing finally clause &gt;&gt;&gt; divide(&quot;2&quot;, &quot;1&quot;) executing finally clause Traceback (most recent call last):   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;   File &quot;&lt;stdin&gt;&quot;, line 3, in divide TypeError: unsupported operand type(s) for /: &#39;str&#39; and &#39;str&#39;   Nè, nhớ nghiền ngẫm bạn finally trước khi đi tiếp nha.  Dòm lại lần nữa coi có hiểu ví dụ hông?  Định nghĩa trước công việc làm sạch  Trong Python, có một vài loại object được định nghĩa sẵn các hành động làm sạch để trả lại tài nguyên khi mình không xài nữa mà không cần biết tài nguyên đó có được sử dụng thành công hay không(như khi chính ta thực hiện làm sạch tài nguyên với finally ở trên).  Loại object như vậy có thể kể điển hình là khi mình làm việc với một file.  Thường thì khi mình mở một file mình sẽ dùng open(“filename.txt”). Vấn đề ở đây là tụi mình mở người ta rồi nhưng không nhớ mà đóng lại để thu hồi tài nguyên bộ nhớ về, và có thể gây vấn đề về bộ nhớ cho các dự án lớn hoặc file quá nặng.  Với lệnh “with” cho phép những object như là file có thể đảm bảo việc bộ nhớ sẽ được giải phóng mỗi khi thực thi xong đoạn code nằm trong nhóm lệnh này. Do đó đảm bảo tài nguyên được thu hồi kịp thời và chính xác.  Hãy nhớ ví dụ này nha, và luôn dùng bạn ấy khi mở file như là best practice.   Hôm nay mình đã biết thêm ít kiến thức về lỗi và các ngoại lệ rồi.  Sau phần này, tụi mình sẽ cùng nhau đọc tiếp phần “Lớp trong Python” nhé.">
+  <meta name="twitter:url" content="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/loi-va-xu-ly-ngoai-le-python/">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+      <meta name="twitter:image" content="http://localhost:4000/assets/images/site-logo.png">
+    
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2020-08-12T00:00:00-04:00">
+
+
+
+  <meta property="article:modified_time" content="2020-08-12T15:12:19-04:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/loi-va-xu-ly-ngoai-le-python/">
+
+
+
+
+
+
+
+  <meta name="google-site-verification" content="UQj93ERU9zgECodaaXgVpkjrFn9UrDMEzVamacSoQ8Y" />
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+
+  <link href="/feed.xml" type="application/atom+xml" rel="alternate" title="BeautyOnCode Feed">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+  window.enable_copy_code_button = true;
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single" dir="ltr">
+    <nav class="skip-links">
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/logo/logo-circle.webp" alt="BeautyOnCode"></a>
+        
+        <a class="site-title" href="/">
+          BeautyOnCode
+          <span class="site-subtitle">Code Your Life In An Elegant Way</span>
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a
+                href="/docs/quick-start-guide/"
+                
+                
+              >Quick-Start Guide</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/about/"
+                
+                
+              >About</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/year-archive/"
+                
+                
+              >Posts</a>
+            </li><li class="masthead__menu-item">
+              <a
+                href="/collection-archive/"
+                
+                
+              >Collections</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <span class="visually-hidden">Toggle search</span>
+          <i class="fas fa-search"></i>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person" class="h-card">
+
+  
+    <div class="author__avatar">
+      <a href="http://localhost:4000/">
+        <img src="/assets/images/logo/thanh-nguyen.jpg" alt="Thanh Nguyen" itemprop="image" class="u-photo">
+      </a>
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name p-name" itemprop="name">
+      <a class="u-url" rel="me" href="http://localhost:4000/" itemprop="url">Thanh Nguyen</a>
+    </h3>
+    
+      <div class="author__bio p-note" itemprop="description">
+        <p>Web developer, nature lover, curious soul, and laid-back mom balancing code with life’s simple joys.</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name" class="p-locality">Da Nang, VN</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="https://beautyoncode.com" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fas fa-fw fa-link" aria-hidden="true"></i><span class="label">BeautyOnCode</span></a></li>
+          
+        
+          
+            <li><a href="https://www.linkedin.com/in/graphicdthanh/" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span class="label">Linkedin</span></a></li>
+          
+        
+          
+            <li><a href="https://github.com/GraphicDThanh" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-github" aria-hidden="true"></i><span class="label">GitHub</span></a></li>
+          
+        
+          
+            <li><a href="https://www.facebook.com/beautyoncode" rel="nofollow noopener noreferrer me" itemprop="sameAs"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span class="label">Facebook</span></a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer me">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Lỗi và xử lý ngoại lệ trong Python">
+    <meta itemprop="description" content="Hôm ni, mình học tiếp về bạn “Lỗi và ngoại lệ”, bài blog tiếp theo nằm trong series “Khám phá Đại Bản Doanh Python”, thuộc phần Python Tutorial nha.Ở bài này, mình sẽ đi tìm hiểu các loại lỗi và ngoại lệ trong Python cũng như cách xử lý và tạo ngoại lệ riêng của mình.(Những nội dung trong bài series này từ chủ yếu mình lấy từ python.org rồi viết lại hoặc dịch lại theo ngôn ngữ của mình)Nếu bạn đọc từ đầu sê-ri đến đây, hẳn là bạn có thấy vài đoạn code mình cố tình ví dụ cho nó xuất hiện lỗi, trong bài “I/O trong Python”:Hình trên cho mình thấy có hai loại lỗi có thể phân biệt được, đó là: “lỗi cú pháp” và “ngoại lệ“.Lỗi cú phápLỗi cú pháp là lỗi xảy ra khi phân tích cú pháp, là loại lỗi mình hay gặp nhất.Trình phân tích cú pháp sẽ lặp lại dòng bị lỗi và hiển thị một dấu mũi tên nhỏ tạo vị trí là thời điểm sớm nhất trong dòng nơi lỗi được phát hiện.Ở ví dụ trên thể hiện lỗi được phát hiện tại vị trí hàm print được gọi, lý do là bị thiếu dấu “:”Đôi khi lỗi syntax nhưng không có vị trí được phát hiện, ví dụ như ở đầu bài “SyntaxError: positional argument follows keyword argument” thể hiện phải đặt biến theo vị trí trước biến theo từ khoá.Ngoại lệNgay cả khi cú pháp đã đúng, mã vẫn có thể gây ra lỗi trong quá trình thực thi. Những lỗi phát hiện trong quá trình thực thi code được gọi là các ngoại lệ.Như bạn thấy ở trên thì ngoại lệ có nhiều loại khác nhau và sẽ được in kèm thông tin của lỗi.Ở ví dụ trên, tụi mình có các ngoại lệ như là “ZeroDivisionError“, “NameError“, “TypeError“Xử lý ngoại lệKhi viết chương trình với Python, đôi khi mình sẽ cố tình để ngoại lễ xảy ra để xử lý chúng. Như ở ví dụ dưới đây, đầu vào được nhập từ phía người dùng có thể gây ngoại lệ “ValueErrror” và mình đi xử lý bằng cách gửi thông tin cho người dùng biết họ đã nhập sai.Ở ví dụ trên đã dùng nhóm lệnh “try … except” để bắt và sử lý ngoại lệ.Đoạn code trên hoạt động như sau:– Đầu tiên, mã trong mệnh đề “try” được thực hiện– Nếu không có ngoại lệ xảy ra, mệnh đề “except” sẽ bị bỏ qua và kết thúc chương trình(như khi mình nhập 9)– Nếu có ngoại lệ xảy ra trong lúc thực thi mã trong mệnh đề try thì các đoạn mã bên dưới nó sẽ bị bỏ qua. Nếu lỗi ngoại lệ trùng với lỗi mình bắt(sau từ khoá “except”, ở đây là ValueError), thì đoạn mã trong except sẽ được thực thi(in ra “Oops! …”). Và đoạn mã trong try sẽ tiếp tục được thực hiện.– Còn nếu ngoại lệ xảy ra nhưng không trùng với ngoại lệ mình đã bắt thì chương trình sẽ dừng lại và in ngoại lệ ra màn hình(ngoại lệ chưa được xử lý).Vì có thể có nhiều ngoại lệ xảy ra nên:– một “try” có thể đi cùng với nhiều “except”: hay sử dụng khi mình muốn xử lý từng except khác nhau.– một except có thể bắt nhiều loại ngoại lệ, ví dụ: except(RuntimeError, TypeError): hay sử dụng khi mình muốn gom nhiều loại except vào sử lý một lần.Xe cấp cứu nào đến trướcCó hai đoạn code như hai hình dưới đây, cùng đoán thứ tự in ra khi hai example 1, 2 được thực thi nhé 😀Lưu ý là “RotDH_NV1” được extend từ class ExceptionBạn nghiên cứu kỹ chưa, đã đoán được thứ tự in ra ở hai ví dụ là gì chưa nhỉ?Trước khi dòm đáp án, hãy cố thử đưa ra kết quả của mình trước nha.Đây là đáp án của mình, để mình làm thử coi đúng không hen:Đầu tiên là cả thứ tự kế thừa của mấy bạn này:Exception &gt; RotDH_NV1 &gt; RotDH_NV2 &gt; RotDH_NV3Như vậy là khi vòng lặp thực thi từng đối tượng:Example 1:– raise RotDH_NV1 thì kiểm tra:-&gt; trùng với except RotDH_NV3 -&gt; False, đi tiếp-&gt; trùng với except RotDH_NV2 -&gt; False, đi tiếp-&gt; trùng với except RotDH_NV1 -&gt; True, đi in ra “RotDH_NV1“– raise RotDH_NV2 thì kiểm tra:-&gt; trùng với except RotDH_NV3 -&gt; False, đi tiếp-&gt; trùng với except RotDH_NV2 -&gt; True, đi in ra “RotDH_NV2“– raise RotDH_NV3 thì kiểm tra:-&gt; trùng với except RotDH_NV3 -&gt; True, đi in ra “RotDH_NV3“Vậy kết quả in ra ở example 1 là:  RotDH_NV1  RotDH_NV2  RotDH_NV3**Example 2: **– raise RotDH_NV1 thì kiểm tra:-&gt; trùng với except RotDH_NV1 -&gt; True, đi in ra “RotDH_NV1“– raise RotDH_NV2 thì kiểm tra:-&gt; trùng với except RotDH_NV1 -&gt; True, đi in ra “RotDH_NV1“– raise RotDH_NV3 thì kiểm tra:-&gt; trùng với except RotDH_NV1 -&gt; True, đi in ra “RotDH_NV1“Vậy kết quả in ra ở example 2 là:  RotDH_NV1  RotDH_NV1  RotDH_NV1Từ ví dụ trên, mình thấy được khi có ngoại lệ được raise lên, đụng bạn nào là bạn ấy thực thi trước, nó cũng giống như việc cấp cứu vậy, xe cấp cứu nào đến trước thì chở người ta đi bệnh viện trước.Đôi khi sẽ có lỗi xảy ra nhưng mình chưa đoán được loại exception đó là gì, và mình thường xử dụng “except:” không đi kèm với loại ngoại lệ nào, để hốt trọn mấy bạn còn lại.Tuy nhiên nhớ cẩn trọng khi xài bạn này nha, vì bạn ấy hốt cả rổ nên sẽ dễ che dấu lỗi của chương trình và gây khó khăn cho việc kiểm lỗi ý.Do đó, tốt nhất là nên dùng bạn ấy cho tụi còn lại, in lỗi ra ngoài và raise lại bạn ấy lên để biết mà chủ động bảo vệ code nha.Làm ri nè: bắt coi mặt mũi thằng lỗi ra sao rồi raise error lên lại để cho bạn lỗi ngoài ý muốn không cứ thế mà lặng thinh lơ đi.except:      print(‘Lỗi chi mà hông rõ nè”, sys.exc_info()[0])      raiseĐoạn ni cho mình lưu ý xí nữa nha. Có bạn nào hay xài “except Exception as e:” để bắt các loại ngoại lệ còn lại không nhỉ?Khi mình xài cái “except Exception as e:” thì có cái tiện là mình có thể truy cập vào các thuộc tính của đổi tượng “e” như e.message hay e.args.Nhưng bạn lưu ý xíu là cái “except Exception as e:” nó khác với cái “except:” nha. Cụ thể:– “except:” bắt tất cả các loại ngoại lệ.– “except Exception:” hoặc “except Exception as e:” bắt tất cả các loại ngoại lệ nhưng TRỪ “BaseException”, “SystemExist”, “KeyboardInterupt” và “GeneratorExist”(Có nghĩa là gặp các bạn bị trừ đi này vẫn la làng  chứ không có im lặng đâu nha)Làm cho tôi điều này nếu không bị dính ngoại lệ nào(Do it if no exception raise)Ngoài ra, nhóm “try … except” còn có một mệnh đề đi kèm không bắt buộc là “else”, đi sau tất cả các loại “except”.Mệnh đề này thường chứa các đoạn mã cần thực thi nếu mệnh đề try không có bất cứ ngoại lệ nào.try:   # code cần thực thiexcept OSError:   # xử lý ngoại lệ OSErrorelse:   # thực thi đoạn này dù ngoại lệ có bị bắt hay khôngDùng mệnh đề else như trên thì tốt hơn so với việc bỏ đoạn code cần thực thi đó luôn trong mệnh đề try như thế này:try:   # code cần thực thi   # thực thi đoạn này dù ngoại lệ có bị bắt hay khôngexcept OSError:   # xử lý ngoại lệ OSErrorChụp cắt lớp ngoại lệKhi ngoại lệ xảy ra, bạn ấy có một vài giá trị để thể hiện mình, kiểu như mình tên gì, nhà ở đâu hay gia đình có mấy người ý, mấy bạn này hay được gọi với tên tiếng anh là “exception’s argument”.Mình có từng nhắc đến các bạn này ở trên đoạn “except Exception as e” có e.message và e.args ý ạ.Ngoài mấy bạn mặc định được trả ra như trên, thì khi mình raise ngoại lệ, mình cũng có thể truyền cho bạn ấy những giá trị cụ thể như sau: “raise Exception(“value 1”, “value 2″)”Để cho tiện thì các giá trị được truyền vào này mặc định sẽ được trả ra ở hàm khởi tạo __str__() của exception, cho nên khi gọi print(e) của e trong “except Exception as e”  thì nó có giá trị là (“value 1”, “value 2”). Hoặc e.args cũng có giá trị như trên.La làng khi có ngoại lệỞ các nội dung trên, rất nhiều lần tụi mình đã la làng mỗi khi code có vấn đề, bạn đã biết cách la làng khi có ngoại lệ rồi phải không?Đó chính là sử dụng cuộc gọi cấp cứu 115 =))Mình đùa thôi, đó là dùng từ khoá “raise” đi kèm với ngoại lệ hoặc đi một mình bạn ấy cũng được.Đổ lỗiHa ha, bạn có tin ngoại lệ đổ lỗi cho nhau được không?Nếu bạn muốn thì nó được. Thật á!Đây là ví dụ cho sự đổ lỗi, hay gọi hoa mỹ hơn là các ngoại lệ được xâu chuỗi với nhau, mời bạn xem đoạn code này:Ở trên, rõ là exception IOError được bắt, nhưng mình cố tình đổi lỗi thành RuntimeError bằng cách sử dụng “from”, cú pháp giúp mình có thể xâu chuỗi lỗi IOError qua lỗi RuntimeError và in cả hai bạn này ra màn hình như trên.Nhưng nếu bạn chỉ muốn in lỗi “RuntimError” thôi, và không muốn hiện lỗi IOError nữa, thì có thể dùng “from None” để vô hiệu hoá quá trình xâu exception của bạn from.Khi đó nó sẽ làm việc như thế này:Yeah, vậy là tụi mình có thể đổi lỗi trắng trợn mà không truy được nguồn gốc luôn(trừ khi nhìn vô code).E hèm, tuy nhiên, bạn này khá là nguy hiểm nha vì đổi tứ tung lên cả lại làm khó khi debug ấy, nên thận trọng khi dùng thì hơn.Ngoại lệ của mìnhĐó giờ(ý là từ đầu bài tới chừ), mình làm việc với ngoại lệ của người ta(ngoại lệ mặc định của Python), giờ mình cũng thích tạo ngoại lệ của riêng mình rồi, đơn giản là nói tiếng người, á nhầm, tiếng của người dùng, và tiếng của lập trình viên thì đôi khi có ý nghĩa và thân thiện hơn mà, hihi.Khi mình viết chương trình của mình, mình có thể tạo ngoại lệ bằng cách kế thừa từ lớp “Exception”, cả bằng cách trực tiếp lẫn gián tiếp.Trực tiếp thì khỏi giải thích ha, còn gián tiếp là mình kế thừa từ bạn ngoại lệ nào đó đã kế thừa từ “Exception”, vậy hoai.Thường thường, người ta hay tạo một base exception kế thừa trực tiếp, rồi những loại ngoại lệ khác kế thừa gián tiếp “Exception” bằng cái base exception đó.À, còn về cách đặt tên, họ cũng đặt tên theo cùng họ luôn, ví dụ họ ở đây có thể là Error: Input Error, StupidError, NevermindError, … Kiểu vậy á 😀Mọi người cùng dòm qua ví dụ nha:Làm cho tôi điều này bất cứ giá nào(Do it no matter what)Ở phần “Làm cho tôi điều này nếu không bị dính ngoại lệ nào”, tụi mình xài “else” sau except á nạ, nhớ hông, đó là mình thực thi code khi không có ngoại lệ xảy ra.Còn ở đây, là “Làm cho tôi điều này bất cứ giá nào”, thì mình xài với “finally“, đó là mình thực thi đám code trong finally dù có ngoại lệ xảy ra hay không.Tức là đoạn code ở finally này thể nào cũng phải làm, họ gọi là mát mẻ là “clean-up actions”.Mời bạn xem ví dụ nha:Bạn có thắc mắc vì sao gặp exception mà đoạn print vẫn in được không?Đó là cơ chế của finally đó, cùng mình tìm hiểu thêm về cách hoạt động của bạn ấy nào.Nếu có mệnh đề “finally” xuất hiện, thì code thuộc mệnh đề này sẽ thực thi như là công việc cuối cùng trước khi lệnh try kết thúc.Dưới đây là cơ chế hoạt động cho những tình huống khá phức tạp với finally:– Nếu có ngoại lệ xảy ra trong khi thực thi nhóm lệnh trong “try”, nếu ngoại lệ la làng lên nhưng chưa bị bắt lại bằng “except”, thì nhóm lệnh trong “finally” vẫn chạy trước, sau đó ngoại lệ mới được la làng sau đó.– Nếu có ngoại lệ xảy ra bởi nhóm lệnh trong except hoặc else. Một lần nữa, nhóm lệnh trong finally được chạy trước sau đó  ngoại lệ trong đám phát sinh này mới được la làng lên.– Nếu khối lệnh trong try có các lệnh đặt biệt như “break”, “continue” hay “return” làm dừng thực thi giữa chừng thì nhóm lệnh trong finally cũng thực hiện trước khi đám này được gọi.– Nếu khối lệnh trong finally có chứa lệnh “return” thì giá trị trả về sẽ là giá trị từ finally chứ không phải giá trị trả về từ khối code trong try.Trong thực tế, finally là nơi chứa các nhóm lệnh phục vụ cho việc giải phóng các tài nguyên như là file hay các kết nối mạng, bất kể các tài nguyên này có được dùng hay không.Một vài ví dụ thú vị về finally đây ạ:&gt;&gt;&gt; def bool_return():...   try:...      return True...   finally:...      return False...&gt;&gt;&gt; bool_return()False&gt;&gt;&gt; def divide(x, y):...     try:...         result = x / y...     except ZeroDivisionError:...         print(&quot;division by zero!&quot;)...     else:...         print(&quot;result is&quot;, result)...     finally:...         print(&quot;executing finally clause&quot;)...&gt;&gt;&gt; divide(2, 1)result is 2.0executing finally clause&gt;&gt;&gt; divide(2, 0)division by zero!executing finally clause&gt;&gt;&gt; divide(&quot;2&quot;, &quot;1&quot;)executing finally clauseTraceback (most recent call last):  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;  File &quot;&lt;stdin&gt;&quot;, line 3, in divideTypeError: unsupported operand type(s) for /: &#39;str&#39; and &#39;str&#39;Nè, nhớ nghiền ngẫm bạn finally trước khi đi tiếp nha.Dòm lại lần nữa coi có hiểu ví dụ hông?Định nghĩa trước công việc làm sạchTrong Python, có một vài loại object được định nghĩa sẵn các hành động làm sạch để trả lại tài nguyên khi mình không xài nữa mà không cần biết tài nguyên đó có được sử dụng thành công hay không(như khi chính ta thực hiện làm sạch tài nguyên với finally ở trên).Loại object như vậy có thể kể điển hình là khi mình làm việc với một file.Thường thì khi mình mở một file mình sẽ dùng open(“filename.txt”). Vấn đề ở đây là tụi mình mở người ta rồi nhưng không nhớ mà đóng lại để thu hồi tài nguyên bộ nhớ về, và có thể gây vấn đề về bộ nhớ cho các dự án lớn hoặc file quá nặng.Với lệnh “with” cho phép những object như là file có thể đảm bảo việc bộ nhớ sẽ được giải phóng mỗi khi thực thi xong đoạn code nằm trong nhóm lệnh này. Do đó đảm bảo tài nguyên được thu hồi kịp thời và chính xác.Hãy nhớ ví dụ này nha, và luôn dùng bạn ấy khi mở file như là best practice.Hôm nay mình đã biết thêm ít kiến thức về lỗi và các ngoại lệ rồi.Sau phần này, tụi mình sẽ cùng nhau đọc tiếp phần “Lớp trong Python” nhé.">
+    <meta itemprop="datePublished" content="2020-08-12T00:00:00-04:00">
+    <meta itemprop="dateModified" content="2020-08-12T15:12:19-04:00">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+            <a href="http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/loi-va-xu-ly-ngoai-le-python/" itemprop="url">Lỗi và xử lý ngoại lệ trong Python
+</a>
+          </h1>
+          
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          13 minute read
+        
+      </span>
+    
+  </p>
+
+
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>Hôm ni, mình học tiếp về bạn “Lỗi và ngoại lệ”, bài blog tiếp theo nằm trong series<a href="https://beautyoncode.com/dai-ban-doanh-python-series-overview/"> “Khám phá Đại Bản Doanh Python”</a>, thuộc phần Python Tutorial nha.</p>
+
+<p>Ở bài này, mình sẽ đi tìm hiểu các loại lỗi và ngoại lệ trong Python cũng như cách xử lý và tạo ngoại lệ riêng của mình.</p>
+
+<p>(Những nội dung trong bài series này từ chủ yếu mình lấy từ python.org rồi viết lại hoặc dịch lại theo ngôn ngữ của mình)</p>
+
+<p>Nếu bạn đọc từ đầu sê-ri đến đây, hẳn là bạn có thấy vài đoạn code mình cố tình ví dụ cho nó xuất hiện lỗi, trong bài <a href="https://beautyoncode.com/i-o-trong-python/">“I/O trong Python”</a>:</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/07/format-string.png?resize=1024%2C337&amp;ssl=1" alt="" />
+<img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2020/07/io.png?w=652&amp;ssl=1" alt="" /></p>
+
+<p>Hình trên cho mình thấy có hai loại lỗi có thể phân biệt được, đó là: <strong>“lỗi cú pháp”</strong> và <strong>“ngoại lệ“</strong>.</p>
+
+<h2 id="lỗi-cú-pháp">Lỗi cú pháp</h2>
+
+<p>Lỗi cú pháp là lỗi xảy ra khi phân tích cú pháp, là loại lỗi mình hay gặp nhất.
+<img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/09/syntax-error.png?w=1280&amp;ssl=1" alt="" />
+Trình phân tích cú pháp sẽ lặp lại dòng bị lỗi và hiển thị một dấu mũi tên nhỏ tạo vị trí là thời điểm sớm nhất trong dòng nơi lỗi được phát hiện.</p>
+
+<p>Ở ví dụ trên thể hiện lỗi được phát hiện tại vị trí hàm print được gọi, lý do là bị thiếu dấu “:”</p>
+
+<p>Đôi khi lỗi syntax nhưng không có vị trí được phát hiện, ví dụ như ở đầu bài “<em>SyntaxError: positional argument follows keyword argument</em>” thể hiện phải đặt biến theo vị trí trước biến theo từ khoá.</p>
+
+<h2 id="ngoại-lệ">Ngoại lệ</h2>
+
+<p>Ngay cả khi cú pháp đã đúng, mã vẫn có thể gây ra lỗi trong quá trình thực thi. Những lỗi phát hiện trong quá trình thực thi code được gọi là các ngoại lệ.</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2020/09/exceptions.png?w=1280&amp;ssl=1" alt="" /></p>
+
+<p>Như bạn thấy ở trên thì ngoại lệ có nhiều loại khác nhau và sẽ được in kèm thông tin của lỗi.</p>
+
+<p>Ở ví dụ trên, tụi mình có các ngoại lệ như là “<strong>ZeroDivisionError</strong>“, “<strong>NameError</strong>“, “<strong>TypeError</strong>“</p>
+
+<h3 id="xử-lý-ngoại-lệ">Xử lý ngoại lệ</h3>
+
+<p>Khi viết chương trình với Python, đôi khi mình sẽ cố tình để ngoại lễ xảy ra để xử lý chúng. Như ở ví dụ dưới đây, đầu vào được nhập từ phía người dùng có thể gây ngoại lệ “<em>ValueErrror</em>” và mình đi xử lý bằng cách gửi thông tin cho người dùng biết họ đã nhập sai.</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2020/09/handle-exceptions.png?w=751&amp;ssl=1" alt="" /></p>
+
+<p>Ở ví dụ trên đã dùng nhóm lệnh “<strong>try … except</strong>” để bắt và sử lý ngoại lệ.</p>
+
+<p>Đoạn code trên hoạt động như sau:</p>
+
+<p>– Đầu tiên, mã trong mệnh đề “<strong>try</strong>” được thực hiện</p>
+
+<p>– Nếu không có ngoại lệ xảy ra, mệnh đề “<strong>except</strong>” sẽ bị bỏ qua và kết thúc chương trình(như khi mình nhập 9)</p>
+
+<p>– Nếu có ngoại lệ xảy ra trong lúc thực thi mã trong mệnh đề try thì các đoạn mã bên dưới nó sẽ bị bỏ qua. Nếu lỗi ngoại lệ trùng với lỗi mình bắt(sau từ khoá “except”, ở đây là ValueError), thì đoạn mã trong except sẽ được thực thi(in ra “Oops! …”). Và đoạn mã trong try sẽ tiếp tục được thực hiện.</p>
+
+<p>– Còn nếu ngoại lệ xảy ra nhưng không trùng với ngoại lệ mình đã bắt thì chương trình sẽ dừng lại và in ngoại lệ ra màn hình(ngoại lệ chưa được xử lý).</p>
+
+<p><strong>Vì có thể có nhiều ngoại lệ xảy ra nên:</strong></p>
+
+<p>– một “try” có thể đi cùng với nhiều “except”: hay sử dụng khi mình muốn xử lý từng except khác nhau.</p>
+
+<p>– một except có thể bắt nhiều loại ngoại lệ, ví dụ: except(RuntimeError, TypeError): hay sử dụng khi mình muốn gom nhiều loại except vào sử lý một lần.</p>
+
+<h4 id="xe-cấp-cứu-nào-đến-trước">Xe cấp cứu nào đến trước</h4>
+
+<p>Có hai đoạn code như hai hình dưới đây, cùng đoán thứ tự in ra khi hai example 1, 2 được thực thi nhé 😀</p>
+
+<p>Lưu ý là “RotDH_NV1” được extend từ class Exception</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-05-at-6.34.28-PM.png?w=1226&amp;ssl=1" alt="" /></p>
+
+<p>Bạn nghiên cứu kỹ chưa, đã đoán được thứ tự in ra ở hai ví dụ là gì chưa nhỉ?</p>
+
+<p>Trước khi dòm đáp án, hãy cố thử đưa ra kết quả của mình trước nha.</p>
+<hr />
+
+<p>Đây là đáp án của mình, để mình làm thử coi đúng không hen:</p>
+
+<p>Đầu tiên là cả thứ tự kế thừa của mấy bạn này:</p>
+
+<p><strong>Exception &gt; RotDH_NV1 &gt; RotDH_NV2 &gt; RotDH_NV3</strong></p>
+
+<p><em>Như vậy là khi vòng lặp thực thi từng đối tượng:</em></p>
+
+<p><strong>Example 1:</strong></p>
+
+<p>– <strong>raise</strong> RotDH_NV1 thì kiểm tra:</p>
+
+<p>-&gt; trùng với except RotDH_NV3 -&gt; False, đi tiếp</p>
+
+<p>-&gt; trùng với except RotDH_NV2 -&gt; False, đi tiếp</p>
+
+<p>-&gt; trùng với except RotDH_NV1 -&gt; True, đi in ra “RotDH_NV1“</p>
+
+<p>– <strong>raise</strong> RotDH_NV2 thì kiểm tra:</p>
+
+<p>-&gt; trùng với except RotDH_NV3 -&gt; False, đi tiếp</p>
+
+<p>-&gt; trùng với except RotDH_NV2 -&gt; True, đi in ra “RotDH_NV2“</p>
+
+<p>– <strong>raise</strong> RotDH_NV3 thì kiểm tra:</p>
+
+<p>-&gt; trùng với except RotDH_NV3 -&gt; True, đi in ra “RotDH_NV3“</p>
+
+<p>Vậy kết quả in ra ở example 1 là:</p>
+
+<blockquote>
+  <p>RotDH_NV1</p>
+
+  <p>RotDH_NV2</p>
+
+  <p>RotDH_NV3</p>
+</blockquote>
+
+<p>**Example 2: **</p>
+
+<p>– <strong>raise</strong> RotDH_NV1 thì kiểm tra:</p>
+
+<p>-&gt; trùng với except RotDH_NV1 -&gt; True, đi in ra “RotDH_NV1“</p>
+
+<p>– <strong>raise</strong> RotDH_NV2 thì kiểm tra:</p>
+
+<p>-&gt; trùng với except RotDH_NV1 -&gt; True, đi in ra “RotDH_NV1“</p>
+
+<p>– <strong>raise</strong> RotDH_NV3 thì kiểm tra:</p>
+
+<p>-&gt; trùng với except RotDH_NV1 -&gt; True, đi in ra “RotDH_NV1“</p>
+
+<p>Vậy kết quả in ra ở example 2 là:</p>
+
+<blockquote>
+  <p>RotDH_NV1</p>
+
+  <p>RotDH_NV1</p>
+
+  <p>RotDH_NV1</p>
+</blockquote>
+
+<p>Từ ví dụ trên, mình thấy được khi có ngoại lệ được raise lên, đụng bạn nào là bạn ấy thực thi trước, nó cũng giống như việc cấp cứu vậy, xe cấp cứu nào đến trước thì chở người ta đi bệnh viện trước.</p>
+
+<p>Đôi khi sẽ có lỗi xảy ra nhưng mình chưa đoán được loại exception đó là gì, và mình thường xử dụng “<strong>except:</strong>” không đi kèm với loại ngoại lệ nào, để hốt trọn mấy bạn còn lại.</p>
+
+<p>Tuy nhiên nhớ cẩn trọng khi xài bạn này nha, vì bạn ấy hốt cả rổ nên sẽ dễ che dấu lỗi của chương trình và gây khó khăn cho việc kiểm lỗi ý.</p>
+
+<p>Do đó, tốt nhất là nên dùng bạn ấy cho tụi còn lại, in lỗi ra ngoài và raise lại bạn ấy lên để biết mà chủ động bảo vệ code nha.</p>
+
+<p><strong>Làm ri nè:</strong> bắt coi mặt mũi thằng lỗi ra sao rồi raise error lên lại để cho bạn lỗi ngoài ý muốn không cứ thế mà lặng thinh lơ đi.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>except:
+      print(‘Lỗi chi mà hông rõ nè”, sys.exc_info()[0])
+      raise
+</code></pre></div></div>
+
+<p>Đoạn ni cho mình lưu ý xí nữa nha. Có bạn nào hay xài <em>“except Exception as e:”</em> để bắt các loại ngoại lệ còn lại không nhỉ?</p>
+
+<p>Khi mình xài cái <em>“except Exception as e:”</em> thì có cái tiện là mình có thể truy cập vào các thuộc tính của đổi tượng “<strong>e</strong>” như <em>e.message</em> hay <em>e.args</em>.</p>
+
+<p>Nhưng bạn lưu ý xíu là cái <strong>“except Exception as e:”</strong> nó khác với cái <strong>“except:”</strong> nha. <em>Cụ thể:</em></p>
+
+<p>– <strong>“except:”</strong> bắt tất cả các loại ngoại lệ.</p>
+
+<p>– <strong>“except Exception:”</strong> hoặc <strong>“except Exception as e:”</strong> bắt tất cả các loại ngoại lệ nhưng TRỪ “<em>BaseException</em>”, “<em>SystemExist</em>”, “<em>KeyboardInterupt</em>” và “<em>GeneratorExist</em>”(Có nghĩa là gặp các bạn bị trừ đi này vẫn la làng  chứ không có im lặng đâu nha)</p>
+
+<h4 id="làm-cho-tôi-điều-này-nếu-không-bị-dính-ngoại-lệ-nàodo-it-if-no-exception-raise">Làm cho tôi điều này nếu không bị dính ngoại lệ nào(Do it if no exception raise)</h4>
+
+<p>Ngoài ra, nhóm “<strong>try … except</strong>” còn có một mệnh đề đi kèm không bắt buộc là “<strong>else</strong>”, đi sau tất cả các loại “except”.</p>
+
+<p>Mệnh đề này thường chứa các đoạn mã cần thực thi nếu mệnh đề try không có bất cứ ngoại lệ nào.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>try:
+   # code cần thực thi
+except OSError:
+   # xử lý ngoại lệ OSError
+else:
+   # thực thi đoạn này dù ngoại lệ có bị bắt hay không
+</code></pre></div></div>
+
+<p>Dùng mệnh đề else như trên thì tốt hơn so với việc bỏ đoạn code cần thực thi đó luôn trong mệnh đề try như thế này:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>try:
+   # code cần thực thi
+   # thực thi đoạn này dù ngoại lệ có bị bắt hay không
+except OSError:
+   # xử lý ngoại lệ OSError
+</code></pre></div></div>
+
+<h4 id="chụp-cắt-lớp-ngoại-lệ">Chụp cắt lớp ngoại lệ</h4>
+
+<p>Khi ngoại lệ xảy ra, bạn ấy có một vài giá trị để thể hiện mình, kiểu như mình tên gì, nhà ở đâu hay gia đình có mấy người ý, mấy bạn này hay được gọi với tên tiếng anh là “<em>exception’s argument</em>”.</p>
+
+<p>Mình có từng nhắc đến các bạn này ở trên đoạn <em>“except Exception as e”</em> có <em>e.message</em> và <em>e.args</em> ý ạ.</p>
+
+<p>Ngoài mấy bạn mặc định được trả ra như trên, thì khi mình raise ngoại lệ, mình cũng có thể truyền cho bạn ấy những giá trị cụ thể như sau: <em>“raise Exception(“value 1”, “value 2″)”</em></p>
+
+<p>Để cho tiện thì các giá trị được truyền vào này mặc định sẽ được trả ra ở hàm khởi tạo <code class="language-plaintext highlighter-rouge">__str__()</code> của exception, cho nên khi gọi print(e) của e trong “except Exception as e”  thì nó có giá trị là (“value 1”, “value 2”). Hoặc e.args cũng có giá trị như trên.</p>
+
+<h4 id="la-làng-khi-có-ngoại-lệ">La làng khi có ngoại lệ</h4>
+
+<p>Ở các nội dung trên, rất nhiều lần tụi mình đã la làng mỗi khi code có vấn đề, bạn đã biết cách la làng khi có ngoại lệ rồi phải không?</p>
+
+<p>Đó chính là sử dụng cuộc gọi cấp cứu 115 =))</p>
+
+<p>Mình đùa thôi, đó là dùng từ khoá “<strong>raise</strong>” đi kèm với ngoại lệ hoặc đi một mình bạn ấy cũng được.</p>
+
+<h4 id="đổ-lỗi">Đổ lỗi</h4>
+
+<p>Ha ha, bạn có tin ngoại lệ đổ lỗi cho nhau được không?</p>
+
+<p>Nếu bạn muốn thì nó được. Thật á!</p>
+
+<p>Đây là ví dụ cho sự đổ lỗi, hay gọi hoa mỹ hơn là các ngoại lệ được xâu chuỗi với nhau, mời bạn xem đoạn code này:</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-10-at-10.00.20-PM.png?resize=1024%2C425&amp;ssl=1" alt="" /></p>
+
+<p>Ở trên, rõ là exception IOError được bắt, nhưng mình cố tình đổi lỗi thành RuntimeError bằng cách sử dụng “<strong>from</strong>”, cú pháp giúp mình có thể xâu chuỗi lỗi IOError qua lỗi RuntimeError và in cả hai bạn này ra màn hình như trên.</p>
+
+<p>Nhưng nếu bạn chỉ muốn in lỗi “RuntimError” thôi, và không muốn hiện lỗi IOError nữa, thì có thể dùng <strong>“from None</strong>” để vô hiệu hoá quá trình xâu exception của bạn from.</p>
+
+<p>Khi đó nó sẽ làm việc như thế này:</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-10-at-10.07.35-PM.png?w=1292&amp;ssl=1" alt="" /></p>
+
+<p>Yeah, vậy là tụi mình có thể đổi lỗi trắng trợn mà không truy được nguồn gốc luôn(trừ khi nhìn vô code).</p>
+
+<p>E hèm, tuy nhiên, bạn này khá là nguy hiểm nha vì đổi tứ tung lên cả lại làm khó khi debug ấy, nên thận trọng khi dùng thì hơn.</p>
+
+<h4 id="ngoại-lệ-của-mình">Ngoại lệ của mình</h4>
+
+<p>Đó giờ(ý là từ đầu bài tới chừ), mình làm việc với ngoại lệ của người ta(ngoại lệ mặc định của Python), giờ mình cũng thích tạo ngoại lệ của riêng mình rồi, đơn giản là nói tiếng người, á nhầm, tiếng của người dùng, và tiếng của lập trình viên thì đôi khi có ý nghĩa và thân thiện hơn mà, hihi.</p>
+
+<p>Khi mình viết chương trình của mình, mình có thể tạo ngoại lệ bằng cách kế thừa từ lớp “<strong>Exception</strong>”, cả bằng cách trực tiếp lẫn gián tiếp.</p>
+
+<p>Trực tiếp thì khỏi giải thích ha, còn gián tiếp là mình kế thừa từ bạn ngoại lệ nào đó đã kế thừa từ “<strong>Exception</strong>”, vậy hoai.</p>
+
+<p>Thường thường, người ta hay tạo một base exception kế thừa trực tiếp, rồi những loại ngoại lệ khác kế thừa gián tiếp “Exception” bằng cái base exception đó.</p>
+
+<p>À, còn về cách đặt tên, họ cũng đặt tên theo cùng họ luôn, ví dụ họ ở đây có thể là Error: Input Error, StupidError, NevermindError, … Kiểu vậy á 😀</p>
+
+<p>Mọi người cùng dòm qua ví dụ nha:</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-10-at-10.24.48-PM.png?w=768&amp;ssl=1" alt="" /></p>
+
+<h4 id="làm-cho-tôi-điều-này-bất-cứ-giá-nàodo-it-no-matter-what">Làm cho tôi điều này bất cứ giá nào(Do it no matter what)</h4>
+
+<p>Ở phần “Làm cho tôi điều này nếu không bị dính ngoại lệ nào”, tụi mình xài “else” sau except á nạ, nhớ hông, đó là mình thực thi code khi không có ngoại lệ xảy ra.</p>
+
+<p>Còn ở đây, là “<strong>Làm cho tôi điều này bất cứ giá nào</strong>”, thì mình xài với “<strong>finally</strong>“, đó là mình thực thi đám code trong finally dù có ngoại lệ xảy ra hay không.</p>
+
+<p>Tức là đoạn code ở finally này thể nào cũng phải làm, họ gọi là mát mẻ là “<strong>clean-up actions</strong>”.</p>
+
+<p>Mời bạn xem ví dụ nha:</p>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-10-at-10.34.57-PM.png?resize=1024%2C278&amp;ssl=1" alt="" /></p>
+
+<p>Bạn có thắc mắc vì sao gặp exception mà đoạn print vẫn in được không?</p>
+
+<p>Đó là cơ chế của finally đó, cùng mình tìm hiểu thêm về cách hoạt động của bạn ấy nào.</p>
+
+<p>Nếu có mệnh đề “finally” xuất hiện, thì code thuộc mệnh đề này sẽ thực thi như là công việc cuối cùng trước khi lệnh try kết thúc.</p>
+
+<p><strong>Dưới đây là cơ chế hoạt động cho những tình huống khá phức tạp với finally:</strong></p>
+
+<p>– Nếu có ngoại lệ xảy ra trong khi thực thi nhóm lệnh trong “try”, nếu ngoại lệ la làng lên nhưng chưa bị bắt lại bằng “except”, thì nhóm lệnh trong “finally” vẫn chạy trước, sau đó ngoại lệ mới được la làng sau đó.</p>
+
+<p>– Nếu có ngoại lệ xảy ra bởi nhóm lệnh trong except hoặc else. Một lần nữa, nhóm lệnh trong finally được chạy trước sau đó  ngoại lệ trong đám phát sinh này mới được la làng lên.</p>
+
+<p>– Nếu khối lệnh trong try có các lệnh đặt biệt như “break”, “continue” hay “return” làm dừng thực thi giữa chừng thì nhóm lệnh trong finally cũng thực hiện trước khi đám này được gọi.</p>
+
+<p>– Nếu khối lệnh trong finally có chứa lệnh “return” thì giá trị trả về sẽ là giá trị từ finally chứ không phải giá trị trả về từ khối code trong try.</p>
+
+<p>Trong thực tế, finally là nơi chứa các nhóm lệnh phục vụ cho việc giải phóng các tài nguyên như là file hay các kết nối mạng, bất kể các tài nguyên này có được dùng hay không.</p>
+
+<p>Một vài ví dụ thú vị về finally đây ạ:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; def bool_return():
+...   try:
+...      return True
+...   finally:
+...      return False
+...
+&gt;&gt;&gt; bool_return()
+False
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; def divide(x, y):
+...     try:
+...         result = x / y
+...     except ZeroDivisionError:
+...         print("division by zero!")
+...     else:
+...         print("result is", result)
+...     finally:
+...         print("executing finally clause")
+...
+&gt;&gt;&gt; divide(2, 1)
+result is 2.0
+executing finally clause
+&gt;&gt;&gt; divide(2, 0)
+division by zero!
+executing finally clause
+&gt;&gt;&gt; divide("2", "1")
+executing finally clause
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+  File "&lt;stdin&gt;", line 3, in divide
+TypeError: unsupported operand type(s) for /: 'str' and 'str'
+</code></pre></div></div>
+
+<p>Nè, nhớ nghiền ngẫm bạn finally trước khi đi tiếp nha.</p>
+
+<p>Dòm lại lần nữa coi có hiểu ví dụ hông?</p>
+
+<h3 id="định-nghĩa-trước-công-việc-làm-sạch">Định nghĩa trước công việc làm sạch</h3>
+
+<p>Trong Python, có một vài loại object được định nghĩa sẵn các hành động làm sạch để trả lại tài nguyên khi mình không xài nữa mà không cần biết tài nguyên đó có được sử dụng thành công hay không(như khi chính ta thực hiện làm sạch tài nguyên với finally ở trên).</p>
+
+<p>Loại object như vậy có thể kể điển hình là khi mình làm việc với một file.</p>
+
+<p>Thường thì khi mình mở một file mình sẽ dùng <strong>open(“filename.txt”)</strong>. Vấn đề ở đây là tụi mình mở người ta rồi nhưng không nhớ mà đóng lại để thu hồi tài nguyên bộ nhớ về, và có thể gây vấn đề về bộ nhớ cho các dự án lớn hoặc file quá nặng.</p>
+
+<p>Với lệnh “<strong>with</strong>” cho phép những object như là file có thể đảm bảo việc bộ nhớ sẽ được giải phóng mỗi khi thực thi xong đoạn code nằm trong nhóm lệnh này. Do đó đảm bảo tài nguyên được thu hồi kịp thời và chính xác.</p>
+
+<p>Hãy nhớ ví dụ này nha, và luôn dùng bạn ấy khi mở file như là best practice.
+<img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-10-at-10.58.13-PM.png?w=608&amp;ssl=1" alt="" /></p>
+
+<p>Hôm nay mình đã biết thêm ít kiến thức về lỗi và các ngoại lệ rồi.</p>
+
+<p>Sau phần này, tụi mình sẽ cùng nhau đọc tiếp phần “Lớp trong Python” nhé.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/tags/#python" class="page__taxonomy-item p-category" rel="tag">python</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      <a href="/categories/#%C4%91%E1%BA%A1i-b%E1%BA%A3n-doanh-python" class="page__taxonomy-item p-category" rel="tag">Đại Bản Doanh Python</a>
+    
+    </span>
+  </p>
+
+
+        
+
+  <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time class="dt-published" datetime="2020-08-12">August 12, 2020</time></p>
+
+      </footer>
+
+      <section class="page__share">
+  <h4 class="page__share-title">Share on</h4>
+
+  <a href="https://twitter.com/intent/tweet?via=mmistakes&text=L%E1%BB%97i+v%C3%A0+x%E1%BB%AD+l%C3%BD+ngo%E1%BA%A1i+l%E1%BB%87+trong+Python%20http%3A%2F%2Flocalhost%3A4000%2F%25C4%2591%25E1%25BA%25A1i%2520b%25E1%25BA%25A3n%2520doanh%2520python%2Floi-va-xu-ly-ngoai-le-python%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F%25C4%2591%25E1%25BA%25A1i%2520b%25E1%25BA%25A3n%2520doanh%2520python%2Floi-va-xu-ly-ngoai-le-python%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/loi-va-xu-ly-ngoai-le-python/" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/dai-ban-doanh-python-series-overview/" class="pagination--pager" title="Khám phá Đại Bản Doanh Python Series Overview
+">Previous</a>
+    
+    
+      <a href="/%C4%91%E1%BA%A1i%20b%E1%BA%A3n%20doanh%20python/iterator-va-generator-trong-python/" class="pagination--pager" title="Iterable, Iterator và Generator trong Python
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    
+<div class="page__related">
+  <div align="center" style="margin: 1em 0;">
+  <ins class="adsbygoogle"
+        style="display:block; border-bottom: initial;"
+        data-ad-client="ca-pub-7328585512091257"
+        data-ad-slot="3049671934"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+</div>
+
+
+  <h2 class="page__related-title">You May Also Enjoy</h2>
+  <div class="grid__wrapper">
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/django/relation-fields-in-drf-serializer/" rel="permalink">Relation fields in Django Rest Framework Serializer
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          5 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+The Django model offers various types of relationships such as OneToOneField, ForeignKey, ManyToManyField, and GenericForeignKey.
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/django/export-multiple-csv-to-zip-django/" rel="permalink">Export Multiple CSVs file into a ZIP in Django Application
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          6 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/django/export-docx-in-django/" rel="permalink">Export a docx file in Django application
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          8 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+      
+      
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      
+        <a href="/js/scope-trong-javascript/" rel="permalink">Scope trong JavaScript
+</a>
+      
+    </h2>
+    
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          2 minute read
+        
+      </span>
+    
+  </p>
+
+
+    <p class="archive__item-excerpt" itemprop="description">
+
+</p>
+  </article>
+</div>
+
+    
+  </div>
+</div>
+
+  
+  
+</div>
+
+      <div align="center" style="margin: 1em 0;">
+  <ins class="adsbygoogle"
+        style="display:block; border-bottom: initial;"
+        data-ad-client="ca-pub-7328585512091257"
+        data-ad-slot="3049671934"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><div class="search-searchbar"></div>
+  <div class="search-hits"></div></div>
+
+      </div>
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+
+    
+      
+        
+          <li><a href="https://twitter.com/mmistakes" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        
+      
+        
+          <li><a href="https://github.com/mmistakes" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+          <li><a href="https://instagram.com/mmistakes" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+        
+      
+    
+
+    
+      <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2024 <a href="http://localhost:4000">BeautyOnCode</a>. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/jekyll-themes/minimal-mistakes/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+
+
+<script>
+// Including InstantSearch.js library and styling
+const loadSearch = function() {
+  const loadCSS = function(src) {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = src;
+    link.media = 'all';
+    document.head.appendChild(link);
+  };
+
+  var script = document.createElement('script');
+  script.setAttribute("type", "text/javascript");
+  script.setAttribute("src", "https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.js");
+  script.addEventListener("load", function() {
+    // Instantiating InstantSearch.js with Algolia credentials
+    const search = instantsearch({
+      appId: 'QB6HVGBSBA',
+      apiKey: '9d5014e5bbc77372547bce778dfa5663',
+      indexName: 'minimal_mistakes',
+      searchParameters: {
+        restrictSearchableAttributes: ['title', 'content']
+      }
+    });
+
+    const hitTemplate = function(hit) {
+      const url = hit.url;
+      const hightlight = hit._highlightResult;
+      const title = hightlight.title && hightlight.title.value  || "";
+      const content = hightlight.html && hightlight.html.value  || "";
+
+      return `
+        <div class="list__item">
+          <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+            <h2 class="archive__item-title" itemprop="headline"><a href="/${url}">${title}</a></h2>
+            <div class="archive__item-excerpt" itemprop="description">${content}</div>
+          </article>
+        </div>
+      `;
+    }
+
+    // Adding searchbar and results widgets
+    search.addWidget(
+      instantsearch.widgets.searchBox({
+        container: '.search-searchbar',
+        poweredBy: true,
+        placeholder: 'Enter your search term...'
+      })
+    );
+    search.addWidget(
+      instantsearch.widgets.hits({
+        container: '.search-hits',
+        templates: {
+          item: hitTemplate,
+          empty: 'No results',
+        }
+      })
+    );
+
+    if (!search.started) {
+      search.start();
+    }
+  });
+  document.body.appendChild(script);
+
+  loadCSS("https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch.min.css");
+  loadCSS("https://cdn.jsdelivr.net/npm/instantsearch.js@2.3.3/dist/instantsearch-theme-algolia.min.css");
+};
+
+// Starting the search only when toggle is clicked
+$(document).ready(function() {
+  var scriptLoaded = false;
+
+  $(".search__toggle").on("click", function() {
+    if (!scriptLoaded) {
+      loadSearch();
+      scriptLoaded = true;
+    }
+  });
+});
+</script>
+
+
+
+
+<style>
+.google-auto-placed {
+  margin: 2em auto;
+}
+</style>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+
+
+
+  </body>
+</html>

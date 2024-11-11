@@ -1,0 +1,117 @@
+<p>Chào mừng bạn đến với series <a href="https://beautyoncode.com/lam-quen-linux-gianh-cho-lap-trinh-vien-series-overview/">“Làm quen Linux giành cho lập trình viên”</a>, đây là bài blog đầu tiên của series này nè. Hi vọng bạn ủng hộ nhé!</p>
+
+<h2 id="giới-thiệu-về-thế-giới-mã-nguồn-mở">Giới thiệu về thế giới mã nguồn mở</h2>
+<p>Một trong những câu hỏi quan trọng khi bạn tạo ra các sản phẩm về phần mềm là <em>“Phần mềm của bạn sẽ được phát hành với loại giấy phép nào?”</em>.</p>
+
+<p>Loại giấy phép bạn chọn sẽ quyết định các yếu tố như:</p>
+
+<p>– cách người dùng sử dụng phần mềm của bạn sẽ như thế nào?</p>
+
+<p>– mã nguồn của phần mềm có được xem hay không?</p>
+
+<p>– những người lập trình viên khác có được sử dụng mã nguồn này không?</p>
+
+<p>– người khác được quyền bán hay cải tiến và bán lại phần mềm phát triển dựa trên mã nguồn của bạn không?</p>
+
+<p>Những câu hỏi trên thường được quy về một câu hỏi mà bạn chắc sẽ hay gặp:</p>
+
+<p><strong>“Phần mềm này là loại mã nguồn mở(open source) hay mã nguồn đóng(closed source)?”</strong></p>
+
+<h2 id="mã-nguồnsource-code-là-gì">Mã nguồn(source code) là gì?</h2>
+<p>Ví dụ bạn có một chương trình Python in ra một dòng là “Hello Linux” chẳng hạn, thì nó sẽ như thế này:</p>
+
+<blockquote>
+  <p>print(“Hello Linux”)</p>
+</blockquote>
+
+<p>nội dung trên được gọi là <strong>source code</strong>(mã nguồn).</p>
+
+<p>Source code này có thể được viết bằng nhiều loại ngôn ngữ khác nhau, như là HTML, CSS, SASS, JS, Python, C, C++, …</p>
+
+<p>Một số ngôn ngữ cần được biên dịch trước khi chương trình có thể chạy như C, C++, … gọi là <strong>compiled languages</strong>, cũng có ngôn ngữ không cần biên dịch như Python, Javascript, … gọi là <strong>interpreted languages</strong></p>
+
+<h2 id="mã-nguồn-đóngclosed-source">Mã nguồn đóng(closed source)</h2>
+<p><strong>Closed source</strong> hay còn gọi là “phần mềm độc quyền” với mục đích là bảo vệ mã nguồn của phần mềm này một cách chặt chẽ với lý do rõ ràng là nếu mã nguồn bị lộ thì rất nguy hiểm vì sẽ bị sao chép để cạnh tranh.</p>
+
+<p>Thường thì thuật ngữ closed source được sử dụng thay thế cho thuật ngữ commercial software(phần mềm thương mại), tức là bạn phải trả tiền để có thể sử dụng chúng. Nhưng điều này chưa đúng lắm, lý do là cả open source hay closed source đều có thể được thương mại hóa.</p>
+
+<p><strong>Microsoft Windows, Adobe Photoshop, Apple MacOS</strong> là các ví dụ cho loại này.</p>
+
+<p>Nếu phần mềm của bạn là closed source(mã nguồn đóng) thì bạn sẽ chỉ cung cấp cho người dùng những đoạn mã sau khi đã biên dịch(nếu là compiled language), còn nếu là interpreted language thì bạn sẽ không cung cấp cho người dùng source code.</p>
+
+<h2 id="mã-nguồn-mởopen-source">Mã nguồn mở(open source)</h2>
+<p>Một phần mềm được cân nhắc là <strong>open souce</strong> khi mà cả mã nguồn gốc và mã đã biên dịch đều được cung cấp sẵn. Tùy theo loại lisence mà phần mềm này có thể được xem, sửa đổi hay có quyền phân phối.</p>
+
+<p><strong>Linux, Apache HTTP Server, Firefox, Git</strong> là các ví dụ cho loại này.</p>
+
+<p>Open source có thể hiểu là khả năng truy cập vào mã nguồn, chứ không phải cách phần mềm có thể được sử dụng hoặc các chi phí liên quan đến phần mềm.</p>
+
+<p>Nếu phần mềm của bạn là open source(mã nguồn mở) thì nó sẽ bao gồm tất cả source code của bạn, tức là gồm mã nguồn gốc và mã sau khi biên dịch(nếu có).</p>
+
+<h2 id="phần-mềm-miễn-phí-free-source">Phần mềm “miễn phí” (“free” source)</h2>
+<p><strong>Free source</strong> thường được hiểu là sự tự do copy hay sự có thể thay đổi của chương trình, chứ không liên quan đến giá cả. <strong>FSF</strong>(Free Software Foundation) đã đưa ra định nghĩa cho chữ “<strong>free</strong>” dành cho phần mềm bởi Richard Stallman:</p>
+
+<p>*“Từ “free” ở đây không liên quan đến giá, nó được hiểu là sự tự do.</p>
+
+<p><strong>Một</strong>, tự do sao chép chương trinh và tái phân phối đến người khác, và họ cũng có thể dùng sản phẩm như bạn.</p>
+
+<p><strong>Hai</strong>, tự do thay đổi chương trình, và bạn có quyền kiểm soát thay vì nó kiểm soát bạn, điều này cũng đồng nghĩa là họ có được mã nguồn.” 
+*
+<strong>Có 4 bậc của sự tự do hay gọi là FOSS, cụ thể là:</strong></p>
+
+<p>– <strong>Freedom 0</strong>: Tự do chạy chương trình bạn muốn, cho bất cứ mục đích nào.</p>
+
+<p>– <strong>Freedom 1</strong>: Tự do học cách chương trinh hoạt động và thay đổi nó để tính toán như bạn muốn. Để làm được điều này tất nhiên bạn cần có quyền truy cập vào source code trước.</p>
+
+<p>– <strong>Freedom 2</strong>: Tự do tái phân phối những bản sao.</p>
+
+<p>– <strong>Freedom 3</strong>: Tự do phân phối các bản sao của chương trình bạn đã chỉnh sửa cho người khác. Để làm được điều này tất nhiên bạn cần có quyền truy cập vào source code trước.</p>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/01/visualize-the-open-source-community.png?resize=768%2C275&amp;ssl=1" alt="" /></p>
+
+<p>Sơ đồ bên trên mô tả quyền tự do sửa đổi, phân phối và sử dụng của phần mềm open source.</p>
+
+<p>Ngoài ra, việc chọn lựa các loại giấy phép cho phần mềm cũng liên quan đến các quyền tự do này. Bạn có thể tham khảo thêm ở choosealicense.com hay opensource.org nhé.</p>
+
+<h3 id="các-lợi-ích-của-open-source">Các lợi ích của open source</h3>
+<p>– Open source có xu hướng kêu gọi sự tin tưởng vì source code sẽ được cả cộng đồng xem.</p>
+
+<p>– Open source có thể tạo ra source code tốt hơn và giảm thời gian phát triển phần mềm, nhờ các lập trình viên khác review code, cho feedback, sửa lỗi hay cải thiện sửa đổi nhanh hơn.</p>
+
+<p>– Open source miễn phí có thể tiếp cận nhiều người dùng hơn, đồng nghĩa với có nhiều người thử nghiệm sản phẩm hơn.</p>
+
+<p>– Bạn vẫn có thể kiếm tiền từ các open source như các dịch vụ đi kèm về đào tạo, hỗ trợ, …</p>
+
+<h2 id="giới-thiệu-về-linux">Giới thiệu về Linux</h2>
+<p>Nếu bạn tính phát triển phần mềm trên các hệ điều hành có nền tảng từ <strong>Linux(Linux-based operating system(OS))</strong> thì việc tìm hiểu làm thế nào có thể tương tác để quản lý OS là việc quan trọng.</p>
+
+<p>(vì trước sau gì bạn cũng sẽ ăn hành với chúng, như không biết mình đang đứng ở thư mục nào, hay thay đổi quyền của một cái file, …)</p>
+
+<h3 id="linux-là-gì">Linux là gì</h3>
+<p>Về mặt kỹ thuật, thì Linux là một phần mềm gọi là <strong>nhân(kernel)</strong>. Cái kernel ni hắn làm mấy các việc như là <strong>khởi động hệ thống</strong> hay <strong>tương tác với các thiết bị phần cứng</strong>.</p>
+
+<p>Còn bản thân cái kernel ni thì là không có làm việc liền với user được, mà là toàn bộ những thứ khác, thường gọi là OS bao gồm các file hệ thống và số lượng lớn các câu lệnh, mới là thứ cung cấp cho người dùng những tính năng hữu ích.</p>
+
+<p>Dù cho Linux về mặt kỹ thuật chỉ là nhân, nhưng nhiều người lại hay gọi cả OS là Linux luôn.</p>
+
+<p>Thực tế thì, tập hợp các phần mềm tạo nên hệ điều hành có tên là <strong>Linux distribution(distro)</strong>.</p>
+
+<h3 id="cài-đặt-và-sử-dụng-linux">Cài đặt và sử dụng Linux</h3>
+<p>Ở phần này, mình sẽ không giới thiệu chi tiết cách cài đặt distro hay gì, mình sẽ gợi ý một số cách bạn có thể bắt đầu truy cập và sử dụng Linux trên máy tính:</p>
+
+<p>– <strong>MacOS</strong>: Hệ điều hành MacOS có nhân là UNIX-based(cụ thể là NeXTSTEP operating system). Linux cũng có nhân là UNIX-based(cụ thể là GNU) do đó nếu bạn dùng máy Mac thì rất đơn giản, gõ vào thanh tìm kiếm “Terminal” và mở phần mềm này lên. (xem thêm ở <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Unix_timeline.en.svg/800px-Unix_timeline.en.svg.png">hình minh họa</a>)</p>
+
+<p>– <strong>Windows</strong>: Với máy windows, trước đây thì cần cài máy ảo(virtual machine – VM) với Virtualbox để có thể sử dụng hệ điều hành khác trên máy ảo. Tuy nhiên, cách này đã cũ rồi, hiện nay nếu bạn dùng windows thì có thể cài và sử dụng <a href="https://docs.microsoft.com/en-us/windows/wsl/">“Windows Subsystem for Linux(WSL)“</a></p>
+
+<p>– <strong>Linux distro</strong>(Ubuntu, RedHat, …): thì mở “<em>Terminal</em>” lên thôi bạn.</p>
+
+<p>Mình dùng máy MacOS nên những ví dụ minh họa(nếu có) trong series này sẽ là từ máy MacOS nha mọi người.</p>
+
+<hr />
+<p>Bài blog hôm nay là bài mở đầu cho <a href="https://beautyoncode.com/lam-quen-linux-gianh-cho-lap-trinh-vien-series-overview/">series về Linux</a>, tụi mình đã làm quen với thế giới mã nguồn mở, Linux cũng như vài gợi ý để có thể bắt đầu sử dụng Linux rồi.</p>
+
+<p>Trong bài viết tiếp theo, mình và các bạn sẽ đi tìm hiểu thêm về hệ thống tập tin(filesystem) trong Linux.</p>
+
+<p>Nếu bạn thấy nội dung bài blog này hữu ích hãy upvote cho bài viết cũng như series để nội dung có thể đến với các bạn khác nhé.</p>
+
+<p>Hẹn gặp các bạn trong bài viết tiếp theo.</p>

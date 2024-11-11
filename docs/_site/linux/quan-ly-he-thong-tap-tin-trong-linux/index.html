@@ -1,0 +1,239 @@
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/02/success-g0ab034520_1280.jpeg" alt="" /></p>
+
+<p>Chào mừng bạn đến với blog số 3 của series <a href="https://beautyoncode.com/lam-quen-linux-danh-cho-lap-trinh-vien-series-overview/">“Linux dành cho lập trình viên”</a>.</p>
+
+<p>Trong các blog trước, mình đã đi qua các nội dung về:</p>
+
+<p>– <a href="https://beautyoncode.com/gioi-thieu-ve-linux/">“Giới thiệu về Linux”</a></p>
+
+<p>– <a href="https://beautyoncode.com/lam-quen-cau-lenh-va-he-thong-tap-tin-trong-linux/">“Làm quen câu lệnh và hệ thống tập tin trong Linux”</a>.</p>
+
+<p>Nếu bạn chưa đọc qua thì hãy dừng ít phút ghé đọc để có cái nhìn tổng quan và theo cùng nội dung chuỗi bài này nhé.</p>
+
+<p>Tiếp theo trong bài này, tụi mình sẽ <strong>tìm hiểu về cách quản lý hệ thống tập tin trong Linux</strong>, cụ thể:</p>
+
+<p>– Quản lý hệ thống tập tin</p>
+
+<p>– Quản lý thư mục</p>
+
+<p>– Quản lý file</p>
+
+<p>– Các toán tử đại diện</p>
+
+<h2 id="quản-lý-hệ-thống-tập-tinfilesystem">Quản lý hệ thống tập tin(filesystem)</h2>
+
+<p>Sau khi đến được thư mục cần đến bằng câu lệnh với <strong>cd</strong> rồi, thì mình muốn xem những nội dung bên trong thư mục đấy có gì. Câu lệnh <strong>ls</strong> giúp mình:</p>
+
+<p>– mặc định <strong>ls sẽ hiển thị tất cả các file trừ những file ẩn</strong></p>
+
+<p>File ẩn là những file môi trường có bắt đầu bằng . (ví dụ: ., .., .env, .gitignore)</p>
+
+<p>– sử dụng <strong>-a</strong> để liệt kê <strong>tất cả các file(bao gồm các file bị ẩn)</strong></p>
+
+<p>– sử dụng <strong>-l</strong> để liệt kê ở <strong>long format</strong>, có thể hiểu là thêm các thông tin khác của file như có phải là thư mục hay không(d hay -), các loại quyền của từng loại user(rwxr-xr-x), user owner, group owner, kích thước, ngày tháng chỉnh sửa, filename, …</p>
+
+<p>– sử dụng <strong>-la</strong> để kết hợp cả hai options trên lại, hiển thị tất cả các file ở long format</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/01/ls-l-long-format.png?resize=768%2C472&amp;ssl=1" alt="" /></p>
+
+<p>Ở hình trên có ghi chú chi tiết, về các thông tin được hiển thị với câu lệnh ls -l, cụ thể là:</p>
+
+<p>– <strong>File type</strong>: <strong>d</strong> nghĩa là thư mục, <strong>–</strong> nghĩa là file</p>
+
+<p>– <strong>Permissions</strong>: cho phép các đối tượng cụ thể các quyền truy cập vào file</p>
+
+<p>– <strong>Hard link count</strong>: thông tin về liên kết của tệp</p>
+
+<p>– <strong>User owner</strong>: người dùng là chủ sở hữu của file</p>
+
+<p>– <strong>Group owner</strong>: nhóm người dùng có quyền truy cập thông qua các permissions</p>
+
+<p>– <strong>File size</strong>: kích thước file theo bytes</p>
+
+<p>– <strong>Modification timestamp</strong>: ngày giờ chỉnh sửa gần nhất</p>
+
+<p>– <strong>File name</strong>: tên của file</p>
+
+<h2 id="quản-lý-thư-mục">Quản lý thư mục</h2>
+<h3 id="quản-lý-thư-mục-1">Quản lý thư mục</h3>
+
+<blockquote>
+  <p><strong>mkdir</strong> <tên-thư-mục> hoặc <đường-dẫn-đến-tên-thư-mục></đường-dẫn-đến-tên-thư-mục></tên-thư-mục></p>
+</blockquote>
+
+<p><em>Ví dụ:</em> Giả sử mình đang đứng ở thư mục ~/Desktop/example-linux</p>
+
+<ol>
+  <li>
+    <p>tạo một thư mục có tên là <strong>manage-dir</strong> vào thư mục hiện tại với <strong>mkdir manage-dir</strong></p>
+
+    <p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/02/create-dir.png" alt="" /></p>
+  </li>
+</ol>
+
+<p>mkdir cũng có thể đi cùng với đường dẫn đến thư mục và tên của thư mục cần tạo.</p>
+
+<ol>
+  <li>tạo thêm một thư mục có tên là <strong>mkdir-example</strong> nằm trong thư mục <strong>manage-dir</strong> 
+<img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/02/create-dir-path.png" alt="" /></li>
+</ol>
+
+<p>Tuy nhiên, nếu đường dẫn này chưa tồn tại, ví dụ mình muốn tạo một thư mục mkdir-example trong thư mục manage-dir-not-exist chẳng hạn, thì sẽ báo lỗi:</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/02/mkdir-error.png" alt="" /></p>
+
+<h3 id="xóa-thư-mục-trống-với-rmdir">Xóa thư mục trống với rmdir</h3>
+
+<blockquote>
+  <p><strong>rmdir</strong> <tên-thư-mục> hoặc <đường-dẫn-đến-tên-thư-mục></đường-dẫn-đến-tên-thư-mục></tên-thư-mục></p>
+</blockquote>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/02/rmdir-empty.png" alt="" /></p>
+
+<h3 id="xóa-thư-mục-bao-gồm-cả-nội-dung-bên-trong-với-rm">Xóa thư mục bao gồm cả nội dung bên trong với rm</h3>
+
+<p>Để xóa được cả thư mục chứa nội dung bên trong, thì câu lệnh rmdir thôi sẽ báo lỗi folder này không trống.</p>
+
+<p>Khi đó, bạn có thể dùng câu lệnh <strong>rm với option -r dùng để xóa tất cả files hay folders ở tất cả các cấp</strong>.</p>
+
+<p>Ví dụ: mình muốn xóa folder manage-dir nơi có chứa một file test.txt</p>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/02/rm-folder.png" alt="" /></p>
+
+<p><strong>Lưu ý</strong>: đây là một câu lệnh <strong>khá nguy hiểm</strong>(thấy không? nó xóa hết mà không có bất kỳ thông báo gì hết như ví dụ trên) nên bạn hãy dùng <strong>man rm</strong> để đọc document và kiểm tra kỹ từng options có thể dùng nhé.</p>
+
+<p>Ví dụ bạn có thể sử dụng thêm option <strong>-i để vào chế độ cho phép tương tác</strong>(interactive) tức là cho phép lựa chọn file để xóa với y(yes) hay n(no)</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/02/rm-option-i.png" alt="" /></p>
+
+<p>Ở ví dụ trên mình cố tình chọn <strong>y</strong> khi được hỏi <strong>remove manage-dir</strong>.  Dẫn đến lỗi là thư mục này không có trống để xóa được, vì mình đã chọn <strong>n</strong> tức là không cho xóa khi được hỏi manage-dir/test.txt, tức là folder này vẫn còn file test.txt ở trong.</p>
+
+<h2 id="quản-lý-file">Quản lý file</h2>
+
+<h3 id="sao-chép-file-với-cp">Sao chép file với cp</h3>
+
+<blockquote>
+  <p><strong>cp</strong> <file-cần-copy> <nơi-copy-đến></nơi-copy-đến></file-cần-copy></p>
+</blockquote>
+
+<p>Ví dụ: copy file test.txt trong folder manage-dir đến thư mục hiện tại là example-linux</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/02/cp-file.png" alt="" /></p>
+
+<p><strong>Lưu ý:</strong> đây cũng là lệnh <strong>khá nguy hiểm</strong>, khi mà ở folder hiện tại bạn có một file cùng tên với file bạn tính copy đến, thì file mới đến nó ghi đè luôn, thế mà mất toai cái bạn cũ.</p>
+
+<p>Ví dụ: lệnh cp ghi đè file cùng tên có sẵn</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/02/cp-could-override.png" alt="" /></p>
+
+<p>Bạn để ý kích thước file <strong>test.txt</strong> ban đầu là <strong>55KB</strong>, với nội dung là đoạn text đó. Sau khi copy kích thước còn <strong>0KB</strong>, và nội dung trống.</p>
+
+<p>Bạn có thể sử dụng thêm option <strong>-i để vào chế độ cho phép tương tác</strong>(interactive) tức là được lựa chọn có ghi đè file cùng tên hay không</p>
+
+<p><img src="https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/02/cp-option-i.png" alt="" /></p>
+
+<p>Sau khi mình chọn n để không cho ghi đè thì kích thước và nội dung file test.txt không thay đổi.</p>
+
+<h3 id="di-chuyển-file-với-mv">Di chuyển file với mv</h3>
+
+<blockquote>
+  <p><strong>mv</strong> <tên file=""> <nơi-di-chuyển-đến></nơi-di-chuyển-đến></tên></p>
+</blockquote>
+
+<h3 id="xóa-file-với-rm">Xóa file với rm</h3>
+<p>Câu lệnh rm cho phép mình xóa file.</p>
+
+<blockquote>
+  <p><strong>rm</strong> <tên-file> hoặc <đường-dẫn-đến-tên-file></đường-dẫn-đến-tên-file></tên-file></p>
+</blockquote>
+
+<h3 id="tạo-file-trống-với-touch">Tạo file trống với touch</h3>
+
+<blockquote>
+  <p><strong>touch</strong> <tên-file></tên-file></p>
+</blockquote>
+
+<h2 id="toán-tử-đại-diện">Toán tử đại diện</h2>
+<p>Khi thực hiện quản lý hệ thống tập tin, nhiều lúc mình sẽ cần làm việc với số lượng files, thư mục khá lớn, lên đến hàng chục hay hàng trăm nghìn.</p>
+
+<p>Dưới đây là ví dụ với folder /etc có total 1560</p>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/02/etc-ls-l.png" alt="" /></p>
+
+<p>Trong những trường hợp này, việc tìm kiếm bằng mắt các file hay thư mục là việc vô cùng khó khăn và tốn thời gian. Khi đó, các** toán tử đại diện** là cứu tinh của chúng ta.</p>
+
+<p>Các toán tử đại diện thường dùng để tìm kiếm các file có chung đặc điểm nào đó, như là có chung đuôi file(phần mở rộng) là .conf hay có cùng một số ký tự nào đó trong tên chẳng hạn.</p>
+
+<h3 id="toán-tử-">Toán tử *</h3>
+<p>Ví dụ mình muốn tìm kiếm tất cả các file có đuôi là .conf trong folder /etc ở trên, khi đó đường dẫn của mình sẽ là /etc/*/conf</p>
+
+<blockquote>
+  <p>Toán tử * đại diện cho “không chứa hoặc có chứa một hay nhiều ký tự”</p>
+</blockquote>
+
+<p>Tức ***** ở đây có thể là không chứa gì hết, như file .conf hoặc có chứa một hay nhiều ký tự như nfs.conf hay pf.conf</p>
+
+<p>Thường khi làm việc với một lượng lớn file như vậy, bạn sẽ cần copy những file tìm được vào một thư mục nào đó để dễ làm việc với chúng(những file copy) – cho an toàn – vì nếu đụng vô sửa mấy file hệ thống hay config bậy khá là nguy hiểm nha.</p>
+
+<p>Vậy nên, để thực hiện thao tác này, là lúc câu lệnh <strong>cp</strong> tới công chiện.</p>
+
+<p>Hãy cùng tạo một thư mục config trong example-linux rồi copy cái bạn này bỏ vào đó nhé(thử làm trước khi xem đáp án ha).</p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/02/ls-and-cp-with-wild-card.png" alt="" /></p>
+
+<h3 id="toán-tử--1">Toán tử ?</h3>
+
+<blockquote>
+  <p>Toán tử ? đại diện cho một ký tự</p>
+</blockquote>
+
+<p>Với ? đại diện cho một ký tự, vậy thì để tìm những file có đuôi là .conf và có tên đúng 3 ký tự thôi thì mình có thể sử dụng đường dẫn là <strong>/etc/???.conf</strong></p>
+
+<h3 id="toán-tử--đại-diện-cho-một-khoảngrange">Toán tử [] đại diện cho một khoảng(range)</h3>
+<p>Thế còn có cách nào muốn kiếm file chứ ký tự với một số giá trị nào đấy không nhỉ?</p>
+
+<p>Đến đây thì cái này <strong>[]</strong> vào công chiện nè, đường dẫn để kiếm tên file có đuôi .conf mà bắt đầu bằng a hoặc b sẽ là <strong>/etc/[ab]*.conf</strong></p>
+
+<p><img src="https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/02/wildcard-range.pn" alt="" /></p>
+
+<p>Ngoài cách viết từng loại ký tự trong range [] như thế, có một cách gọn hơn để viết mội dãy các ký tự với **<từ-bắt-đầu>-<từ-kết-thúc>**, cụ thể là **[abcd] **có thể viết thành **[a-d]**</từ-kết-thúc></từ-bắt-đầu></p>
+
+<p><strong>Note:</strong> mấy ví dụ trên đây là mình dùng kèm câu lệnh cp để copy file được chọn về thư mục mới luôn, nếu bạn thích gọn hơn thì có thể dùng thằng câu lệnh ls thôi nhé, kiểu như: <strong>ls /etc/[ab]*.conf</strong></p>
+
+<h3 id="các-toán-tử-đại-diện-được-hiểu-như-thế-nào-khi-câu-lệnh-thực-thi">Các toán tử đại diện được hiểu như thế nào khi câu lệnh thực thi?</h3>
+<p>Bạn nghĩ sao về câu hỏi này, bạn đoán thử nha.</p>
+
+<p>Theo mình thì để có thể hiểu được các toán tử đại diện này hẳn là các câu lệnh phải có cách nào đó dịch ý nghĩa của chúng ra.</p>
+
+<p>Ví dụ mình muốn tìm tất cả các files hay folder có bắt đầu bằng a hoặc b, sử dụng ls /etc/[ab]* , thì mình đoán là BASH sẽ dịch [ab] thành a hoặc b, xong qua dịch tiếp dấu * để hiểu * là như nào xong mới đi kiếm với ls được chứ. Hay là câu lệnh ls đi dịch cái nghĩa xong rồi mới kiếm ta?</p>
+
+<p>Thực ra thì, mình đoán cũng gần đúng đó mấy bạn hehe.</p>
+
+<hr />
+<p>Các <strong>toán tử đại diện sẽ không được dịch theo từng câu lệnh, mà thay vào đó nó là một phần của BASH shell</strong>. Điều này có ý nghĩa quan trọng vì nó cho bạn biết là bạn <strong>có thể dùng cái toán tử đại diện này ở mọi câu lệnh</strong>, đã chưa.</p>
+
+<p>Ví dụ <strong>ls /etc/[ab]*.conf</strong> ở trên thì câu lệnh ls thậm chí còn không biết là bạn dùng toán tử hay gì hết.</p>
+
+<p>BASH đầu tiên sẽ:</p>
+
+<p>– đi đổi cái <strong>etc/[ab]*.conf</strong> qua thành **/etc/asl.conf /etc/autofs.conf /etc/aliases … **</p>
+
+<p>– gọi lệnh <strong>ls /etc/asl.conf /etc/autofs.conf /etc/aliases …</strong></p>
+
+<p>Cùng xem kết quả nhé:
+<img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/02/wildcard-run.png" alt="" /></p>
+
+<p>Ủa kỳ ta, sao nó hiện tùm lum vậy kìa =)) Hình như nó hiện cả các files trong mấy cái thư mục luôn phải không?</p>
+
+<p>Thế thì, mình cần thêm option nào của ls để hiển thị tên thư mục thôi hả các chế?</p>
+
+<p>Chắc bạn nhớ, dùng <strong>-d</strong> đó nha. Nếu không nhớ thì … <strong>man ls</strong> và đọc document nào.</p>
+
+<p><img src="https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/02/wildcard-d.png" alt="" /></p>
+
+<hr />
+<p>Nội dung bài blog này đến đây tạm hết rồi, tụi mình đã tìm hiểu cách quản lý hệ thống tập tin trong Linux rồi ấy, cũng đơn giản đúng không nào.</p>
+
+<p>Trong bài viết tiếp theo của series <a href="https://beautyoncode.com/lam-quen-linux-gianh-cho-lap-trinh-vien-series-overview/">“Làm quen Linux giành cho lập trình viên”</a>, sẽ là tìm hiểu thêm về việc chuyển hướng của câu lệnh trong Linux, tức là có thể sử dụng kết quả của câu lệnh này để thực thi một câu lệnh khác ấy, thú vị lắm.</p>
+
+<p><a href="https://beautyoncode.com/quan-ly-he-thong-tap-tin-trong-linux/">Bài gốc của nội dung này</a> nằm trên blog cá nhân của mình, mời bạn ghé chơi.</p>
