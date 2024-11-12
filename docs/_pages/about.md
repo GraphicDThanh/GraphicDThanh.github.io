@@ -2,25 +2,39 @@
 permalink: /about/
 title: "About"
 excerpt: "BeautyOnCode is a personal tech blog."
-layouts_gallery:
-  - url: /assets/images/mm-layout-splash.png
-    image_path: /assets/images/mm-layout-splash.png
-    alt: "splash layout example"
-  - url: /assets/images/mm-layout-single-meta.png
-    image_path: /assets/images/mm-layout-single-meta.png
-    alt: "single layout with comments and related posts"
-  - url: /assets/images/mm-layout-archive.png
-    image_path: /assets/images/mm-layout-archive.png
-    alt: "archive layout example"
+steam4vn_layouts_gallery:
+  - url: /assets/images/thumbnails/steam4vn-top-TA.webp
+    image_path: /assets/images/thumbnails/steam4vn-top-TA.webp
+    alt: "Steam4VN - Archievements - TA of the Year"
+  - url: /assets/images/thumbnails/steam4vn-instructor-python.webp
+    image_path: /assets/images/thumbnails/steam4vn-instructor-python.webp
+    alt: "Steam4VN - Robotics - Python Instructor"
+  - url: /assets/images/thumbnails/giuptoi.webp
+    image_path: /assets/images/thumbnails/giuptoi.webp
+    alt: "Steam4VN - Giup Toi Project"
+  - url: /assets/images/thumbnails/steam4vn-cultute-pot.webp
+    image_path: /assets/images/thumbnails/steam4vn-cultute-pot.webp
+    alt: "Steam4VN - Highlight Culture"
+
+careerly_layouts_gallery:
+  - url: /assets/images/thumbnails/careerly-profile.webp
+    image_path: /assets/images/thumbnails/careerly-profile.webp
+    alt: "Careerly - Profile"
+  - url: /assets/images/thumbnails/top-1-careerly.webp
+    image_path: /assets/images/thumbnails/top-1-careerly.webp
+    alt: "Top 1 Author in Careerly for Tech short posts."
+  - url: /assets/images/thumbnails/careerly-4k-followers.jpg
+    image_path: /assets/images/thumbnails/careerly-4k-followers.jpg
+    alt: "Careerly - 4k followers."
+
+
 last_modified_at: 2024-11-10T17:50:26-04:00
 toc: true
 ---
 
 BeautyOnCode is a tech blog dedicated to exploring the intricacies of software development, one line of code at a time. Since 2019, BeautyOnCode has been a space where I share insights, practical tips, and personal reflections on the programming world. From backend fundamentals and cloud architectures to frontend design and UI/UX strategies, this blog has something for every tech enthusiast looking to deepen their understanding and stay inspired.
 
-{% include gallery id="layouts_gallery" caption="Examples of included layouts `splash`, `single`, and `archive`." %}
-
-[Install the Theme]({{ "/docs/quick-start-guide/" | relative_url }}){: .btn .btn--success .btn--large}
+[Get Started]({{ "/docs/quick-start-guide/" | relative_url }}){: .btn .btn--success .btn--large}
 
 ## Author
 I’m Thanh Nguyen Diem, the author behind BeautyOnCode. With over a decade in the tech industry, my experience spans backend technologies like C#/.NET, Python, Django, and Node.js, and I’m equally passionate about creating intuitive user experiences with React, Redux, and Next.js. 
@@ -29,6 +43,12 @@ Since 2014, I’ve been working as a developer at [AgilityIO](https://www.agilit
 
 ## Activity
 Outside of work, I volunteer with STEAM for Vietnam, guiding young students in programming as a TA leader and Python lecturer. I’m also a curator on Careerly, supporting the Vietnamese tech community. By late 2022, BeautyOnCode had reached top author status on Careerly, with a following of over 5,000 readers.
+
+{% include gallery id="steam4vn_layouts_gallery" caption="Milestones: My Greatest Time with Steam For VietNam" %}
+
+<hr/>
+
+{% include gallery id="careerly_layouts_gallery" caption="Milestones: Careerly and journey to top 1 tech author" %}
 
 ## Blog topics
 In this blog, I document my ongoing journey as a developer, continuously learning and sharing the tools, techniques, and thoughts that shape my growth. 
@@ -63,6 +83,10 @@ For even more demo pages check the [posts archive][year-archive].
 [tags-archive]: {{ "/tags/" | relative_url }}
 [year-archive]: {{ "/year-archive/" | relative_url }}
 
+## Cross posts
+Beside this blog, I have some cross posts place:
+- [BeautyOnCode on Viblo](https://viblo.asia/u/BeautyOnCode)
+
 ---
 
 ## Credits
@@ -71,7 +95,7 @@ For even more demo pages check the [posts archive][year-archive].
 
 - [Github Page](https://pages.github.com/)
 - [Jekyll](https://jekyllrb.com/)
-- [Jekyll Theme - Minimal Mistakes](https://github.com/mmistakes/minimal-mistakes)
+- [Theme Minimal Mistakes](https://github.com/mmistakes/minimal-mistakes)
 
 ---
 
