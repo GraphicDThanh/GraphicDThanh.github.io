@@ -4,7 +4,7 @@ permalink: /
 hidden: true
 header:
   overlay_color: "#5e616c"
-  overlay_image: /assets/images/mm-home-page-feature.jpg
+  overlay_image: /assets/images/banner/blog-banner.jpg
   actions:
     - label: "<i class='fas fa-download'></i> Get Started"
       url: "/docs/quick-start-guide/"
@@ -12,7 +12,7 @@ excerpt: >
   A little garden where we plant seeds of knowledge in the programming world.<br />
   <small><a href="/about/">Read more</a></small>
 feature_row:
-  - image_path: /assets/images/thumbnails/technical-tutorials.png
+  - image_path: /assets/images/thumbnails/technical-tutorials.jpg
     alt: "tutorials"
     title: "Technical Tutorials"
     excerpt: "Practical tutorials covering front-end and back-end technologies. Whether you’re working with JavaScript frameworks like React or backend solutions like Django and AWS, these posts are aimed at providing clear and actionable guidance."
