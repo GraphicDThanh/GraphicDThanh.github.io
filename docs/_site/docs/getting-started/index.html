@@ -51,7 +51,7 @@
 
 
 
-  <meta property="article:published_time" content="2024-11-12T10:45:36-05:00">
+  <meta property="article:published_time" content="2024-11-13T02:11:54-05:00">
 
 
 
@@ -211,21 +211,13 @@
             
               <li><a href="/docs/getting-started/" class="active">Getting Started</a></li>
             
-          </ul>
-          
-        </li>
-      
-        <li>
-          
-            <span class="nav__sub-title">Overview</span>
-          
-
-          
-          <ul>
+              <li><a href="/docs/most-views/">Most Viewed Posts</a></li>
+            
+              <li><a href="/docs/series-overview/">Series Overview</a></li>
             
               <li><a href="/docs/categories-overview/">Categories Overview</a></li>
             
-              <li><a href="/docs/series-index/">Series Index</a></li>
+              <li><a href="/docs/how-to-use/">How to Use the Blog</a></li>
             
           </ul>
           
@@ -233,13 +225,19 @@
       
         <li>
           
-            <span class="nav__sub-title">How To</span>
+            <span class="nav__sub-title">Recommended</span>
           
 
           
           <ul>
             
-              <li><a href="/docs/how-to-use/">How to Use the Blog</a></li>
+              <li><a href="/docs/helpful-articles/">Helpful Articles</a></li>
+            
+              <li><a href="/docs/blog-and-authors/">Tech Blogs and Authors</a></li>
+            
+              <li><a href="/docs/courses-and-videos/">Courses and Videos</a></li>
+            
+              <li><a href="/docs/newsletters/">Newsletter</a></li>
             
           </ul>
           
@@ -257,9 +255,9 @@
             
               <li><a href="/docs/faq/">FAQ</a></li>
             
-              <li><a href="/docs/about-author/">About the Author</a></li>
+              <li><a href="/terms-and-privacy/">Terms & Privacy Policy</a></li>
             
-              <li><a href="/docs/contact/">Contact & Connect</a></li>
+              <li><a href="/docs/copyright/">Copyright</a></li>
             
           </ul>
           
@@ -278,7 +276,7 @@
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="Getting Started with BeautyOnCode">
     <meta itemprop="description" content="Introduce new readers to your blog’s focus and main topics.">
-    
+    <meta itemprop="datePublished" content="2024-11-13T02:11:54-05:00">
     <meta itemprop="dateModified" content="2024-11-11T07:48:05-05:00">
 
     <div class="page__inner-wrap">
@@ -494,7 +492,7 @@ const loadSearch = function() {
       return `
         <div class="list__item">
           <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-            <h2 class="archive__item-title" itemprop="headline"><a href="/${url}">${title}</a></h2>
+            <h2 class="archive__item-title" itemprop="headline"><a href="${url}">${title}</a></h2>
             <div class="archive__item-excerpt" itemprop="description">${content}</div>
           </article>
         </div>

@@ -38,82 +38,35 @@ docs:
   children:
     - title : "Getting Started"
       url: /docs/getting-started/
-- title: "Overview"
-  children:
+    - title : "Most Viewed Posts"
+      url: /docs/most-views/
+    - title : "Series Overview"
+      url: /docs/series-overview/
     - title : "Categories Overview"
       url: /docs/categories-overview/
-    - title : "Series Index"
-      url: /docs/series-index/
-- title: "How To"
-  children:
     - title : "How to Use the Blog"
       url: /docs/how-to-use/
+- title: "Recommended"
+  children:
+    - title : "Helpful Articles"
+      url: /docs/helpful-articles/
+    - title : "Tech Blogs and Authors"
+      url: /docs/blog-and-authors/
+    - title : "Courses and Videos"
+      url: /docs/courses-and-videos/
+    - title : "Newsletter"
+      url: /docs/newsletters/
 - title: "Meta"
   children:
     - title : "Resources & Tools"
       url: /docs/resources-tools/
     - title : "FAQ"
       url: /docs/faq/
-    - title : "About the Author"
-      url: /docs/about-author/
-    - title: "Contact & Connect"
-      url: /docs/contact/
-  # - title: Getting Started
-  #   children:
-  #     - title: "Quick-Start Guide"
-  #       url: /docs/quick-start-guide/
-  #     - title: "Structure"
-  #       url: /docs/structure/
-  #     - title: "Installation"
-  #       url: /docs/installation/
-  #     - title: "Upgrading"
-  #       url: /docs/upgrading/
-  # - title: Customization
-  #   children:
-  #     - title: "Configuration"
-  #       url: /docs/configuration/
-  #     - title: "Overriding Theme Defaults"
-  #       url: /docs/overriding-theme-defaults/
-  #     - title: "Navigation"
-  #       url: /docs/navigation/
-  #     - title: "UI Text"
-  #       url: /docs/ui-text/
-  #     - title: "Authors"
-  #       url: /docs/authors/
-  #     - title: "Layouts"
-  #       url: /docs/layouts/
-  # - title: Content
-  #   children:
-  #     - title: "Working with Posts"
-  #       url: /docs/posts/
-  #     - title: "Working with Pages"
-  #       url: /docs/pages/
-  #     - title: "Working with Collections"
-  #       url: /docs/collections/
-  #     - title: "Helpers"
-  #       url: /docs/helpers/
-  #     - title: "Utility Classes"
-  #       url: /docs/utility-classes/
-  # - title: Extras
-  #   children:
-  #     - title: "Stylesheets"
-  #       url: /docs/stylesheets/
-  #     - title: "JavaScript"
-  #       url: /docs/javascript/
-  # - title: Meta
-  #   children:
-  #     - title: "FAQ"
-  #       url: /docs/faq/
-  #     - title: "History"
-  #       url: /docs/history/
-  #     - title: "Contributing"
-  #       url: /docs/contributing/
-  #     - title: "Old 2.2 Docs"
-  #       url: /docs/docs-2-2/
-  #     - title: "License"
-  #       url: /docs/license/
-  #     - title: "Terms &amp; Privacy Policy"
-  #       url: /terms/
+    - title: "Terms & Privacy Policy"
+      url: /terms-and-privacy/
+    - title: "Copyright"
+      url: /docs/copyright/
+
 
 # sidebar navigation list sample
 sidebar-sample:
