@@ -68,3 +68,14 @@ Supercharges Git capabilities in VS Code, making it easier to track changes. Get
 
 This page should help you easily find and access tools and resources referenced in tutorials on Beauty on Code. Explore these links to enhance your coding toolkit and support your learning journey.
 
+## 8. Document Tools
+### Google Docs
+- Use Google Docs tab help organize content
+- Use extension "Code Block" to format code
+
+### Notion
+
+### Obsidian
+
+### 9. Diagram Tools
+- diagram.io

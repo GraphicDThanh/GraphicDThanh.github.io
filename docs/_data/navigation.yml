@@ -54,6 +54,8 @@ docs:
       url: /docs/blog-and-authors/
     - title : "Courses and Videos"
       url: /docs/courses-and-videos/
+    - title : "Newsletter"
+      url: /docs/newsletters/
 - title: "Meta"
   children:
     - title : "Resources & Tools"
