@@ -353,7 +353,7 @@
 <div class="language-markdown highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">![</span><span class="nv">alt</span><span class="p">](</span><span class="sx">{{</span> site.url }}{{ site.baseurl }}/assets/images/filename.jpg)
 </code></pre></div></div>
 
-<p><img src="http://localhost:4000//assets/images/unsplash-image-9.jpg" alt="Unsplash image 9" /></p>
+<p><img src="http://localhost:4000/assets/images/unsplash-image-9.jpg" alt="Unsplash image 9" /></p>
 
 <p>Image that fills page content container by adding the <code class="language-plaintext highlighter-rouge">.full</code> class with:</p>
 
@@ -368,7 +368,7 @@
 {: .full}
 </code></pre></div></div>
 
-<p class="full"><img src="http://localhost:4000//assets/images/unsplash-image-10.jpg" alt="Unsplash image 10" /></p>
+<p class="full"><img src="http://localhost:4000/assets/images/unsplash-image-10.jpg" alt="Unsplash image 10" /></p>
 
         
       </section>
@@ -730,7 +730,7 @@ const loadSearch = function() {
       return `
         <div class="list__item">
           <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-            <h2 class="archive__item-title" itemprop="headline"><a href="/${url}">${title}</a></h2>
+            <h2 class="archive__item-title" itemprop="headline"><a href="${url}">${title}</a></h2>
             <div class="archive__item-excerpt" itemprop="description">${content}</div>
           </article>
         </div>
