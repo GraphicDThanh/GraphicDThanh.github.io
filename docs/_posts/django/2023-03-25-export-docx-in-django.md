@@ -1,9 +1,14 @@
 ---
-layout: post
-title:  "Export a docx file in Django application"
-date:   2023-03-25 10:00:00 +0700
-categories: django
+title: "Export a docx file in Django application"
+categories:
+  - Django
+tags:
+  - django
+  - export
+  - docx
+  - ENGLISH
 ---
+
 
 ![](/assets/images/2023/03/2023-03-export-docx-in-django-cover.png)
 

@@ -44,28 +44,41 @@ For multi-part topics, I’ve organized posts into series. If you're diving into
 
 ### Popular Posts to Get Started:
 #### Linux essentials
-→ Giới thiệu về Linux
+- Giới thiệu về Linux
 
-→ Làm quen câu lệnh và hệ thống tập tin trong Linux
+- Làm quen câu lệnh và hệ thống tập tin trong Linux
 
-→ Quản lý hệ thống tập tin trong Linux
+- Quản lý hệ thống tập tin trong Linux
 
 #### Javascript essentials
 → Điều gì xảy ra khi chạy một chương trình JavaScript?
 
 #### Python essentials
-→ Khám phá đại bản doanh Python series overview
+- Khám phá đại bản doanh Python series overview
 
-→ Python có thể dùng để làm gì nhỉ?
+- Python có thể dùng để làm gì nhỉ?
 
-→ Lớp trong Python
+- Lớp trong Python
 
-→ Iterable, iterator và generator trong Python
+- Iterable, iterator và generator trong Python
 
-→ Làm game Hangman với Python
+- Làm game Hangman với Python
 
-→ Không gian tên(namespace) và phạm vi(scope) trong Python
+- Không gian tên(namespace) và phạm vi(scope) trong Python
 
+
+### English Posts to Get Started:
+While most of my content is in Vietnames, I write some articles in English also.
+
+- [Relation fields in Django Rest Framework Serializer][drf-serializer-relation-fields-post] 
+
+- [Export a docx file in Django application][django-export-docx]
+
+- [Export multiple CSVs file into a ZIP in Django][django-export-zip-contains-csv]
+
+[drf-serializer-relation-fields-post]: {{ "" | relative_url }}{% post_url 2023-10-24-relation-fields-in-drf-serializer %}
+[django-export-docx]: {{ "" | relative_url }}{% post_url django/2023-03-25-export-docx-in-django %}
+[django-export-zip-contains-csv]: {{ "" | relative_url }}{% post_url django/2023-04-01-export-multiple-csv-to-zip-django %}
 ---
 
 That's it!

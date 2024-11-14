@@ -9,73 +9,100 @@ toc: true
 ---
 
 Welcome to the Resources & Tools page on Beauty on Code!
+
 This section gathers valuable links, tools, and references that complement the tutorials and guides on the blog. Here, you’ll find developer resources, programming tools, and recommended learning materials to help you expand your knowledge and build your skills.
 
-## 1. Coding Tools
-### Visual Studio Code (VS Code)
-A powerful, free code editor widely used by developers. Many of our tutorials recommend VS Code for its versatile plugins, debugging tools, and user-friendly interface. Download VS Code.
+## Programming Languages
 
-### Git and GitHub
-Essential tools for version control and collaboration. Our Git and GitHub articles guide you through using these tools to manage code efficiently. Git Download | GitHub
+<sub>JavaScript, Python, Java, Ruby, Go, C++, etc.</sub>
 
-### Node.js
-JavaScript runtime for server-side development. Many JavaScript tutorials on the blog require Node.js, which lets you run JavaScript outside the browser. Download Node.js
+- [Comprehensive Python Cheatsheet](https://gto76.github.io/python-cheatsheet/)
 
-## 2. Linux Essentials
-### Linux Command Line Basics
-Resources for learning Linux basics and command-line essentials. Our Linux for Developers series offers insights and tutorials for beginners.
+## Frontend Development
 
-### Bash Scripting
-For automating tasks in Linux, Bash scripting is a must-know skill. Explore our guides on Bash scripting to get started, then refer to the GNU Bash Manual for more details.
+<sub>HTML, CSS, JavaScript frameworks (React, Vue, Angular), UI/UX, Web Design, CSS preprocessors, etc.</sub>
 
-## 3. Python Programming
-### Python Official Documentation
-Comprehensive and detailed resources for Python developers. Our Python tutorials often reference sections of the official documentation to support in-depth learning. Python Documentation
+## Backend Development
 
-### Python Package Index (PyPI)
-The go-to source for Python libraries and tools. Discover libraries recommended in our Python series and expand your toolkit. Visit PyPI
+<sub>Databases (SQL, NoSQL), Server Management, Authentication, APIs (REST, GraphQL), Backend Frameworks (Express, Django, Spring), etc.</sub>
 
-## 4. JavaScript Resources
-### Mozilla Developer Network (MDN) - JavaScript Guide
-An excellent, beginner-friendly resource for JavaScript documentation and guides. Many JavaScript articles on this blog reference MDN’s insights on functions, scoping, and closures. MDN JavaScript Guide
+##  Full-Stack Development
 
-### Node.js Documentation
-For server-side JavaScript, the Node.js documentation provides a wealth of information. This is helpful for backend topics in our JavaScript series. Node.js Documentation
+<sub>Integrations, MERN/MEAN stacks, JAMstack, Microservices, etc.</sub>
 
-## 5. Online Coding Platforms
-### LeetCode
-Practice coding challenges and algorithm questions. Articles related to algorithms and problem-solving often recommend LeetCode for hands-on practice. Visit LeetCode
+- [cotton for Django](https://django-cotton.com/) - Bringing component-based design to django templates
+- [Full Stack FastAPI Template](https://github.com/fastapi/full-stack-fastapi-template)
+## DevOps & Infrastructure
 
-### Viblo
-A local resource where I also share tutorials, especially for Vietnamese-speaking readers. You’ll find many articles cross-posted here, expanding access to tech insights. Visit Viblo
+<sub>CI/CD, Containerization (Docker, Kubernetes), Cloud Computing (AWS, Azure, GCP), Infrastructure as Code, Monitoring & Logging, etc.</sub>
 
-## 6. Additional Learning Resources
-### FreeCodeCamp
-For free coding courses and interactive tutorials. Many blog articles link to FreeCodeCamp as a beginner-friendly source for HTML, CSS, JavaScript, and Python. Visit FreeCodeCamp
+## Version Control & Collaboration
 
-### Coursera and edX
-Online learning platforms offering structured courses by universities and industry experts. For a deeper dive, especially on advanced topics, these platforms can complement the articles here.
+<sub>Git, GitHub, GitLab, Code Review, Project Management Tools (Jira, Trello)</sub>
 
-## 7. Recommended Extensions
-### Prettier
-A code formatter recommended in tutorials to ensure clean, readable code. Works seamlessly with VS Code. Get Prettier
+## Mobile Development
 
-### Live Server
-Launch a development local server with live reload features for static & dynamic pages. Great for web development tutorials on the blog. Get Live Server
+<sub>iOS (Swift), Android (Kotlin), Cross-Platform (React Native, Flutter)</sub>
 
-### GitLens
-Supercharges Git capabilities in VS Code, making it easier to track changes. Get GitLens
+## Data Science & Machine Learning
 
-This page should help you easily find and access tools and resources referenced in tutorials on Beauty on Code. Explore these links to enhance your coding toolkit and support your learning journey.
+<sub>Data Analysis, Machine Learning, AI, Deep Learning, Data Visualization, Libraries (TensorFlow, PyTorch, Scikit-learn)</sub>
 
-## 8. Document Tools
-### Google Docs
-- Use Google Docs tab help organize content
-- Use extension "Code Block" to format code
+## Security & Privacy
 
-### Notion
+<sub>Encryption, Authentication, Vulnerability Management, Application Security, Compliance (GDPR, HIPAA)</sub>
 
-### Obsidian
+## Testing & Debugging
 
-### 9. Diagram Tools
-- diagram.io
+<sub>Unit Testing, Integration Testing, Performance Testing, Tools (Jest, Mocha, Selenium)</sub>
+
+## Productivity & Workflow
+
+<sub>Developer Tools (Visual Studio Code, Terminal, Docker), Automation, Scripting, Task Management</sub>
+
+- [Notion](https://www.notion.so/)
+- [Obsidition](https://obsidian.md/)
+- Google Docs
+  - Use [Google Docs](https://support.google.com/docs/answer/15499791?sjid=6485208864629247045-AP) tab help organize content
+  - Use extension "Code Block" to format code
+
+
+## Environment & Configuration Management
+
+<sub>Environment Variables, Configuration Files, Secret Management (Dotenv, Vault), Container Configurations</sub>
+
+- [dotenvx](https://dotenvx.com/) - a better dotenv–from the creator of dotenv
+- [uv](https://docs.astral.sh/uv) - an extremely fast Python package and project manager, written in Rust.
+
+
+## Code Formatting & Linting
+
+<sub>Prettier, Black, Pylint, Ruff, etc.</sub>
+
+- [Ruff](https://docs.astral.sh/ruff/) - an extremely fast Python linter and code formatter, written in Rust.
+
+## APIs & Web Services
+
+<sub>REST APIs, GraphQL, WebSockets, API Management, OAuth, OpenAPI Specification</sub>
+
+## Networking
+
+<sub>HTTP/HTTPS, TCP/IP, DNS, Load Balancing, WebSockets, Caching</sub>
+
+## Performance Optimization
+
+<sub>Browser Rendering, Code Splitting, Lazy Loading, Caching, Page Load Speed, Performance Testing</sub>
+
+## Software Architecture & Design Patterns
+
+<sub>Microservices, Monolithic, Clean Architecture, SOLID Principles, Design Patterns (MVC, Singleton)</sub>
+
+## Cloud & Serverless Computing
+
+<sub>AWS Lambda, Azure Functions, Google Cloud Functions, Serverless Framework</sub>
+
+## Developer Communities & Open Source
+
+<sub>Contributions, GitHub Projects, Open Source Licensing, Community Forums</sub>
+
+Feel free to contribute your suggestions in this page.
