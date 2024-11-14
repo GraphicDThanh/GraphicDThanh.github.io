@@ -28,9 +28,6 @@ main:
     url: /year-archive/
   - title: "Collections"
     url: /collection-archive/
-  # - title: "Terms &amp; Privacy Policy"
-  #   url: /terms/
-
 
 # documentation links
 docs:
@@ -43,9 +40,12 @@ docs:
     - title : "Series Overview"
       url: /docs/series-overview/
     - title : "Categories Overview"
+      url: /docs/how-to-use/
+    - title : "English Posts"
       url: /docs/categories-overview/
     - title : "How to Use the Blog"
-      url: /docs/how-to-use/
+
+      url: /docs/english-posts/
 - title: "Recommended"
   children:
     - title : "Helpful Articles"

@@ -1,9 +1,15 @@
 ---
-layout: post
-title: "Export Multiple CSVs file into a ZIP in Django Application"
-date:   2023-04-01 10:00:00 +0700
-categories: django
+title: "Export multiple CSV files into a ZIP in Django Application"
+categories:
+  - Django
+tags:
+  - django
+  - export
+  - csv
+  - zip
+  - ENGLISH
 ---
+
 
 ![](/assets/images/2023/04/2023-04-export-multiple-csv-to-zip-django-cover.png)
 
