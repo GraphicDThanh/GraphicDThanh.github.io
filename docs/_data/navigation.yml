@@ -40,12 +40,11 @@ docs:
     - title : "Series Overview"
       url: /docs/series-overview/
     - title : "Categories Overview"
-      url: /docs/how-to-use/
-    - title : "English Posts"
       url: /docs/categories-overview/
-    - title : "How to Use the Blog"
-
+    - title : "English Posts"
       url: /docs/english-posts/
+    - title : "How to Use the Blog"
+      url: /docs/how-to-use/
 - title: "Recommended"
   children:
     - title : "Helpful Articles"

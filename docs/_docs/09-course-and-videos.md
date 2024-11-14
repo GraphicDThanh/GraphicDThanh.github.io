@@ -9,6 +9,7 @@ toc: true
 ---
 
 Welcome to the Online Courses and Videos page on Beauty on Code!
+
 Here, I’m sharing a curated list of online courses and video resources that I have found helpful in my own learning journey. These cover a variety of topics, from foundational programming to advanced development concepts. Whether you’re just getting started or looking to deepen your expertise, I hope you’ll find these resources as beneficial as I have.
 
 ## 1. Programming Foundations
@@ -40,6 +41,11 @@ This course provides a solid foundation in AWS services and best practices for a
 A free introduction to DevOps principles, CI/CD, and other essential tools in modern software development. This course includes modules on setting up pipelines, monitoring, and automating tasks for efficient deployment. Access the course on Microsoft Learn
 
 ## 5. Data Science and Machine Learning
+- [AI Python for Beginners](https://www.deeplearning.ai/short-courses/ai-python-for-beginners/)
+- [ChatGPT Prompt Engineering for Developers](https://learn.deeplearning.ai/courses/chatgpt-prompt-eng)
+- [LangChain for LLM Application Development](https://learn.deeplearning.ai/courses/langchain)
+- [Generative AI for Everyone](https://www.coursera.org/learn/generative-ai-for-everyone)
+
 ### Machine Learning (Stanford University, Coursera, by Andrew Ng)
 One of the most popular courses on machine learning, covering supervised and unsupervised learning, neural networks, and practical applications. Andrew Ng’s course is a great starting point for anyone interested in AI and data science. Access the course on Coursera
 
