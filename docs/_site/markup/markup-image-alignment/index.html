@@ -341,21 +341,21 @@
         
         <p>Welcome to image alignment! The best way to demonstrate the ebb and flow of the various image positioning options is to nestle them snuggly among an ocean of words. Grab a paddle and let’s get started.</p>
 
-<p><img src="http://localhost:4000//assets/images/image-alignment-580x300.jpg" alt="image-center" class="align-center" /></p>
+<p><img src="http://localhost:4000/assets/images/image-alignment-580x300.jpg" alt="image-center" class="align-center" /></p>
 
 <p>The image above happens to be <strong>centered</strong>.</p>
 
-<p><img src="http://localhost:4000//assets/images/image-alignment-150x150.jpg" alt="image-left" class="align-left" /> The rest of this paragraph is filler for the sake of seeing the text wrap around the 150×150 image, which is <strong>left aligned</strong>.</p>
+<p><img src="http://localhost:4000/assets/images/image-alignment-150x150.jpg" alt="image-left" class="align-left" /> The rest of this paragraph is filler for the sake of seeing the text wrap around the 150×150 image, which is <strong>left aligned</strong>.</p>
 
 <p>As you can see there should be some space above, below, and to the right of the image. The text should not be creeping on the image. Creeping is just not right. Images need breathing room too. Let them speak like you words. Let them do their jobs without any hassle from the text. In about one more sentence here, we’ll see that the text moves from the right of the image down below the image in seamless transition. Again, letting the do it’s thing. Mission accomplished!</p>
 
 <p>And now for a <strong>massively large image</strong>. It also has <strong>no alignment</strong>.</p>
 
-<p><img src="http://localhost:4000//assets/images/image-alignment-1200x4002.jpg" alt="no-alignment" /></p>
+<p><img src="http://localhost:4000/assets/images/image-alignment-1200x4002.jpg" alt="no-alignment" /></p>
 
 <p>The image above, though 1200px wide, should not overflow the content area. It should remain contained with no visible disruption to the flow of content.</p>
 
-<p><img src="http://localhost:4000//assets/images/image-alignment-300x200.jpg" alt="image-right" class="align-right" /></p>
+<p><img src="http://localhost:4000/assets/images/image-alignment-300x200.jpg" alt="image-right" class="align-right" /></p>
 
 <p>And now we’re going to shift things to the <strong>right align</strong>. Again, there should be plenty of room above, below, and to the left of the image. Just look at him there — Hey guy! Way to rock that right side. I don’t care what the left aligned image says, you look great. Don’t let anyone else tell you differently.</p>
 
@@ -364,14 +364,14 @@
 <p>And just when you thought we were done, we’re going to do them all over again with captions!</p>
 
 <figure class="align-center">
-  <img src="http://localhost:4000//assets/images/image-alignment-580x300.jpg" alt="" />
+  <img src="http://localhost:4000/assets/images/image-alignment-580x300.jpg" alt="" />
   <figcaption>Look at 580 x 300 getting some love.</figcaption>
 </figure>
 
 <p>The figure above happens to be <strong>centered</strong>. The caption also has a link in it, just to see if it does anything funky.</p>
 
 <figure style="width: 150px" class="align-left">
-  <img src="http://localhost:4000//assets/images/image-alignment-150x150.jpg" alt="" />
+  <img src="http://localhost:4000/assets/images/image-alignment-150x150.jpg" alt="" />
   <figcaption>Itty-bitty caption.</figcaption>
 </figure>
 
@@ -382,14 +382,14 @@
 <p>And now for a <strong>massively large image</strong>. It also has <strong>no alignment</strong>.</p>
 
 <figure style="width: 1200px">
-  <img src="http://localhost:4000//assets/images/image-alignment-1200x4002.jpg" alt="" />
+  <img src="http://localhost:4000/assets/images/image-alignment-1200x4002.jpg" alt="" />
   <figcaption>Massive image comment for your eyeballs.</figcaption>
 </figure>
 
 <p>The figure element above has an inline style of <code class="language-plaintext highlighter-rouge">width: 1200px</code> set which should break it outside of the normal content flow.</p>
 
 <figure style="width: 300px" class="align-right">
-  <img src="http://localhost:4000//assets/images/image-alignment-300x200.jpg" alt="" />
+  <img src="http://localhost:4000/assets/images/image-alignment-300x200.jpg" alt="" />
   <figcaption>Feels good to be right all the time.</figcaption>
 </figure>
 
@@ -484,14 +484,14 @@
   
     
 <div class="page__related">
-  <div align="center" style="margin: 1em 0;">
+  <!-- <div align="center" style="margin: 1em 0;">
   <ins class="adsbygoogle"
         style="display:block; border-bottom: initial;"
         data-ad-client="ca-pub-7328585512091257"
         data-ad-slot="3049671934"
         data-ad-format="auto"
         data-full-width-responsive="true"></ins>
-</div>
+</div> -->
 
 
   <h2 class="page__related-title">You May Also Enjoy</h2>
@@ -673,14 +673,14 @@ The Django model offers various types of relationships such as OneToOneField, Fo
   
 </div>
 
-      <div align="center" style="margin: 1em 0;">
+      <!-- <div align="center" style="margin: 1em 0;">
   <ins class="adsbygoogle"
         style="display:block; border-bottom: initial;"
         data-ad-client="ca-pub-7328585512091257"
         data-ad-slot="3049671934"
         data-ad-format="auto"
         data-full-width-responsive="true"></ins>
-</div>
+</div> -->
 
     </div>
 
@@ -767,7 +767,7 @@ const loadSearch = function() {
       return `
         <div class="list__item">
           <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-            <h2 class="archive__item-title" itemprop="headline"><a href="/${url}">${title}</a></h2>
+            <h2 class="archive__item-title" itemprop="headline"><a href="${url}">${title}</a></h2>
             <div class="archive__item-excerpt" itemprop="description">${content}</div>
           </article>
         </div>

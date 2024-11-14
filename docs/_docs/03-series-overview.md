@@ -1,6 +1,6 @@
 ---
-title: "Series Index"
-permalink: /docs/series-index/
+title: "Series Overview"
+permalink: /docs/series-overview/
 excerpt: "Introduce new readers to blog series."
 last_modified_at: 2024-11-11T08:48:05-04:00
 redirect_from:
@@ -21,11 +21,11 @@ This series covers a deep dive into JavaScript, from the fundamentals to advance
 
 ### Main Articles:
 - Giới Thiệu Các Bài Viết Về JavaScript
-  
+
   An introduction to key JavaScript topics and articles on the blog.
 
 - Chơi Cùng JavaScript
-  
+
   Experimenting with JavaScript through practical exercises and examples.
 
 - Chiến Lược Tải, Thực Thi JavaScript
@@ -33,7 +33,7 @@ This series covers a deep dive into JavaScript, from the fundamentals to advance
   How JavaScript loading and execution work under the hood.
 
 - Điều Gì Xảy Ra Khi Chạy Một Chương Trình JavaScript
-  
+
   Understanding the process when a JavaScript program is executed.
 
 - Hoisting Trong JavaScript
@@ -41,7 +41,7 @@ This series covers a deep dive into JavaScript, from the fundamentals to advance
   A deep dive into hoisting in JavaScript and how it affects variable declarations and functions.
 
 - Scope Trong JavaScript
-  
+
   Understanding the scope in JavaScript and its role in variable access.
 
 - Lexical Environment Trong JavaScript
@@ -60,7 +60,7 @@ This series is a great introduction to the world of open source, focusing on Lin
 
 Main Articles:
 - Làm Quen Linux Dành Cho Lập Trình Viên
-  
+
   A beginner's guide to Linux for developers, introducing key concepts.
 
 - Giới Thiệu Về Linux
@@ -68,7 +68,7 @@ Main Articles:
   An overview of Linux, its history, and its significance in the developer ecosystem.
 
 - Làm Quen Câu Lệnh Và Hệ Thống Tập Tin Trong Linux
-  
+
   A hands-on introduction to basic Linux commands and the file system structure.
 
 - Quản Lý Hệ Thống Tập Tin Trong Linux
@@ -92,7 +92,7 @@ This series takes you on a journey to explore Python, one of the most versatile 
 Main Articles:
 
 - Khám Phá Đại Bản Doanh Python Series Overview
-  
+
   An overview of the series and what you’ll learn about Python.
 
 - Python Có Thể Dùng Làm Gì Nhỉ?
@@ -104,7 +104,7 @@ Main Articles:
   Learn about successful individuals and companies that have thrived using Python.
 
 - Bắt Đầu Với Python
-  
+
   A beginner's guide to setting up Python and writing your first Python program.
 
 - Tài Liệu Học Và Nghiên Cứu Python
@@ -136,7 +136,7 @@ Main Articles:
   Error handling and exceptions in Python to ensure reliable code execution.
 
 - Không Gian Tên (Namespace) Và Phạm Vi (Scope) Trong Python
-  
+
   Exploring namespaces and scope in Python to manage variable access.
 
 - Lớp Trong Python

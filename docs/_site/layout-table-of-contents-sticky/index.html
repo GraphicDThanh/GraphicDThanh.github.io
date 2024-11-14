@@ -362,7 +362,7 @@
 
 <p>Lorem ipsum dolor sit amet, test link adipiscing elit. <strong>This is strong</strong>. Nullam dignissim convallis est. Quisque aliquam.</p>
 
-<p class="image-right"><img src="http://localhost:4000//assets/images/3953273590_704e3899d5_m.jpg" alt="Smithsonian Image" /></p>
+<p class="image-right"><img src="http://localhost:4000/assets/images/3953273590_704e3899d5_m.jpg" alt="Smithsonian Image" /></p>
 
 <p><em>This is emphasized</em>. Donec faucibus. Nunc iaculis suscipit dui. 53 = 125. Water is H2O. Nam sit amet sem. Aliquam libero nisi, imperdiet at, tincidunt nec, gravida vehicula, nisl. The New York Times (That’s a citation). Underline.Maecenas ornare tortor. Donec sed tellus eget sapien fringilla nonummy. Mauris a ante. Suspendisse quam sem, consequat at, commodo vitae, feugiat in, nunc. Morbi imperdiet augue quis tellus.</p>
 
@@ -526,14 +526,14 @@
   
     
 <div class="page__related">
-  <div align="center" style="margin: 1em 0;">
+  <!-- <div align="center" style="margin: 1em 0;">
   <ins class="adsbygoogle"
         style="display:block; border-bottom: initial;"
         data-ad-client="ca-pub-7328585512091257"
         data-ad-slot="3049671934"
         data-ad-format="auto"
         data-full-width-responsive="true"></ins>
-</div>
+</div> -->
 
 
   <h2 class="page__related-title">You May Also Enjoy</h2>
@@ -715,14 +715,14 @@ The Django model offers various types of relationships such as OneToOneField, Fo
   
 </div>
 
-      <div align="center" style="margin: 1em 0;">
+      <!-- <div align="center" style="margin: 1em 0;">
   <ins class="adsbygoogle"
         style="display:block; border-bottom: initial;"
         data-ad-client="ca-pub-7328585512091257"
         data-ad-slot="3049671934"
         data-ad-format="auto"
         data-full-width-responsive="true"></ins>
-</div>
+</div> -->
 
     </div>
 
@@ -809,7 +809,7 @@ const loadSearch = function() {
       return `
         <div class="list__item">
           <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-            <h2 class="archive__item-title" itemprop="headline"><a href="/${url}">${title}</a></h2>
+            <h2 class="archive__item-title" itemprop="headline"><a href="${url}">${title}</a></h2>
             <div class="archive__item-excerpt" itemprop="description">${content}</div>
           </article>
         </div>
