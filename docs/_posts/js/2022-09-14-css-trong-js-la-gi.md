@@ -7,6 +7,9 @@ tags:
   - css, js, css-in-js
 ---
 
+![](/assets/images/2022/09/2022-09-css-trong-js-la-gi.webp)
+
+
 CSS trong JS hay `CSS-in-JS` là một thuật ngữ mô tả việc viết code style CSS trong code JS, tức viết vào file `.js` , `.jsx` thay vì viết code CSS vào file `.css` như bình thường.
 
 ## CSS trong JS ra đời khi nào?
@@ -87,3 +90,5 @@ Với mình, nếu dự án nhỏ, và làm việc với các bạn chưa có nh
 Còn dự án vừa và lớn, tính kế thừa cao, nhiều components, dev nhiều kinh nghiệm hơn thì mình sẽ chọn các thư viện CSS-in-JS như styled-components.
 
 Bạn thấy sao về CSS-in-JS? Nếu được chọn thì bạn sẽ sử dụng styled-components hay CSS truyền thống để style cho ứng dụng React của bạn?
+
+

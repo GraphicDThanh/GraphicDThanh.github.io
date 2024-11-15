@@ -1,9 +1,12 @@
 ---
-layout: post
-title:  "Khai báo biến với var, let và const trong JavaScript"
-date:   2022-10-12 10:00:00 +0700
-categories: js
+title: "Khai báo biến với var, let và const trong JavaScrip"
+excerpt_separator: <!--more-->
+categories:
+  - js
+tags:
+  - js, var, let, const, declaration
 ---
+
 
 ![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/10/var-let-const.png?w=1280&ssl=1)
 

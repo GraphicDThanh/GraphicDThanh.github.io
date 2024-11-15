@@ -1,8 +1,10 @@
 ---
-layout: post
-title:  "Scope trong JavaScript"
-date:   2022-11-23 10:00:00 +0700
-categories: js
+title: "Scope trong JavaScript"
+excerpt_separator: <!--more-->
+categories:
+  - js
+tags:
+  - js, scope
 ---
 
 ![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/11/agriculture-gfa5e56941_1920.jpeg)

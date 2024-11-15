@@ -1,8 +1,10 @@
 ---
-layout: post
-title:  "Lexical environment trong JavaScript"
-date:   2022-11-03 10:00:00 +0700
-categories: js
+title: "Lexical environment trong JavaScript"
+excerpt_separator: <!--more-->
+categories:
+  - js
+tags:
+  - js, lexical
 ---
 
 Trước khi tìm hiểu về `scope`, `scope chain`, hay cả `closures`, bạn cần hiểu về `Lexical Environment`.

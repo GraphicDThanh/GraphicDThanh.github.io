@@ -1,12 +1,13 @@
 ---
-title: "Trực quan hóa khi chạy mã chương trình"
+title: "Trực quan hoá khi chạy mã chương trình"
 excerpt_separator: <!--more-->
 categories:
   - debug
 tags:
-  - debug
+  - visualization, debug, tips
 ---
 
+![](/assets/images/2022/08/2022-08-truc-quan-hoa-khi-chay-ma-chuong-trinh.webp)
 
 Giả sử bạn cần giải một bài toán [**35. Search Insert Position**](https://leetcode.com/problems/search-insert-position/), tìm giá trị index của target trong một mảng được sắp xếp theo thứ tự tăng dần, nếu không có thì trả về giá trị index cần chèn target vào.
 
@@ -85,22 +86,3 @@ Trên đây là một ví dụ cụ thể về cách bạn có thể sử dụng
 Thay vì đi `console.log` mọi nơi thì cách này xịn xò hơn hẳn phải không?
 
 Lại chúc mọi người debug vui vẻ và giải thêm được nhiều bài toán thú vị nhé.
-
-[Bài viết gốc](https://beautyoncode.com/truc-quan-hoa-khi-chay-ma-chuong-trinh/) nằm ở blog cá nhân của mình, mời bạn ghé chơi.
-
----
-
-If you think these contents are helpful, you could send me an encouraging by:
-- Support me
-  - [☕️ Buy me a coffee](https://ko-fi.com/beautyoncode)
-  - [😇 Send a hi on Momo](https://me.momo.vn/beautyoncode)
-  - [👀 Visit support page](beautyoncode.com/support/)
-- Visit my blog at [beautyoncode.com](beautyoncode.com)
-- Follow me on:
-  - [Careerly](https://careerly.vn/profiles/1140)
-  - [fanpage](facebook.com/beautyoncode)
-  - [linkedin](https://www.linkedin.com/in/graphicdthanh/)
-
-🤘 Chat with me 🤘 
-
-See you around, friends!

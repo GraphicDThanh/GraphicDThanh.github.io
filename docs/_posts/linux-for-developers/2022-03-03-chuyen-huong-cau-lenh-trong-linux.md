@@ -1,9 +1,12 @@
 ---
-layout: post
-title:  "Chuyển hướng câu lệnh trong Linux"
-date:   2022-03-22 10:00:00 +0700
-categories: linux
+title: "Chuyển hướng câu lệnh trong Linux"
+excerpt_separator: <!--more-->
+categories:
+  - linux
+tags:
+  - linux
 ---
+
 ![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/03/signpost-g408c6bc24_1920.jpeg)
 Chào mừng bạn đến với blog số 4 của series [“Linux dành cho lập trình viên”](https://beautyoncode.com/lam-quen-linux-danh-cho-lap-trinh-vien-series-overview/).
 

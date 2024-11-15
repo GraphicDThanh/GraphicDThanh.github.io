@@ -9,7 +9,7 @@ header:
     - label: "<i class='fas fa-download'></i> Get Started"
       url: "/docs/getting-started/"
 excerpt: >
-  A little garden where we plant seeds of knowledge in the programming world.<br />
+  A small garden where we sow seeds of knowledge in the programming world.<br />
   <small><a href="/about/">Learn more</a></small>
 feature_row:
   - image_path: /assets/images/thumbnails/love-cat.jpeg

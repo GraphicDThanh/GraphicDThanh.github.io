@@ -1,9 +1,12 @@
 ---
-layout: post
-title:  "Làm quen Linux giành cho lập trình viên"
-date:   2020-02-12 10:00:00 +0700
-categories: linux
+title: "Làm quen Linux giành cho lập trình viên"
+excerpt_separator: <!--more-->
+categories:
+  - linux
+tags:
+  - linux
 ---
+
 Chào mừng bạn đến với phần 2 của series [“Linux giành cho lập trình viên”](https://beautyoncode.com/lam-quen-va-dieu-huong-he-thong-tap-tin-trong-linux/).
 
 Trong phần Linux cơ bản, đầu tiên mình đã cùng làm quen với Linux qua bài viết [“Giới thiệu về Linux”](https://beautyoncode.com/gioi-thieu-ve-linux/), nếu bạn chưa đọc qua thì hãy dừng ít phút ghé đọc để có cái nhìn tổng quan nhé.

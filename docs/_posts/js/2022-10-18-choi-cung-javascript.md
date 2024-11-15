@@ -1,9 +1,12 @@
 ---
-layout: post
-title:  "Chơi cùng JavaScript"
-date:   2022-10-18 10:00:00 +0700
-categories: js
+title: "Chơi cùng JavaScript"
+excerpt_separator: <!--more-->
+categories:
+  - js
+tags:
+  - js, debug
 ---
+
 Khi học JavaScript bạn thử nghiệm các đoạn code nhỏ bằng các cách nào ?
 
 Thử xem bạn đã dùng cách nào trong các cách sau nhé! 

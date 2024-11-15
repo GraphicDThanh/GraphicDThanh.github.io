@@ -1,12 +1,12 @@
 ---
-title: "Giới thiệu về CLI và các câu lệnh làm việc với file trong Linu"
-excerpt_separator: <!--more-->
+title: "Giới thiệu về CLI và các câu lệnh làm việc với file trong Linux"
 categories:
-  - linux
+  - Linux
 tags:
-  - linux, cli
+  - linux
 ---
 
+![](/assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux.webp)
 
 Chào mừng bạn đến với blog số 5 của [series “Linux dành cho lập trình viên”](https://beautyoncode.com/lam-quen-linux-danh-cho-lap-trinh-vien-series-overview/).
 
@@ -262,7 +262,3 @@ Còn 17c17 có nghĩa là: thay đổi(c) dòng 17 ở file đầu tiên để g
 Nội dung bài blog này đến đây tạm hết rồi, tụi mình đã tìm hiểu thêm về CLI và một số câu lệnh cần dùng khi làm việc với file.
 
 Trong bài viết tiếp theo của series [“Làm quen Linux giành cho lập trình viên”](https://beautyoncode.com/lam-quen-linux-gianh-cho-lap-trinh-vien-series-overview/), sẽ là tìm hiểu thêm về “Shell Variables và Permission” nhé.
-
-Hẹn gặp các bạn trong bài viết sau.
-
-Nếu bạn thích có thể [like fanepage này](https://www.facebook.com/beautyoncode) để theo dõi bài viết mới. Trên đây mình cũng hay đăng các bài viết ngắn về kỹ thuật, kỹ năng ấy. 

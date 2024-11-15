@@ -1,8 +1,10 @@
 ---
-layout: post
-title:  "Điều gì xảy ra khi chạy một chương trình JavaScript?"
-date:   2022-08-30 10:00:00 +0700
-categories: js
+title: "Điều gì xảy ra khi chạy một chương trình JavaScript?"
+excerpt_separator: <!--more-->
+categories:
+  - js
+tags:
+  - js
 ---
 
 > Mọi thứ trong JavaScript diễn ra bên trong một **“Execution Context”**(ngữ cảnh thực thi)

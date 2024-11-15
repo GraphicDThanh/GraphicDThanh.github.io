@@ -15,13 +15,14 @@ These are some of the most popular posts that readers have found particularly he
 
 - [Lexical environment trong JavaScript][lexical-environment-trong-javascript]
 - [Chơi cùng JavaScript][choi-cung-javascript]
-
+- [Array][array]
 - [Khai báo biến với var, let và const trong JavaScript][khai-bao-bien-voi-var-let-va-const-trong-javascript]
-
+- [CSS trong JS là gì?][css-trong-js-la-gi]
 - [Điều gì xảy ra khi chạy một chương trình JavaScript?][dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript]
-
-
-
+- [Gỡ lỗi chương trình][go-loi-chuong-trinh]
+- [Giới thiệu về CLI và các câu lệnh làm việc với file trong Linux][gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux]
+- [.gitkeep][.gitkeep]
+- [Basic knowledges about Redis][basic-knowledges-about-redis]
 - [Chiến lược tải, thực thi code JavaScript][chien-luoc-tai-thuc-thi-code-javascript]
 - [Chuyển hướng câu lệnh trong Linux][chuyen-huong-cau-lenh-trong-linux]
 - [Quản lý hệ thống tập tin trong Linux][quan-ly-he-thong-tap-tin-trong-linux]
@@ -52,15 +53,14 @@ These are some of the most popular posts that readers have found particularly he
 
 [lexical-environment-trong-javascript]: {{ "" | relative_url }}{% post_url js/2022-11-03-lexical-environment-trong-javascript %}
 [choi-cung-javascript]: {{ "" | relative_url }}{% post_url js/2022-10-18-choi-cung-javascript %}
-
+[array]: {{ "" | relative_url }}{% post_url js/2022-10-16-array %}
 [khai-bao-bien-voi-var-let-va-const-trong-javascript]: {{ "" | relative_url }}{% post_url js/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript %}
-
+[css-trong-js-la-gi]: {{ "" | relative_url }}{% post_url js/2022-09-14-css-trong-js-la-gi %}
 [dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript]: {{ "" | relative_url }}{% post_url js/2022-08-30-dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript %}
-
-
-
-
-
+[go-loi-chuong-trinh]: {{ "" | relative_url }}{% post_url debug/2020-06-20-go-loi-chuong-trinh %}
+[gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux]: {{ "" | relative_url }}{% post_url linux/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux %}
+[.gitkeep]: {{ "" | relative_url }}{% post_url linux/2022-06-02-gitkeep %}
+[basic-knowledges-about-redis]: {{ "" | relative_url }}{% post_url database/2022-05-28-basic-knowledges-about-redis %}
 [chien-luoc-tai-thuc-thi-code-javascript]: {{ "" | relative_url }}{% post_url js/2022-04-17-chien-luoc-tai-thuc-thi-code-javascript %}
 [chuyen-huong-cau-lenh-trong-linux]: {{ "" | relative_url }}{% post_url linux/2022-03-22-chuyen-huong-cau-lenh-trong-linux %}
 [quan-ly-he-thong-tap-tin-trong-linux]: {{ "" | relative_url }}{% post_url linux/2022-02-09-quan-ly-he-thong-tap-tin-trong-linux %}

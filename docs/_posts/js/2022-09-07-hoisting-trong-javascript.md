@@ -1,9 +1,12 @@
 ---
-layout: post
-title:  "Hoisting trong JavaScript"
-date:   2022-09-07 10:00:00 +0700
-categories: js
+title: "Hoisting trong JavaScript"
+excerpt_separator: <!--more-->
+categories:
+  - js
+tags:
+  - js, hoisting
 ---
+
 ![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/09/thread-246742_1280.jpeg?w=1280&ssl=1)
 
 Điều khiến JavaScript khó hiểu với những người mới hay chuyển từ ngôn ngữ khác qua chính là JavaScript cho phép sử dụng biến và hàm ngay cả trước cả khi bạn khai báo chúng.
