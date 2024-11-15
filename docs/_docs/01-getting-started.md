@@ -76,7 +76,7 @@ While most of my content is in Vietnames, I write some articles in English also.
 
 - [Export multiple CSVs file into a ZIP in Django][django-export-zip-contains-csv]
 
-[drf-serializer-relation-fields-post]: {{ "" | relative_url }}{% post_url 2023-10-24-relation-fields-in-drf-serializer %}
+[drf-serializer-relation-fields-post]: {{ "" | relative_url }}{% post_url django/2023-10-24-relation-fields-in-drf-serializer %}
 [django-export-docx]: {{ "" | relative_url }}{% post_url django/2023-03-25-export-docx-in-django %}
 [django-export-zip-contains-csv]: {{ "" | relative_url }}{% post_url django/2023-04-01-export-multiple-csv-to-zip-django %}
 ---

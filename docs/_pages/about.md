@@ -32,83 +32,79 @@ last_modified_at: 2024-11-10T17:50:26-04:00
 toc: true
 ---
 
-Welcome to BeautyOnCode – Code Your Life in an Elegant Way
+Welcome to BeautyOnCode – a small garden 🪴 🌿 where we sow seeds 🌱 of knowledge in the programming world 🤖👩🏻‍💼🙎🏻‍♂️.
 
-BeautyOnCode is a tech blog dedicated to unraveling the intricacies of software development, one line of code at a time. Since its inception in 2019, this space has been a platform for sharing insights, practical tips, and personal reflections on the ever-evolving world of programming.
+With the slogan "Code Your Life in an Elegant Way", BeautyOnCode is a tech blog dedicated to unraveling the intricacies of software development, one line of code at a time.
 
-Whether you're delving into backend fundamentals, exploring cloud architectures, mastering frontend design, or refining UI/UX strategies, BeautyOnCode offers something for every tech enthusiast seeking to deepen their knowledge and stay inspired.
+Since its inception in 2019 🐣, this blog has served as a platform for sharing insights, practical tips, and personal reflections on the ever-evolving world of programming.
+
+Whether you're exploring backend fundamentals, diving into cloud architectures, mastering frontend design, refining UI/UX strategies, or even browsing non-tech guides, BeautyOnCode offers something for every tech enthusiast. You'll also find inspiring stories  and experiences shared along the way to keep you motivated 🌹💪🏽 🍀 🎉 🙆🏻‍♀️.
 
 [Get Started]({{ "/docs/getting-started/" | relative_url }}){: .btn .btn--success .btn--large}
 
 ## Author
-I’m Thanh Nguyen Diem, the author of BeautyOnCode. With over a decade of experience in the tech industry, I specialize in web technologies, including:
+I’m Thanh, the author of BeautyOnCode👋. With over a decade of experience in the tech industry 👷🏼 🛠 🐞, I specialize in web technologies, including:
 
-- **Foundations**: Linux, Git, Algorithms
-- **Languages**: HTML, CSS, JavaScript, TypeScript, Python, C#, and more
-- **Libraries & Frameworks**: React, Redux, Next.js, Node.js, NestJS, Django, DRF, pandas, .NET, and others
-- **Databases**: PostgreSQL, Redis
-- **Cloud Platforms**: AWS
+- **🌱 Foundations**: Linux, Git, Algorithms
+- **🔤 Languages**: HTML, CSS, JavaScript, TypeScript, Python, C#, and more
+- **📕 Libraries & Frameworks**: React, Redux, Next.js, Node.js, NestJS, Django, DRF, pandas, .NET, and others
+- **📦 Databases**: PostgreSQL, Redis
+- **☁️ Cloud Platforms**: AWS
 
-Since 2014, I’ve been working as a developer at [AgilityIO](https://www.agilityio.com/) in Da Nang, Vietnam, where I also mentor junior developers and lead medium-sized teams.
+Since 2014, I’ve been working as a developer at 🏚 [AgilityIO](https://www.agilityio.com/) in Da Nang, Vietnam 🏖, where I also mentor junior developers and lead medium-sized teams.
 
 ## Activity
-Outside of work, I volunteered with STEAM for Vietnam, guiding young students in programming as a TA leader and Python lecturer. I’m also a curator on Careerly, supporting the Vietnamese tech community. By late 2022, BeautyOnCode had reached top author status on Careerly, with a following of over 5,000 readers.
+Outside of work, I volunteered with STEAM for Vietnam 🙋🏻‍♀️, guiding young students in programming as a TA leader and Python lecturer. I’m also a curator on Careerly ✍🏻, supporting the Vietnamese tech community. By late 2022, BeautyOnCode had reached top author status on Careerly, with a following of over 5,000 readers 🎯.
 
-{% include gallery id="steam4vn_layouts_gallery" caption="Milestones: My Greatest Time with Steam For VietNam" %}
+{% include gallery id="steam4vn_layouts_gallery" caption="🎯 Milestones: My Greatest Time with Steam For VietNam" %}
 
 <hr/>
 
-{% include gallery id="careerly_layouts_gallery" caption="Milestones: Careerly and journey to top 1 tech author" %}
+{% include gallery id="careerly_layouts_gallery" caption="🎯 Milestones: Careerly and journey to top 1 tech author" %}
 
-Currently, I dedicate time to deepening my technical knowledge and am less active on social media than before.
+Currently, I dedicate time to deepening my technical knowledge 👩🏻‍💻 and am less active on social media than before 🙆🏻‍♀️.
 
 ## Blog topics
-In this blog, I document my ongoing journey as a developer, continuously learning and sharing the tools, techniques, and thoughts that shape my growth. 
+This blog captures my journey as a developer—continuously learning, evolving, and sharing the tools, web techniques, and insights that shape my growth.
 
-If you’re interested in connecting, check out my [LinkedIn](https://www.linkedin.com/in/graphicdthanh/) 
+**Topics:**
+- CS Foundations
+- Web Development: HTML, CSS, JavaScript, React, Python, Django, DevOps, and more
+- Others: personal development
 
-You also could explore some of great communities I’m part of, including [WeBuild](https://www.webuild.community/), [Viblo](https://viblo.asia/u/BeautyOnCode), [Dwarves Foundation](https://dwarves.foundation/), and [VietTech Group](https://www.viettech.group/).
-
-Thank you for joining me here—let’s grow together in the ever-evolving world of code.
+Most blog posts are written in Vietnamese 🇻🇳. If you prefer English 🏴󠁧󠁢󠁥󠁮󠁧󠁿, check out the [English Posts][english-post] 🎉.
 
 ## Top blog views
 
 | Title                                        | Description                                           |
 | ------------------------------------------- | ----------------------------------------------------- |
-| [Gỡ lỗi chương trình][html-tags-post] | A variety of common markup showing how the theme styles them. |
-| [Giới thiệu về CLI và các câu lệnh làm việc với file trong Linux][sample-collection] | Single page from a collection. |
-| [Lexical environment trong JavaScript][header-image-post] | A post with a large header image. |
-| [Khai báo biến với var, let và const trong JavaScript][syntax-post] | Post displaying highlighted code. |
-| [Giúp robot Reeborg vượt thử thách][gallery-post] | A post showing several images wrapped in `<figure>` elements. |
-| [Làm quen Linux dành cho lập trình viên][sample-collection] | Posts group by collection. |
+| [Gỡ lỗi chương trình][go-loi-chuong-trinh] | Một số mẹo và kỹ thuật để nhận dạng bug và sửa nó hiệu quả |
+| [Giới thiệu về CLI và các câu lệnh làm việc với file trong Linux][gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux] | Làm quen CLI và một số câu lệnh khi làm việc với tập tin(file) |
+| [Lexical environment trong JavaScript][lexical-environment-trong-javascript] | Tìm hiểu về Lexical environment trong JS |
+| [Khai báo biến với var, let và const trong JavaScript][khai-bao-bien-voi-var-let-va-const-trong-javascript] | Phân biệt và sử dụng đúng var, let, const |
+| [Giúp robot Reeborg vượt thử thách][giup-robot-reebord-vuot-thu-thach] | Học Python qua thực tập cùng game Reeborg |
+| [Làm quen Linux dành cho lập trình viên][lam-quen-linux-danh-cho-lap-trinh-vien-series-overview] | Chuỗi bài viết Linux dành cho người mới bắt đầu học lập trình |
 | [Categories Archive][categories-archive] | Posts grouped by category. |
 | [Tags Archive][tags-archive] | Posts grouped by tag. |
 
 For even more demo pages check the [posts archive][year-archive].
 
-[header-image-post]: {{ "" | relative_url }}{% post_url 2012-03-15-layout-header-image-text-readability %}
-[gallery-post]: {{ "" | relative_url }}{% post_url 2010-09-09-post-gallery %}
-[html-tags-post]: {{ "" | relative_url }}{% post_url 2013-01-11-markup-html-tags-and-formatting %}
-[syntax-post]: {{ "" | relative_url }}{% post_url 2013-08-16-markup-syntax-highlighting %}
-[sample-collection]: {{ "/recipes/chocolate-chip-cookies/" | relative_url }}
+[go-loi-chuong-trinh]: {{ "" | relative_url }}{% post_url debug/2020-06-20-go-loi-chuong-trinh %}
+[gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux]: {{ "" | relative_url }}{% post_url linux/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux %}
+[lexical-environment-trong-javascript]: {{ "" | relative_url }}{% post_url js/2022-11-03-lexical-environment-trong-javascript %}
+[khai-bao-bien-voi-var-let-va-const-trong-javascript]: {{ "" | relative_url }}{% post_url js/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript %}
+[giup-robot-reebord-vuot-thu-thach]: {{ "" | relative_url }}{% post_url python/2021-10-31-giup-robot-reebord-vuot-thu-thach %}
+[lam-quen-linux-danh-cho-lap-trinh-vien-series-overview]: {{ "" | relative_url }}{% post_url linux/2022-01-29-lam-quen-linux-danh-cho-lap-trinh-vien-series-overview %}
 [categories-archive]: {{ "/categories/" | relative_url }}
 [tags-archive]: {{ "/tags/" | relative_url }}
 [year-archive]: {{ "/year-archive/" | relative_url }}
-
-## Cross posts
-Beside this blog, I have some cross posts place:
-- [BeautyOnCode on Viblo](https://viblo.asia/u/BeautyOnCode)
-
----
+[english-post]: {{ "/docs/english-posts/" | relative_url }}
 
 ## Credits
+This blog build on [Jekyll](https://jekyllrb.com/) and [Theme Minimal Mistakes](https://github.com/mmistakes/minimal-mistakes), host by [Github Page](https://pages.github.com/). 
 
-### Blog Build:
-
-- [Github Page](https://pages.github.com/)
-- [Jekyll](https://jekyllrb.com/)
-- [Theme Minimal Mistakes](https://github.com/mmistakes/minimal-mistakes)
+Thank you 🙇‍♀️
 
 ---
 
-BeautyOnCode is designed, developed, and maintained by Thanh Nguyen.
+BeautyOnCode content is designed, developed, and maintained by Thanh Nguyen 🫡

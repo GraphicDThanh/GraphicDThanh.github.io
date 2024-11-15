@@ -100,10 +100,10 @@ analytics:
 author:
   name             : *name # *name is a YAML reference pointing to the &anchor earlier
   avatar           : "/assets/images/logo/thanh-nguyen.jpg"
-  bio              : "Web developer, nature lover, curious soul, and laid-back mom balancing code with life’s simple joys."
+  bio              : "Web developer 👩🏻‍💻, nature lover 🪴, curious soul 🙊, and laid-back mom 👦🏻 balancing code with life’s simple joys 🥂."
   location         : "Da Nang, VN"
   links:
-    - label: "BeautyOnCode"
+    - label: "BeautyOnCode"ß
       icon: "fas fa-fw fa-link"
       url: "https://beautyoncode.com"
     - label: "Linkedin"

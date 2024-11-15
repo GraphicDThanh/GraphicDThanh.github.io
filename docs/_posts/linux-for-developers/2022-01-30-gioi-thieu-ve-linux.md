@@ -1,8 +1,10 @@
 ---
-layout: post
-title:  ""
-date:   2022-01-30 10:00:00 +0700
-categories: linux
+title: "Giới Thiệu Về Linux"
+excerpt_separator: <!--more-->
+categories:
+  - linux
+tags:
+  - linux
 ---
 
 Chào mừng bạn đến với series [“Làm quen Linux giành cho lập trình viên”](https://beautyoncode.com/lam-quen-linux-gianh-cho-lap-trinh-vien-series-overview/), đây là bài blog đầu tiên của series này nè. Hi vọng bạn ủng hộ nhé!

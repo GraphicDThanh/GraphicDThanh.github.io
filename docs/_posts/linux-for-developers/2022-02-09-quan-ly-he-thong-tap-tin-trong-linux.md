@@ -1,8 +1,10 @@
 ---
-layout: post
-title:  "Quản lý hệ thống tập tin trong Linux"
-date:   2022-02-09 10:00:00 +0700
-categories: linux
+title: "Quản lý hệ thống tập tin trong Linux"
+excerpt_separator: <!--more-->
+categories:
+  - linux
+tags:
+  - linux
 ---
 
 ![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/02/success-g0ab034520_1280.jpeg)
