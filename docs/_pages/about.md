@@ -34,7 +34,7 @@ toc: true
 
 BeautyOnCode is a tech blog dedicated to exploring the intricacies of software development, one line of code at a time. Since 2019, BeautyOnCode has been a space where I share insights, practical tips, and personal reflections on the programming world. From backend fundamentals and cloud architectures to frontend design and UI/UX strategies, this blog has something for every tech enthusiast looking to deepen their understanding and stay inspired.
 
-[Get Started]({{ "/docs/quick-start-guide/" | relative_url }}){: .btn .btn--success .btn--large}
+[Get Started]({{ "/docs/getting-started/" | relative_url }}){: .btn .btn--success .btn--large}
 
 ## Author
 I’m Thanh Nguyen Diem, the author behind BeautyOnCode. With over a decade in the tech industry, my experience spans backend technologies like C#/.NET, Python, Django, and Node.js, and I’m equally passionate about creating intuitive user experiences with React, Redux, and Next.js. 

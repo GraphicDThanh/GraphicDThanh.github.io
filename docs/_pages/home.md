@@ -7,7 +7,7 @@ header:
   overlay_image: /assets/images/banner/blog-banner.jpg
   actions:
     - label: "<i class='fas fa-download'></i> Get Started"
-      url: "/docs/quick-start-guide/"
+      url: "/docs/getting-started/"
 excerpt: >
   A little garden where we plant seeds of knowledge in the programming world.<br />
   <small><a href="/about/">Learn more</a></small>
