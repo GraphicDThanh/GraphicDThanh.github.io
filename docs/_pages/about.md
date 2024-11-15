@@ -32,23 +32,35 @@ last_modified_at: 2024-11-10T17:50:26-04:00
 toc: true
 ---
 
-BeautyOnCode is a tech blog dedicated to exploring the intricacies of software development, one line of code at a time. Since 2019, BeautyOnCode has been a space where I share insights, practical tips, and personal reflections on the programming world. From backend fundamentals and cloud architectures to frontend design and UI/UX strategies, this blog has something for every tech enthusiast looking to deepen their understanding and stay inspired.
+Welcome to BeautyOnCode – Code Your Life in an Elegant Way
 
-[Get Started]({{ "/docs/quick-start-guide/" | relative_url }}){: .btn .btn--success .btn--large}
+BeautyOnCode is a tech blog dedicated to unraveling the intricacies of software development, one line of code at a time. Since its inception in 2019, this space has been a platform for sharing insights, practical tips, and personal reflections on the ever-evolving world of programming.
+
+Whether you're delving into backend fundamentals, exploring cloud architectures, mastering frontend design, or refining UI/UX strategies, BeautyOnCode offers something for every tech enthusiast seeking to deepen their knowledge and stay inspired.
+
+[Get Started]({{ "/docs/getting-started/" | relative_url }}){: .btn .btn--success .btn--large}
 
 ## Author
-I’m Thanh Nguyen Diem, the author behind BeautyOnCode. With over a decade in the tech industry, my experience spans backend technologies like C#/.NET, Python, Django, and Node.js, and I’m equally passionate about creating intuitive user experiences with React, Redux, and Next.js. 
+I’m Thanh Nguyen Diem, the author of BeautyOnCode. With over a decade of experience in the tech industry, I specialize in web technologies, including:
+
+- **Foundations**: Linux, Git, Algorithms
+- **Languages**: HTML, CSS, JavaScript, TypeScript, Python, C#, and more
+- **Libraries & Frameworks**: React, Redux, Next.js, Node.js, NestJS, Django, DRF, pandas, .NET, and others
+- **Databases**: PostgreSQL, Redis
+- **Cloud Platforms**: AWS
 
 Since 2014, I’ve been working as a developer at [AgilityIO](https://www.agilityio.com/) in Da Nang, Vietnam, where I also mentor junior developers and lead medium-sized teams.
 
 ## Activity
-Outside of work, I volunteer with STEAM for Vietnam, guiding young students in programming as a TA leader and Python lecturer. I’m also a curator on Careerly, supporting the Vietnamese tech community. By late 2022, BeautyOnCode had reached top author status on Careerly, with a following of over 5,000 readers.
+Outside of work, I volunteered with STEAM for Vietnam, guiding young students in programming as a TA leader and Python lecturer. I’m also a curator on Careerly, supporting the Vietnamese tech community. By late 2022, BeautyOnCode had reached top author status on Careerly, with a following of over 5,000 readers.
 
 {% include gallery id="steam4vn_layouts_gallery" caption="Milestones: My Greatest Time with Steam For VietNam" %}
 
 <hr/>
 
 {% include gallery id="careerly_layouts_gallery" caption="Milestones: Careerly and journey to top 1 tech author" %}
+
+Currently, I dedicate time to deepening my technical knowledge and am less active on social media than before.
 
 ## Blog topics
 In this blog, I document my ongoing journey as a developer, continuously learning and sharing the tools, techniques, and thoughts that shape my growth. 
