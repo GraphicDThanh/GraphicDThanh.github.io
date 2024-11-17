@@ -74,20 +74,20 @@ These are some of the most popular posts that readers have found particularly he
 [leetcode-94-binary-tree-inorder-traversal]: {{ "" | relative_url }}{% post_url algorithms/2021-08-25-leetcode-94-binary-tree-inorder-traversal %}
 [lam-tron-dung-hai-chu-so-thap-phan-trong-python]: {{ "" | relative_url }}{% post_url python/2021-09-19-lam-tron-dung-hai-chu-so-thap-phan-trong-python %}
 [kiem-tra-query-params-va-chuyen-doi-kieu-du-lieu-khi-lam-api-voi-nestjs]: {{ "" | relative_url }}{% post_url nestjs/2020-08-01-nestjs-tips-validation-query-params %}
-[lop-trong-python]: {{ "" | relative_url }}{% post_url dai-ban-doanh-python/2021-06-30-lop-trong-python %}
-[khong-gian-ten-va-pham-vi-trong-python]: {{ "" | relative_url }}{% post_url dai-ban-doanh-python/2021-06-16-khong-gian-ten-va-pham-vi-trong-python %}
+[lop-trong-python]: {{ "" | relative_url }}{% post_url python/2021-06-30-dbd-lop-trong-python %}
+[khong-gian-ten-va-pham-vi-trong-python]: {{ "" | relative_url }}{% post_url python/2021-06-16-dbd-khong-gian-ten-va-pham-vi-trong-python %}
 [leetcode-190-reverse-bits]: {{ "" | relative_url }}{% post_url algorithms/2020-09-23-leetcode-190-reverse-bits %}
-[iterable-iterator-generator-python]: {{ "" | relative_url }}{% post_url dai-ban-doanh-python/2020-09-09-iterator-va-generator-trong-python %}
-[loi-va-xu-ly-ngoai-le-python]: {{ "" | relative_url }}{% post_url dai-ban-doanh-python/2020-08-12-loi-va-xu-ly-ngoai-le-python %}
+[iterable-iterator-generator-python]: {{ "" | relative_url }}{% post_url python/2020-09-09-dbd-iterator-va-generator-trong-python %}
+[loi-va-xu-ly-ngoai-le-python]: {{ "" | relative_url }}{% post_url python/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python %}
 [export-docx-file-django]: {{ "" | relative_url }}{% post_url django/2023-03-25-export-docx-in-django %}
-[kham-pha-dai-ban-doanh-python-series-overview]: {{ "" | relative_url }}{% post_url dai-ban-doanh-python/2020-07-01-dai-ban-doanh-python-series-overview %}
-[cau-truc-du-lieu-trong-python]: {{ "" | relative_url }}{% post_url dai-ban-doanh-python/2020-06-17-cau-truc-du-lieu-python %}
-[io-trong-python]: {{ "" | relative_url }}{% post_url dai-ban-doanh-python/2020-06-17-input-output-python %}
-[chiec-may-tinh-pi]: {{ "" | relative_url }}{% post_url dai-ban-doanh-python/2020-05-20-chiec-may-tinh-PI %}
-[tai-lieu-hoc-va-nghien-cuu-python]: {{ "" | relative_url }}{% post_url dai-ban-doanh-python/2020-04-08-tai-lieu-hoc-va-nghien-cuu-python %}
-[ai-da-thanh-cong-cung-python]: {{ "" | relative_url }}{% post_url dai-ban-doanh-python/2020-03-11-ai-da-thanh-cong-cung-python %}
-[bat-dau-voi-python]: {{ "" | relative_url }}{% post_url dai-ban-doanh-python/2020-06-02-bat-dau-voi-python %}
-[python-co-the-lam-gi]: {{ "" | relative_url }}{% post_url dai-ban-doanh-python/2020-02-12-python-co-the-lam-gi-nhi %}
+[kham-pha-dai-ban-doanh-python-series-overview]: {{ "" | relative_url }}{% post_url python/2020-07-01-dbd-dai-ban-doanh-python-series-overview %}
+[cau-truc-du-lieu-trong-python]: {{ "" | relative_url }}{% post_url python/2020-06-17-dbd-cau-truc-du-lieu-python %}
+[io-trong-python]: {{ "" | relative_url }}{% post_url python/2020-06-17-dbd-input-output-python %}
+[chiec-may-tinh-pi]: {{ "" | relative_url }}{% post_url python/2020-05-20-dbd-chiec-may-tinh-PI %}
+[tai-lieu-hoc-va-nghien-cuu-python]: {{ "" | relative_url }}{% post_url python/2020-04-08-dbd-tai-lieu-hoc-va-nghien-cuu-python %}
+[ai-da-thanh-cong-cung-python]: {{ "" | relative_url }}{% post_url python/2020-03-11-dbd-ai-da-thanh-cong-cung-python %}
+[bat-dau-voi-python]: {{ "" | relative_url }}{% post_url python/2020-06-02-dbd-bat-dau-voi-python %}
+[python-co-the-lam-gi]: {{ "" | relative_url }}{% post_url python/2020-02-12-dbd-python-co-the-lam-gi-nhi %}
 
 
 

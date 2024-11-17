@@ -12,7 +12,7 @@ last_modified_at: 2020-05-20T15:12:19-04:00
 ---
 
 ![](/assets/images/2020/05/2020-05-chiec-may-tinh-PI-cover.jpg)
-Chào mừng mọi người đến với phần [“The Python Tutorial”](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/05/chiec-may-tinh-PI.html) của series “Khám phá Đại Bản Doanh Python”. The Python Tutorial mang đến những khái niệm và các tính năng cơ bản nhất của Python và cú pháp của nó.
+Chào mừng mọi người đến với phần [“The Python Tutorial”](https://graphicdthanh.github.io/python/2020/05/chiec-may-tinh-PI.html) của series “Khám phá Đại Bản Doanh Python”. The Python Tutorial mang đến những khái niệm và các tính năng cơ bản nhất của Python và cú pháp của nó.
 
 Những nội dung trong bài series này từ chủ yếu mình lấy từ python.org rồi viết lại theo ngôn ngữ của mình.
 

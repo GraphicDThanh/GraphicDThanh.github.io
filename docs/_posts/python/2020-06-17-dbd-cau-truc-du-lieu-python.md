@@ -13,9 +13,9 @@ last_modified_at: 2020-06-03T15:12:19-04:00
 
 ![](/assets/images/2020/06/2020-06-cau-truc-du-lieu-python-cover.webp)
 
-Chào mừng mọi người đến với bài post tiếp theo của phần [“The Python Tutorial”](https://docs.python.org/3/tutorial/) của series [Khám phá Đại Bản Doanh Python](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/07/dai-ban-doanh-python-series-overview.html). The Python Tutorial mang đến những khái niệm và các tính năng cơ bản nhất của Python và cú pháp của nó.
+Chào mừng mọi người đến với bài post tiếp theo của phần [“The Python Tutorial”](https://docs.python.org/3/tutorial/) của series [Khám phá Đại Bản Doanh Python](https://graphicdthanh.github.io/python/2020/07/dai-ban-doanh-python-series-overview.html). The Python Tutorial mang đến những khái niệm và các tính năng cơ bản nhất của Python và cú pháp của nó.
 
-Mình đã biết qua về những công cụ điều khiển luồng dữ liệu và hàm ở [bài trước](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/03/dieu-khien-luong-du-lieu-python.html). Trong bài này, mình học tiếp về các cách mà Python có thể giúp mình lưu trữ những dạng dữ liệu khác nhau nhé.
+Mình đã biết qua về những công cụ điều khiển luồng dữ liệu và hàm ở [bài trước](https://graphicdthanh.github.io/python/2020/03/dieu-khien-luong-du-lieu-python.html). Trong bài này, mình học tiếp về các cách mà Python có thể giúp mình lưu trữ những dạng dữ liệu khác nhau nhé.
 
 (Những nội dung trong bài series này từ chủ yếu mình lấy từ python.org rồi viết lại hoặc dịch lại theo ngôn ngữ của mình)
 
@@ -37,7 +37,7 @@ Lưu ý nho nhỏ ở đây mình không nói đến những phương thức đ�
 
 Để biết rõ hơn các phương thức trên hoạt động ra sao, mình dùng **help()** để xem tài liệu về chúng.
 
-Bạn có thấy đối số đặt biệt **/** bên dưới chứ, hi vọng bạn biết chúng dùng để làm gì ^^(nếu chưa rõ mời bạn ghé đọc phần Function trong [bài này](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/03/dieu-khien-luong-du-lieu-python.html) nhé)
+Bạn có thấy đối số đặt biệt **/** bên dưới chứ, hi vọng bạn biết chúng dùng để làm gì ^^(nếu chưa rõ mời bạn ghé đọc phần Function trong [bài này](https://graphicdthanh.github.io/python/2020/03/dieu-khien-luong-du-lieu-python.html) nhé)
 
 ![](/assets/images/2020/06/2020-06-cau-truc-du-lieu-python-image-2-list-2.webp)
 

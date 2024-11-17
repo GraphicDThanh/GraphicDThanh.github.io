@@ -13,17 +13,17 @@ last_modified_at: 2020-03-11T15:12:19-04:00
 
 ![](/assets/images/2020/03/2020-03-ai-da-thanh-cong-cung-python-cover.png)
 
-Chào mừng mọi người đến với bài post thứ hai của phần “Lượn lờ cùng Python” của series “[Khám phá Đại Bản Doanh Python](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/07/dai-ban-doanh-python-series-overview.html)”
+Chào mừng mọi người đến với bài post thứ hai của phần “Lượn lờ cùng Python” của series “[Khám phá Đại Bản Doanh Python](https://graphicdthanh.github.io/python/2020/07/dai-ban-doanh-python-series-overview.html)”
 
 ## Mở bài
 Trong phần này, tụi mình sẽ cùng nhau dạo quanh quanh những phần ngoài lề trước khi tấn công vào document ở những phần tiếp theo nhé.
 Mình sẽ đi trả lời nhưng câu hỏi sau trong “**Lượn lờ cùng Python**”:
 
-♣ [Python có thể dùng để làm gì nhỉ?](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/02/12/python-co-the-lam-gi-nhi.html)
+♣ [Python có thể dùng để làm gì nhỉ?](https://graphicdthanh.github.io/python/2020/02/12/python-co-the-lam-gi-nhi.html)
 
-♣ [Ai đã thành công cùng Python? ](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/03/11/ai-da-thanh-cong-cung-python.html)
+♣ [Ai đã thành công cùng Python? ](https://graphicdthanh.github.io/python/2020/03/11/ai-da-thanh-cong-cung-python.html)
 
-♣ [Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020)
+♣ [Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?](https://graphicdthanh.github.io/python/2020)
 
 Những nội dung trong bài series này từ “Đại bản doanh Python” python.org, mình viết bằng ngôn ngữ của mình kèm theo những tài liệu khác mà mình thấy liên quan và hữu ích cho chủ đề của bài.
 Bài dưới đây sẽ đi trả lời câu hỏi “**Ai đã thành công cùng Python?**” nằm trong mục “Success Stories” nha.
@@ -91,4 +91,4 @@ Thực ra thì có quá trời câu chuyện thành công với Python ngoài ki
 
 Giờ đến lượt tụi mình viết câu chuyện của chính mình đó. Nhưng trước hết, phải học đã rồi nói chuyện tiếp nhé :”>
 
-Ở bài viết sau, mình sẽ tiếp tục khám phá câu hỏi [“Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?”](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/02/bat-dau-voi-python.htnl) cùng phần “Getting Started“.
+Ở bài viết sau, mình sẽ tiếp tục khám phá câu hỏi [“Háo hức với Python quá ♥ Mình nên bắt đầu từ đâu?”](https://graphicdthanh.github.io/python/2020/02/bat-dau-voi-python.htnl) cùng phần “Getting Started“.
