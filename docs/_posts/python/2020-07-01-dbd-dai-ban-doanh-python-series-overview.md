@@ -14,7 +14,7 @@ last_modified_at: 2020-07-01T15:12:19-04:00
 ![](/assets/images/2020/07/2020-07-dai-ban-doanh-python-series-overview-cover.jpg)
 (Image by Ajay kumar Singh from Pixabay)
 
-Và [từ đó](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/01/buoi-si-nghi-nghiem-tuc-tai-dai-ban-doanh.html), sê ri “Khám Phá Đại Bản Doanh Python” ra đời
+Và [từ đó](https://graphicdthanh.github.io/python/2020/01/buoi-si-nghi-nghiem-tuc-tai-dai-ban-doanh.html), sê ri “Khám Phá Đại Bản Doanh Python” ra đời
 
 Chuyện là mình học Python cũng được hơn hai năm rồi và đang làm dự án về Python và Django.
 Lần đầu viết blog về tech, chẳng biết viết gì nên mình đi nghiên cứu trang python.org để lưu lại kiến thức từ khi bắt đầu học để hiểu rõ hơn về cái mình đang học và làm.

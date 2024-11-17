@@ -13,7 +13,7 @@ last_modified_at: 2020-04-08T15:12:19-04:00
 
 ![](/assets/images/2020/04/2020-08-tai-lieu-hoc-va-nghien-cuu-python-cover.webp)
 
-Chào mừng mọi người đến với bài cuối cùng của phần “Lượn lờ cùng Python” của series [Khám phá Đại Bản Doanh Python](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/07/dai-ban-doanh-python-series-overview.html)
+Chào mừng mọi người đến với bài cuối cùng của phần “Lượn lờ cùng Python” của series [Khám phá Đại Bản Doanh Python](https://graphicdthanh.github.io/python/2020/07/dai-ban-doanh-python-series-overview.html)
 
 ♣ Tài liệu videos và audio cho người học và nghiên cứu Python
 
@@ -173,4 +173,4 @@ Mình viết tới đây mình mình trở thành fan hâm mộ chính thức c�
 
 #### Kết bài
 Bài viết hôm nay tạm dừng ở đây ha, cám ơn các bác ghé nhà em chơi.
-Ở bài viết sau, mình sẽ cùng “[Chiếc máy tính PI](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/05/20/chiec-may-tinh-PI.html)” cùng phần The Python Tutorial nhé.
+Ở bài viết sau, mình sẽ cùng “[Chiếc máy tính PI](https://graphicdthanh.github.io/python/2020/05/20/chiec-may-tinh-PI.html)” cùng phần The Python Tutorial nhé.

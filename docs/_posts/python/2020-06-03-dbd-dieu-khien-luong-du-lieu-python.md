@@ -15,7 +15,7 @@ last_modified_at: 2020-06-03T15:12:19-04:00
 ![](/assets/images/2020/06/2020-06-dieu-khien-luong-du-lieu-python-cover.webp)
 
 ## Mở bài
-Chào mừng mọi người đến với bài post tiếp theo của phần [“The Python Tutorial”](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/05/chiec-may-tinh-PI.html) của series [“Khám phá Đại Bản Doanh Python”](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/07/dai-ban-doanh-python-series-overview.html).
+Chào mừng mọi người đến với bài post tiếp theo của phần [“The Python Tutorial”](https://graphicdthanh.github.io/python/2020/05/chiec-may-tinh-PI.html) của series [“Khám phá Đại Bản Doanh Python”](https://graphicdthanh.github.io/python/2020/07/dai-ban-doanh-python-series-overview.html).
 
 The Python Tutorial mang đến những khái niệm và các tính năng cơ bản nhất của Python và cú pháp của nó.
 
@@ -225,4 +225,4 @@ Ngày nào cũng làm việc với Python, ngày nào cũng dùng control flow c
 
 Hôm ni các bạn cùng mình học Python đến đây thôi nhé, những nội dung này toàn là kiến thức cơ bản của Python mà mình vừa đọc vừa viết để luôn tiện ôn bài luôn hihi.
 
-Ở bài viết sau, mình sẽ đi học tiếp về [cấu trúc dữ liệu của Python](https://graphicdthanh.github.io/python/dai-ban-doanh-python/2020/06/cau-truc-du-lieu-python.html) nằm trong “**The Python Tutorial**” thuộc sê ri tào lao vĩ đại “Khám phá Đại Bản Doanh Python” nha.
+Ở bài viết sau, mình sẽ đi học tiếp về [cấu trúc dữ liệu của Python](https://graphicdthanh.github.io/python/2020/06/cau-truc-du-lieu-python.html) nằm trong “**The Python Tutorial**” thuộc sê ri tào lao vĩ đại “Khám phá Đại Bản Doanh Python” nha.
