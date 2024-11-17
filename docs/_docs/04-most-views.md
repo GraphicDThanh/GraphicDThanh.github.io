@@ -75,7 +75,7 @@ These are some of the most popular posts that readers have found particularly he
 [lam-tron-dung-hai-chu-so-thap-phan-trong-python]: {{ "" | relative_url }}{% post_url python/2021-09-19-lam-tron-dung-hai-chu-so-thap-phan-trong-python %}
 [kiem-tra-query-params-va-chuyen-doi-kieu-du-lieu-khi-lam-api-voi-nestjs]: {{ "" | relative_url }}{% post_url nestjs/2020-08-01-nestjs-tips-validation-query-params %}
 [lop-trong-python]: {{ "" | relative_url }}{% post_url python/2021-06-30-dbd-lop-trong-python %}
-[khong-gian-ten-va-pham-vi-trong-python]: {{ "" | relative_url }}{% post_url python/2021-06-16-khong-gian-ten-va-pham-vi-trong-python %}
+[khong-gian-ten-va-pham-vi-trong-python]: {{ "" | relative_url }}{% post_url python/2021-06-16-dbd-khong-gian-ten-va-pham-vi-trong-python %}
 [leetcode-190-reverse-bits]: {{ "" | relative_url }}{% post_url algorithms/2020-09-23-leetcode-190-reverse-bits %}
 [iterable-iterator-generator-python]: {{ "" | relative_url }}{% post_url python/2020-09-09-dbd-iterator-va-generator-trong-python %}
 [loi-va-xu-ly-ngoai-le-python]: {{ "" | relative_url }}{% post_url python/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python %}
