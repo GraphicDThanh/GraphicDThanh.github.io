@@ -103,7 +103,7 @@ author:
   bio              : "Web developer 👩🏻‍💻, nature lover 🪴, curious soul 🙊, and laid-back mom 👦🏻 balancing code with life’s simple joys 🥂."
   location         : "Da Nang, VN"
   links:
-    - label: "BeautyOnCode"ß
+    - label: "BeautyOnCode"
       icon: "fas fa-fw fa-link"
       url: "https://beautyoncode.com"
     - label: "Linkedin"
