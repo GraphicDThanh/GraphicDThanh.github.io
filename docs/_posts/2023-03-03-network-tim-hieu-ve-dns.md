@@ -1,5 +1,5 @@
 ---
-title: "Tìm hiểu về DNS"
+title: "Learn about DNS"
 excerpt_separator: <!--more-->
 categories:
   - Network
