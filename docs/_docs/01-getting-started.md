@@ -44,33 +44,43 @@ For multi-part topics, I’ve organized posts into series. If you're diving into
 
 ### Popular Posts to Get Started:
 #### Linux essentials
-- Giới thiệu về Linux
+- [Giới thiệu về CLI và các câu lệnh làm việc với file trong Linux][gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux]
+- [Làm quen câu lệnh và hệ thống tập tin trong Linux][lam-quen-va-dieu-huong-he-thong-tap-tin-trong-linux]
+- [Quản lý hệ thống tập tin trong Linux][quan-ly-he-thong-tap-tin-trong-linux]
 
-- Làm quen câu lệnh và hệ thống tập tin trong Linux
-
-- Quản lý hệ thống tập tin trong Linux
+[gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux]: {{ "" | relative_url }}{% post_url linux/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux %}
+[lam-quen-va-dieu-huong-he-thong-tap-tin-trong-linux]: {{ "" | relative_url }}{% post_url linux/2022-02-03-lam-quen-va-dieu-huong-he-thong-tap-tin-trong-linux %}
+[quan-ly-he-thong-tap-tin-trong-linux]: {{ "" | relative_url }}{% post_url linux/2022-02-09-quan-ly-he-thong-tap-tin-trong-linux %}
 
 #### Javascript essentials
-→ Điều gì xảy ra khi chạy một chương trình JavaScript?
+- [Điều gì xảy ra khi chạy một chương trình JavaScript?][dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript]
+- [Khai báo biến với var, let và const trong JavaScript][khai-bao-bien-voi-var-let-va-const-trong-javascript]
+- [Lexical environment trong JavaScript][lexical-environment-trong-javascript]
+
+
+[dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript]: {{ "" | relative_url }}{% post_url js/2022-08-30-dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript %}
+[khai-bao-bien-voi-var-let-va-const-trong-javascript]: {{ "" | relative_url }}{% post_url js/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript %}
+[lexical-environment-trong-javascript]: {{ "" | relative_url }}{% post_url js/2022-11-03-lexical-environment-trong-javascript %}
 
 #### Python essentials
-- Khám phá đại bản doanh Python series overview
+- [Khám phá Đại Bản Doanh Python Series Overview][kham-pha-dai-ban-doanh-python-series-overview]
+- [Python có thể dùng để làm gì nhỉ?][python-co-the-lam-gi]
+- [Lớp trong Python][lop-trong-python]
+- [Iterable, Iterator và Generator trong Python][iterable-iterator-generator-python]
+- [Làm game Hangman với Python][lam-game-hangman-voi-python]
+- [Không gian tên(namespace) và phạm vi(scope) trong Python][khong-gian-ten-va-pham-vi-trong-python]
 
-- Python có thể dùng để làm gì nhỉ?
-
-- Lớp trong Python
-
-- Iterable, iterator và generator trong Python
-
-- Làm game Hangman với Python
-
-- Không gian tên(namespace) và phạm vi(scope) trong Python
-
+[kham-pha-dai-ban-doanh-python-series-overview]: {{ "" | relative_url }}{% post_url python/2020-07-01-dbd-dai-ban-doanh-python-series-overview %}
+[python-co-the-lam-gi]: {{ "" | relative_url }}{% post_url python/2020-02-12-dbd-python-co-the-lam-gi-nhi %}
+[lop-trong-python]: {{ "" | relative_url }}{% post_url python/2021-06-30-dbd-lop-trong-python %}
+[iterable-iterator-generator-python]: {{ "" | relative_url }}{% post_url python/2020-09-09-dbd-iterator-va-generator-trong-python %}
+[lam-game-hangman-voi-python]: {{ "" | relative_url }}{% post_url python/2021-10-06-lam-game-hangman-voi-python %}
+[khong-gian-ten-va-pham-vi-trong-python]: {{ "" | relative_url }}{% post_url python/2021-06-16-dbd-khong-gian-ten-va-pham-vi-trong-python %}
 
 ### English Posts to Get Started:
 While most of my content is in Vietnames, I write some articles in English also.
 
-- [Relation fields in Django Rest Framework Serializer][drf-serializer-relation-fields-post] 
+- [Relation fields in Django Rest Framework Serializer][drf-serializer-relation-fields-post]
 
 - [Export a docx file in Django application][django-export-docx]
 
@@ -79,6 +89,4 @@ While most of my content is in Vietnames, I write some articles in English also.
 [drf-serializer-relation-fields-post]: {{ "" | relative_url }}{% post_url django/2023-10-24-relation-fields-in-drf-serializer %}
 [django-export-docx]: {{ "" | relative_url }}{% post_url django/2023-03-25-export-docx-in-django %}
 [django-export-zip-contains-csv]: {{ "" | relative_url }}{% post_url django/2023-04-01-export-multiple-csv-to-zip-django %}
----
 
-That's it!
