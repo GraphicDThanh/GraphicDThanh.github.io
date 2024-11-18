@@ -31,6 +31,9 @@ A core member of the React team at Meta and a leading voice in the JavaScript an
 ### Swyx (Shawn Wang)
 Swyx is a developer advocate and speaker who writes about learning in public, React, and JavaScript. His blog and social media presence offer insights on new technologies and developer productivity. Visit Swyx’s Blog
 
+### Vadim Kravcenko
+https://vadimkravcenko.com/
+
 ## 3. Other Notable Blogs
 ### Smashing Magazine
 Smashing Magazine publishes detailed articles on web design and development, with a strong focus on UX/UI, accessibility, and front-end best practices. Their expert contributors share case studies and practical tips that are useful for designers and developers alike. Visit Smashing Magazine
