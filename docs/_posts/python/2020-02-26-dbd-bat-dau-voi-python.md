@@ -100,7 +100,7 @@ Mình tạt qua giới thiệu cái IDEs với cái Code Editors xí nếu bạn
 
 Các IDEs phổ biến có thể kể đến: **PyCharm, Spyder, PyDev, Idle, Wing, Eric Python, Rodeo, Thonny**
 
-Trong khi đó, Code editors là một nền tảng để chỉnh và sửa mã nguồn, phổ biến dùng với Python có thể kể đến: Sublime text, Atom, Vim, Visual Studio Code
+Trong khi đó, Code editors là một nền tảng để chỉnh và sửa mã nguồn, phổ biến dùng với Python có thể kể đến: Sublime text, Atom, Vim, Visual Studio Code
 
 Bạn có thể xem qua những python IDE, code editors ở article này, có giới thiệu những features chính, ưu điểm, nhược điểm để mình lựa cái dùng cho phù hợp.
 

@@ -42,7 +42,7 @@ Thật sự làm ra tiền nó không có dễ mà 🥺
 ### Bán cá
 Hồi trước, nhớ có ngày mà chở bao cá chạy từ hồ Hòa Trung về một mình, rớt giữa đường cũng không có ai mà kêu phải tự thân vận động kéo lê lếch mần sao mà cũng chở bao cá về tới nhà được, mừng ghớm ghê.
 
-Rồi một ngày cả mấy tấn cá bị đổ về nhà. Hồ thủy điện rút nước làm cá thiếu oxi mà chết là ngày bắt đầu sự nghiệp bán cá. Cái cảnh cả nhà, bạn bè, bà con phải chạy đôn chạy đáo lo bán cho hết rồi làm mang rồi bỏ đá, rồi từng người đi từng chợ. 
+Rồi một ngày cả mấy tấn cá bị đổ về nhà. Hồ thủy điện rút nước làm cá thiếu oxi mà chết là ngày bắt đầu sự nghiệp bán cá. Cái cảnh cả nhà, bạn bè, bà con phải chạy đôn chạy đáo lo bán cho hết rồi làm mang rồi bỏ đá, rồi từng người đi từng chợ. 
 
 3 giờ sáng mà phải chạy qua chợ Đầu Mối, đường đi thì vắng hoe, cõng thêm thùng cá sau xe, qua thương lượng với người ta để bán chứ không lại phải mang về. 
 

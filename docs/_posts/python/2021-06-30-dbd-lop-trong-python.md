@@ -33,7 +33,7 @@ Trong lúc đang hẹn hò cùng Python, thì mình quen được anh chàng C�
 ### Cậu ấy nhìn như thế này này
 
 ```
-class TenCuaLop:
+class TenCuaLop:
     <lệnh-1>
     .
     .
@@ -75,7 +75,7 @@ class MyCoLat:
 ```
 
 ```
-x = MyCoLatDating()
+x = MyCoLatDating()
 x.counter = 1
 while x.counter < 10:
     x.counter = x.counter * 2
@@ -186,7 +186,7 @@ Phương thức của đối tượng là một hàm thuộc về đối tượn
 
 Tên các phương thức của một đối tượng sẽ phụ thuộc vào lớp của đối tượng đó. Theo định nghĩa, tất cả các thuộc tính của lớp thể hiện các hành động của các đối tượng thì sẽ dùng phương thức để thể hiện.
 
-Ở ví dụ của tụi mình, x.f là một tham chiếu phương thức f hợp lệ, vì MyCoLat.keep_it là một hàm
+Ở ví dụ của tụi mình, x.f là một tham chiếu phương thức f hợp lệ, vì MyCoLat.keep_it là một hàm
 
 Nhưng MyCoLat.handsome_like thì không phải là tham chiếu phương thức, vì handsome_like chỉ là một thuộc tính dữ liệu.
 

@@ -63,7 +63,7 @@ Stdout thường xuất ra trên màn hình, ngoài ra còn có thể xuất ra 
 ## "Chuyển hướng" - Redirection là gì?
 > **“Chuyển hướng”** là một tính năng trong Linux cho phép chúng ta thay đổi đầu vào tiêu chuẩn(stdin) và đầu ra tiêu chuẩn(stdout) khi thực hiện một câu lệnh.
 
-Ví dụ: bạn chạy một câu lệnh và muốn lưu lại kết quả trả về của câu lệnh này để sử dụng trong tương lai.
+Ví dụ: bạn chạy một câu lệnh và muốn lưu lại kết quả trả về của câu lệnh này để sử dụng trong tương lai.
 
 ### Chuyển hướng vào file
 #### Chuyển hướng đầu ra(stdout) vào file với dấu >

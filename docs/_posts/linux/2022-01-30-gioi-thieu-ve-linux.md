@@ -91,7 +91,7 @@ Ngoài ra, việc chọn lựa các loại giấy phép cho phần mềm cũng l
 ## Giới thiệu về Linux
 Nếu bạn tính phát triển phần mềm trên các hệ điều hành có nền tảng từ **Linux(Linux-based operating system(OS))** thì việc tìm hiểu làm thế nào có thể tương tác để quản lý OS là việc quan trọng. 
 
-(vì trước sau gì bạn cũng sẽ ăn hành với chúng, như không biết mình đang đứng ở thư mục nào, hay thay đổi quyền của một cái file, …)
+(vì trước sau gì bạn cũng sẽ ăn hành với chúng, như không biết mình đang đứng ở thư mục nào, hay thay đổi quyền của một cái file, …)
 
 ### Linux là gì
 Về mặt kỹ thuật, thì Linux là một phần mềm gọi là **nhân(kernel)**. Cái kernel ni hắn làm mấy các việc như là **khởi động hệ thống** hay **tương tác với các thiết bị phần cứng**.
