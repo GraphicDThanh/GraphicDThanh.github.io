@@ -114,7 +114,7 @@ Bạn thấy chỗ ni hay hông? Mình thấy siêu hay luôn, vì khúc ni trư
 
 #### Python tìm mô-đun ở đâu?
 
-Khi làm việc với mô-đun, bạn có thể sẽ gặp lỗi không tìm thấy mô-đun như thế này.
+Khi làm việc với mô-đun, bạn có thể sẽ gặp lỗi không tìm thấy mô-đun như thế này.
 
 ![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2020/06/Screen-Shot-2020-06-17-at-6.32.15-PM.png?w=1288&ssl=1)
 

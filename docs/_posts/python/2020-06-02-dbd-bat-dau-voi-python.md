@@ -119,7 +119,7 @@ Bên cạnh đó, khi cần tìm kiếm thêm thông tin gì về Python thì [o
 
 Sau khi học và viết những thứ cơ bản rồi, đã đến lúc bạn nên tìm hiểu thêm về Syntax Python cùng series [“The Python Language Reference”](https://docs.python.org/3/reference/) và những thư viện chuẩn của Python với [“The Python Standard Library“](https://docs.python.org/3/library/#the-python-standard-library).
 
-Bạn có muốn biết những recipes(công thức) và patterns(mô hình) phổ biến trong Python, hãy ghé [“ActiveState Python Cookbook”](http://code.activestate.com/recipes/langs/python/) để xem.
+Bạn có muốn biết những recipes(công thức) và patterns(mô hình) phổ biến trong Python, hãy ghé [“ActiveState Python Cookbook”](http://code.activestate.com/recipes/langs/python/) để xem.
 
 ## Tìm kiếm những ứng dụng có sẵn
 Nếu bạn muốn tìm kiếm những mô đun, package hay những ứng dụng được viết bằng Python rồi để tham khảo hay dùng trong ứng dựng của mình, thì nơi đầu tiên có thể ghé kiếm thử là PyPI – kho packages viết bằng Python sẽ tìm kiếm được những source code tốt nhất hoặc đơn giản chỉ cần hỏi thăm bác Google với những từ khoá như là “python package”, “python example”, “python recipes”, … là được rồi.
