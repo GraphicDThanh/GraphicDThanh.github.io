@@ -78,8 +78,8 @@ Key "class" không tồn tại trong dict, và mình gán giá trị mặc đị
 
 ### dict.setdefault(key, value)
 
->**Hàm setdefault() trả về giá trị của "key" nếu từ khoá này có trong dict.** Nếu từ khoá "key" chưa có trong dict, dict sẽ được thêm từ khoá này với giá trị "value" truyền vào.
->Cú pháp: **dict.setdefaut(key[, value])**
+>**Hàm setdefault() trả về giá trị của "key" nếu từ khoá này có trong dict.** Nếu từ khoá "key" chưa có trong dict, dict sẽ được thêm từ khoá này với giá trị "value" truyền vào.
+>Cú pháp: **dict.setdefaut(key[, value])**
 
 Hàm này nhận tối đa hai biến truyền vào:
 

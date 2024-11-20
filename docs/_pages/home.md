@@ -16,14 +16,14 @@ feature_row:
     alt: "most views posts"
     title: "Most Viewed Blog Posts"
     excerpt: "Browse the most popular articles, loved by readers for their insights and practical value. These high-traffic posts cover a range of topics that resonate with the tech community."
-    url: "/docs/series-index/"
+    url: "/docs/series-overview/"
     btn_class: "btn--primary"
     btn_label: "Learn more"
   - image_path: /assets/images/thumbnails/tech-series.jpg
     alt: "tutorials"
     title: "Tech Series"
     excerpt: "These series covering front-end and back-end technologies. Whether you’re working with JavaScript frameworks like React or backend solutions like Django and AWS, these posts are aimed at providing clear and actionable guidance."
-    url: "/docs/series-index/"
+    url: "/docs/series-overview/"
     btn_class: "btn--primary"
     btn_label: "Learn more"
   - image_path: /assets/images/thumbnails/technical-articles.jpg

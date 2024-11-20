@@ -173,13 +173,13 @@ Nhưng trong JSX, thuộc tính style cần được bọc bởi dấu {}, và c
 
 Và vì nó là một giá trị của thuộc tính style, nên cần thêm 1 cặp {} để thể hiện điều đó.
 
-```jsx
-<button style={{ color: 'red', fontSize: '1em' }}></button>
+```
+<button style={{ color: "red", fontSize: "1em" }}></button>
 ```
 
 Nếu muốn rõ ràng hơn, bạn có thể tạo một biến riêng cho style rồi dùng:
 
-```jsx
+```
 const btnStyle = { color: “red”, fontSize: ‘1em’ };
 <button style={btnStyle}></button>
 ```

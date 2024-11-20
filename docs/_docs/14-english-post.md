@@ -8,10 +8,9 @@ redirect_from:
 toc: true
 ---
 
-
 Welcome to the English Posts page of Beauty on Code!
 
-While most of my content is in Vietnamese, this page is dedicated to introduct articles written in English, covering various topics in programming, tech, and development. Whether you're looking to explore specific tutorials, guides, or insights, these posts aim to reach a broader audience.
+While most of my content is in Vietnamese, this page is dedicated to introduce articles written in English, covering various topics in programming, tech, and development. Whether you're looking to explore specific tutorials, guides, or insights, these posts aim to reach a broader audience.
 
 ## Why English Content?
 
@@ -21,11 +20,11 @@ To share knowledge with a wider developer community, I’m gradually translating
 
 Here is a list of all English-language articles available on the blog:
 
-- [Relation fields in Django Rest Framework Serializer][drf-serializer-relation-fields-post] 
+- [Relation fields in Django Rest Framework Serializer][drf-serializer-relation-fields-post]
 - [Export a docx file in Django application][django-export-docx]
 - [Export Multiple CSVs file into a ZIP in Django][django-export-zip-contains-csv]
 - [Basic knowledges about Redis][basic-knowledges-about-redis]
-  
+
 (More posts can be listed as they are added)
 
 [drf-serializer-relation-fields-post]: {{ "" | relative_url }}{% post_url django/2023-10-24-relation-fields-in-drf-serializer %}

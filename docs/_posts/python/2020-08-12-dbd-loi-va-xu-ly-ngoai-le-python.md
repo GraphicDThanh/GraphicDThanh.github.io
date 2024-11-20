@@ -233,7 +233,7 @@ E hèm, tuy nhiên, bạn này khá là nguy hiểm nha vì đổi tứ tung lê
 
 #### Ngoại lệ của mình
 
-Đó giờ(ý là từ đầu bài tới chừ), mình làm việc với ngoại lệ của người ta(ngoại lệ mặc định của Python), giờ mình cũng thích tạo ngoại lệ của riêng mình rồi, đơn giản là nói tiếng người, á nhầm, tiếng của người dùng, và tiếng của lập trình viên thì đôi khi có ý nghĩa và thân thiện hơn mà, hihi.
+Đó giờ(ý là từ đầu bài tới chừ), mình làm việc với ngoại lệ của người ta(ngoại lệ mặc định của Python), giờ mình cũng thích tạo ngoại lệ của riêng mình rồi, đơn giản là nói tiếng người, á nhầm, tiếng của người dùng, và tiếng của lập trình viên thì đôi khi có ý nghĩa và thân thiện hơn mà, hihi.
 
 Khi mình viết chương trình của mình, mình có thể tạo ngoại lệ bằng cách kế thừa từ lớp “**Exception**”, cả bằng cách trực tiếp lẫn gián tiếp.
 
