@@ -12,8 +12,6 @@ Welcome to the Categories Overview of Beauty on Code!
 
 This page will help you quickly find the content that matches your interests or needs. The blog is organized into several key categories, each offering insights into different aspects of coding, career development, and personal reflections. Explore each section to find tutorials, stories, and tips that will help you grow as a developer and navigate your journey in the tech world.
 
----
-
 ## 1. Programming & Development
 
 ### Python
@@ -30,7 +28,7 @@ Popular Posts:
  - Cấu trúc dữ liệu​ trong Python
  - Điều khiển luồng dữ liệu trong Python
 
-- Advanced Python: 
+- Advanced Python:
   - Lớp trong Python
   - Không gian tên(namespace) và phạm vi(scope) trong Python
   - Iterable, Iterator và Generator trong Python

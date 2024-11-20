@@ -57,7 +57,7 @@ Bạn ghé đọc nội dung bài viết này ở blog nha, có code ví dụ v�
 https://beautyoncode.com/export-docx-file-with-python-docx-in-django-app/
 
 ## Tìm hiểu về DNS
-Người dùng sử dụng web thông qua các tên miền (domain) của trang web như beautyoncode.com. Các trình duyệt web thì lại tương tác bằng địa chỉ IP. 
+Người dùng sử dụng web thông qua các tên miền (domain) của trang web như beautyoncode.com. Các trình duyệt web thì lại tương tác bằng địa chỉ IP.
 
 DNS (Domain Name System) là hệ thống đứng trung gian để dịch từ tên miền ở ngôn ngữ tự nhiên như google.com thành địa chỉ IP như 172.168.23.14
 
@@ -87,7 +87,7 @@ Khi đó, trang web của bạn đã chuyển từ account.github.io sang domain
 
 DNS hoạt động như thế nào? (mời bạn xem sơ đồ minh hoạ trong bài viết ở blog nhé)
 
-https://beautyoncode.com/tim-hieu-ve-dns/ 
+https://beautyoncode.com/tim-hieu-ve-dns/
 
 ## Learning by doing với exercism.org
 Exercism hỗ trợ học với hơn 67 ngôn ngữ lập trình thông qua các bài học coding thực hành.
@@ -104,7 +104,7 @@ Bạn cũng có thể thử với vai trò mentor cho những người khác đ�
 
 Nền tảng này có giao diện cực đẹp nha, enjoy your learning!
 
-https://exercism.org/ 
+https://exercism.org/
 
 ## Liệu ngày tàn frontend đã đến?
 Chủ đề về chat GPT được mọi người bàn luận sôi nổi trên tất cả các kênh. Mình đã chọn im lặng và mua thêm vào con bot để xài (ChatGPT, Copilot) rồi học dần về AI ^^

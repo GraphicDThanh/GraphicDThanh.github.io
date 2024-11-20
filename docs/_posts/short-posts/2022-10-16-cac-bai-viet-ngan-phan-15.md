@@ -1,5 +1,5 @@
 ---
-title: "Các bài viết ngắn - phần 8"
+title: "Các bài viết ngắn - phần 15"
 categories:
   - Short Posts
 tags:
@@ -125,4 +125,4 @@ Có thể xuất slide ra dạng PNG, PDF hay host một SPA (Single-page Applic
 
 Các bạn dev thử dùng xem bạn này cool như thế nào nhé. Chỉ việc viết markdown và xài npm có thể quản lý với git thôi là mình đã yêu bạn ý rồi ^^
 
-https://sli.dev/ 
+https://sli.dev/

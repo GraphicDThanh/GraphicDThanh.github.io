@@ -9,6 +9,7 @@ toc: true
 ---
 
 Welcome to the Most Viewed Posts on Beauty on Code!
+
 These are some of the most popular posts that readers have found particularly helpful. Explore these articles to gain insights into frequently searched programming topics and practical tutorials.
 
 ## Top Articles

@@ -1,5 +1,5 @@
 ---
-title: "Các bài viết ngắn - phần 8"
+title: "Các bài viết ngắn - phần 11"
 categories:
   - Short Posts
 tags:
@@ -7,7 +7,7 @@ tags:
 ---
 ![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/09/Short-posts-11.png)
 ## Hook Pattern
-    
+
 Hook pattern giúp sử dụng function để tái sử dụng các trạng thái(state) xuyên suốt nhiều components trong app.
 
 React 16.8 giới thiệu Hooks, một cách mới vẫn có thể sử dụng state và lifecycle methods mà không cần dùng cú pháp class của ES2015.
@@ -31,10 +31,10 @@ Ngoài ra, việc kiểm soát một component ở lifecycle methods như compon
 – Hook cho phép tái sử dụng state xuyên suốt app
 
 Mời bạn đọc thêm ở [bài này](https://www.patterns.dev/posts/hooks-pattern/) nhé, thú vị lắm ấy!
-    
+
 
 ## Bạn chia sẻ file qua internet như thế nào?
-    
+
 Có thể bạn gửi qua email(với giới hạn 25MB), trực tiếp qua slack(cả workspace có dung lượng tói đa 5GB), messenger(giới hạn 25MB), hoặc tải lên drive rồi gửi link chia sẻ, …
 
 Giới thiệu thêm hot trend vô cùng mạnh mẽ, Wormhole (wormhole.app)
@@ -54,7 +54,7 @@ Vậy tại [Wormhole](https://wormhole.app/) có gì đặc biệt?
 – Không có quảng cáo
 
 Hi vọng công cụ này sẽ giúp bạn chia sẻ file một cách nhanh chóng và bảo mật hơn nhé.
-    
+
 ## Điều gì xảy ra khi một chương trình JavaScript được thực thi?
 
 Mọi thứ trong JavaScript diễn ra bên trong một ngữ cảnh thực thi, hay **“Execution Context”**. Có hai giai đoạn trong **“Execution Context**” là **“Memory Creation”** và **”Code Execution"**

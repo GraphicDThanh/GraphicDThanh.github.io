@@ -1,5 +1,5 @@
 ---
-title: "Các bài viết ngắn - phần 8"
+title: "Các bài viết ngắn - phần 9"
 categories:
   - Short Posts
 tags:
@@ -10,17 +10,17 @@ tags:
 ## danang.fyi và repo danang-cuisine
 Bạn nghĩ sao về việc contribute cho một dự án open source mà không có code? Khi trước mình cứ nghĩ là contributors thì phải code cho dự án cơ, mà thực ra hiểu vậy là sai quá sai. Có rất nhiều dự án open source mà không cần code một dòng nào cả.
 
-À, không liên quan cơ mà bạn đã đến Đà Nẵng chưa? 
+À, không liên quan cơ mà bạn đã đến Đà Nẵng chưa?
 
 Giới thiệu đến bạn cuốn sổ tay đồ ăn thức uống Đà Nẵng, danang.fyi do dân địa phương và bạn bè thực hiện.
 
-Bạn sẽ là contributor cho dự án cộng đồng này bằng cách nổ các địa chỉ mà bạn yêu thích ở Đà Thành nhé. 
+Bạn sẽ là contributor cho dự án cộng đồng này bằng cách nổ các địa chỉ mà bạn yêu thích ở Đà Thành nhé.
 
 Repo của dự án ở https://github.com/GraphicDThanh/danang-cuisine
 
 Dự án này nội dung chính nằm ở file README.md, gồm 2 phần chính: Giới thiệu trang web dự án, cách đóng góp và hỗ trợ Danh mục chính bao gồm đồ ăn, cafe, quán bar/pub, spa/massage và đi dạo
 
-Mời bạn ghé trang web https://danang.fyi/ và chia sẻ đến bạn bè cũng như đóng góp cho dự án thú vị này nha. 
+Mời bạn ghé trang web https://danang.fyi/ và chia sẻ đến bạn bè cũng như đóng góp cho dự án thú vị này nha.
 
 Bài viết giới thiệu ở [đây](https://beautyoncode.com/danang-fyi-va-repo-danang-cusine/).
 

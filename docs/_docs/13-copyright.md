@@ -1,7 +1,7 @@
 ---
-title: "Privacy Policy"
-permalink: /docs/privacy/
-excerpt: "Privacy Policy"
+title: "Copyright"
+permalink: /docs/copyright/
+excerpt: "Copyright Policy"
 last_modified_at: 2024-11-13T08:48:05-04:00
 redirect_from:
   - /theme-setup/

@@ -1,5 +1,5 @@
 ---
-title: "Các bài viết ngắn - phần 8"
+title: "Các bài viết ngắn - phần 20"
 categories:
   - Short Posts
 tags:
@@ -92,7 +92,7 @@ Trước khi CSS ra đời, style được viết luôn vào code HTML. Khi CSS 
 
 CSS có global namespaces, theo cascade rules và selector specificity – tức code CSS được truy cập trong toàn bộ trang web, với luật tính điểm để quyết định có ghi đè nhau không (cascade) và chọn các phần tử với selector.
 
-Bên cạnh đó, việc đặt tên class, ghi đè với `!important`, code thừa trong dự án lớn (vì không dám xoá sợ ảnh hưởng các tính năng đang hoạt động) ngày càng phổ biến. CSS lại không có lỗi (silent error). 
+Bên cạnh đó, việc đặt tên class, ghi đè với `!important`, code thừa trong dự án lớn (vì không dám xoá sợ ảnh hưởng các tính năng đang hoạt động) ngày càng phổ biến. CSS lại không có lỗi (silent error).
 
 Tất cả những đều này làm CSS rất dễ để bắt đầu nhưng là nhanh chóng lộn xộn và khó kiểm soát.
 

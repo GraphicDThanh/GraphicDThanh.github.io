@@ -11,7 +11,7 @@ toc: true
 Welcome to the Series Index of BeautyOnCode!
 
 This page highlights various learning series that delve into key programming and tech topics. Each series is carefully curated to help you explore, learn, and master different aspects of software development. Explore the series below to start your journey!
----
+
 ## 1. Series: Tìm Hiểu Về JavaScript
 
 This series covers a deep dive into JavaScript, from the fundamentals to advanced concepts. Whether you are a beginner or looking to sharpen your skills, this series is perfect for mastering JavaScript in web development.

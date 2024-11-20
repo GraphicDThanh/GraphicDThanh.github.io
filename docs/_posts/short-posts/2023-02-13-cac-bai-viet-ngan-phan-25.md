@@ -1,5 +1,5 @@
 ---
-title: "Các bài viết ngắn - phần 8"
+title: "Các bài viết ngắn - phần 25"
 categories:
   - Short Posts
 tags:
@@ -105,10 +105,10 @@ Nếu bạn làm tốt nhất công việc của mình, tập ghi chép lại, c
 Có rất là nhiều cách tạo ảnh hưởng, cho bản thân bạn và cho những người bạn quan tâm. Chia sẻ là một chìa khóa an toàn nhất mà mình biết được.
 
 **03. Đọc, học hàng ngày, hàng tuần**
-Việc cập nhật các kiến thức mới hàng ngày sẽ giúp bạn khác biệt với những người khác. 
+Việc cập nhật các kiến thức mới hàng ngày sẽ giúp bạn khác biệt với những người khác.
 
 **04. Yêu thích công việc bạn làm và cứ thoải mái thôi (take it easy)**
-Suy cho cùng, bạn hay mình đều dành 8 tiếng làm việc nơi công sở, hay ở nhà thì cũng trên máy tính. Học tập và làm việc, đi chơi là cuộc sống của tụi mình. 
+Suy cho cùng, bạn hay mình đều dành 8 tiếng làm việc nơi công sở, hay ở nhà thì cũng trên máy tính. Học tập và làm việc, đi chơi là cuộc sống của tụi mình.
 Nếu không yêu nó thì mình sống kiểu gì mới được, đúng không? ^^
 
 Hi vọng một số bước này có thể gợi ý thêm cho bạn nha, ghé bài viết dưới đây mình có vẻ infographic minh hoạ dễ thương tặng bạn ý.
@@ -136,13 +136,13 @@ Bài viết dưới đây đưa ra một ứng dụng Python đơn giản và ch
 – Thực hành: bao gồm giải thích lý do vi phạm, và hướng cải thiện cụ thể trên code.
 
 Bạn ghé blog đọc thêm chi tiết nha.
-Bài viết hơi dài nhưng mình tin là bạn sẽ thích vì nó vô cùng hữu ích phù hợp với thực tiễn trong dự án 
+Bài viết hơi dài nhưng mình tin là bạn sẽ thích vì nó vô cùng hữu ích phù hợp với thực tiễn trong dự án
 
 https://beautyoncode.com/solid-trong-oop-voi-python
 
 ## Phát huy thế mạnh thay vì cải thiện điểm yếu
 
-Bạn đã nghe cụm từ trên ở đâu rồi phải không? 
+Bạn đã nghe cụm từ trên ở đâu rồi phải không?
 
 Thực ra là có một bài kiểm tra “The CliftonStrengths assessment” giúp bạn xác định 5 thế mạnh nổi trội nhất của mình.
 Và một cuốn sách Strengths Finder 2.0 mô tả chi tiết từng loại thế mạnh, các gợi ý giúp phát huy và cách làm việc với những người có các loại cụ thể này.
@@ -170,4 +170,4 @@ Chúc mọi người luôn làm những điều mình thoả mái nhất và đ�
 
 —
 Đầu năm kể chuyện tìm đường – BeautyOnCode
-https://beautyoncode.com/phat-huy-diem-manh-thay-vi-khac-phuc-diem-yeu/ 
+https://beautyoncode.com/phat-huy-diem-manh-thay-vi-khac-phuc-diem-yeu/

@@ -1,5 +1,5 @@
 ---
-title: "Các bài viết ngắn - phần 8"
+title: "Các bài viết ngắn - phần 21"
 categories:
   - Short Posts
 tags:
@@ -8,31 +8,31 @@ tags:
 ![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/12/Short-posts-21.png)
 
 ## BeautyOnCode sharing fun news
-Chào bạn, mình muốn chia sẻ với bạn một số thông tin vui của mình tuần này: 
+Chào bạn, mình muốn chia sẻ với bạn một số thông tin vui của mình tuần này:
 
-1. BeautyOnCode đã viết được hơn 100 bài viết ngắn về tech trên Careerly, và cám ơn hơn 3,600 bạn đã theo dõi (https://lnkd.in/gE8hxhbY) 
+1. BeautyOnCode đã viết được hơn 100 bài viết ngắn về tech trên Careerly, và cám ơn hơn 3,600 bạn đã theo dõi (https://lnkd.in/gE8hxhbY)
 
-2. Chỉ còn 2 bài viết nữa thôi là số lượng bài viết trên blog BeautyOnCode (https://beautyoncode.com/) đạt đến con số 100. 
+2. Chỉ còn 2 bài viết nữa thôi là số lượng bài viết trên blog BeautyOnCode (https://beautyoncode.com/) đạt đến con số 100.
 
-3. Kênh YouTube BeautyOnCode (https://lnkd.in/gv4Ua6ra) đã được ra mắt với 30 bạn subscribers đầu tiên (Cám ơn nha! Subscribe channel giúp mình nhé!) 
+3. Kênh YouTube BeautyOnCode (https://lnkd.in/gv4Ua6ra) đã được ra mắt với 30 bạn subscribers đầu tiên (Cám ơn nha! Subscribe channel giúp mình nhé!)
 
-Và 3 videos đầu tiên đã ra mắt: 
+Và 3 videos đầu tiên đã ra mắt:
 
-a. Giới thiệu về blog BeautyOnCode (https://lnkd.in/g3Zg4CS4) 
+a. Giới thiệu về blog BeautyOnCode (https://lnkd.in/g3Zg4CS4)
 
-b. Series UI/UX dành cho lập trình viên 
+b. Series UI/UX dành cho lập trình viên
 
-  i. Tập 1: Giới thiệu nội dung (https://lnkd.in/g9-ZcKc7) 
+  i. Tập 1: Giới thiệu nội dung (https://lnkd.in/g9-ZcKc7)
 
-  ii. Tập 2: UI vs. UX và các giai đoạn phát triển phần mềm (https://lnkd.in/gRsbgGmB) Các video sắp ra mắt: 
+  ii. Tập 2: UI vs. UX và các giai đoạn phát triển phần mềm (https://lnkd.in/gRsbgGmB) Các video sắp ra mắt:
 
-  iii. Tập 3: Graphic Design – Colors (https://www.youtube.com/watch?v=ivkJhpGpi9U) (sẽ ra mắt vào thứ 4 tuần sau).  
+  iii. Tập 3: Graphic Design – Colors (https://www.youtube.com/watch?v=ivkJhpGpi9U) (sẽ ra mắt vào thứ 4 tuần sau).
 
-  iv. Tập 4: Graphic Design – Fonts & Icons (coming soon).   
+  iv. Tập 4: Graphic Design – Fonts & Icons (coming soon).
 
-  v. Tập 5: UX Design (coming soon). 
+  v. Tập 5: UX Design (coming soon).
 
-Cám ơn các bạn đã luôn ủng hộ các sản phẩm của mình! 
+Cám ơn các bạn đã luôn ủng hộ các sản phẩm của mình!
 
 ## SOLID là gì?
 
@@ -57,7 +57,7 @@ D: Dependency Inversion Principle chỉ ra hai nguyên tắc chính là:
 1. Các mô đun cấp cao không nên nạp bất cứ gì từ mô đun cấp thấp mà phụ thuộc nhau qua lớp trừu tượng như interface
 2. Lớp trừu tượng nên độc lập với các loại thực thi
 
-Đọc khó hiểu thế mà nhìn ví dụ là bạn hiểu hơn ấy, mời bạn đọc [bài này](https://www.freecodecamp.org/news/solid-principles-for-programming-and-software-design/) mà ngâm cứu thêm hí 
+Đọc khó hiểu thế mà nhìn ví dụ là bạn hiểu hơn ấy, mời bạn đọc [bài này](https://www.freecodecamp.org/news/solid-principles-for-programming-and-software-design/) mà ngâm cứu thêm hí
 
 
 ## AWS Certified Developer Associate

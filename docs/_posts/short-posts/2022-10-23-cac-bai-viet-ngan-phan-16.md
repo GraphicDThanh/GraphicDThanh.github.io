@@ -1,5 +1,5 @@
 ---
-title: "Các bài viết ngắn - phần 8"
+title: "Các bài viết ngắn - phần 16"
 categories:
   - Short Posts
 tags:
@@ -29,16 +29,16 @@ Và `scope` của biến của bạn sẽ khác nhau:
 
 – `var`: không nên dùng, hạn chế tối đa (hiểu để đọc code những chương trình viết với `ES5`)
 
-[Mời bạn đọc thêm ở bài blog này](https://beautyoncode.com/khai-bao-bien-voi-var-let-va-const-trong-javascript/)  
+[Mời bạn đọc thêm ở bài blog này](https://beautyoncode.com/khai-bao-bien-voi-var-let-va-const-trong-javascript/)
 
 ## Mảng (array)
-Mảng (array) là kiểu dữ liệu phổ biến nhất, câu hỏi về mảng thường là quan trọng trong các cuộc phỏng vấn về kỹ thuật dành cho lập trình viên. 
+Mảng (array) là kiểu dữ liệu phổ biến nhất, câu hỏi về mảng thường là quan trọng trong các cuộc phỏng vấn về kỹ thuật dành cho lập trình viên.
 
-Mảng (array) cho phép lưu nhiều phần tử vào một biến duy nhất và truy cập các phần tử trong mảng với index (chỉ mục). 
+Mảng (array) cho phép lưu nhiều phần tử vào một biến duy nhất và truy cập các phần tử trong mảng với index (chỉ mục).
 
-Tuy nhiên, việc thay đổi các phần tử trong mảng diễn ra chậm hơn linked list khi thay đổi các phần tử giữa mảng vì các phần tử còn lại sẽ phải di chuyển để phù hợp với vị trí mới sau khi đã thêm / xóa. 
+Tuy nhiên, việc thay đổi các phần tử trong mảng diễn ra chậm hơn linked list khi thay đổi các phần tử giữa mảng vì các phần tử còn lại sẽ phải di chuyển để phù hợp với vị trí mới sau khi đã thêm / xóa.
 
-Bên cạnh đó, một số ngôn ngữ yêu cầu kích thước mảng cần khai báo trước và không thể thay đổi sau khi đã khởi tạo. Nếu phần tử được thêm vào vượt quá kích thước mảng thì việc sao chép lại mảng cũ và thêm mảng mới làm tốn thời gian là O(n). 
+Bên cạnh đó, một số ngôn ngữ yêu cầu kích thước mảng cần khai báo trước và không thể thay đổi sau khi đã khởi tạo. Nếu phần tử được thêm vào vượt quá kích thước mảng thì việc sao chép lại mảng cũ và thêm mảng mới làm tốn thời gian là O(n).
 
 Mời các bạn tìm hiểu thêm về mảng qua các nguồn tài liệu, các kỹ thuật giải toán với kiểu dữ liệu này và các bài toán luyện tập ở [bài blog dưới đây]( https://beautyoncode.com/array/).
 
@@ -77,7 +77,7 @@ Cách này sẽ rất tiện khi mình muốn kiểm tra nhanh hay demo nhanh c�
 ### Cách 5: Sử dụng các công cụ online giúp viết và chia sẻ chương trình như: [Playcode.io](https://playcode.io/), JSBin, JSFiddle, Replit
 Các công cụ này thường yêu cầu tài khoản để lưu và chia sẻ chương trình.
 
-Trên đây là một số cách mình biết. Còn bạn thì sao, bạn hay thử nghiệm JS như thế nào? 
+Trên đây là một số cách mình biết. Còn bạn thì sao, bạn hay thử nghiệm JS như thế nào?
 
 Cùng chia sẻ với mình bên dưới comment nhé!
 
@@ -125,7 +125,7 @@ def generate_power(exponent):
         return base ** exponent
     return power
 ```
-    
+
 sử dụng tạo hàm luỹ thừa hai
 
 ```python
@@ -171,29 +171,29 @@ Bạn đọc thêm ở [bài viết này](https://realpython.com/inner-functions
 
 ## Tài liệu học SQL
 
-Bạn có biết gần 53% lập trình viên chuyên nghiệp xem SQL là ngôn ngữ phổ biến nhất 🙀, chỉ đứng sau HTML, CSS. (theo kết quả nghiên cứu trên 700,000 lập trình viên của StackOverflow 2022) 
+Bạn có biết gần 53% lập trình viên chuyên nghiệp xem SQL là ngôn ngữ phổ biến nhất 🙀, chỉ đứng sau HTML, CSS. (theo kết quả nghiên cứu trên 700,000 lập trình viên của StackOverflow 2022)
 
-Vậy SQL là gì? 🤔 
+Vậy SQL là gì? 🤔
 
-✅ SQL – viết tắt của Structured Query Language, là ngôn ngữ truy vấn dữ liệu có cấu trúc. Nó gồm các câu lệnh dùng để tương tác với cơ sở dữ liệu quan hệ. 
+✅ SQL – viết tắt của Structured Query Language, là ngôn ngữ truy vấn dữ liệu có cấu trúc. Nó gồm các câu lệnh dùng để tương tác với cơ sở dữ liệu quan hệ.
 
-✅ Tất cả các hệ thống quản lý cơ sở dữ liệu quan hệ(RDMS) như MySQL, Oracle, Postgres, MS Access, SQL Server đều sử dụng SQL làm ngôn ngữ dữ liệu chuẩn. 
+✅ Tất cả các hệ thống quản lý cơ sở dữ liệu quan hệ(RDMS) như MySQL, Oracle, Postgres, MS Access, SQL Server đều sử dụng SQL làm ngôn ngữ dữ liệu chuẩn.
 
-✅ SQL sẽ giúp quản lý hiệu quả và truy vấn thông tin nhanh hơn, giúp bảo trì, bảo mật thông tin dễ dàng hơn. 
+✅ SQL sẽ giúp quản lý hiệu quả và truy vấn thông tin nhanh hơn, giúp bảo trì, bảo mật thông tin dễ dàng hơn.
 
-Nếu bạn làm việc trong lĩnh vực công nghệ, hẳn sẽ có lúc bạn cần đến SQL, vì nó cần thiết cho: 
+Nếu bạn làm việc trong lĩnh vực công nghệ, hẳn sẽ có lúc bạn cần đến SQL, vì nó cần thiết cho:
 
-👉 Software Developer 
+👉 Software Developer
 
-👉 Business Analyst 
+👉 Business Analyst
 
 👉 Database Administrator
 
-  👉 QA Tester 
+  👉 QA Tester
 
-👉 Project/Product Manager 
+👉 Project/Product Manager
 
-Vì vậy, có kỹ năng SQL sẽ giúp bạn làm tốt hơn công việc hiện tại của mình, cũng như dễ xin việc vào các vị trí yêu cầu kỹ năng này 💪 
+Vì vậy, có kỹ năng SQL sẽ giúp bạn làm tốt hơn công việc hiện tại của mình, cũng như dễ xin việc vào các vị trí yêu cầu kỹ năng này 💪
 
 Hẳn là bạn cũng nóng lòng muốn học SQL rồi phải không ?
 

@@ -1,5 +1,5 @@
 ---
-title: "Các bài viết ngắn - phần 8"
+title: "Các bài viết ngắn - phần 22"
 categories:
   - Short Posts
 tags:
@@ -46,7 +46,7 @@ Cám ơn freecodecamp cho tài liệu tuyệt vời này!
 
 Lưu ngay vào danh sách todo của bạn để có một bước nền tảng vào ngành khoa học máy tính nha !
  ([link](https://youtu.be/8mAITcNt710))
- 
+
 ## Hãy dành cho nó 5 phút
 
 (Give it five minutes)

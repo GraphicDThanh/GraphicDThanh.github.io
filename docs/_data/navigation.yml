@@ -55,14 +55,14 @@ docs:
       url: /docs/courses-and-videos/
     - title : "Newsletter"
       url: /docs/newsletters/
-- title: "Meta"
-  children:
     - title : "Resources & Tools"
       url: /docs/resources-tools/
+- title: "Meta"
+  children:
     - title : "FAQ"
       url: /docs/faq/
     - title: "Terms & Privacy Policy"
-      url: /terms-and-privacy/
+      url: /docs/terms-and-privacy/
     - title: "Copyright"
       url: /docs/copyright/
 
