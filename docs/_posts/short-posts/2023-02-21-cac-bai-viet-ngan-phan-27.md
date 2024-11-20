@@ -1,5 +1,5 @@
 ---
-title: "Các bài viết ngắn - phần 8"
+title: "Các bài viết ngắn - phần 27"
 categories:
   - Short Posts
 tags:
@@ -8,7 +8,7 @@ tags:
 ![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2023/02/beautyoncode-short-post-27.png)
 
 ## What we look for in resume?
-Đầu năm mình muốn giới thiệu đến bạn một bài viết rất hay của chị Huyền Chip (tác giả cuốn sách Designing Machine Learning Systems - Amazon #1 bestseller in AI). 
+Đầu năm mình muốn giới thiệu đến bạn một bài viết rất hay của chị Huyền Chip (tác giả cuốn sách Designing Machine Learning Systems - Amazon #1 bestseller in AI).
 
 Ở góc nhìn nhà tuyển dụng, thì mong muốn điều gì ở ứng viên? Hay cách bạn nên xây dựng hồ sơ cá nhân (CV, linkedin profile, ...) như thế nào để gây ấn tượng.
 Bởi nhà tuyển dụng luôn tìm kiếm điều gì đó trong hồ sơ của bạn để nói “Yes!”
@@ -48,7 +48,7 @@ Việc sao chép một object là một công việc thường gặp của front
 
 Bạn đang dùng cách nào để clone object?
 
-Nếu chỉ cần một bản shallow copy, bạn có thể dùng *spread operator* (dấu ...). 
+Nếu chỉ cần một bản shallow copy, bạn có thể dùng *spread operator* (dấu ...).
 
 Ví dụ:
 ```js
@@ -63,7 +63,7 @@ Với *JSON.parse(JSON.stringify(obj))* thì Date sẽ chuyển qua string, hay 
 
 Chưa hết, cách trên còn bỏ qua các loại giá trị như `undefined`, hay `function`, `File`, `Error`.
 
-Với `_.cloneDeep(obj)` của `lodash` thì giải quyết vấn đề khá triệt để. 
+Với `_.cloneDeep(obj)` của `lodash` thì giải quyết vấn đề khá triệt để.
 Tuy nhiên việc cài thêm một thư viện bên thứ ba có kích thước 17.4k khi chỉ `import lodash/cloneDeep`. Và kích thước 71.5k khi `import lodash` và chỉ sử dụng mỗi hàm này thì là lãng phí tài nguyên dự án.
 
 Vì thế, nên ưu tiên sử dụng `structuredClone()` khi có thể.
@@ -88,7 +88,7 @@ Các điểm nổi bật trong bản Astro 2.0 bao gồm:
 
 Automate typesafety cho markdown và MDX
 
-Astro 2.0 mô phỏng lại trải nghiệm của nhà phát triển nội dung với Content Collection API. Bằng cách sắp xếp các file markdown và MDX vào các bộ sưu tập khác nhau như blogs, newsletter, products và 
+Astro 2.0 mô phỏng lại trải nghiệm của nhà phát triển nội dung với Content Collection API. Bằng cách sắp xếp các file markdown và MDX vào các bộ sưu tập khác nhau như blogs, newsletter, products và
 
 Astro sẽ lo các phần còn lại:
 * Schema validation
@@ -127,7 +127,7 @@ Reportlab là một thư viện hỗ trợ việc tạo tài liệu pdf với ng
 Mình muốn giới thiệu đến bạn 2 thành phần cơ bản của reportlab:
 
 **canvas**
-canvas là công cụ thuộc mô-đun pdfgen, giúp bạn vẽ các thành phần trên trang ở các vị trí nhất định. 
+canvas là công cụ thuộc mô-đun pdfgen, giúp bạn vẽ các thành phần trên trang ở các vị trí nhất định.
 Thử tưởng tượng bạn cầm cây bút là canvas, di chuyển đến vị trí nhất định và bắt đầu vẽ, chính là cách canvas hoạt động.canvas có thể giúp bạn vẽ nhiều loại đa dạng như text, line, shape, image, table, form, ...
 
 **platypus**

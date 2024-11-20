@@ -1,5 +1,5 @@
 ---
-title: "Các bài viết ngắn - phần 8"
+title: "Các bài viết ngắn - phần 13"
 categories:
   - Short Posts
 tags:
@@ -31,9 +31,9 @@ Một số công cụ làm việc với form mới có thể bạn chưa biết.
 
 Thuộc tính `sumitter` của `event`, hay `event.submitter` cho phép xác định đâu là `DOM` thực hiện submit form khi form có nhiều nút có `type="submit"`
 
-`formdata event` là một sự kiện khá mới được `trigger` khi một `FormData` được khởi tạo với new hoặc mặc định khi form được submit. 
-`e.formData` là một FormData instance với các thuộc tính và phương thức cho phép truy cập vào các fields data ở dạng `key / value`. 
-(đọc thêm về APIs FormData và ví dụ mình có thử ở đây). 
+`formdata event` là một sự kiện khá mới được `trigger` khi một `FormData` được khởi tạo với new hoặc mặc định khi form được submit.
+`e.formData` là một FormData instance với các thuộc tính và phương thức cho phép truy cập vào các fields data ở dạng `key / value`.
+(đọc thêm về APIs FormData và ví dụ mình có thử ở đây).
 Vậy là bạn có thể truy cập tất cả data của form khi submit đồng thời có thể chỉnh sửa trước khi gọi trực tiếp API nếu cần.
 
 `showPicker()` của thẻ input cho phép hiển thị UI của các lựa chọn của thẻ input, đó có thể là màu sắc, ngày tháng, …
@@ -51,7 +51,7 @@ Callstack chứa toàn bộ các execution contexts này theo thứ tự chúng 
 
 Vì thế, JavaScript hoạt động synchronous.
 
-`Stack Overflow` là hiện tượng tràn callstack khi một hàm được gọi đệ quy vô tận. 
+`Stack Overflow` là hiện tượng tràn callstack khi một hàm được gọi đệ quy vô tận.
 Trình duyệt có số lượng callstack nhất định do đó nếu gọi vô tận sẽ dẫn đến tràn stack, gây lỗi `“Maximum call stack size exceeded”`
 
 Ví dụ chương trình này sẽ gây lỗi stack overflow:
@@ -83,9 +83,9 @@ Trong các cuộc họp, hầu như bạn đã không lắng nghe xem đồng đ
 ### Là một junior developer, bạn đã nhanh chóng tìm cách đổ lỗi cho người khác
 Nếu có gì đó xảy ra với dự án như bug trên production chẳng hạn, bạn đã tìm cách đổ lỗi cho người khác hay từ chối nếu đó không phải mã của mình. Điều này từng làm khó bạn khi làm việc nhóm. Bạn đã khắc phục bằng cách tích cực hơn khi review code của đồng đội để giảm lỗi, và tạo nên một team hoạt động hiệu quả hơn.
 
-Hi vọng bạn đọc những dòng tâm sự này sẽ nhận ra và nhanh chóng vượt qua các lỗi này nhé. 
+Hi vọng bạn đọc những dòng tâm sự này sẽ nhận ra và nhanh chóng vượt qua các lỗi này nhé.
 
-Thực sự là mình đã từng trải qua tất cả các lỗi trên và cũng có nhiều lỗi đang khắc phục dần ^^ 
+Thực sự là mình đã từng trải qua tất cả các lỗi trên và cũng có nhiều lỗi đang khắc phục dần ^^
 
 [Link ref](https://curtiseinsmann.hashnode.dev/from-an-ex-amazon-team-lead-5-mistakes-i-made-as-a-junior-software-engineer)
 

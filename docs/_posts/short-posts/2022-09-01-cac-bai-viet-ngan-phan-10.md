@@ -1,5 +1,5 @@
 ---
-title: "Các bài viết ngắn - phần 8"
+title: "Các bài viết ngắn - phần 10"
 categories:
   - Short Posts
 tags:
@@ -63,7 +63,7 @@ README là tập tin đầu tiên được đọc trong dự án phần mềm, c
 
 8. Thường xuyên update README để cập nhật thông tin mới nhất
 
-9. Cuối cùng, một điểm mình hay thấy là “Nhớ đóng vai người dùng để chạy dự án theo cách bạn đã hướng dẫn, và đảm bảo những gì bạn hướng dẫn là chính xác”. 
+9. Cuối cùng, một điểm mình hay thấy là “Nhớ đóng vai người dùng để chạy dự án theo cách bạn đã hướng dẫn, và đảm bảo những gì bạn hướng dẫn là chính xác”.
 
 ([Ref](https://www.netguru.com/blog/how-to-write-a-perfect-readme))
 
@@ -75,11 +75,11 @@ Câu chuyện của anh Chân Lê – Engineer Manager tại Truera (Ex Snapchat
 
 – Hàn Quốc là nơi tốt để phát triển học thuật nhưng có vẻ sẽ kìm hãm sự phát triển cho những người thích tự do.
 
-– Nếu cần thì phải lên tiếng, chưa hỏi sao biết là không được. 
+– Nếu cần thì phải lên tiếng, chưa hỏi sao biết là không được.
 
-– Cuộc đời đâu phải đơn giản như Google Map, nhập điểm đầu điểm cuối là tới đích đâu. Mà ngay cả Google cũng có nhiều con đường để đến cùng một đích, không đi đường thẳng thì đi đường vòng, không sao cả, huống chi là cuộc đời mình. 
+– Cuộc đời đâu phải đơn giản như Google Map, nhập điểm đầu điểm cuối là tới đích đâu. Mà ngay cả Google cũng có nhiều con đường để đến cùng một đích, không đi đường thẳng thì đi đường vòng, không sao cả, huống chi là cuộc đời mình.
 
-– Không cần thiết phải gắn chặt bản thân mình vào cái gì cả, khi mà mình luôn thay đổi mỗi ngày mà cuộc sống mình cũng vậy. 
+– Không cần thiết phải gắn chặt bản thân mình vào cái gì cả, khi mà mình luôn thay đổi mỗi ngày mà cuộc sống mình cũng vậy.
 
 – Take it easy.
 

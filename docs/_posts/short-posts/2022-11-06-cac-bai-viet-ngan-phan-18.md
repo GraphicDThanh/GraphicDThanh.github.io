@@ -1,5 +1,5 @@
 ---
-title: "Các bài viết ngắn - phần 8"
+title: "Các bài viết ngắn - phần 18"
 categories:
   - Short Posts
 tags:
@@ -150,7 +150,7 @@ Bài viết [“Chơi cùng JavaScript”](https://beautyoncode.com/choi-cung-ja
 
 Bài viết ["Lexical Environment"](https://beautyoncode.com/lexical-environment-trong-javascript/) tìm hiểu khái niệm nền tảng này của JS
 
-Bài viết ["Scope trong JavaScript"](https://beautyoncode.com/scope-trong-javascript/) 
+Bài viết ["Scope trong JavaScript"](https://beautyoncode.com/scope-trong-javascript/)
 
 Nội dung được định hướng tự do nên nếu bạn có gợi ý các chủ đề nào thì có thể comment để mình thảo luận và tìm hiểu cùng nhau nhé!
 

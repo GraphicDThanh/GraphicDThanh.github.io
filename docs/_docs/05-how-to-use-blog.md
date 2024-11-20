@@ -9,6 +9,7 @@ toc: true
 ---
 
 Welcome to Beauty on Code!
+
 This blog is designed to be a comprehensive resource for developers at all stages, covering topics from beginner fundamentals to advanced techniques in programming and technology. Here’s a quick guide to help you navigate and get the most out of your visit.
 
 ## Navigating the Blog

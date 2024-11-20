@@ -1,5 +1,5 @@
 ---
-title: "Các bài viết ngắn - phần 8"
+title: "Các bài viết ngắn - phần 19"
 categories:
   - Short Posts
 tags:
@@ -51,23 +51,23 @@ thì nên viết if (data?playload?name == ‘Anna’)
 https://dev.to/alexomeyer/8-must-know-tips-for-writing-clean-code-with-javascript-i4
 
 ## Lexical Environment trong JS
-Sau khi đã nắm rõ về execution context cùng hai giai đoạn của nó (memory creation và code execution) và call stack (các execution context được push / pop trong stack), mình sẽ cùng tìm hiểu về một khái niệm nền tảng nữa của JavaScrip, đó là lexical environment. 
+Sau khi đã nắm rõ về execution context cùng hai giai đoạn của nó (memory creation và code execution) và call stack (các execution context được push / pop trong stack), mình sẽ cùng tìm hiểu về một khái niệm nền tảng nữa của JavaScrip, đó là lexical environment.
 
-Hiểu về lexical environment sẽ giúp bạn dễ hiểu các khái niệm như scope, scope chain hay closures. 
+Hiểu về lexical environment sẽ giúp bạn dễ hiểu các khái niệm như scope, scope chain hay closures.
 
-Vậy lexical environment là gì ? 
+Vậy lexical environment là gì ?
 
-“Lexical Environment” của hàm bao gồm local memory của hàm đó cộng với “Lexical Environment” của cha nó. 
+“Lexical Environment” của hàm bao gồm local memory của hàm đó cộng với “Lexical Environment” của cha nó.
 
-Lexical environment được tạo ra khi nào ? 
+Lexical environment được tạo ra khi nào ?
 
-Ngay khi một “Execution Context” khởi tạo, một “Lexical Environment” cũng đồng thời được khởi tạo. 
+Ngay khi một “Execution Context” khởi tạo, một “Lexical Environment” cũng đồng thời được khởi tạo.
 
-Còn scope chain liên quan đến lexical environment như thế nào? 
+Còn scope chain liên quan đến lexical environment như thế nào?
 
-Scope Chain chính là chuỗi nối của các Lexical Environment. 
+Scope Chain chính là chuỗi nối của các Lexical Environment.
 
-Mời bạn ghé đọc [bài viết này](https://beautyoncode.com/lexical-environment-trong-javascript/) với các hình ảnh minh hoạ các khái niệm nền tảng này nhé! 
+Mời bạn ghé đọc [bài viết này](https://beautyoncode.com/lexical-environment-trong-javascript/) với các hình ảnh minh hoạ các khái niệm nền tảng này nhé!
 
 
 ## Take note for view với Obsidian
@@ -89,52 +89,52 @@ Các notes sẽ lưu dưới máy tính local của bạn, hoặc có thể lưu
 Bạn có thể xem qua [video này](https://www.youtube.com/watch?v=jAPn6yqrDxQ) để xem độ cool của bạn này nhé!
 
 ## Học AWS theo career path
-Gõ AWS lên google mình tìm thấy vô số nguồn tài liệu, các khoá học, … và không biết đầu từ đâu. 
+Gõ AWS lên google mình tìm thấy vô số nguồn tài liệu, các khoá học, … và không biết đầu từ đâu.
 
-May mắn mình tìm được một video giới thiệu cách học AWS cho từng đối tượng cụ thể “by career path”. 
+May mắn mình tìm được một video giới thiệu cách học AWS cho từng đối tượng cụ thể “by career path”.
 
-Video giới thiệu các services chung, các services dành cho frontend, backend, devops, data engineer. 
+Video giới thiệu các services chung, các services dành cho frontend, backend, devops, data engineer.
 
-Services common: 
-– Regions and Availability Zones 
-– Identity and Access Management (IAM) 
-– Cloudwatch Logs 
-– Cloud Development Kit (CDK) / CloudFormation 
-– Virtual Private Cloud (VPC) 
+Services common:
+– Regions and Availability Zones
+– Identity and Access Management (IAM)
+– Cloudwatch Logs
+– Cloud Development Kit (CDK) / CloudFormation
+– Virtual Private Cloud (VPC)
 
-Frontend 
-– Amplify 
-– CloudFront 
-– API Gateway 
-– Cognito 
-– Simple Storage Service (S3) 
+Frontend
+– Amplify
+– CloudFront
+– API Gateway
+– Cognito
+– Simple Storage Service (S3)
 
-Backend 
-– EC2 (Elastic Cloud Computing) 
-– Lambda 
-– ECS / EKS 
-– Load Balancers 
-– Certificate Managers 
-– Simple Notification Service (SNS) 
-– Simple Queue Service (SQS) 
-– Step Functions 
-– DynamoDB 
-– Relational Database Service (RDS) 
-– ElastiCache 
+Backend
+– EC2 (Elastic Cloud Computing)
+– Lambda
+– ECS / EKS
+– Load Balancers
+– Certificate Managers
+– Simple Notification Service (SNS)
+– Simple Queue Service (SQS)
+– Step Functions
+– DynamoDB
+– Relational Database Service (RDS)
+– ElastiCache
 
-Devops 
-– Commit 
-– CodeBuild 
-– CodePipeline 
-– Cloudwatch Alarms 
-– Cloudwatch Monitoring 
-– Cloudwatch Dashboards 
+Devops
+– Commit
+– CodeBuild
+– CodePipeline
+– Cloudwatch Alarms
+– Cloudwatch Monitoring
+– Cloudwatch Dashboards
 
-Data Engineer 
-– Glue 
-– Batch 
-– Redshift 
-– Athena 
+Data Engineer
+– Glue
+– Batch
+– Redshift
+– Athena
 – Lake Infomation
 
-Bạn có thể xem tác giả giới thiệu cụ thể hơn trong [video](https://youtu.be/N8lcedBPmE8) nhé 
+Bạn có thể xem tác giả giới thiệu cụ thể hơn trong [video](https://youtu.be/N8lcedBPmE8) nhé

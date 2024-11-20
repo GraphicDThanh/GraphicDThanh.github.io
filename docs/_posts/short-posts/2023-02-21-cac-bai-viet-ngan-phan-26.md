@@ -1,5 +1,5 @@
 ---
-title: "Các bài viết ngắn - phần 8"
+title: "Các bài viết ngắn - phần 26"
 categories:
   - Short Posts
 tags:
@@ -17,7 +17,7 @@ Vì thế vấn đề về lặp code cũng dễ dàng xảy ra, và đó là v�
 Cách tốt nhất để giúp chương trình dễ hiểu và dễ bảo trì, là tuân theo nguyên tắc DRY – Don’t Repeat YourSelf.
 
 Khi đó bạn thay đổi một chỗ, sẽ không cần nhớ phải đổi 2,3 chỗ tương tự. Hay tệ hơn nữa là đổi một chỗ mà những chỗ khác bị sai đi. Và chắc chắn là sẽ có lúc bạn không thể nhớ hết được tất cả các nơi, vậy nên ngay từ đầu hãy viết code theo nguyên tắc DRY.
-Nhưng vì sao code ngày càng bị lặp? 
+Nhưng vì sao code ngày càng bị lặp?
 
 **Có 4 lý do chính:**
 
@@ -214,5 +214,5 @@ Bạn có thể lưu lại để nhớ đến giải pháp này khi dự án c�
 —
 Một số video sau giới thiệu và thực hành hands-on giúp bạn nắm rõ về Django Permission và Django Guardian
 1. [Django Permissions | Model Level Permissions | Admin Site ](https://www.youtube.com/watch?v=wlYaUvfXJD)
-2. [Django Guardian | Object Level Permissions | Admin Site](https://www.youtube.com/watch?v=2jhQyWeEVHc) 
+2. [Django Guardian | Object Level Permissions | Admin Site](https://www.youtube.com/watch?v=2jhQyWeEVHc)
 3. [Django Guardian | Object Level | View and Templates](https://www.youtube.com/watch?v=KpuDBudtSrg)

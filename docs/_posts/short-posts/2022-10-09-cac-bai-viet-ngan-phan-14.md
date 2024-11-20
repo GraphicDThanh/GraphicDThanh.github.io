@@ -1,5 +1,5 @@
 ---
-title: "Các bài viết ngắn - phần 8"
+title: "Các bài viết ngắn - phần 14"
 categories:
   - Short Posts
 tags:
@@ -91,7 +91,7 @@ https://pimpmytype.com/hugo-md/
 
 ## Giải bài toán đồ thị (graph problem) với python
 
-Graph là gì? 
+Graph là gì?
 
 Graph là một cấu trúc dữ liệu gồm các nút (nodes) hay N và các nhánh (edges) hay E. Loại cấu trúc dữ liệu này thường sử dụng để mô tả khoảng cách giữa các địa điểm hay trong những loại liên kết phức tạp khác.
 

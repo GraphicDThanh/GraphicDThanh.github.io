@@ -1,5 +1,5 @@
 ---
-title: "Các bài viết ngắn - phần 8"
+title: "Các bài viết ngắn - phần 30"
 categories:
   - Short Posts
 tags:
@@ -107,13 +107,13 @@ https://beautyoncode.com/9-loi-nguoi-moi-hoc-react-thuong-gap/
 Nhân ngày 8/3, Viblo đã chia sẻ đến bạn đọc một số câu chuyện về “Women-in-tech”.
 “Women-in-tech” là một cụm từ phổ biến chỉ nữ giới đang làm việc trong lĩnh vực Công Nghệ.
 
-Khách mời gồm có 3 chị: 
+Khách mời gồm có 3 chị:
 
-– Đặng Trung Anh (Employer Branding & Sourcing Specialist tại CMC Global) 
+– Đặng Trung Anh (Employer Branding & Sourcing Specialist tại CMC Global)
 
 – Đặng Thị Duyên (Trường phòng Ươm mầm tài năng trẻ tại công ty Suns Asterisk VN)
 
-– Nguyễn Diễm Thanh (Web Developer tại AgilityIO, tác giả blog beautyoncode.com) (là mình đó ^^) 
+– Nguyễn Diễm Thanh (Web Developer tại AgilityIO, tác giả blog beautyoncode.com) (là mình đó ^^)
 
 
 Bài viết gửi đến một số thông tin:
@@ -135,7 +135,7 @@ Bốn điểm quan trọng với mình:
 3. làm những công việc nho nhỏ hàng ngày
 4. chăm sóc bản thân và người xung quanh.
 —
-Chúc chị em 8/3 vui vẻ! 
+Chúc chị em 8/3 vui vẻ!
 
 Bài viết của Viblo “Women-in-tech: Inspiring Success Stories | Những câu chuyện truyền cảm hứng thành công“
 
