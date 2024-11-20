@@ -33,7 +33,7 @@ x();
 
 thì sơ đồ mô tả các execution context và callback được tạo với chương trình trên như sau:
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/11/ec-callstack.png)
+![](assets/images/2022/11/2022-11-03-lexical-environment-trong-javascript-1.webp)
 
 ## Lexical Environment & Scope Chain
 
@@ -55,11 +55,11 @@ Ngay khi một **“Execution Context”** khởi tạo, một **“Lexical Envi
 
 Cùng xem parent’s lexical environment tương ứng ở ví dụ trên:
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/11/parent-lexical-env.png)
+![](assets/images/2022/11/2022-11-03-lexical-environment-trong-javascript-2.webp)
 
 Và `Lexical Environment` sẽ gồm `local memory` và `parent lexical environment` được biểu diễn với vòng tròn màu tím bên dưới.
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/11/lexical-environment.png)
+![](assets/images/2022/11/2022-11-03-lexical-environment-trong-javascript-3.webp)
 
 ## Scope Chain
 

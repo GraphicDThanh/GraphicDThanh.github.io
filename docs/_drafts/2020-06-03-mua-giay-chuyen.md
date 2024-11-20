@@ -52,7 +52,7 @@ Mình quẹo qua Yên Bái, tiến thẳng tới Linh Xí, cửa hàng cuối c�
 
 Linh Xí cho mình một cái nhìn hoàn toàn mới, cửa hàng mới cải tạo, một chiếc xe cổ đặt ngay phía trước cửa hàng khá là xinh xắn và chỉnh chu.
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/07/linh-xi%CC%81.jpg)
+![](assets/images/2020/06/2020-06-03-mua-giay-chuyen-1.jpg)
 
 Muốn bước vào cửa hàng, bạn phải bỏ dép ở ngoài. Mở cửa vô một phát là điều hoà mát lạnh, quầy tính tiền ngay đằng sau cái xe đạp đó, còn lại là siêu nhiều giày, toàn giày xịn, bóng loáng, không dính tí bụi, cửa hàng cũng khá đông khách nữa.
 

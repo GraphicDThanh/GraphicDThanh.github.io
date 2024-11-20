@@ -65,13 +65,13 @@ Ngoài ra còn có các công việc hỗ trợ khác nếu cần thì trợ gi�
 
 Vị trí trợ giảng này khá là nhiều công việc khác nhau nhỉ 🥲 và mình đã làm qua tất cả các công việc trên ☺️ nên được đặc cách thành “Trợ Giảng của năm 2020”
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2021/03/Screen-Shot-2021-03-13-at-09.31.59.png)
+![](assets/images/2021/07/2021-07-28-mot-nam-cung-steam-for-vietnam-1.webp)
 
 
 ### Vẫn là Trợ giảng nhưng được hỏi thăm nhiều hơn(Teacher Assistant Leader)
 Ban đầu STEAM chỉ có một khóa học về lập trình Scratch, sau đó có thêm hai khóa mới được mở nữa là Python và Robotics. Thế là đội ngũ trợ giảng chia nhau về các khóa học riêng, và mình đã chọn qua lớp Robotics từ những ngày sơ khai nhất 😆
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2021/08/robotics-TAs.png)
+![](assets/images/2021/07/2021-07-28-mot-nam-cung-steam-for-vietnam-2.webp)
 
 Vừa già nhất hội TAs, vừa ở lâu quá 😂 nên được cho lên làm lão làng, gọi là TA Lead.
 
@@ -82,7 +82,7 @@ Mình thì lại có cái tính hay thích hỏi thăm mọi người, cho nên 
 ### Siêu Trợ giảng kiêm giáo viên(Python Instructor)
 Khi khóa học chính thức CS201 chưa được triển khai do điều kiện bên ngoài chưa thích hợp, một khóa học hỗ trợ đội ngũ thầy cô FDTA về VEXIQ và các kiến thức Python ở các trường được diễn ra, lại thiếu giáo viên nữa, thế là mình được vinh hạnh lên làm giáo viên 😊
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2021/08/my-win-2021.png)
+![](assets/images/2021/07/2021-07-28-mot-nam-cung-steam-for-vietnam-3.webp)
 
 Lần đầu đứng lớp cho gần 500 giáo viên và học sinh trên toàn quốc cũng như các phụ huynh và học sinh ở nước ngoài quả là một vinh dự to lớn của mình, và các buổi học đã diễn ra khá suôn sẻ và nhận được nhiều nhận xét tốt từ mọi người.
 
@@ -99,7 +99,7 @@ Khóa đào tạo đã kết thúc tốt đẹp với một video tổng kết c
 ### Engineer cho dự án "Giúp tôi!"
 Tiếp đến là một vai trò không thuộc giáo dục, nhưng lại thuộc bên y tế. Trước tình hình Covid-19 căng thẳng diễn ra trên cả nước, đặc biệt là thành phố Hồ Chí Minh, hưởng ứng lời kêu gọi của anh Hùng Trần, là founder của Got It và Steam for Vietnam, mình đã tham gia chung tay với mọi người đến từ nhiều công ty khác nhau để chạy dự án “Giúp tôi!”.
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2021/08/Screen-Shot-2021-07-29-at-14.43.08.png)
+![](assets/images/2021/07/2021-07-28-mot-nam-cung-steam-for-vietnam-4.webp)
 
 Giúp tôi! là dự án cộng đồng do Got It Vietnam, STEAM for Vietnam, Kompa Group và Filum AI khởi xướng với mục tiêu sử dụng công nghệ để trợ giúp những người bị ảnh hưởng bởi COVID-19. Giúp tôi! là thành viên của Trung tâm Công nghệ Phòng chống Dịch COVID-19 Quốc gia.
 
@@ -122,7 +122,7 @@ STEAM làm mình tự tin lên rất nhiều, mình vốn không phải kiểu t
 
 Blog của mình được chị Thủy quảng bá như là một phần văn hóa của STEAM nữa này 😇
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2021/03/Screen-Shot-2021-03-13-at-11.55.06.png)
+![](assets/images/2021/07/2021-07-28-mot-nam-cung-steam-for-vietnam-5.webp)
 
 ### Bạn bè ở khắp mọi nơi
 STEAMese trải dài khắp các múi giờ trên thế giới, nghe đâu nay cũng được gần chục múi giờ rồi ấy. Đó là lý do vì sao làm việc trong STEAM là điều mọi người đều muốn, vì dễ gì có một nơi làm việc với nhiều người Việt giỏi như thế ở khắp mọi nơi, cùng một ước mơ và khát vọng thực hiện một công việc thiện nguyện vì mục tiêu chung cho tụi nhỏ ở nhà.
