@@ -22,11 +22,11 @@ Lúc đọc, tay ông còn rà theo từng con chữ, mặt vẫn cuối sát v�
 
 À, ông còn đeo kính và mang chiếc mũ lưỡi trai nữa, chiếc kính lệch xuống phía mũi nhìn rất là ngộ, còn chiếc mũ hẳn là giúp che nắng cho đỡ chói mắt, cái đồng hồ trên tay tuy cũ nhưng hình như là hàng giới hạn đấy ạ.
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2021/03/img_0693-scaled.jpg)
+![](assets/images/2020/11/2020-11-04-ong-cu-doc-bao-1.webp)
 
 Những ngày dịch bệnh, ông vẫn ngồi một mình như thế, và không quên mang thêm chiếc khẩu trang để bảo vệ mình.
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2021/03/img_1270-scaled.jpg)
+![](assets/images/2020/11/2020-11-04-ong-cu-doc-bao-2.webp)
 
 Mình đoán ông là cán bộ về hưu, vì mình nghĩ chỉ có người quen với con chữ mới có thể duy trì thói quen đọc sách như vậy.
 
@@ -36,7 +36,7 @@ Lần đầu tiên mình bắt gặp hình ảnh này, mình đã thấy nó th�
 
 Đôi lúc mình tự hỏi mình liệu lúc già như vậy còn có thể đọc báo hay không?
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2021/03/ong-cu-doc-bao1.jpg)
+![](assets/images/2020/11/2020-11-04-ong-cu-doc-bao-3.webp)
 
 Nghĩ lại cái biểu đồ “your life in weeks”, tính ra thời gian nghỉ hưu nếu mà sống đến 90 tuổi thì tới mấy chục năm lận, chỉ thua khoảng thời gian sống với công việc một tẹo thôi, để đoạn này yên ổn hẳn phải có sự chuẩn bị cho những thứ quan trọng như là học những thói quen tốt để có thể sử dụng nó hàng ngày như vậy nè.
 

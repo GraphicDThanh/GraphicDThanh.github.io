@@ -14,7 +14,7 @@ Time flies! Nhanh thật, vậy là mình đã đồng hành cùng các đọc g
 
 Và bất ngờ chưa, BeautyOnCode đạt **top 1 tech writer trên Careerly** ấy 🎉.
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/12/top-1-careerly.png?w=1280&ssl=1)
+![](assets/images/2022/12/2022-12-13-beautyoncode-dat-top-1-tren-careerly-1.webp)
 
 Thực ra thì số lượng người theo dõi này sẽ thay đổi ^^ Cơ mà mình vẫn muốn khoe với mọi người thành tích của mình đạt được 🥳
 
