@@ -43,7 +43,7 @@ Sau khi đến được thư mục cần đến bằng câu lệnh với **cd** 
 
 – sử dụng **-la** để kết hợp cả hai options trên lại, hiển thị tất cả các file ở long format
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/01/ls-l-long-format.png?resize=768%2C472&ssl=1)
+![](assets/images/2022/02/2022-02-09-quan-ly-he-thong-tap-tin-trong-linux-1.webp)
 
 Ở hình trên có ghi chú chi tiết, về các thông tin được hiển thị với câu lệnh ls -l, cụ thể là:
 
@@ -72,22 +72,22 @@ Sau khi đến được thư mục cần đến bằng câu lệnh với **cd** 
 
 1. tạo một thư mục có tên là **manage-dir** vào thư mục hiện tại với **mkdir manage-dir**
 
-    ![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/02/create-dir.png)
+    ![](assets/images/2022/02/2022-02-09-quan-ly-he-thong-tap-tin-trong-linux-2.webp)
 
 mkdir cũng có thể đi cùng với đường dẫn đến thư mục và tên của thư mục cần tạo. 
 
 2. tạo thêm một thư mục có tên là **mkdir-example** nằm trong thư mục **manage-dir** 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/02/create-dir-path.png)
+![](assets/images/2022/02/2022-02-09-quan-ly-he-thong-tap-tin-trong-linux-3.webp)
 
 Tuy nhiên, nếu đường dẫn này chưa tồn tại, ví dụ mình muốn tạo một thư mục mkdir-example trong thư mục manage-dir-not-exist chẳng hạn, thì sẽ báo lỗi:
 
-   ![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/02/mkdir-error.png)
+   ![](assets/images/2022/02/2022-02-09-quan-ly-he-thong-tap-tin-trong-linux-4.webp)
 
 ### Xóa thư mục trống với rmdir
 
 > **rmdir** <tên-thư-mục> hoặc <đường-dẫn-đến-tên-thư-mục>
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/02/rmdir-empty.png)
+![](assets/images/2022/02/2022-02-09-quan-ly-he-thong-tap-tin-trong-linux-5.webp)
 
 ### Xóa thư mục bao gồm cả nội dung bên trong với rm
 
@@ -97,13 +97,13 @@ Khi đó, bạn có thể dùng câu lệnh **rm với option -r dùng để xó
 
 Ví dụ: mình muốn xóa folder manage-dir nơi có chứa một file test.txt
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/02/rm-folder.png)
+![](assets/images/2022/02/2022-02-09-quan-ly-he-thong-tap-tin-trong-linux-6.webp)
 
 **Lưu ý**: đây là một câu lệnh **khá nguy hiểm**(thấy không? nó xóa hết mà không có bất kỳ thông báo gì hết như ví dụ trên) nên bạn hãy dùng **man rm** để đọc document và kiểm tra kỹ từng options có thể dùng nhé. 
 
 Ví dụ bạn có thể sử dụng thêm option **-i để vào chế độ cho phép tương tác**(interactive) tức là cho phép lựa chọn file để xóa với y(yes) hay n(no)
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/02/rm-option-i.png)
+![](assets/images/2022/02/2022-02-09-quan-ly-he-thong-tap-tin-trong-linux-7.webp)
 
 Ở ví dụ trên mình cố tình chọn **y** khi được hỏi **remove manage-dir**.  Dẫn đến lỗi là thư mục này không có trống để xóa được, vì mình đã chọn **n** tức là không cho xóa khi được hỏi manage-dir/test.txt, tức là folder này vẫn còn file test.txt ở trong. 
 
@@ -115,19 +115,19 @@ Ví dụ bạn có thể sử dụng thêm option **-i để vào chế độ ch
 
 Ví dụ: copy file test.txt trong folder manage-dir đến thư mục hiện tại là example-linux
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/02/cp-file.png)
+![](assets/images/2022/02/2022-02-09-quan-ly-he-thong-tap-tin-trong-linux-8.webp)
 
 **Lưu ý:** đây cũng là lệnh **khá nguy hiểm**, khi mà ở folder hiện tại bạn có một file cùng tên với file bạn tính copy đến, thì file mới đến nó ghi đè luôn, thế mà mất toai cái bạn cũ.
 
 Ví dụ: lệnh cp ghi đè file cùng tên có sẵn
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/02/cp-could-override.png)
+![](assets/images/2022/02/2022-02-09-quan-ly-he-thong-tap-tin-trong-linux-9.webp)
 
 Bạn để ý kích thước file **test.txt** ban đầu là **55KB**, với nội dung là đoạn text đó. Sau khi copy kích thước còn **0KB**, và nội dung trống.
 
 Bạn có thể sử dụng thêm option **-i để vào chế độ cho phép tương tác**(interactive) tức là được lựa chọn có ghi đè file cùng tên hay không
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/02/cp-option-i.png)
+![](assets/images/2022/02/2022-02-09-quan-ly-he-thong-tap-tin-trong-linux-9.webp)
 
 Sau khi mình chọn n để không cho ghi đè thì kích thước và nội dung file test.txt không thay đổi.
 
@@ -149,7 +149,7 @@ Khi thực hiện quản lý hệ thống tập tin, nhiều lúc mình sẽ c�
 
 Dưới đây là ví dụ với folder /etc có total 1560
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/02/etc-ls-l.png)
+![](assets/images/2022/02/2022-02-09-quan-ly-he-thong-tap-tin-trong-linux-10.webp)
 
 Trong những trường hợp này, việc tìm kiếm bằng mắt các file hay thư mục là việc vô cùng khó khăn và tốn thời gian. Khi đó, các** toán tử đại diện** là cứu tinh của chúng ta. 
 
@@ -168,7 +168,7 @@ Vậy nên, để thực hiện thao tác này, là lúc câu lệnh **cp** tớ
 
 Hãy cùng tạo một thư mục config trong example-linux rồi copy cái bạn này bỏ vào đó nhé(thử làm trước khi xem đáp án ha).
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/02/ls-and-cp-with-wild-card.png)
+![](assets/images/2022/02/2022-02-09-quan-ly-he-thong-tap-tin-trong-linux-11.webp)
 
 ### Toán tử ?
 
@@ -181,7 +181,7 @@ Thế còn có cách nào muốn kiếm file chứ ký tự với một số gi�
 
 Đến đây thì cái này **[]** vào công chiện nè, đường dẫn để kiếm tên file có đuôi .conf mà bắt đầu bằng a hoặc b sẽ là **/etc/[ab]*.conf**
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/02/wildcard-range.pn)
+![](assets/images/2022/02/2022-02-09-quan-ly-he-thong-tap-tin-trong-linux-12.webp)
 
 Ngoài cách viết từng loại ký tự trong range [] như thế, có một cách gọn hơn để viết mội dãy các ký tự với **<từ-bắt-đầu>-<từ-kết-thúc>**, cụ thể là **[abcd] **có thể viết thành **[a-d]**
 
@@ -208,7 +208,7 @@ BASH đầu tiên sẽ:
 – gọi lệnh **ls /etc/asl.conf /etc/autofs.conf /etc/aliases …**
 
 Cùng xem kết quả nhé:
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/02/wildcard-run.png)
+![](assets/images/2022/02/2022-02-09-quan-ly-he-thong-tap-tin-trong-linux-13.webp)
 
 Ủa kỳ ta, sao nó hiện tùm lum vậy kìa =)) Hình như nó hiện cả các files trong mấy cái thư mục luôn phải không?
 
@@ -216,7 +216,7 @@ Thế thì, mình cần thêm option nào của ls để hiển thị tên thư 
 
 Chắc bạn nhớ, dùng **-d** đó nha. Nếu không nhớ thì … **man ls** và đọc document nào.
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/02/wildcard-d.png)
+![](assets/images/2022/02/2022-02-09-quan-ly-he-thong-tap-tin-trong-linux-14.webp)
 
 ---
 Nội dung bài blog này đến đây tạm hết rồi, tụi mình đã tìm hiểu cách quản lý hệ thống tập tin trong Linux rồi ấy, cũng đơn giản đúng không nào.
