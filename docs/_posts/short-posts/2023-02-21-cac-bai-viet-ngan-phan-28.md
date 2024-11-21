@@ -5,7 +5,7 @@ categories:
 tags:
   - short-post
 ---
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2023/02/beautyoncode-short-post-28.png)
+![](assets/images/2023/02/2023-02-21-cac-bai-viet-ngan-phan-28-1.webp)
 
 ## 20 câu hỏi phổ biến nhất về React
 Nếu bạn là React developer, thử trả lời 20 câu hỏi phổ biến nhất về React sau:
@@ -166,7 +166,7 @@ Ví dụ đọc mã màu #FF0000 có thể không rõ là màu gì phải đi xe
 - độ bão hòa (saturation) 100%
 - độ sáng (Lightness) là 50%.
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2023/02/color-hsl.png)
+![](assets/images/2023/02/2023-02-21-cac-bai-viet-ngan-phan-28-2.webp)
 
 Bạn ghé đọc thêm ở [bài viết sau](https://www.joshwcomeau.com/css/color-formats/) để có thêm thông tin nhé.
 

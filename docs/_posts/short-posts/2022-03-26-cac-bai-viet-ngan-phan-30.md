@@ -5,7 +5,7 @@ categories:
 tags:
   - short-post
 ---
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2023/03/short-post-30.png)
+![](assets/images/2022/03/2022-03-26-cac-bai-viet-ngan-phan-30-1.webp)
 
 ## 9 lỗi người mới học React thường mắc phải
 ### Lỗi 1: Phép so sánh với 0

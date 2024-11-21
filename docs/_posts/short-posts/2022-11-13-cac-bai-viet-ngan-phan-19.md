@@ -5,7 +5,7 @@ categories:
 tags:
   - short-post
 ---
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/12/Short-posts-19.png)
+![](assets/images/2022/11/2022-11-13-cac-bai-viet-ngan-phan-19-1.webp)
 
 ## Giới thiệu về XState
 Hôm nay công ty có bài giới thiệu về XState cực thú vị, nên mình muốn giới thiệu đến bạn qua bài viết nhỏ này.

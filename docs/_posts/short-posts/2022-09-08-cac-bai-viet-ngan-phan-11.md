@@ -5,7 +5,7 @@ categories:
 tags:
   - short-post
 ---
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/09/Short-posts-11.png)
+![](assets/images/2022/09/2022-09-08-cac-bai-viet-ngan-phan-11-cover.webp)
 ## Hook Pattern
 
 Hook pattern giúp sử dụng function để tái sử dụng các trạng thái(state) xuyên suốt nhiều components trong app.
@@ -98,7 +98,7 @@ Các thành phần:
 
 Trong mô hình này, Model và View sẽ không tương tác với nhau, chỉ có Controller là nói chuyện với cả Model và View.
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/09/mvc.png)
+![](assets/images/2022/09/2022-09-08-cac-bai-viet-ngan-phan-11-1.webp)
 
 [Read more here](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)
 

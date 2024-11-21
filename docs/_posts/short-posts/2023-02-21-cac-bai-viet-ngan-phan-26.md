@@ -5,7 +5,7 @@ categories:
 tags:
   - short-post
 ---
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2023/02/26.png)
+![](assets/images/2023/02/2023-02-21-cac-bai-viet-ngan-phan-26-1.webp)
 
 ## Don't repeat yourself hay DRY
 Bạn có nghĩ giai đoạn bảo trì (maintenance) là sau khi chương trình được phát hành (release)? Và trong giai đoạn này là các công việc như fix bugs, hay cải thiện các tính năng?

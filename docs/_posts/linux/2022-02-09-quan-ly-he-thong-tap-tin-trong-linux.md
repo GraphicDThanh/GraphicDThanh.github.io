@@ -221,7 +221,9 @@ Chắc bạn nhớ, dùng **-d** đó nha. Nếu không nhớ thì … **man ls*
 ---
 Nội dung bài blog này đến đây tạm hết rồi, tụi mình đã tìm hiểu cách quản lý hệ thống tập tin trong Linux rồi ấy, cũng đơn giản đúng không nào.
 
-Trong bài viết tiếp theo của series [“Làm quen Linux giành cho lập trình viên”](https://beautyoncode.com/lam-quen-linux-gianh-cho-lap-trinh-vien-series-overview/), sẽ là tìm hiểu thêm về việc chuyển hướng của câu lệnh trong Linux, tức là có thể sử dụng kết quả của câu lệnh này để thực thi một câu lệnh khác ấy, thú vị lắm.
+Trong bài viết tiếp theo của series [“Làm quen Linux giành cho lập trình viên”][lam-quen-linux-danh-cho-lap-trinh-vien], sẽ là tìm hiểu thêm về việc chuyển hướng của câu lệnh trong Linux, tức là có thể sử dụng kết quả của câu lệnh này để thực thi một câu lệnh khác ấy, thú vị lắm.
+
+[lam-quen-linux-danh-cho-lap-trinh-vien]: {{ "" | relative_url }}{% post_url linux/2022-01-29-lam-quen-linux-danh-cho-lap-trinh-vien-series-overview %}
 
 [Bài gốc của nội dung này](https://beautyoncode.com/quan-ly-he-thong-tap-tin-trong-linux/) nằm trên blog cá nhân của mình, mời bạn ghé chơi.
 

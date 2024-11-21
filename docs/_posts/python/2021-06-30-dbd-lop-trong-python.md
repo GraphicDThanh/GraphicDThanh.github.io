@@ -388,7 +388,7 @@ class Bag:
 
 Các phương thức trong một lớp có thể tham chiếu toàn cục giống như các hàm thông thường với phạm vi toàn cục được liên kết với phương thức đó chính là mô-đun chứa định nghĩa của nó. Ví dụ như mình có thể gọi hàm add của Bag như thế này: Bag.add(1)
 
-Cơ mà lớp đối tượng thì không bao giờ sử dụng như là một phạm vi toàn cục được nghen. Trong khi hiếm có lý do cho việc sử dụng phương thức của một lớp ở phạm vi toàn cục, thì có nhiều cách sử dụng phạm vi toàn cục hợp lý hơn: đơn cử như, các hàm và các mô-đun được nạp vào phạm vi toàn cục để có thể sử dụng trong các phương thức, cũng như việc định nghĩa các hàm hay các lớp trong phạm vi toàn cục.
+Cơ mà lớp đối tượng thì không bao giờ sử dụng như là một phạm vi toàn cục được nghen. Trong khi hiếm có lý do cho việc sử dụng phương thức của một lớp ở phạm vi toàn cục, thì có nhiều cách sử dụng phạm vi toàn cục hợp lý hơn: đơn cử như, các hàm và các mô-đun được nạp vào phạm vi toàn cục để có thể sử dụng trong các phương thức, cũng như việc định nghĩa các hàm hay các lớp trong phạm vi toàn cục.
 
 Thường thì, lớp chứa phương thức được định nghĩa trong phạm vi toàn cục, và trong phần tiếp theo, mình sẽ tìm thấy thêm vài nguyên nhân tại sao phương thức lại tham chiếu đến lớp của chính nó.
 

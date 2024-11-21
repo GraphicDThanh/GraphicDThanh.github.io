@@ -173,4 +173,6 @@ Nên `cd ../../user/bin` sẽ giúp mình chuyển từ thư mục hiện tại 
 
 Nội dung bài blog này đến đây tạm hết rồi, tụi mình đã làm quen với hệ thống tập tin trong Linux cũng như cách điều hướng trong hệ thống này.
 
-Trong bài viết tiếp theo của series ["Làm quen Linux giành cho lập trình viên"](https://beautyoncode.com/lam-quen-linux-gianh-cho-lap-trinh-vien-series-overview/), sẽ là tìm hiểu thêm về việc quản lý hệ thống tập tin trong Linux.
+Trong bài viết tiếp theo của series [“Làm quen Linux giành cho lập trình viên”][lam-quen-linux-danh-cho-lap-trinh-vien], sẽ là tìm hiểu thêm về việc quản lý hệ thống tập tin trong Linux.
+
+[lam-quen-linux-danh-cho-lap-trinh-vien]: {{ "" | relative_url }}{% post_url linux/2022-01-29-lam-quen-linux-danh-cho-lap-trinh-vien-series-overview %}

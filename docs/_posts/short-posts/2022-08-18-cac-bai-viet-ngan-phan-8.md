@@ -5,7 +5,7 @@ categories:
 tags:
   - short-post
 ---
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/08/Short-posts-08.png)
+![](assets/images/2022/08/2022-08-18-cac-bai-viet-ngan-phan-8-1.webp)
 
 ## Làm tròn số thực trong Python
 Làm tròn số thực trong Python là chuyện thường ngày, và tụi mình sẽ sử dụng rất nhiều trong khi học Python cùng toán cũng như trong hiển thị các số thực với một số lượng các chữ số thập phân bất kỳ.

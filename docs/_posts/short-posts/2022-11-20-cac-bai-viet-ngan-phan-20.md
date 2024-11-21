@@ -5,7 +5,7 @@ categories:
 tags:
   - short-post
 ---
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/12/Short-posts-20.png)
+![](assets/images/2022/11/2022-11-20-cac-bai-viet-ngan-phan-20-1.webp)
 
 
 ## GraphQL là gì? Sự khác nhau giữa GraphQL và REST

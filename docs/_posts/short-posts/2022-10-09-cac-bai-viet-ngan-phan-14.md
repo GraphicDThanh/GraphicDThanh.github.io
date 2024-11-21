@@ -5,7 +5,7 @@ categories:
 tags:
   - short-post
 ---
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/11/Short-posts-14.png)
+![](assets/images/2022/10/2022-10-09-cac-bai-viet-ngan-phan-14-1.webp)
 
 ## SmartDev Tools
 Hôm nay mình chia sẻ với các bạn rất nhiều công cụ online giành cho lập trình viên.

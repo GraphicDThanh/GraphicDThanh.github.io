@@ -23,7 +23,7 @@ Một cây thước trên trình duyệt giúp đo đạc sẽ là công cụ h�
 
 [Link extension](https://chrome.google.com/webstore/detail/measure-it/jocbgkoackihphodedlefohapackjmna/related?hl=en)
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/08/measure-it.png)
+![](assets/images/2022/08/2022-08-07-chrome-extensions-huu-ich-danh-cho-frontend-developer-1.webp)
 
 ## Perfect Pixel
 
@@ -36,7 +36,7 @@ Tất nhiên có vài phần sẽ không thích xác hoàn toàn như kích thư
 
 Ví dụ dưới đây là cách sử dụng Perfect Pixel, bạn có thể thấy kết quả UI và design khác nhau.
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/08/perfect-pixel.png)
+![](assets/images/2022/08/2022-08-07-chrome-extensions-huu-ich-danh-cho-frontend-developer-2.webp)
 
 ## Live Editor CSS
 
@@ -44,11 +44,11 @@ Bạn nghĩ sao về sửa CSS ngay trên màn hình, và chỉ cần copy nhữ
 
 Ví dụ, hãy xem đây là UI trước khi sửa(lưu ý chiều rộng của hộp “UX engineers” 
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/08/live-editor-css-1.png)
+![](assets/images/2022/08/2022-08-07-chrome-extensions-huu-ich-danh-cho-frontend-developer-3.webp)
 
 Còn đây là sửa chiều rộng này được sửa ngay trên trang web với extension Live Editor CSS(tức là mình sẽ viết CSS vào chiếc hộp nổi ở trên màn hình)
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/08/live-editor-css-2.png)
+![](assets/images/2022/08/2022-08-07-chrome-extensions-huu-ich-danh-cho-frontend-developer-4.webp)
 
 Việc chỉnh sửa CSS trên trang web như thế này sẽ giúp bạn điều chỉnh style khá là hiệu quả.
 

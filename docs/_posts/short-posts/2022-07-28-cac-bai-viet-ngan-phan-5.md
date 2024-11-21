@@ -5,7 +5,7 @@ categories:
 tags:
   - git
 ---
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/07/Short-posts-05.png)
+![](assets/images/2022/07/2022-07-28-cac-bai-viet-ngan-phan-5-cover.webp)
 
 ## Clean code - Câu chuyện câu chuyện code xấu giết chết một công ty
 Một câu chuyện về một dự án với một team dev vô cùng tài năng và cứng tay nghề 💪, có giai đoạn đầu phát triển cực nhanh và làm việc cực kỳ năng suất 🚀.

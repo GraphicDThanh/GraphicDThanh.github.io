@@ -5,7 +5,7 @@ categories:
 tags:
   - short-post
 ---
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2023/03/29.png)
+![](assets/images/2023/02/2023-02-21-cac-bai-viet-ngan-phan-29-1.webp)
 
 ## 90 ngày học devops
 Nếu bạn muốn học devops mà chưa biết bắt đầu từ đâu thì repo này có thể là tín hiệu vũ trụ gửi đến bạn 😉

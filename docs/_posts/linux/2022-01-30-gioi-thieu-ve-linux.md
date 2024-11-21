@@ -6,7 +6,9 @@ tags:
   - linux
 ---
 
-Chào mừng bạn đến với series [“Làm quen Linux giành cho lập trình viên”](https://beautyoncode.com/lam-quen-linux-gianh-cho-lap-trinh-vien-series-overview/), đây là bài blog đầu tiên của series này nè. Hi vọng bạn ủng hộ nhé!
+Chào mừng bạn đến với series [“Làm quen Linux giành cho lập trình viên”][lam-quen-linux-danh-cho-lap-trinh-vien], đây là bài blog đầu tiên của series này nè. Hi vọng bạn ủng hộ nhé!
+
+[lam-quen-linux-danh-cho-lap-trinh-vien]: {{ "" | relative_url }}{% post_url linux/2022-01-29-lam-quen-linux-danh-cho-lap-trinh-vien-series-overview %}
 
 ## Giới thiệu về thế giới mã nguồn mở
 Một trong những câu hỏi quan trọng khi bạn tạo ra các sản phẩm về phần mềm là *“Phần mềm của bạn sẽ được phát hành với loại giấy phép nào?”*. 
