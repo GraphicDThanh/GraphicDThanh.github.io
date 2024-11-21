@@ -11,23 +11,24 @@ tags:
 last_modified_at: 2020-08-12T15:12:19-04:00
 ---
 
-Hôm ni, mình học tiếp về bạn “Lỗi và ngoại lệ”, bài blog tiếp theo nằm trong series[ “Khám phá Đại Bản Doanh Python”](https://beautyoncode.com/dai-ban-doanh-python-series-overview/), thuộc phần Python Tutorial nha.
+Hôm ni, mình học tiếp về bạn “Lỗi và ngoại lệ”, bài blog tiếp theo nằm trong series [“Khám phá đại bản doanh Python][kham-pha-dai-ban-doanh-python-series-overview], thuộc phần Python Tutorial nha.
 
 Ở bài này, mình sẽ đi tìm hiểu các loại lỗi và ngoại lệ trong Python cũng như cách xử lý và tạo ngoại lệ riêng của mình.
 
 (Những nội dung trong bài series này từ chủ yếu mình lấy từ python.org rồi viết lại hoặc dịch lại theo ngôn ngữ của mình)
 
-Nếu bạn đọc từ đầu sê-ri đến đây, hẳn là bạn có thấy vài đoạn code mình cố tình ví dụ cho nó xuất hiện lỗi, trong bài [“I/O trong Python”](https://beautyoncode.com/i-o-trong-python/):
+Nếu bạn đọc từ đầu sê-ri đến đây, hẳn là bạn có thấy vài đoạn code mình cố tình ví dụ cho nó xuất hiện lỗi, trong bài “I/O trong Python”][input-output-trong-python]
+:
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/07/format-string.png?resize=1024%2C337&ssl=1)
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2020/07/io.png?w=652&ssl=1)
+![](assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-1.webp)
+![](assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-2.webp)
 
 Hình trên cho mình thấy có hai loại lỗi có thể phân biệt được, đó là: **“lỗi cú pháp”** và **“ngoại lệ“**.
 
 ## Lỗi cú pháp
 
 Lỗi cú pháp là lỗi xảy ra khi phân tích cú pháp, là loại lỗi mình hay gặp nhất.
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/09/syntax-error.png?w=1280&ssl=1)
+![](assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-3.webp)
 Trình phân tích cú pháp sẽ lặp lại dòng bị lỗi và hiển thị một dấu mũi tên nhỏ tạo vị trí là thời điểm sớm nhất trong dòng nơi lỗi được phát hiện.
 
 Ở ví dụ trên thể hiện lỗi được phát hiện tại vị trí hàm print được gọi, lý do là bị thiếu dấu “:”
@@ -38,7 +39,7 @@ Trình phân tích cú pháp sẽ lặp lại dòng bị lỗi và hiển thị 
 
 Ngay cả khi cú pháp đã đúng, mã vẫn có thể gây ra lỗi trong quá trình thực thi. Những lỗi phát hiện trong quá trình thực thi code được gọi là các ngoại lệ.
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2020/09/exceptions.png?w=1280&ssl=1)
+![](assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-4.webp)
 
 Như bạn thấy ở trên thì ngoại lệ có nhiều loại khác nhau và sẽ được in kèm thông tin của lỗi.
 
@@ -48,7 +49,7 @@ Như bạn thấy ở trên thì ngoại lệ có nhiều loại khác nhau và 
 
 Khi viết chương trình với Python, đôi khi mình sẽ cố tình để ngoại lễ xảy ra để xử lý chúng. Như ở ví dụ dưới đây, đầu vào được nhập từ phía người dùng có thể gây ngoại lệ “*ValueErrror*” và mình đi xử lý bằng cách gửi thông tin cho người dùng biết họ đã nhập sai.
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2020/09/handle-exceptions.png?w=751&ssl=1)
+![](assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-5.webp)
 
 Ở ví dụ trên đã dùng nhóm lệnh “**try … except**” để bắt và sử lý ngoại lệ.
 
@@ -74,7 +75,7 @@ Có hai đoạn code như hai hình dưới đây, cùng đoán thứ tự in ra
 
 Lưu ý là “RotDH_NV1” được extend từ class Exception
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-05-at-6.34.28-PM.png?w=1226&ssl=1)
+![](assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-6.webp)
 
 Bạn nghiên cứu kỹ chưa, đã đoán được thứ tự in ra ở hai ví dụ là gì chưa nhỉ?
 
@@ -217,7 +218,7 @@ Nếu bạn muốn thì nó được. Thật á!
 
 Đây là ví dụ cho sự đổ lỗi, hay gọi hoa mỹ hơn là các ngoại lệ được xâu chuỗi với nhau, mời bạn xem đoạn code này:
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-10-at-10.00.20-PM.png?resize=1024%2C425&ssl=1)
+![](assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-7.webp)
 
 Ở trên, rõ là exception IOError được bắt, nhưng mình cố tình đổi lỗi thành RuntimeError bằng cách sử dụng “**from**”, cú pháp giúp mình có thể xâu chuỗi lỗi IOError qua lỗi RuntimeError và in cả hai bạn này ra màn hình như trên.
 
@@ -225,7 +226,7 @@ Nhưng nếu bạn chỉ muốn in lỗi “RuntimError” thôi, và không mu�
 
 Khi đó nó sẽ làm việc như thế này:
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-10-at-10.07.35-PM.png?w=1292&ssl=1)
+![](assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-8.webp)
 
 Yeah, vậy là tụi mình có thể đổi lỗi trắng trợn mà không truy được nguồn gốc luôn(trừ khi nhìn vô code).
 
@@ -245,7 +246,7 @@ Thường thường, người ta hay tạo một base exception kế thừa tr�
 
 Mọi người cùng dòm qua ví dụ nha:
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-10-at-10.24.48-PM.png?w=768&ssl=1)
+![](assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-9.webp)
 
 #### Làm cho tôi điều này bất cứ giá nào(Do it no matter what)
 
@@ -257,7 +258,7 @@ Tức là đoạn code ở finally này thể nào cũng phải làm, họ gọi
 
 Mời bạn xem ví dụ nha:
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-10-at-10.34.57-PM.png?resize=1024%2C278&ssl=1)
+![](assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-10.webp)
 
 Bạn có thắc mắc vì sao gặp exception mà đoạn print vẫn in được không?
 
@@ -329,8 +330,12 @@ Thường thì khi mình mở một file mình sẽ dùng **open(“filename.txt
 Với lệnh “**with**” cho phép những object như là file có thể đảm bảo việc bộ nhớ sẽ được giải phóng mỗi khi thực thi xong đoạn code nằm trong nhóm lệnh này. Do đó đảm bảo tài nguyên được thu hồi kịp thời và chính xác.
 
 Hãy nhớ ví dụ này nha, và luôn dùng bạn ấy khi mở file như là best practice.
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/10/Screen-Shot-2020-10-10-at-10.58.13-PM.png?w=608&ssl=1)
+![](assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-11.webp)
 
 Hôm nay mình đã biết thêm ít kiến thức về lỗi và các ngoại lệ rồi.
 
 Sau phần này, tụi mình sẽ cùng nhau đọc tiếp phần “Lớp trong Python” nhé.
+
+
+[kham-pha-dai-ban-doanh-python-series-overview]: {{ "" | relative_url }}{% post_url python/2020-07-01-dbd-dai-ban-doanh-python-series-overview %}
+[input-output-trong-python]: {{ "" | relative_url }}{% post_url python/2020-06-17-dbd-input-output-python %}

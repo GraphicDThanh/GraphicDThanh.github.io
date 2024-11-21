@@ -5,7 +5,7 @@ categories:
 tags:
   - short-post
 ---
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/12/Short-posts-21.png)
+![](assets/images/2022/11/2022-11-27-cac-bai-viet-ngan-phan-21-1.webpg)
 
 ## BeautyOnCode sharing fun news
 Chào bạn, mình muốn chia sẻ với bạn một số thông tin vui của mình tuần này:

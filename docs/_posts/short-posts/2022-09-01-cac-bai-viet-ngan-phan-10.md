@@ -5,7 +5,7 @@ categories:
 tags:
   - short-post
 ---
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/09/Short-posts-10.png)
+![](assets/images/2022/09/2022-09-01-cac-bai-viet-ngan-phan-10-1.webp)
 
 ## Viết commit message, dễ mà khó
 

@@ -5,7 +5,7 @@ categories:
 tags:
   - short-post
 ---
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/12/Short-posts-23.png)
+![](assets/images/2022/12/2022-12-11-cac-bai-viet-ngan-phan-23-1.webp)
 
 ## UI/UX cơ bản dành cho dev
 Kiến thức cơ bản về Graphic Design dành cho web developer sẽ giúp bạn, một người web developer:
