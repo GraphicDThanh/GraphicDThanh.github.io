@@ -3,9 +3,14 @@ title: "Các bài viết ngắn - phần 5"
 categories:
   - Short Posts
 tags:
-  - git
+  - short-posts
+  - clean-code
+  - naming
+  - react
+  - career-path
+  - learning-resources
 ---
-![](assets/images/2022/07/2022-07-28-cac-bai-viet-ngan-phan-5-cover.webp)
+![](/assets/images/2022/07/2022-07-28-cac-bai-viet-ngan-phan-5-cover.webp)
 
 ## Clean code - Câu chuyện câu chuyện code xấu giết chết một công ty
 Một câu chuyện về một dự án với một team dev vô cùng tài năng và cứng tay nghề 💪, có giai đoạn đầu phát triển cực nhanh và làm việc cực kỳ năng suất 🚀.

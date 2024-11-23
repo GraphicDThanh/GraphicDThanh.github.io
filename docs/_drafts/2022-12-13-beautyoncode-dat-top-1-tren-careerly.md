@@ -8,13 +8,13 @@ tags:
 last_modified_at: 2022-12-29T15:12:19-04:00
 ---
 
-![](assets/images/2022/12/2022-12-beautyoncode-dat-top-1-tren-careerly.webp)
+![](/assets/images/2022/12/2022-12-beautyoncode-dat-top-1-tren-careerly.webp)
 
 Time flies! Nhanh thật, vậy là mình đã đồng hành cùng các đọc giả trên Careerly được hơn 6 tháng, viết được hơn **150** bài viết, có gần **4500** người theo dõi.
 
 Và bất ngờ chưa, BeautyOnCode đạt **top 1 tech writer trên Careerly** ấy 🎉.
 
-![](assets/images/2022/12/2022-12-13-beautyoncode-dat-top-1-tren-careerly-1.webp)
+![](/assets/images/2022/12/2022-12-13-beautyoncode-dat-top-1-tren-careerly-1.webp)
 
 Thực ra thì số lượng người theo dõi này sẽ thay đổi ^^ Cơ mà mình vẫn muốn khoe với mọi người thành tích của mình đạt được 🥳
 

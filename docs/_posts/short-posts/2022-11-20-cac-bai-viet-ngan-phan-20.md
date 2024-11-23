@@ -3,9 +3,13 @@ title: "Các bài viết ngắn - phần 20"
 categories:
   - Short Posts
 tags:
-  - short-post
+  - short-posts
+  - tools
+  - graphql
+  - devops
+  - css
 ---
-![](assets/images/2022/11/2022-11-20-cac-bai-viet-ngan-phan-20-1.webp)
+![](/assets/images/2022/11/2022-11-20-cac-bai-viet-ngan-phan-20-1.webp)
 
 
 ## GraphQL là gì? Sự khác nhau giữa GraphQL và REST
@@ -55,7 +59,7 @@ Lợi thế của REST như:
 
 Do đó, việc lựa chọn sử dụng GraphQL hay REST API sẽ tùy thuộc vào từng loại dự án khác nhau.
 
-Mời bạn xem thêm ở [blog này](https://beautyoncode.com/graphql-la-gi-su-khac-nhau-giua-graphql-va-rest/ ) nhé!
+Mời bạn xem thêm ở [blog này][graphql-la-gi-su-khac-nhau-giua-graphql-va-rest] nhé!
 
 ## Phân biệt IaaS, PaaS và SaaS
 Cloud Fundamentals – Phân biệt IaaS, PaaS và SaaS
@@ -105,3 +109,5 @@ Làn sóng thứ hai của CSS in JS với việc complie CSS giúp giảm thờ
 Cùng lúc đó, song song với sự phát triển của CSS in JS, một hướng mới quản lý CSS với Atomic CSS ra đời với việc style các cấp thấp hơn cả blockers, objects, tập trung vào single-purpose atoms với các thư viện như ACSS, Tachyons, WindiCSS, và nổi nhất hiện nay là Tailwind.
 
 Thật thú vị đúng không! Bạn ghé đọc thêm ở [bài này](https://frontendmastery.com/posts/the-evolution-of-scalable-css/) nhé ^^
+
+[graphql-la-gi-su-khac-nhau-giua-graphql-va-rest]: {{ "" | relative_url }}{% post_url apis/2022-11-11-graphql-la-gi-su-khac-nhau-giua-graphql-va-rest %}

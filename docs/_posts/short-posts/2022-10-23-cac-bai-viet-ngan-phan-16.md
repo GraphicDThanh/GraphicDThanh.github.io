@@ -3,9 +3,14 @@ title: "Các bài viết ngắn - phần 16"
 categories:
   - Short Posts
 tags:
-  - short-post
+  - short-posts
+  - javascript
+  - algorithms
+  - learning-resources
+  - clean-code
+  - python
 ---
-![](assets/images/2022/10/2022-10-23-cac-bai-viet-ngan-phan-16-1.webp)
+![](/assets/images/2022/10/2022-10-23-cac-bai-viet-ngan-phan-16-1.webp)
 
 ## var, let, const
 
@@ -29,7 +34,7 @@ Và `scope` của biến của bạn sẽ khác nhau:
 
 – `var`: không nên dùng, hạn chế tối đa (hiểu để đọc code những chương trình viết với `ES5`)
 
-[Mời bạn đọc thêm ở bài blog này](https://beautyoncode.com/khai-bao-bien-voi-var-let-va-const-trong-javascript/)
+[Mời bạn đọc thêm ở bài blog này][khai-bao-bien-voi-var-let-va-const-trong-javascript]
 
 ## Mảng (array)
 Mảng (array) là kiểu dữ liệu phổ biến nhất, câu hỏi về mảng thường là quan trọng trong các cuộc phỏng vấn về kỹ thuật dành cho lập trình viên.
@@ -40,7 +45,7 @@ Tuy nhiên, việc thay đổi các phần tử trong mảng diễn ra chậm h�
 
 Bên cạnh đó, một số ngôn ngữ yêu cầu kích thước mảng cần khai báo trước và không thể thay đổi sau khi đã khởi tạo. Nếu phần tử được thêm vào vượt quá kích thước mảng thì việc sao chép lại mảng cũ và thêm mảng mới làm tốn thời gian là O(n).
 
-Mời các bạn tìm hiểu thêm về mảng qua các nguồn tài liệu, các kỹ thuật giải toán với kiểu dữ liệu này và các bài toán luyện tập ở [bài blog dưới đây]( https://beautyoncode.com/array/).
+Mời các bạn tìm hiểu thêm về mảng qua các nguồn tài liệu, các kỹ thuật giải toán với kiểu dữ liệu này và các bài toán luyện tập ở [bài blog dưới đây][array].
 
 ## Chơi cùng JavaScript
 
@@ -81,7 +86,7 @@ Trên đây là một số cách mình biết. Còn bạn thì sao, bạn hay th
 
 Cùng chia sẻ với mình bên dưới comment nhé!
 
-Bạn có thể xem hình ảnh minh họa ở [bài blog mình viết chi tiết](https://beautyoncode.com/choi-cung-javascript/) này.
+Bạn có thể xem hình ảnh minh họa ở [bài blog mình viết chi tiết][choi-cung-javascript] này.
 
 ## Inner function trong Python
 > Inner function là hàm được định nghĩa bên trong một hàm khác.
@@ -189,7 +194,7 @@ Nếu bạn làm việc trong lĩnh vực công nghệ, hẳn sẽ có lúc bạ
 
 👉 Database Administrator
 
-  👉 QA Tester
+👉 QA Tester
 
 👉 Project/Product Manager
 
@@ -200,3 +205,6 @@ Hẳn là bạn cũng nóng lòng muốn học SQL rồi phải không ?
   🤩 Mình sẽ giới thiệu đến mọi người Top Resources for SQL Bootcamp, bao gồm các series, khóa học, bài thực hành, … và các đánh giá của bạn Omer(là chủ notion [page này](https://www.notion.so/Top-Resources-for-SQL-Bootcamp-38a39207d09a4dc19492ca8e8c64e0ae))
 
 Chúc các bạn mau sở hữu kỹ năng này bỏ vào túi kỹ năng của mình dể nâng cao giá trị bản thân nhé 🥰
+
+[khai-bao-bien-voi-var-let-va-const-trong-javascript]: {{ "" | relative_url }}{% post_url js/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript %}
+[array]: {{ "" | relative_url }}{% post_url fundamentals/202js/2022-10-18-choi-cung-javascript %}

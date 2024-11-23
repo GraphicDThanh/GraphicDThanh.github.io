@@ -3,10 +3,14 @@ title: "Các bài viết ngắn - phần 7"
 categories:
   - Short Posts
 tags:
-  - git
+  - short-posts
+  - debug
+  - tools
+  - concepts
+  - linux
 ---
 
-![](assets/images/2022/08/2022-08-11-cac-bai-viet-ngan-phan-7-1.webp)
+![](/assets/images/2022/08/2022-08-11-cac-bai-viet-ngan-phan-7-1.webp)
 
 ## Trực quan hóa khi chạy mã chương trình
 Giả sử bạn đang giả một bài toán nhưng gặp bug, thì bạn sẽ làm gì?
@@ -23,9 +27,11 @@ Nửa màn hình bên trái chứa code, các nút bấm để di chuyển đế
 
 – Mũi tên đỏ chỉ dòng sẽ thực thi tiếp theo
 
-Mời bạn ghé đọc [bài viết này](https://beautyoncode.com/truc-quan-hoa-khi-chay-ma-chuong-trinh/) là một ví dụ cụ thể về cách bạn có thể sử dụng pythontutor để debug một đoạn logic của bài leetcode [**35. Search Insert Position**](https://leetcode.com/problems/search-insert-position/) và xem từng bước chạy như thế nào. 
+Mời bạn ghé đọc [bài viết này][truc-quan-hoa-khi-chay-ma-chuong-trinh] là một ví dụ cụ thể về cách bạn có thể sử dụng pythontutor để debug một đoạn logic của bài leetcode [**35. Search Insert Position**](https://leetcode.com/problems/search-insert-position/) và xem từng bước chạy như thế nào. 
 
 Thay vì đi console.log mọi nơi thì cách này xịn xò hơn hẳn phải không?
+
+[truc-quan-hoa-khi-chay-ma-chuong-trinh]: {{ "" | relative_url }}{% post_url debug/2022-08-28-truc-quan-hoa-khi-chay-ma-chuong-trinh %}
 
 ## npkill
 Nếu muốn hiện các dependences trong một một dự án quản lý bởi npm (Node Package Manager), câu lệnh “npm list” hoặc “npm ls”. Nếu muốn tìm kiếm có thể sử dụng “npm search [search term]”
@@ -76,4 +82,6 @@ Ngoài ra còn có free source, là những phần mềm được tự do copy h
 
 Open source có rất nhiều lợi ích như được sự đóng góp của cộng đồng, source code tốt hơn và giảm thời gian phát triển phần mềm. Và cũng vì được mở nên sẽ tiếp cận được nhiều người hơn.
 
-Linux thường hay được biết đến là hệ điều hành mã nguồn mở phổ biến. Tuy nhiên thực tế Linux chỉ là một phần mềm nhân (kernel). Mời bạn đọc thêm về các loại mã nguồn và giới thiệu về Linux ở [đây](https://beautyoncode.com/gioi-thieu-ve-linux/).
+Linux thường hay được biết đến là hệ điều hành mã nguồn mở phổ biến. Tuy nhiên thực tế Linux chỉ là một phần mềm nhân (kernel). Mời bạn đọc thêm về các loại mã nguồn và giới thiệu về Linux ở [đây][gioi-thieu-ve-linux].
+
+[gioi-thieu-ve-linux]: {{ "" | relative_url }}{% post_url linux/2022-01-30-gioi-thieu-ve-linux %}

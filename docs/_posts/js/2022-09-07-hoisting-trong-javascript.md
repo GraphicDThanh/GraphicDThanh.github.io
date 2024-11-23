@@ -8,7 +8,7 @@ tags:
   - hoisting
 ---
 
-![](assets/images/2022/09/2022-09-07-hoisting-trong-javascript-1.webp)
+![](/assets/images/2022/09/2022-09-07-hoisting-trong-javascript-1.webp)
 
 Điều khiến JavaScript khó hiểu với những người mới hay chuyển từ ngôn ngữ khác qua chính là JavaScript cho phép sử dụng biến và hàm ngay cả trước cả khi bạn khai báo chúng.
 
@@ -52,7 +52,7 @@ Bạn có thể kiểm tra trực tiếp trên **devTools** bằng cách đặt 
 
 Khi chương trình chạy, gặp **breakpoint** dừng lại, hãy kiểm tra tab **Global** và tìm `a` , `aFunction` , tại đây tìm thấy biến `a` và hàm `aFunction` đã được cấp phát bộ nhớ và sẵn sàng để sử dụng.
 
-![](assets/images/2022/09/2022-09-07-hoisting-trong-javascript-2.webp)
+![](/assets/images/2022/09/2022-09-07-hoisting-trong-javascript-2.webp)
 
 Một lưu ý ở đây, nếu aFunction được khai báo ở dạng biểu thức dưới tên một biến
 

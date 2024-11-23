@@ -7,7 +7,7 @@ tags:
   - random
 ---
 
-![](assets/images/2020/11/2020-11-to-da-bo-lo-cau-roi.webp)
+![](/assets/images/2020/11/2020-11-to-da-bo-lo-cau-roi.webp)
 
 Cảm giác tiếc nuối đó, vẫn còn ở nguyên vẹn trong tim đây này. 
 

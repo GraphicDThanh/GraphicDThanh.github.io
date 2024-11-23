@@ -3,9 +3,12 @@ title: "Các bài viết ngắn - phần 28"
 categories:
   - Short Posts
 tags:
-  - short-post
+  - short-posts
+  - clean-code
+  - react
+  - css
 ---
-![](assets/images/2023/02/2023-02-21-cac-bai-viet-ngan-phan-28-1.webp)
+![](/assets/images/2023/02/2023-02-21-cac-bai-viet-ngan-phan-28-1.webp)
 
 ## 20 câu hỏi phổ biến nhất về React
 Nếu bạn là React developer, thử trả lời 20 câu hỏi phổ biến nhất về React sau:
@@ -166,7 +169,7 @@ Ví dụ đọc mã màu #FF0000 có thể không rõ là màu gì phải đi xe
 - độ bão hòa (saturation) 100%
 - độ sáng (Lightness) là 50%.
 
-![](assets/images/2023/02/2023-02-21-cac-bai-viet-ngan-phan-28-2.webp)
+![](/assets/images/2023/02/2023-02-21-cac-bai-viet-ngan-phan-28-2.webp)
 
 Bạn ghé đọc thêm ở [bài viết sau](https://www.joshwcomeau.com/css/color-formats/) để có thêm thông tin nhé.
 

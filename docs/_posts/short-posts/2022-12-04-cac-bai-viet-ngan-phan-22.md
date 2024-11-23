@@ -3,9 +3,13 @@ title: "Các bài viết ngắn - phần 22"
 categories:
   - Short Posts
 tags:
-  - short-post
+  - short-posts
+  - life
+  - network
+  - devops
+  - learning-resources
 ---
-![](assets/images/2022/12/2022-12-04-cac-bai-viet-ngan-phan-22-1.webp)
+![](/assets/images/2022/12/2022-12-04-cac-bai-viet-ngan-phan-22-1.webp)
 
 ## Giới thiệu CS50 free video youtube
 Bạn có từng nghe về khoá CS50, một khoá học nền tảng dành cho bất cứ ai muốn bắt đầu với lĩnh vực khoa học máy tính ?
@@ -95,7 +99,7 @@ Loại bỏ một ý tưởng là vô cùng dễ dàng vì nó không liên quan
 
 Vì thế, lần sau khi ai đó trình bày hay đề xuất một ý tưởng, hãy dành ra năm phút để suy nghĩ về nó, bạn nhé!
 
-https://signalvnoise.com/posts/3124-give-it-five-minutese
+[đọc thêm](https://signalvnoise.com/posts/3124-give-it-five-minutese)
 
 ## CDN và cách hoạt động
 CDN (Content Delivery Network) là hệ thống các máy chủ trên khắp thế giới.
@@ -121,7 +125,6 @@ CDN còn giúp nén nội dung lại (minify hay thay đổi format png sang web
 Ngoài ra CDN còn giúp tăng tính bảo mật(tránh được DDoS) và tăng tính khả dụng (một PoP chết thì request sẽ chuyển đến PoP khác)
 
 [Mời bạn xem video nội dung ở đây](https://www.youtube.com/watch?v=RI9np1LWzqw)
-
 
 ## Vì sao NGINX là reverse proxy?
 Vì sao NGINX gọi là reverse proxy? proxy là gì?

@@ -7,7 +7,7 @@ tags:
   - random
 ---
 
-![](assets/images/2020/07/2020-07-khi-nao-ban-moi-nghi-ngoi.webp)
+![](/assets/images/2020/07/2020-07-khi-nao-ban-moi-nghi-ngoi.webp)
 
 Hôm rồi ngồi ăn với chị đồng nghiệp trong hội chuyên ăn muộn và thư thả thưởng thức đồ ăn gồm hai thành viên, tụi mình tâm sự với nhau về việc nghỉ ngơi.
 

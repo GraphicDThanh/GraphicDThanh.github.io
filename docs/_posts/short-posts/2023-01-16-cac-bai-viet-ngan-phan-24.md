@@ -3,8 +3,15 @@ title: "Các bài viết ngắn - phần 24"
 categories:
   - Short Posts
 tags:
-  - short-post
+  - short-posts
+  - database
+  - css
+  - soft-skills
+  - security
 ---
+
+![](/assets/images/2023/01/2023-01-16-cac-bai-viet-ngan-phan-24-cover.webp)
+
 ## Cơ sở dữ liệu và ngữ cảnh sử dụng
 Có rất nhiều loại cơ sở dữ, phải đến hàng trăm loại, phổ biến hiện nay như PostgresSQL, Oracle, MySQL, MariaDB, SQLite, MongoDB, S3, Ceph, …
 
@@ -29,28 +36,6 @@ ví dụ: Amazon DynamoDB, MongoDB, …
 ví dụ: Microsoft Azure Cosmos DB, ScyllaDB, Amazon Keyspaces, …
 
 [Ref link](https://blog.bytebytego.com/p/ep36-types-of-databases-and-use-cases)
-
-## Các bài viết trên blog được yêu thích (cập nhật)
-Số lượng hot blog posts của blog BeautyOnCode đã từ số 16 lên con số 49 trong 3 tháng nha mọi người ^^
-
-Một số bài gần đây cập nhật thêm:
-– [BeautyOnCode đạt top 1 trên Careerly](https://beautyoncode.com/beautyoncode-dat-top-1-tren-careerly/)
-– [Vấn đề của cuộc sống](https://beautyoncode.com/van-de-cua-cuoc-song/)
-– [Lexical Enviroment trong JavaScript](https://beautyoncode.com/lexical-environment-trong-javascript/)
-– [Chơi cùng JavaScript](https://beautyoncode.com/choi-cung-javascript/)
-– [Mảng trong JavaScript](https://beautyoncode.com/array/)
-– [Khai báo biến với var, let, const trong JavaScript](https://beautyoncode.com/khai-bao-bien-voi-var-let-va-const-trong-javascript/)
-– [CSS trong JS là gì?](https://beautyoncode.com/css-trong-js-la-gi/)
-– [Điều gì xảy ra khi chạy chương trình JavaScript?](https://beautyoncode.com/dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript/)
-
-Mọi người ghé đọc nha <3
-
-Sắp đến mình có dự định gửi newsletter cho mọi người tổng kết các nội dung từ blog BeautyOnCode, các bạn đăng ký để vào [mail list này](https://beautyoncode.us5.list-manage.com/subscribe?u=617ec2445e7ed8052b2f9b41a&id=b8b61cb15d) nhé.
-Các newsletter đã gửi:
-
-– [BeautyOnCode #1 Newsletter](http://mailchi.mp/1479bb9acd6f/beautyoncode-1-newsletter)
-
-– [BeautyOnCode #2 Newsletter](https://mailchi.mp/ee10732252bb/beautyoncode-2-newsletter)
 
 ## State of CSS 2022
 
@@ -82,7 +67,7 @@ Danh sách các tính năng có thể làm thay đổi cuộc chơi như parent 
 
 Ở mỗi phần sẽ bao gồm tỉ lệ số người biết và số người sử dụng, link CanIUse để kiểm tra support, link MDN để tìm hiểu thêm, và các resource gợi ý để bạn tìm hiểu thêm.
 
-https://2022.stateofcss.com/
+[đọc thêm](https://2022.stateofcss.com/)
 
 ## Kỹ năng tìm kiếm thông tin
 
@@ -112,7 +97,7 @@ Qua định nghĩa trên thì kỹ năng này có thể chia thành các kỹ n�
 – thảo luận chủ đề bạn tìm hiểu
 – viết các note tổng hợp theo chủ đề
 
-Bạn ghé đọc thêm về cách nguồn tài nguyên mình gợi ý trong blog [này](https://beautyoncode.com/ky-nang-tim-kiem-thong-tin/) nha.
+Bạn ghé đọc thêm về cách nguồn tài nguyên mình gợi ý trong blog [này][ky-nang-tim-kiem-thong-tin] nha.
 
 ## Security dành cho developer
 
@@ -154,3 +139,5 @@ Tất cả các tài khoản quan trọng cần bật bảo mật 2 bước, vì
 – https://portswigger.net/web-security (free)
 
 Anh HiếuPC cũng chia sẻ rất nhiều về bảo mật trên các kênh của anh ấy, mọi người có thể tìm kiếm thêm nhé.
+
+[ky-nang-tim-kiem-thong-tin]: {{ "" | relative_url }}{% post_url non-tech/2022-12-20-ky-nang-tim-kiem-thong-tin %}

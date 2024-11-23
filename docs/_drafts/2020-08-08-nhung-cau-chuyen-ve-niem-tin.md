@@ -7,7 +7,7 @@ tags:
   - random
 ---
 
-![](assets/images/2020/08/2020-08-nhung-cau-chuyen-ve-niem-tin.webp)
+![](/assets/images/2020/08/2020-08-nhung-cau-chuyen-ve-niem-tin.webp)
 
 Hôm nay mình thử sức với một chủ đề khá là thú vị, và mang tính phi logic một tí, mình muốn kể về niềm tin, và những lời chỉ dẫn từ trái tim đã và đang tiếp tục dẫn lối cho mình, trên con đường mình đã chọn.
 

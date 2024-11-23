@@ -50,7 +50,7 @@ Stdout thường xuất ra trên màn hình, ngoài ra còn có thể xuất ra 
 
 *Ví dụ:* khi bạn gõ ls thì đây chính là stdin, còn stdout là kết quả bạn thấy trên màn hình
 
-![](assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-1.webp)
+![](/assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-1.webp)
 
 ### Lỗi(stderr)
 
@@ -58,7 +58,7 @@ Stdout thường xuất ra trên màn hình, ngoài ra còn có thể xuất ra 
 
 Stdout thường xuất ra trên màn hình, ngoài ra còn có thể xuất ra file hoặc một process khác
 
-![](assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-2.webp)
+![](/assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-2.webp)
 
 ## "Chuyển hướng" - Redirection là gì?
 > **“Chuyển hướng”** là một tính năng trong Linux cho phép chúng ta thay đổi đầu vào tiêu chuẩn(stdin) và đầu ra tiêu chuẩn(stdout) khi thực hiện một câu lệnh.
@@ -72,13 +72,13 @@ Ví dụ: bạn chạy một câu lệnh và muốn lưu lại kết quả trả
 
 *Ví dụ:* Chuyển kết quả của câu lệnh ls đã thành công và chuyển sdtout vào file là list.txt
 
-![](assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-3.webp)
+![](/assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-3.webp)
 
 Kết quả là mình không còn thấy stdout xuất ra màn hình nữa, mà stdout này đã được xuất vào file list.txt, file này được tự động tạo(nếu chưa có) hoặc sẽ ghi đè(nếu file này đã tồn tại).
 
 Tiếp theo ví dụ trên, giả sử mình muốn chuyển stdout của câu lệnh “cal 03 2022” vào file list.txt
 
-![](assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-4.webp)
+![](/assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-4.webp)
 
 Vậy là kết quả của lệnh ls ban đầu đã bị ghi đè rồi. 
 
@@ -86,31 +86,31 @@ Nếu bạn muốn ghi thêm vào thay vì ghi đè trong trường hợp này c
 
 Theo đó kết quả mới sẽ được thêm vào như dưới đây:
 
-![](assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-5.webpg)
+![](/assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-5.webpg)
 
 #### Chuyển hướng lỗi(stderr) vào file với dấu 2>
 > **Dùng dấu 2> để chuyển hướng cho lỗi(stderr)**
 
 **Ví dụ:** Chuyển kết quả của câu lệnh “cal -1 2022” có lỗi(vì tháng là số âm) và chuyển sdterr vào file là cal.txt(nếu chưa có sẽ tạo mới, có file tồn tại sẽ ghi đè)
 
-![](assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-6.webp)
+![](/assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-6.webp)
 
 Thế nhưng không phải lúc nào chúng ta cũng biết chắc chắn là câu lệnh có lỗi để chuyển vào với dấu 2>, khi đó có thể tách ra nếu stdout thì chuyển vào file sdtout-cal.txt và nếu stderr thì chuyển vào file stderr-cal.txt.
 
-![](assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-7.webp)
+![](/assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-7.webp)
 
 Nhắc lại chỗ này một tí là khi dùng >, thì nội dung file có sẵn sẽ bị ghi đè. Tức là khi có lỗi xảy ra ở câu lệnh số 2, thì file stdout-cal.txt sẽ bị ghi thành file rỗng, vì nó không có output ở đây.
 
 Cuối cùng là một ví dụ cho trường hợp mình không muốn ghi đè(ôn lại) với >>, kết quả là tất cả các output đều được thêm vào.
 
-![](assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-8.webp)
+![](/assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-8.webp)
 
 #### Chuyển hướng tất cả output, gồm stdout và stderr vào file với dấu 2>&1
 > **Để chuyển hướng output cho cả stdout và stderr thì sử dụng dấu 2>&1**
 
 **Ví dụ:** Chuyển hướng stdout hay stderror vào file(tạo với nếu chưa có file, ghi đè nếu file đã tồn tại)
 
-![](assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-9.webp) 
+![](/assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-9.webp) 
 
 **Ví dụ:** Chuyển hướng stdout hay stderror thêm nội dung vào file
 
@@ -119,13 +119,13 @@ Một lưu ý là việc chuyển hướng tất cả đầu ra output(stdout, s
 #### Ví dụ về đầu vào tiêu chuẩn(stdin)
 Hãy thử lệnh này: **tr ‘a-z’ ‘A-Z’**
 
-![](assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-10.webp)
+![](/assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-10.webp)
 
 Kết quả là chương trình nó đứng im như bị treo vậy á!?
 
 Nhưng mà không phải đâu, thực tế là nó đang đứng đợi bạn truyền đầu vào vào ấy. Thử gõ một dòng chữ: “Have a nice day” vào và enter:
 
-![](assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-11.webp)
+![](/assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-11.webp)
 
 Kết quả là một dòng chữ mới in hoa được xuất ra, và chương trình tiếp tục đợi đầu vào tiếp theo. 
 
@@ -139,11 +139,11 @@ Tại đây, chương trình đang sử dụng đầu vào tiêu chuẩn(stdin) 
 
 **Ví dụ:** Chuyển đầu vào cho câu lệnh trên là kết quả của lệnh cal trong file mycal. Tức là mình muốn in ra màn hình lịch ở định dạng in hoa
 
-![](assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-12.webp)
+![](/assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-12.webp)
 
 Tiếp theo, nếu muốn chuyển hướng cho stdout(lịch ở định dạng in hoa) và một file mynewcal thì sủe dụng > để chuyển hướng đầu ra
 
-![](assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-13.webp)
+![](/assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-13.webp)
 
 ### Chuyển hướng đầu ra của câu lệnh này thành đầu vào của câu lệnh khác
 
@@ -153,11 +153,11 @@ Bạn cũng có thể chuyển hướng đầu ra của câu lệnh này vào c�
 
 **Ví dụ:** Kết quả của câu lệnh “ls /etc” rất dài và làm màn hình xuất hiện thanh scroll, gây khó trong việc tìm kiếm trong kết quả nhiều như vậy. 
 
-![](assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-14.webp)
+![](/assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-14.webp)
 
 Để giải quyết vấn đề này, chúng ta có thể gửi kết quả này vào một câu lệnh khác là more để hiện thị thành nhiều trang. Và để qua trang mới, chỉ cần bấm phím Space.
 
-![](assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-15.webp)
+![](/assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-15.webp)
 
 Vậy là đầu ra của câu lệnh “**ls /etc**” đã trở thành đầu vào của câu lệnh “more”.
 Để thoát ra khỏi chế độ xem nhiều trang của more, bấm “q” và enter để thoát.
@@ -170,14 +170,14 @@ Quá trình chuyển hướng đầu ra của lệnh này thành đầu vào c�
 ### Quá trình của câu lệnh **"ls /etc"** với đầu vào và đầu ra tiêu chuẩn
 Khi bạn gõ **“ls /etc”** từ bàn phím, kết quả sẽ được in ra màn hình. Dưới đây là quá trình này:
 
-![](assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-16.webp)
+![](/assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-16.webp)
 
 ### Quá trình của câu lệnh **"ls /etc | more"** với piping
 Khi bạn gõ **“ls /etc | more”** từ bàn phím, kết quả lệnh ls nếu có lỗi sẽ được in ra màn hình, nếu không có lỗi sẽ chuyển đầu ra thành đầu vào của lệnh more và xuất kết quả ra màn hình. 
 
 Dưới đây là quá trình này:
 
-![](assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-17.webp)
+![](/assets/images/2022/03/2022-03-22-chuyen-huong-cau-lenh-trong-linux-17.webp)
 
 ---
 

@@ -51,7 +51,7 @@ Chương trình bắt đầu đọc từ trên xuống dưới và cấp bộ nh
 
 – Dòng 7 cấp biến `square4` với `undefined`
 
-![](assets/images/2022/08/2022-08-30-dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript-1.webp)
+![](/assets/images/2022/08/2022-08-30-dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript-1.webp)
 
 Tiếp tục qua giai đoạn **“Code Execution”**, code sẽ được thực thi theo thứ tự:
 
@@ -63,7 +63,7 @@ Tiếp tục qua giai đoạn **“Code Execution”**, code sẽ được thự
 
   – Giai đoạn **Memory Creation Phase** của **“square execution context”**, cấp bộ nhớ cho `num` và `ans`
   
-  ![](assets/images/2022/08/2022-08-30-dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript-2.webp)
+  ![](/assets/images/2022/08/2022-08-30-dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript-2.webp)
   
   – Giai đoạn **Code Execution** của **“square execution context”**, thực thi:
 
@@ -73,7 +73,7 @@ Tiếp tục qua giai đoạn **“Code Execution”**, code sẽ được thự
 
    – Dòng 4, trả về giá trị của ans cho **global execution context** ở dòng số 6, là nơi gọi hàm `square(n)`. Sau khi trả về giá trị, toàn bộ **square execution context** bị xóa đi.
   
-  ![](assets/images/2022/08/2022-08-30-dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript-3.webp)
+  ![](/assets/images/2022/08/2022-08-30-dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript-3.webp)
   
   – Dòng 7, hàm `square(4)` được gọi, một execution context giành riêng cho hàm này được tạo, mình tạm gọi là “square 4 execution context”
 
@@ -81,7 +81,7 @@ Tiếp tục qua giai đoạn **“Code Execution”**, code sẽ được thự
 
   – Dòng 4, trả về giá trị của `ans` cho **global execution context** ở dòng số 7, là nơi gọi hàm `square(4)`
 
-![](assets/images/2022/08/2022-08-30-dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript-4.webp)
+![](/assets/images/2022/08/2022-08-30-dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript-4.webp)
 
 Quá trình ở trên thường được gọi là **call stack**
 
@@ -89,13 +89,13 @@ Mỗi **execution context** được tạo sẽ được bỏ vào(**push**) và
 
 Mỗi **execution context** bị xóa sẽ được lấy ra khỏi(**pop**) ngăn xếp(**stack**)
 
-![](assets/images/2022/08/2022-08-30-dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript-5.webp)
+![](/assets/images/2022/08/2022-08-30-dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript-5.webp)
 
 > Call Stack maintain the “order of execution” of execution context
 
 Bạn có thể trực tiếp xem được callstack của chương trình với devtools của Chrome. Hình minh họa sau được mình lấy bằng cách chạy chương trình trên với breakpoint ở dòng số 4 trong hàm square khi gọi với square(n)
 
-![](assets/images/2022/08/2022-08-30-dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript-6.webp)
+![](/assets/images/2022/08/2022-08-30-dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript-6.webp)
 
 Call Stack còn có nhiều tên tương tự khác như là: “Execution Context Stack”, “Program Stack”, “Control Stack”, “Runtime Stack”, “Machine Stack”
 

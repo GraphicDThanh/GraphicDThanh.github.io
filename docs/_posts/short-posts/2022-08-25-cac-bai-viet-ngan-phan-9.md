@@ -3,9 +3,14 @@ title: "Các bài viết ngắn - phần 9"
 categories:
   - Short Posts
 tags:
-  - short-post
+  - short-posts
+  - life
+  - database
+  - css
+  - career-development
+  - leetcode
 ---
-![](assets/images/2022/08/2022-08-25-cac-bai-viet-ngan-phan-9-1.webp)
+![](/assets/images/2022/08/2022-08-25-cac-bai-viet-ngan-phan-9-1.webp)
 
 ## danang.fyi và repo danang-cuisine
 Bạn nghĩ sao về việc contribute cho một dự án open source mà không có code? Khi trước mình cứ nghĩ là contributors thì phải code cho dự án cơ, mà thực ra hiểu vậy là sai quá sai. Có rất nhiều dự án open source mà không cần code một dòng nào cả.
@@ -16,13 +21,11 @@ Giới thiệu đến bạn cuốn sổ tay đồ ăn thức uống Đà Nẵng,
 
 Bạn sẽ là contributor cho dự án cộng đồng này bằng cách nổ các địa chỉ mà bạn yêu thích ở Đà Thành nhé.
 
-Repo của dự án ở https://github.com/GraphicDThanh/danang-cuisine
+Repo của dự án ở [repo](https://github.com/GraphicDThanh/danang-cuisine)
 
 Dự án này nội dung chính nằm ở file README.md, gồm 2 phần chính: Giới thiệu trang web dự án, cách đóng góp và hỗ trợ Danh mục chính bao gồm đồ ăn, cafe, quán bar/pub, spa/massage và đi dạo
 
 Mời bạn ghé trang web https://danang.fyi/ và chia sẻ đến bạn bè cũng như đóng góp cho dự án thú vị này nha.
-
-Bài viết giới thiệu ở [đây](https://beautyoncode.com/danang-fyi-va-repo-danang-cusine/).
 
 ## Databases intro course
 Dành hơn tiếng đồng hồ để học cơ bản về Database lấy certificate làm đẹp profile 😎 là rất đáng phải không ?

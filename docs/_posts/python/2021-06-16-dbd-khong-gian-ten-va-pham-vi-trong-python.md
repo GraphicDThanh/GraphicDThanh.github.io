@@ -80,7 +80,7 @@ Khi một hàm được gọi, nó tạo ra một không gian tên cục bộ, v
 
 Để cho dễ hình dung, bạn có thể nghĩ đến scope như là hàng rào quanh nhà bạn, còn namespace là toàn bộ đất trong đó, và trên đất có thể bao gồm cây cối, nhà cửa, .... là các đối tượng.
 
-![](assets/images/2021/06/2021-06-16-dbd-khong-gian-ten-va-pham-vi-trong-python-1.webp)
+![](/assets/images/2021/06/2021-06-16-dbd-khong-gian-ten-va-pham-vi-trong-python-1.webp)
 
 Bạn thấy không, không gian tên theo dõi các đối tượng trong mô-đun này, vì tụi này nằm trong không gian của nó, còn phạm vi chính là đường màu cam thể hiện hàng rào bọc ngoài không gian tên này.
 
@@ -120,7 +120,7 @@ Vì mình có thể dùng tên của mô-đun để truy cập vào các thuộc
 
 Bạn có thể hình dung nó kiểu như là nhà mình có một cái macbook, nhà hàng xóm cũng có một cái macbook y như vậy, thì hai cái macbook này mình có thể hoàn toàn phân biệt được đúng không nào 😀
 
-![](assets/images/2021/06/2021-06-16-dbd-khong-gian-ten-va-pham-vi-trong-python-2.webp)
+![](/assets/images/2021/06/2021-06-16-dbd-khong-gian-ten-va-pham-vi-trong-python-2.webp)
 
 ### Không gian tên và phạm vi đều phân cấp
 
@@ -134,7 +134,7 @@ Còn khi tạo một mô-đun, ta sẽ có không gian tên toàn cục(global) 
 
 Biểu đồ dưới thể hiện sự phân cấp này: không gian tên và phạm vi dựng sẵn bao trùm không gian tên và phạm vi toàn cục, và lớp này bao trùm không gian tên và phạm vi cục bộ.
 
-![](assets/images/2021/06/2021-06-16-dbd-khong-gian-ten-va-pham-vi-trong-python-3.webp)
+![](/assets/images/2021/06/2021-06-16-dbd-khong-gian-ten-va-pham-vi-trong-python-3.webp)
 
 ### Hiểu luật LEGB
 
@@ -146,7 +146,7 @@ LEGB là viết tắc của các phạm vi **local**, **enclosing**, **global** 
 
 Cùng nhìn ví dụ sau về phạm vi bao quanh nha:
 
-![](assets/images/2021/06/2021-06-16-dbd-khong-gian-ten-va-pham-vi-trong-python-4.webp)
+![](/assets/images/2021/06/2021-06-16-dbd-khong-gian-ten-va-pham-vi-trong-python-4.webp)
 
 Ở ví dụ trên, mình có hàm *outer_function* có hàm bên trong là *inner_function*, hàm này có phạm vi cục bộ của riêng nó. Với hàm *inner_function*, phạm vi của hàm *outer_function* gọi là **phạm vi bao quanh**(enclosing scope), tức nó bọc luôn hàm bên trong.
 
@@ -158,7 +158,7 @@ Nếu tìm hết bốn scope mà vẫn không tìm ra thì chương trình sẽ 
 
 Do đó, nguyên tắc LEGB định nghĩa thứ tự tìm kiếm của tên theo thứ tự như sau:
 
-![](assets/images/2021/06/2021-06-16-dbd-khong-gian-ten-va-pham-vi-trong-python-5.webp)
+![](/assets/images/2021/06/2021-06-16-dbd-khong-gian-ten-va-pham-vi-trong-python-5.webp)
 
 Và thêm nữa, nếu tên đã được tìm kiếm ở cấp nào rồi, thì chương trình sẽ dừng việc tìm kiếm lại và sử dụng tên đó chứ không đi tìm ở những lớp trên nữa nha, vì tìm ra rồi thì dùng liền chớ hỉ.
 

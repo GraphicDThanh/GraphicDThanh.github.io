@@ -62,7 +62,7 @@ x() // 10
 
 Hình bên dưới minh họa hai loại scope này:
 
-![](assets/images/2022/11/2022-11-11-scope-trong-javascript-1.webp)
+![](/assets/images/2022/11/2022-11-11-scope-trong-javascript-1.webp)
 
 Chiếc khung màu đen thể hiện phạm vi của từng loại scope.
 
@@ -96,7 +96,7 @@ x();
 
 Thử đặt một breakpoint và quan sát trên debugger:
 
-![](assets/images/2022/11/2022-11-11-scope-trong-javascript-2.webp)
+![](/assets/images/2022/11/2022-11-11-scope-trong-javascript-2.webp)
 
 Ở Global có a là 5, Local có c là 15, Block có d là 0 tương ứng với 3 scopes mình đã đề cập.
 
@@ -112,5 +112,5 @@ Bạn có thể chứng minh được b vẫn thuộc global scope vì tại dò
 
 Hình bên dưới minh họa ba loại scope ở ví dụ trên:
 
-![](assets/images/2022/11/2022-11-11-scope-trong-javascript-3.webp)
+![](/assets/images/2022/11/2022-11-11-scope-trong-javascript-3.webp)
 

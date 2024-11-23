@@ -3,9 +3,13 @@ title: "Các bài viết ngắn - phần 8"
 categories:
   - Short Posts
 tags:
-  - short-post
+  - short-posts
+  - python
+  - news
+  - javascript
+  - life
 ---
-![](assets/images/2022/08/2022-08-18-cac-bai-viet-ngan-phan-8-1.webp)
+![](/assets/images/2022/08/2022-08-18-cac-bai-viet-ngan-phan-8-1.webp)
 
 ## Làm tròn số thực trong Python
 Làm tròn số thực trong Python là chuyện thường ngày, và tụi mình sẽ sử dụng rất nhiều trong khi học Python cùng toán cũng như trong hiển thị các số thực với một số lượng các chữ số thập phân bất kỳ.
@@ -22,7 +26,9 @@ Nếu bạn muốn bắt buộc có hai chữ số thập phân thì cách này 
 
 Lưu ý đây là chuỗi, muốn chuyển qua số bạn cần thực hiện ép kiểu từ string về số với `float()`
 
-Nội dung này được tóm tắt từ bài viết chia sẻ tips trên blog cá nhân của mình.
+Nội dung này được tóm tắt từ [bài viết chia sẻ tips trên blog cá nhân của mình][lam-tron-python].
+
+[lam-tron-python]: {{ "" | relative_url }}{% post_url python/2021-09-19-lam-tron-dung-hai-chu-so-thap-phan-trong-python %}
 
 ## 8 ngôn ngữ lập trình không lo thất nghiệp năm 2022
 Có tới hơn 200 ngôn ngữ lập trình, nhưng chỉ một ít trong số đó được sử dụng phổ biến trong những dự án thực thế.
@@ -77,7 +83,9 @@ Một kênh cập nhật thông tin mình thấy khá là tiện và chủ độ
 
 Để quản lý hòm thư trên gmail, bạn có thể tạo một label “Newsletters” và setup một bộ lọc để các email gửi từ những địa chỉ này này không nằm trong mục inbox mà tự động được gắn nhãn là “Newletters”. Làm như thế bạn sẽ dễ dàng quản lý, mỗi ngày hoặc mỗi tuần chỉ cần đọc các bản tin này ở một nơi là được.
 
-Giới thiệu đến bạn một số newletters giành cho frontend developer ở bài viết này.
+Giới thiệu đến bạn một số newletters dành cho frontend developer ở [bài viết này][bai-viet-nay].
+
+[bai-viet-nay]: {{ "" | relative_url }}{% post_url non-tech/2023-03-03-huong-dan-quan-ly-ban-tin-newsletters %}
 
 ## Quá bận để thành công
 Bận rộn có phải là niềm tự hào của bạn? 

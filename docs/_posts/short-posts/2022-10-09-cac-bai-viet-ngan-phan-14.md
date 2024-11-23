@@ -3,9 +3,14 @@ title: "Các bài viết ngắn - phần 14"
 categories:
   - Short Posts
 tags:
-  - short-post
+  - short-posts
+  - tools
+  - css
+  - python
+  - algorithms
+  - concepts
 ---
-![](assets/images/2022/10/2022-10-09-cac-bai-viet-ngan-phan-14-1.webp)
+![](/assets/images/2022/10/2022-10-09-cac-bai-viet-ngan-phan-14-1.webp)
 
 ## SmartDev Tools
 Hôm nay mình chia sẻ với các bạn rất nhiều công cụ online giành cho lập trình viên.
@@ -84,9 +89,7 @@ Một số mẹo sử dụng khoảng trắng hợp lý cho các tiêu đề và
 
 – Sử dụng font custom sẽ làm trang web có dấu ấn riêng, nhưng lưu ý kiểm tra font có load được không nhé.
 
-Bạn có thể ghé link bên dưới để xem kết quả trước và sau những thay đổi này nhé ^^
-
-https://pimpmytype.com/hugo-md/
+Bạn có thể ghé [link](https://pimpmytype.com/hugo-md/) để xem kết quả trước và sau những thay đổi này nhé ^^
 
 
 ## Giải bài toán đồ thị (graph problem) với python
@@ -107,9 +110,7 @@ Giải quyết vấn đề graph
 
 – Directed Graph (có một chiều nhất định giữa hai node) và Undirected Graph (giữa hai nút có hai chiều)
 
-Ngoài ra còn có các bài tập cụ thể và được giải với python ở link bên dưới
-
-https://www.giulianopertile.com/blog/the-definitive-guide-to-graph-problems/
+Ngoài ra còn có các bài tập cụ thể và được giải với python ở [link](https://www.giulianopertile.com/blog/the-definitive-guide-to-graph-problems/)
 
 ## Authentication là gì?
 Là quá trình kiểm tra liệu người dùng có đúng danh tính mà hệ thống có về người ấy hay không. Nếu đúng thì sẽ cho phép người dùng truy cập vào hệ thống. Nếu không đúng thì từ chối truy cập vào hệ thống.
