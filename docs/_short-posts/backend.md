@@ -9,6 +9,8 @@ tag:
   - redis
   - GraphQL
   - REST
+category:
+- Short Posts
 ---
 
 Các bài viết ngắn về "Backend"

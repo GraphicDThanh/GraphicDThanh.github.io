@@ -1,5 +1,7 @@
 ---
 title: "Các bài viết ngắn về Fundamentals"
+category:
+- Short Posts
 ---
 
 Các bài viết ngắn về "Fundamentals":

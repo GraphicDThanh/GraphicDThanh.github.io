@@ -1,5 +1,7 @@
 ---
 title: "Các bài viết ngắn về Frontend"
+category:
+- Short Posts
 ---
 
 Các bài viết ngắn về "Frontend"
