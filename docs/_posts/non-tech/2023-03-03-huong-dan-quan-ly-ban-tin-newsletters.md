@@ -5,9 +5,8 @@ header:
   og_image: /assets/images/2023/03/2023-03-huong-dan-quan-ly-ban-tin-newsletters-cover.webp
 excerpt_separator: <!--more-->
 categories:
-  - Tips
-tags:
-  - tips
+  - Soft Skills
+tag:
   - soft-skills
 last_modified_at: 2023-04-29T15:12:19-04:00
 ---

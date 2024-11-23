@@ -5,9 +5,8 @@ header:
   og_image: assets/images/2022/12/2022-12-ky-nang-tim-kiem-thong-tin-cover.webp
 excerpt_separator: <!--more-->
 categories:
-  - Tips
+  - Soft Skills
 tags:
-  - tips
   - soft-skills
 last_modified_at: 2023-04-29T15:12:19-04:00
 ---

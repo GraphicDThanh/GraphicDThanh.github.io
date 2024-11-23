@@ -2,7 +2,7 @@
 title: "Kỹ năng tìm kiếm thông tin"
 excerpt_separator: <!--more-->
 categories:
-  - Nontech
+  - Soft Skills
 tags:
   - non-tech
 last_modified_at: 2022-12-29T15:12:19-04:00

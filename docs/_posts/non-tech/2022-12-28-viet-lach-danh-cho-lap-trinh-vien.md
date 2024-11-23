@@ -2,9 +2,9 @@
 title: "Viết lách dành cho lập trình viên"
 excerpt_separator: <!--more-->
 categories:
-  - Writing
+  - Soft Skills
 tags:
-  - writing
+  - soft-skills
 ---
 
 Hàng ngày, ngoài viết code, lập trình sẽ viết tài liệu dự án, viết nội dung ticket, viết mô tả cho pull request / merge request, viết mô tả yêu cầu của khách hàng, các loại báo cáo, …

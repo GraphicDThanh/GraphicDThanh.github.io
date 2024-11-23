@@ -1,5 +1,10 @@
 ---
 title: "Các bài viết ngắn về Soft Skills"
+category:
+- Short Posts
+- Soft Skills
+tag:
+- soft-skills
 ---
 
 Các bài viết ngắn về "Soft Skills"
