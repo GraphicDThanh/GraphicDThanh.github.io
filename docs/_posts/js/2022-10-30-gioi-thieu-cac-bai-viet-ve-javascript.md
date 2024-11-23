@@ -17,7 +17,7 @@ BeautyOnCode hân hạnh giới thiệu đến bạn:
 
 Bài viết [Điều gì xảy ra khi chạy một chương trình JavaScript?][dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript] trả lời câu hỏi của tiêu đề, giới thiệu đến bạn cách JS Engine hoạt động thông qua Execution Context và tạo ra callstack.
 
-Bài viết “Hoisting trong JavaScript” tìm hiểu về khái niệm hoisting trong JavaScript dựa vào cách JS Engine hoạt động.
+Bài viết [“Hoisting trong JavaScript”][hoisting-trong-javascript] tìm hiểu về khái niệm hoisting trong JavaScript dựa vào cách JS Engine hoạt động.
 
 Bài viết [Khai báo biến với var, let và const trong JavaScript][khai-bao-bien-voi-var-let-va-const-trong-javascript] giới thiệu các cách khai báo biến trong và sự khác nhau của chúng.
 
@@ -40,3 +40,4 @@ Nội dung được định hướng tự do nên nếu bạn có gợi ý các 
 [lexical-environment-trong-javascript]: {{ "" | relative_url }}{% post_url js/2022-11-03-lexical-environment-trong-javascript %}
 [choi-cung-javascript]: {{ "" | relative_url }}{% post_url js/2022-10-18-choi-cung-javascript %}
 [scope-trong-js]: {{ "" | relative_url }}{% post_url js/2022-11-11-scope-trong-javascript %}
+[hoisting-trong-javascript]: {{ "" | relative_url }}{% post_url js/2022-09-07-hoisting-trong-javascript %}

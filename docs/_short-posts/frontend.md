@@ -1,21 +1,220 @@
 ---
-title: "Các bài viết ngắn về JavaScript"
+title: "Các bài viết ngắn về Frontend"
 ---
 
-Các bài viết ngắn về "JavaScript"
-- JS debug tools
-- Chơi cùng JavaScript
-- Điều gì xảy ra khi chạy một chương trình JavaScript?
-- Stack overflow trong JS
-- Form 2022 có gì mới?
-- CSS-in-JS là gì?
-- Mảng trong JavaScript
-- Hoisting trong JavaScript
-- Một số tips viết code JavaScript sạch
-- Lexical environment trong JavaScript
-- Scope trong JavaScript
-- Giới thiệu chuỗi bài về JavaScript
-- Hơn 30 bài blog giúp bạn học Typescript
+Các bài viết ngắn về "Frontend"
+- Web Fundamentals
+  - Trang web hoạt động ra sao
+  - Defensive CSS
+  - Vì sao nên gán min-width cho button?
+  - UI / UX nền tảng
+  - Mẹo sử dụng khoảng trắng
+  - Sự phát triển của CSS
+- JavaScript
+  - JS debug tools
+  - Chơi cùng JavaScript
+  - Điều gì xảy ra khi chạy một chương trình JavaScript?
+  - Stack overflow trong JS
+  - Form 2022 có gì mới?
+  - CSS-in-JS là gì?
+  - Mảng trong JavaScript
+  - Hoisting trong JavaScript
+  - Một số tips viết code JavaScript sạch
+  - Lexical environment trong JavaScript
+  - Scope trong JavaScript
+  - Giới thiệu chuỗi bài về JavaScript
+- TypeScript
+  - Hơn 30 bài blog giúp bạn học Typescript
+- React
+  - Những điều thú vị về React
+  - Hook Pattern
+  - Giới thiệu về XState
+  - 7 repo giúp bạn code React xịn hơn
+
+
+## Trang web hoạt động ra sao
+Ba thành phần chính cấu tạo 🏗 nên một trang web là HTML 🪜, CSS 🌈 và JavaScript ✨.
+
+👉 🪜 `HTML` là ngôn ngữ đánh dấu giúp cấu trúc cho nội dung trang.
+
+👉 🌈 `CSS` là ngôn ngữ về các kiểu áp dụng vào nội dung HTML để làm đẹp cho trang
+
+👉 ✨ `JavaScript(JS)` là ngôn ngữ kịch bản cho phép tạo một trang web với nội dung cập nhật, hình ảnh động, …
+
+
+🧐 **Vậy trang web được dựng lên như thế nào?**
+
+Khi bạn gõ đường dẫn vào trình duyệt và nhấn enter 👩‍💻🧑🏻‍💻, một yêu cầu ➡️ được gửi đến máy chủ và file HTML được tải về ⬇️
+
+Sau đó, trình duyệt sẽ phân tích 🧐 HTML đầu tiên, theo thứ tự từ trên xuống dưới ⏬. Trong file này chứa <link> để tải tiếp CSS 🌈 và <script> để tải tiếp tệp JavaScript ✨
+
+Trong khi phân tích HTML, trình duyệt tạo cây DOM, tạo cấu trúc CSSOM với nội dung CSS đồng thời cũng biên dịch và thực thi JavaScript 🏗
+
+Quá trình này diễn ra đồng thời 🤖, trang web được vẽ lên màn hình 🖼 và bạn thấy trang web được hiển thị 🧑🏻‍💻
+
+Thật thú vị phải không 🤩 Ngoài ra thì cũng có nhiều cách để tải và thực thi code JavaScript sao cho trang web hiển thị lên nhanh nhất, mời bạn ghé đọc thêm ở [bài viết trên blog này][chien-luoc-tai-thuc-thi-code-javascript].
+
+[chien-luoc-tai-thuc-thi-code-javascript]: {{ "" | relative_url }}{% post_url js/2022-04-17-chien-luoc-tai-thuc-thi-code-javascript %}
+
+## Defensive CSS
+Khi viết code HTML/CSS cho một trang web, sẽ có những tình huống không mong đợi xảy ra, ví dụ như: đoạn chữ dài quá kích thước của khung làm chữ tràn ra ngoài, hay kích thước ảnh thay đổi ngẫu nhiên, hay hình nền bị lặp lại khi kích thước hình ảnh nhỏ
+
+Những tình huống như trên đôi khi bản thiết kế không có sẵn, thường sẽ dựa trên kinh nghiệm của Front Developer xử lý, hoặc cho đến khi gặp lỗi(bug) thì phải sửa.
+
+Để chủ động trong những tình huống này, giới thiệu đến bạn một trang chuyên viết về Defensive CSS.
+
+Vậy vì sao Defensive CSS? Hay vì sao viết HTML/CSS cần phải chuẩn bị trước(phòng thủ) có những tình huống như trên có thể xảy ra?
+
+Vì:
+
+– Nội dung trong bản thiết kế có thể thay đổi, tức là nội dung có thể tràn(break) layout
+
+– Hình ảnh có thể có các tỉ lệ khác nhau
+
+– Sử dụng các CSS như flex, grid một cách hiệu quả có thể giảm bug/break layout
+
+– Bản thiết kể chỉ mang tính chất định hướng thiết kế, dữ liệu thật có thể thay đổi, cần học cách viết layout sao cho có thể dễ bảo trì(maintain) và extend(mở rộng)
+
+– Trong đây có nhiều tips như là Flexbox Wrapping, Image Distortion, Long Content, …
+
+Mời bạn vào đọc và xem ví dụ ở [đây](https://defensivecss.dev/tips).
+
+## Vì sao nên gán min-width cho button?
+Một vấn đề phổ biến khi tạo một nút bấm (button) là để chiều rộng của nút tùy vào nội dung của nút (text content) cộng với khoảng cách hai bên (padding).
+
+Một vài lý do cho vấn đề này:
+
+– Nút bấm có nội dung hiển thị thay đổi trên UI tuỳ loại ngôn ngữ là rất phổ biến. Ví dụ nút Done trong tiếng Anh hiển thị qua tiếng Việt có thể là Đã Xong, và trong tiếng Arabic thì là تمthì khi đó button Done trong tiếng Anh có độ rộng là 72px thì sẽ có độ rộng 95px trong tiếng Việt và 43px trong tiếng Ả Rập.
+
+– Việc hai nút bấm đứng cạnh nhau có cùng chiều rộng như Done và Cancel cũng thường xảy ra
+
+– Hoặc nội dung nút bấm ở phiên bản đầu là Done nhưng qua phiên bản sau đổi thành Finished cũng làm cho kích thước của nút bấm thay đổi theo
+
+Vì thế, việc gán cho nút thuộc tính `min-width` sẽ giúp hạn chế những vấn đề ở trên. Nút `Done`
+
+sẽ được gán `min-width` là 95px và sẽ hiển thị tốt cho cả ngôn ngữ là tiếng Việt hay tiếng Ả Rập.
+
+```css
+.button {
+  min-width: 95px;
+}
+```
+[Link ref](https://defensivecss.dev/tip/button-min-width/)
+
+## CSS range
+Tính năng mới của CSS giúp viết media queries dễ dàng hơn
+
+Ví dụ bạn có đoạn code sau:
+```css
+body {
+    background: green;
+}
+
+@media (min-width: 300px) and (max-width: 640px) {
+    body {
+        background: red;
+    }
+}
+```
+Đoạn code này sẽ chuyển đổi màu nền từ xanh lá sang đỏ khi màn hình có chiều rộng từ 300px đến 640px
+
+Cú pháp CSS mới sẽ giúp bạn viết đoạn media queries này dễ hiểu hơn với range selected
+300px <= width <= 640px
+
+```css
+@media (300px <= width <= 640px) {
+    body {
+        background: red;
+    }
+}
+```
+hoặc có thể nhanh chóng thay đổi chỉ nhỏ hơn 640px “width <= 640px” hay chỉ lớn hơn 300px “300px <= width”
+
+Ngoài ra bạn cũng có thể sử dụng “or” để nối các điều kiện của media queries.
+Ví dụ: width nhỏ hơn 300px hoặc màn hình ở chiều ngang
+
+`@media (width <= 300px) or (oriented: landscape) {}`
+
+Bạn ghé đọc chi tiết ở [bài này](https://css-tricks.com/the-new-css-media-query-range-syntax/) nha
+
+## UI / UX nền tảng
+
+Nếu bạn nghĩ làm web developer chỉ cần biết code, ai đưa gì làm nấy thì đó mà mindset chưa đúng.
+
+Việc dev học về thiết kế UI/UX như là một nền tảng cơ bản để làm web developer. giúp bạn: 
+
+- hiểu về người dùng hơn, sản phẩm hơn
+- hỗ trợ bộ phần thiết kế, nghiên cứu hành vi người dùng
+- lựa chọn các kỹ thuật phù hợp hơn
+- hoàn thành công việc tốt hơn
+- dễ dàng hơn trong việc tự thiết kế sản phẩm riêng của mình
+
+Vì thế, mình muốn giới thiệu đến bạn một khóa học về UI/UX với các nội dung:
+
+- UI/UX là gì ?
+- Tìm hiểu về “Stages of development" để hiểu về quy trình phát triển phần mềm
+- Tìm hiểu về UI - “Graphic Design”, bao gồm:
+    - Tìm hiểu về màu sắc
+        - Tâm lý học màu sắc
+        - Lý thuyết về màu sắc
+        - Bánh xe màu và bảng màu
+        - Màu nóng, màu lạnh
+    - Tìm hiểu về fonts
+    - Tìm hiểu về Icons
+- Tìm hiểu về UX - trải nghiệm của người dùng, bao gồm:
+    - Nguyên tắc lấy người dùng làm trung tâm
+    - Hành trình của khách hàng
+    - Mô hình phễu bán hàng
+
+Bạn có thể tìm hiểu các nội dung trên qua video sau
+
+<iframe width="640" height="360" src="https://www.youtube.com/watch?v=uL2ZB7XXIgg" frameborder="0" allowfullscreen></iframe>
+
+## Mẹo sử dụng khoảng trắng
+
+Một số mẹo sử dụng khoảng trắng hợp lý cho các tiêu đề và chữ trên trang web
+
+– Giảm khoảng trắng bên dưới tiêu đề và tăng khoảng trắng bên trên tiêu đề Điều này sẽ giúp tiêu đề to hơn và nổi bật hơn, đồng thời giúp người đọc dễ đọc nội dung bên dưới hơn vì nó gần hơn
+
+– Thêm khoảng trắng giữa các đề mục và các đường link nên rõ ràng thể hiện có thể click được
+
+– Kiểm tra font tải có đúng không và chính tả của nội dung
+
+– Giảm lineheight giữa các dòng ngắn
+
+– Hạn chế sử dụng xuống dòng vì sẽ gây khó đọc
+
+– Sử dụng font custom sẽ làm trang web có dấu ấn riêng, nhưng lưu ý kiểm tra font có load được không nhé.
+
+Bạn có thể ghé [link](https://pimpmytype.com/hugo-md/) để xem kết quả trước và sau những thay đổi này nhé ^^
+
+[choi-cung-js]: {{ "" | relative_url }}{% post_url js/2022-10-18-choi-cung-javascript %}
+[dieu-gi-xay-ra-khi-chay-chuong-trinh-js]: {{ "" | relative_url }}{% post_url js/2022-08-30-dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript %}
+
+## Sự phát triển của CSS
+Sự phát triển của CSS theo hướng có thể mở rộng trong dự án
+
+CSS là một trong ba trụ cột của website (HTML, CSS, JS). Khi nhắc đến CSS hẳn bạn sẽ nghĩ bạn này quá đơn giản đúng không ^^ Tuy nhiên, viết CSS trong dự án lớn để có thể dễ dàng mở rộng và hiệu quả là điều không hề dễ dàng.
+
+Bài viết sau giới thiệu đến bạn về CSS và quá trình phát triển của bạn ấy:
+
+Trước khi CSS ra đời, style được viết luôn vào code HTML. Khi CSS ra đời, tách code CSS ra riêng. Và nổi tiếng với trang CSS Garden, nơi chỉ với cùng cấu trúc html nhưng xây dựng được các thiết kế khác nhau
+
+CSS có global namespaces, theo cascade rules và selector specificity – tức code CSS được truy cập trong toàn bộ trang web, với luật tính điểm để quyết định có ghi đè nhau không (cascade) và chọn các phần tử với selector.
+
+Bên cạnh đó, việc đặt tên class, ghi đè với `!important`, code thừa trong dự án lớn (vì không dám xoá sợ ảnh hưởng các tính năng đang hoạt động) ngày càng phổ biến. CSS lại không có lỗi (silent error).
+
+Tất cả những đều này làm CSS rất dễ để bắt đầu nhưng là nhanh chóng lộn xộn và khó kiểm soát.
+
+Việc quản lý CSS ra đời với các khái niệm về “CSS Architectures” như SMASS, BEM, ITCSS, Cube CSS, SASS, LESS, …
+
+Tiếp đó, việc phát triển của các trang web SPAs và component-driven development dẫn đến nhiều hướng tiếp cận mới với CSS như là inline styles, CSS in JS
+Làm sóng đầu tiên của CSS in JS với styled-component, Emotion
+Làn sóng thứ hai của CSS in JS với việc complie CSS giúp giảm thời gian chạy trên trình duyệt của người dùng. CSS biên dịch qua Atomic CSS, các thư việc như Vanilla extract, Linaria, Compiled.
+
+Cùng lúc đó, song song với sự phát triển của CSS in JS, một hướng mới quản lý CSS với Atomic CSS ra đời với việc style các cấp thấp hơn cả blockers, objects, tập trung vào single-purpose atoms với các thư viện như ACSS, Tachyons, WindiCSS, và nổi nhất hiện nay là Tailwind.
+
+Thật thú vị đúng không! Bạn ghé đọc thêm ở [bài này](https://frontendmastery.com/posts/the-evolution-of-scalable-css/) nhé ^^
 
 ## JS debug tools
 Các bạn Frontend Developer hay sử dụng gì để debug trong code JavaScript nhỉ?
@@ -359,3 +558,99 @@ Mình cũng mới bắt đầu tự học TypeScript, vì ngôn ngữ này bây 
 Bạn có thể dùng tính năng Save trên medium để lưu lại [nguồn tài liệu này](https://medium.com/frontend-canteen/with-these-articles-you-will-not-be-confused-when-learning-typescript-d96a5c99e229).
 
 
+
+## Những điều thú vị về React
+
+ReactJS vẫn đang làm mưa làm gió trên cộng đồng lập trình web với mức lương khủng và nhu cầu thị trường rất nhiều.
+Một số điều thú vị về React:
+
+Thuật toán áp dụng khi xử lý DOM ảo là diff algorithm, nó sẽ so sánh các phiên trước và sau khi state hoặc props thay đổi.
+
+DOM ảo là một bản copy của DOM thật theo tỉ lệ 1-1, DOM ảo là một object với các thuộc tính như loại element, các node con.
+
+DOM ảo hoạt động và đồng bộ với DOM thật qua thư viện ReactDOM, quá trình này gọi là Reconciliation
+
+DOM ảo cũng là một object, object được lưu trữ trong stack, heap, và các bạn này được lưu ở trên ram
+
+DOM ảo có thực sự nhanh hơn DOM thật? Vấn đề này vẫn đang được tranh cãi
+
+Có phải ReactJS là cha đẻ của DOM ảo? Không nha, ReactJS sử dụng DOM ảo nhưng không tạo ra khái niệm này, nó đã có từ trước. Vuejs hay Elm cũng có sử dụng DOM ảo, mỗi thư viện có cách áp dụng khác nhau.
+
+Tại sao lại chia ra hai thư viện react và reactDOM?
+
+Vì có sự xuất hiện React Native, lập trình app cho di động, nên react sẽ là phần lõi dùng chung của cả hai bên: web và di động, còn reactDOM thì chỉ sử dụng cho web app.
+
+Bạn có thể đọc thêm ở [bài viết này](https://viblo.asia/p/su-that-thu-vi-ve-react-co-the-ban-chua-biet-L4x5xAawKBM)
+
+## Hook Pattern
+
+Hook pattern giúp sử dụng function để tái sử dụng các trạng thái(state) xuyên suốt nhiều components trong app.
+
+React 16.8 giới thiệu Hooks, một cách mới vẫn có thể sử dụng state và lifecycle methods mà không cần dùng cú pháp class của ES2015.
+
+**Vì sao lại thay thế class component?**
+
+Để hiểu vì sao thì cần phải hiểu về class component. Trước đây, có hai cách để tạo một component là sử dụng function (stateless component) và class (stateful component). Class sẽ sử dụng nếu component cần làm việc với các trạng thái (state).
+
+Việc này dẫn tới một vấn đề về code sẽ thay đổi nhiều lên rất nhiều khi một function component muốn chuyển sang class component vì syntax khác nhau. Class component cần có constructor để khởi tạo state, hàm render, các hàm khác, …
+
+Thêm vào đó, việc chia sẻ state qua nhiều component có thể sử dụng HOC hay Render Props pattern, và khi có nhiều component lồng vào nhau sẽ sinh ra vấn đề component wrapper hell (có thể hiểu tương tự callback hell)
+
+Ngoài ra, việc kiểm soát một component ở lifecycle methods như componentDidMount, … sẽ càng làm cho code base của một component gia tăng, và lặp lại ở nhiều component.
+
+**Hooks ra đời giúp giải quyết các vấn đề trên như thế nào?**
+
+– Hooks cho phép quản lý state trong một function component, nên không cần đổi code base nhiều khi sử dụng state nữa.
+
+– Hooks cho phép quản lý component lifecycles mà không cần viết các hàm như componentDidMount, … như trước
+
+– Hook cho phép tái sử dụng state xuyên suốt app
+
+Mời bạn đọc thêm ở [bài này](https://www.patterns.dev/posts/hooks-pattern/) nhé, thú vị lắm ấy!
+
+## Giới thiệu về XState
+Hôm nay công ty có bài giới thiệu về XState cực thú vị, nên mình muốn giới thiệu đến bạn qua bài viết nhỏ này.
+
+XState giúp phát triển web, app theo hướng State Machine, tức là lấy state của máy làm trung tâm và phát triển ứng dụng dựa trên sơ đồ các trạng thái và sự chuyển đổi trạng thái thông qua các sự kiện.
+
+Hai điều thú vị mà mình ấn tượng nhất là:
+
+Đầu tiên, sơ đồ trạng thái của ứng dụng được mô tả một cách trực quan, các luồng chạy của ứng dụng có thể được hiểu rõ qua sơ đồ (khi thiết kế trạng thái tương tự diagram) hay có thể chia sẻ luồng dữ liệu ứng dụng mà không cần đọc code.
+
+Điều này sẽ giúp người lập trình suy nghĩ về logic ứng dụng trước khi code, sắp xếp các sự kiện hợp lý, theo đó UX cũng sẽ hợp lý theo vì các trạng thái sẽ chuyển đổi theo tác vụ của người dùng.
+
+Thứ hai, là việc tái sử dụng mô hình state machine này vào các loại ứng dụng khác nhau mà XState hỗ trợ.
+
+Điều này sẽ giúp ứng dụng web (xây dựng với React) và hydrid mobile (xây dựng với React Native) có thể sử dụng chung source code của ứng dụng với XState này. Do đó sẽ làm giảm thời gian lập trình và nhiều nên tảng ứng dụng sẽ có cùng định hướng, cùng sơ đồ trạng thái – single source of true.
+
+Bạn có thể ghé [trang chủ của XState](https://xstate.js.org/) để tìm hiểu thêm.
+
+## 7 repo giúp bạn code React xịn hơn
+
+React - một UI framework, đứng sau bởi Facebook, với hơn 50 triệu dự án mỗi tháng, 9 năm tuổi, được sử dụng rộng khắp từ startup đến Fortune 500 companies.
+
+Giới thiệu đến bạn 7 repo giúp nâng cao kỹ năng với framework này:
+
+30 days of React
+
+- thử thách học React trong 30 ngày kèm với các hướng dẫn chi tiết.
+- để học khóa này bạn chỉ cần kiến thức HTML, CSS, JS. Bạn có thể tham khảo thêm repo 30DaysOfJavascript
+
+Awesome React
+
+- các nguồn tài liệu, công cụ trong hệ sinh thái React
+- React, React Native, Redux, GraphQL, Relay, các videos, ...
+
+React typescript cheatsheet
+
+- một bảng giúp developer làm quen với TS và React
+
+Learn React App
+
+- Hướng dẫn bạn làm quen với React concepts kèm các bài tập hands-on
+
+React Patterns
+
+- nội dung về các patterns trong React, các mẹo khi sử dụng
+
+Bạn có thể xem qua [các repo này](https://github.com/stars/GraphicDThanh/lists/react/) ở list và star hay fork về tài khoản github của mình để lưu lại nhé.

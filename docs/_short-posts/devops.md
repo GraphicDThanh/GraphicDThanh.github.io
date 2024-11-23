@@ -1,5 +1,5 @@
 ---
-title: "Các bài viết ngắn về Devops và Cloud Computing"
+title: "Các bài viết ngắn về Devops"
 ---
 
 Các bài viết ngắn về "Devops"

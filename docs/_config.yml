@@ -191,7 +191,7 @@ collections:
   docs:
     output: true
     permalink: /:collection/:path/
-  short_posts:
+  short-posts:
     output: true
     permalink: /:collection/:path/
 
@@ -228,10 +228,10 @@ defaults:
       toc_sticky: true
       sidebar:
         nav: "docs"
-  # _short_posts
+  # _short-posts
   - scope:
       path: ""
-      type: short_posts
+      type: short-posts
     values:
       layout: single
       author_profile: true

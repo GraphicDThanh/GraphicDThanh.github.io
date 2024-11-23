@@ -22,14 +22,12 @@ foo:
 main:
   - title: "Getting Started"
     url: /docs/getting-started/
-  - title: "Categories"
-    url: /categories/
-  - title: "Collections"
-    url: /collection-archive/
   - title: "About"
     url: /about/
   - title: "Posts"
     url: /year-archive/
+  - title: "Collections"
+    url: /collection-archive/
 
 # documentation links
 docs:
@@ -37,39 +35,10 @@ docs:
   children:
     - title : "Getting Started"
       url: /docs/getting-started/
-    - title : "Most Viewed Posts"
-      url: /docs/most-views/
     - title : "Series Overview"
       url: /docs/series-overview/
-    - title : "Categories Overview"
-      url: /docs/categories-overview/
-    - title : "Short Posts"
-      url: /docs/short-posts/
     - title : "English Posts"
       url: /docs/english-posts/
-    - title : "How to Use the Blog"
-      url: /docs/how-to-use/
-- title: "Recommended"
-  children:
-    - title : "Helpful Articles"
-      url: /docs/helpful-articles/
-    - title : "Tech Blogs and Authors"
-      url: /docs/blog-and-authors/
-    - title : "Courses and Videos"
-      url: /docs/courses-and-videos/
-    - title : "Newsletter"
-      url: /docs/newsletters/
-    - title : "Resources & Tools"
-      url: /docs/resources-tools/
-- title: "Meta"
-  children:
-    - title : "FAQ"
-      url: /docs/faq/
-    - title: "Terms & Privacy Policy"
-      url: /docs/terms-and-privacy/
-    - title: "Copyright"
-      url: /docs/copyright/
-
 
 # sidebar navigation list sample
 sidebar-sample:
