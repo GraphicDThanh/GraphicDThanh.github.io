@@ -2,9 +2,9 @@
 title: "Bốn bước để học và viết trong thời gian dài"
 excerpt_separator: <!--more-->
 categories:
-  - Writing
+  - Soft Skills
 tags:
-  - writing
+  - soft-skills
 ---
 
 ![](assets/images/2022/12/2022-12-bon-buoc-de-hoc-va-viet-trong-thoi-gian-dai.webp)
