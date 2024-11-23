@@ -8,7 +8,7 @@ redirect_from:
 toc: true
 ---
 
-Welcome to the Most Viewed Posts on Beauty on Code!
+Welcome to the Most Viewed Posts 👋
 
 These are some of the most popular posts that readers have found particularly helpful. Explore these articles to gain insights into frequently searched programming topics and practical tutorials.
 
@@ -72,12 +72,12 @@ These are some of the most popular posts that readers have found particularly he
 [export-zip-of-multiple-csv-files-in-django]: {{ "" | relative_url }}{% post_url django/2023-04-01-export-multiple-csv-to-zip-django %}
 [giup-robot-reebord-vuot-thu-thach]: {{ "" | relative_url }}{% post_url python/2021-10-31-giup-robot-reebord-vuot-thu-thach %}
 [lam-game-hangman-voi-python]: {{ "" | relative_url }}{% post_url python/2021-10-06-lam-game-hangman-voi-python %}
-[leetcode-94-binary-tree-inorder-traversal]: {{ "" | relative_url }}{% post_url algorithms/2021-08-25-leetcode-94-binary-tree-inorder-traversal %}
+[leetcode-94-binary-tree-inorder-traversal]: {{ "" | relative_url }}{% post_url fundamentals/2021-08-25-leetcode-94-binary-tree-inorder-traversal %}
 [lam-tron-dung-hai-chu-so-thap-phan-trong-python]: {{ "" | relative_url }}{% post_url python/2021-09-19-lam-tron-dung-hai-chu-so-thap-phan-trong-python %}
 [kiem-tra-query-params-va-chuyen-doi-kieu-du-lieu-khi-lam-api-voi-nestjs]: {{ "" | relative_url }}{% post_url nestjs/2020-08-01-nestjs-tips-validation-query-params %}
 [lop-trong-python]: {{ "" | relative_url }}{% post_url python/2021-06-30-dbd-lop-trong-python %}
 [khong-gian-ten-va-pham-vi-trong-python]: {{ "" | relative_url }}{% post_url python/2021-06-16-dbd-khong-gian-ten-va-pham-vi-trong-python %}
-[leetcode-190-reverse-bits]: {{ "" | relative_url }}{% post_url algorithms/2020-09-23-leetcode-190-reverse-bits %}
+[leetcode-190-reverse-bits]: {{ "" | relative_url }}{% post_url fundamentals/2020-09-23-leetcode-190-reverse-bits %}
 [iterable-iterator-generator-python]: {{ "" | relative_url }}{% post_url python/2020-09-09-dbd-iterator-va-generator-trong-python %}
 [loi-va-xu-ly-ngoai-le-python]: {{ "" | relative_url }}{% post_url python/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python %}
 [export-docx-file-django]: {{ "" | relative_url }}{% post_url django/2023-03-25-export-docx-in-django %}

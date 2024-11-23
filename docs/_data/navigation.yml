@@ -22,12 +22,14 @@ foo:
 main:
   - title: "Getting Started"
     url: /docs/getting-started/
+  - title: "Categories"
+    url: /categories/
+  - title: "Collections"
+    url: /collection-archive/
   - title: "About"
     url: /about/
   - title: "Posts"
     url: /year-archive/
-  - title: "Collections"
-    url: /collection-archive/
 
 # documentation links
 docs:
@@ -41,6 +43,8 @@ docs:
       url: /docs/series-overview/
     - title : "Categories Overview"
       url: /docs/categories-overview/
+    - title : "Short Posts"
+      url: /docs/short-posts/
     - title : "English Posts"
       url: /docs/english-posts/
     - title : "How to Use the Blog"

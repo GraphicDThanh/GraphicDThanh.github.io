@@ -191,16 +191,9 @@ collections:
   docs:
     output: true
     permalink: /:collection/:path/
-  recipes:
+  short_posts:
     output: true
     permalink: /:collection/:path/
-  pets:
-    output: true
-    permalink: /:collection/:path/
-  portfolio:
-    output: true
-    permalink: /:collection/:path/
-
 
 # Defaults
 defaults:
@@ -235,33 +228,15 @@ defaults:
       toc_sticky: true
       sidebar:
         nav: "docs"
-  # _recipes
+  # _short_posts
   - scope:
       path: ""
-      type: recipes
+      type: short_posts
     values:
       layout: single
       author_profile: true
       share: true
       comments: true
-  # _pets
-  - scope:
-      path: ""
-      type: pets
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comment: true
-  # _portfolio
-  - scope:
-      path: ""
-      type: portfolio
-    values:
-      layout: single
-      author_profile: false
-      share: true
-
 
 # Sass/SCSS
 sass:

@@ -4,7 +4,8 @@ excerpt_separator: <!--more-->
 categories:
   - js
 tags:
-  - js, lexical
+  - js
+  - lexical-environment
 ---
 
 Trước khi tìm hiểu về `scope`, `scope chain`, hay cả `closures`, bạn cần hiểu về `Lexical Environment`.

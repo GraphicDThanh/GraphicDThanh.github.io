@@ -4,7 +4,9 @@ excerpt_separator: <!--more-->
 categories:
   - js
 tags:
-  - css, js, css-in-js
+  - css
+  - js
+  - css-in-js
 ---
 
 CSS trong JS hay `CSS-in-JS` là một thuật ngữ mô tả việc viết code style CSS trong code JS, tức viết vào file `.js` , `.jsx` thay vì viết code CSS vào file `.css` như bình thường.

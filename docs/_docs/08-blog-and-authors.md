@@ -8,7 +8,7 @@ redirect_from:
 toc: true
 ---
 
-Welcome to the Blog and Authors page on Beauty on Code!
+Welcome to the Blog and Authors page 👋
 
 Here, I’m excited to share a collection of other blogs and authors that I follow regularly. These creators produce high-quality content, offer unique perspectives, and dive into topics that resonate with me as a developer. I hope you’ll find their work as inspiring and helpful as I do.
 

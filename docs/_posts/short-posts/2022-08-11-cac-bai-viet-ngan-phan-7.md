@@ -56,7 +56,7 @@ Ví dụ thay vì “npm list –all” thì nay có thể thay bằng npm query
 
 Bạn ghé đọc [bài viết này](https://github.blog/changelog/2022-08-03-introducing-the-new-npm-dependency-selector-syntax/) để bỏ túi thêm vài típ sử dụng khác nha.
 
-## Giới thiệu về mã 
+## Giới thiệu về mã nguồn
 Trong thế giới phần mềm, bạn sẽ hay gặp câu hỏi: “Phần mềm này là loại mã nguồn mở (open source) hay mã nguồn đóng (closed source)?”
 
 Vậy thì mã nguồn là gì? mã nguồn mở hay mã nguồn đóng nghĩa là sao?

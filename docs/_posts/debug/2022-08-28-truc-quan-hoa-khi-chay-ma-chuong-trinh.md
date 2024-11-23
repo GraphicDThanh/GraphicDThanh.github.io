@@ -4,7 +4,9 @@ excerpt_separator: <!--more-->
 categories:
   - debug
 tags:
-  - visualization, debug, tips
+  - visualization
+  - debug
+  - tips
 ---
 
 ![](/assets/images/2022/08/2022-08-truc-quan-hoa-khi-chay-ma-chuong-trinh.webp)

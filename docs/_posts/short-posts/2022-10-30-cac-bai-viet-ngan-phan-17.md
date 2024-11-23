@@ -161,7 +161,6 @@ Chúc bạn viết code ít bug và nhiều niềm vui nhé!
 Đọc thêm ở [bài viết sau](https://medium.com/clarityai-engineering/clean-code-a-practical-approach-896546435235)
 
 ## Function Python là first-class object
-Function trong Python là first-class object
 
 Vậy first-class object là gì ?
 

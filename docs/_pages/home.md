@@ -16,7 +16,7 @@ feature_row:
     alt: "most views posts"
     title: "Most Viewed Blog Posts"
     excerpt: "Browse the most popular articles, loved by readers for their insights and practical value. These high-traffic posts cover a range of topics that resonate with the tech community."
-    url: "/docs/series-overview/"
+    url: "/docs/most-views/"
     btn_class: "btn--primary"
     btn_label: "Learn more"
   - image_path: /assets/images/thumbnails/tech-series.jpg

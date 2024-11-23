@@ -8,9 +8,9 @@ redirect_from:
 toc: true
 ---
 
-Welcome to BeautyOnCode!
+Hello from BeautyOnCode 👋
 
-This blog is where I share insights and experiences as a developer, from technical tutorials and deep dives into coding concepts to reflections on career growth and balancing tech with personal life. Whether you're a seasoned developer, a tech enthusiast, or someone looking to dive into the world of coding, there’s something here for you.
+This blog is where I share insights and experiences as a developer 👷🏻‍♀️, from technical tutorials 🌱 and deep dives into coding concepts ✍🏻 to reflections on career growth 🪴 and balancing tech with personal life ☺️. Whether you're a seasoned developer, a tech enthusiast, or someone looking to dive into the world of coding, there’s something here for you 🙌.
 
 ---
 
@@ -19,7 +19,7 @@ This blog is where I share insights and experiences as a developer, from technic
 ### 1. Technical Tutorials
 Practical guidance on front-end and back-end technologies:
 
-This section includes practical tutorials covering front-end and back-end technologies. Whether you’re working with JavaScript frameworks like React or backend solutions like Django and AWS, these posts are aimed at providing clear and actionable guidance.
+This section includes practical tutorials covering front-end and back-end technologies. Whether you’re working with JavaScript frameworks like React or backend solutions like Python, Django and AWS, these posts are aimed at providing clear and actionable guidance.
 
 ### 2. Technical Articles
 Dive deep into programming concepts:
@@ -35,7 +35,7 @@ Articles on career development in the tech industry. Whether you’re looking to
 
 ### Use the Categories and Tags:
 
-Each post is tagged and categorized, so you can explore topics like JavaScript, Python, AWS, and more with just a few clicks. Look for topics you’re interested in under the Categories menu.
+Each post is tagged and categorized, so you can explore topics like JavaScript[js-tag], Python, AWS, and more with just a few clicks. Look for topics you’re interested in under the Categories menu.
 
 ### Check Out Series for In-Depth Topics:
 

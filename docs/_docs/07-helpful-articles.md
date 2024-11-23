@@ -8,7 +8,7 @@ redirect_from:
 toc: true
 ---
 
-Welcome to the Helpful Articles page on Beauty on Code!
+Welcome to the Helpful Articles page 👋
 
 Here, I’m sharing a selection of articles I found particularly inspiring, useful, and aligned with my blog’s mission to help developers grow. These resources offer fresh ideas, insights, and unique approaches to programming topics that I may expand on in future posts.
 

@@ -4,7 +4,8 @@ excerpt_separator: <!--more-->
 categories:
   - js
 tags:
-  - js, debug
+  - js
+  - debug
 ---
 
 Khi học JavaScript bạn thử nghiệm các đoạn code nhỏ bằng các cách nào ?

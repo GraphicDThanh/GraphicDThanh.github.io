@@ -8,7 +8,7 @@ redirect_from:
 toc: true
 ---
 
-Welcome to the Categories Overview of Beauty on Code!
+Welcome to the Categories Overview 👋
 
 This page will help you quickly find the content that matches your interests or needs. The blog is organized into several key categories, each offering insights into different aspects of coding, career development, and personal reflections. Explore each section to find tutorials, stories, and tips that will help you grow as a developer and navigate your journey in the tech world.
 

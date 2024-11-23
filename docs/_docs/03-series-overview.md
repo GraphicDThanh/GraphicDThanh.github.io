@@ -8,7 +8,7 @@ redirect_from:
 toc: true
 ---
 
-Welcome to the Series Index of BeautyOnCode!
+Welcome to the Series Index page 👋
 
 This page highlights various learning series that delve into key programming and tech topics. Each series is carefully curated to help you explore, learn, and master different aspects of software development. Explore the series below to start your journey!
 

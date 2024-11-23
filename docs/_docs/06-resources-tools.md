@@ -8,7 +8,7 @@ redirect_from:
 toc: true
 ---
 
-Welcome to the Resources & Tools page on Beauty on Code!
+Welcome to the Resources & Tools page 👋
 
 This section gathers valuable links, tools, and references that complement the tutorials and guides on the blog. Here, you’ll find developer resources, programming tools, and recommended learning materials to help you expand your knowledge and build your skills.
 
