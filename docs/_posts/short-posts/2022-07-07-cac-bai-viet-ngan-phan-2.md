@@ -3,10 +3,15 @@ title: "Các bài viết ngắn - phần 2"
 categories:
   - Short Posts
 tags:
-  - git
+  - short-posts
+  - soft-skills
+  - learn-english
+  - linux
+  - python
+  - news
 ---
 
-![](assets/images/2022/07/2022-07-07-cac-bai-viet-ngan-phan-2.webp)
+![](/assets/images/2022/07/2022-07-07-cac-bai-viet-ngan-phan-2.webp)
 
 ## Những kỹ năng vô hình
 
@@ -16,7 +21,7 @@ KỸ NĂNG LÀ TẤT CẢ MỌI THỨ  🤯🤯🤯
 
 Tất cả những điều có vẻ rất nhỏ nhặt trên đều là kỹ năng, nó như là khoản lợi tức kép tiết kiệm dài hạn cho sự nghiệp của bạn.
 
-3 kỹ năng vô hình quan trọng nhất:
+3 kỹ năng vlinuxô hình quan trọng nhất:
 
 👉 Đi làm
 
@@ -26,10 +31,11 @@ Tất cả những điều có vẻ rất nhỏ nhặt trên đều là kỹ nă
 
 Ngoài ra còn 9 kỹ năng vô hình khác, như là “vượt qua mong đợi”, “sự khéo léo”, “thể hiện lòng biết ơn”, “thể hiện sự quan tâm đối với người khác”, “tập trung vào những điều quan trọng”, “chơi đùa bằng sức mạnh của bạn và của những người khác”, “linh hoạt”, “tôn trọng thiết bị của công ty”, “tiếp tục sự nghiệp học tập của bạn”
 
-Trên đây là một vài tóm tắt của chương “Nắm giữ các kỹ năng vô hình” mời bạn ghé nghe nội dung ở episode 49 trong podcast này https://beautyoncode.com/podcast/ Link sách tiki cho bạn nào cần mua về nghiên cứu nè https://ti.ki/M39Oj1kb/CAREER-UP
+[Link sách tiki](https://ti.ki/M39Oj1kb/CAREER-UP) cho bạn nào cần mua về nghiên cứu nè.
 
 ## Tui học tiếng anh với Duolingo
 Mình vừa mới lê lếch qua 100 ngày trên Duolingo này 🙀 🐌
+
 Thành tích:
 ✅ gần 40K điểm kinh nghiệm :nerd_face:
 ✅ 8 lần đạt top trên các bảng xếp hạng :champagne:
@@ -60,15 +66,21 @@ Trong series các bài blog về Linux này, mình sẽ cùng tìm về chủ đ
 
 ✍️ Phần 1: Linux cơ bản
 
-→ ✅ Giới thiệu về Linux(https://beautyoncode.com/gioi-thieu-ve-linux/)
+→ ✅ [Giới thiệu về Linux][gioi-thieu-ve-linux]
 
-→ ✅ Làm quen câu lệnh và hệ thống tập tin trong Linux(https://beautyoncode.com/lam-quen-cau-lenh-va-he-thong-tap-tin-trong-linux/)
+→ ✅ [Làm quen câu lệnh và hệ thống tập tin trong Linux][lam-quen-cau-lenh-va-he-thong-tap-tin-trong-linux]
 
-→ ✅ Quản lý hệ thống tập tin trong Linux(https://beautyoncode.com/quan-ly-he-thong-tap-tin-trong-linux/)
+→ ✅ [Quản lý hệ thống tập tin trong Linux][quan-ly-he-thong-tap-tin-trong-linux]
 
-→ ✅ Chuyển hướng câu lệnh trong Linux(https://beautyoncode.com/chuyen-huong-cau-lenh-trong-linux/)
+→ ✅ [Chuyển hướng câu lệnh trong Linux][chuyen-huong-cau-lenh-trong-linux]
 
-→ ✅ Giới thiệu CLI và các câu lệnh làm việc với tập tin(https://beautyoncode.com/gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux/)
+→ ✅ [Giới thiệu về CLI và các câu lệnh làm việc với file][gioi-thieu-cli-va-cac-cau-lenh-lam-viec-voi-file]
+
+[gioi-thieu-ve-linux]: {{ "" | relative_url }}{% post_url linux/2022-01-30-gioi-thieu-ve-linux %}
+[lam-quen-cau-lenh-va-he-thong-tap-tin-trong-linux]: {{ "" | relative_url }}{% post_url linux/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux %}
+[quan-ly-he-thong-tap-tin-trong-linux]: {{ "" | relative_url }}{% post_url linux/2022-02-09-quan-ly-he-thong-tap-tin-trong-linux %}
+[chuyen-huong-cau-lenh-trong-linux]: {{ "" | relative_url }}{% post_url linux/2022-03-22-chuyen-huong-cau-lenh-trong-linux %}
+[gioi-thieu-cli-va-cac-cau-lenh-lam-viec-voi-file]: {{ "" | relative_url }}{% post_url linux/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux %}
 
 ✍️ Phần 2: Các công cụ phổ biến của Linux(coming soon)
 
@@ -82,7 +94,7 @@ Khi học một ngôn ngữ mới 🐍, việc làm ra một sản phẩm có th
 
 Hôm nay mình sẽ giới thiệu đến mọi người một phiên bản của trò chơi học từ vựng tiếng anh 🏴󠁧󠁢󠁥󠁮󠁧󠁿 bằng cách đoán từ 🤔, phiên bản Hangman(người treo cổ), cùng với các kiến thức Python 🐍🐍🐍 cơ bản nhé.
 
-Trước tiên mời bạn chơi thử trò chơi ở đây 👉 (link)
+Trước tiên mời bạn chơi thử trò chơi ở đây 👉 ([link](https://replit.com/@graphicdthanh/Hangman-Demo))
 
 Bạn cũng có thể đăng ký tài khoản repl.it rồi chọn “Fork Repl” để tải ⬇️ bản game về tài khoản của bạn. Tại đây, bạn có thể thay đổi nội dung 🔤 trong file words.py để chứa các từ 🍎 🍊 🥦 🍇 bạn muốn học hay thực hành.
 
@@ -101,7 +113,7 @@ Bạn cũng có thể đăng ký tài khoản repl.it rồi chọn “Fork Repl�
 Và tất nhiên là không thể thiếu một ít kiến thức về Python cơ bản như biến, câu lệnh điều kiện(if/else), vòng lặp while/for, …
 
 Còn chần chừ gì nữa, hãy ghé bài blog này để làm một trò chơi riêng của mình rồi khoe với bạn bè người thân nha.
-    
+
 ## Tạm biệt Atom
 Atom được ra mắt vào năm 2014, với mục tiêu cung cấp cho lập trình viên một code editor vừa dễ sử dụng vừa có khả năng tuỳ chỉnh cao từ đó sẽ có nhiều người có thể phát triển phần mềm hơn.
 

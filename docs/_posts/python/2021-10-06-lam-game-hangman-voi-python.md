@@ -31,11 +31,11 @@ Mời bạn xem qua demo dưới đây:
 
 – người chơi thắng
 
-![](assets/images/2021/10/2021-10-06-lam-game-hangman-voi-python-1.gif)
+![](/assets/images/2021/10/2021-10-06-lam-game-hangman-voi-python-1.gif)
 
 – người chơi thua:
 
-![](assets/images/2021/10/2021-10-06-lam-game-hangman-voi-python-2.gif)
+![](/assets/images/2021/10/2021-10-06-lam-game-hangman-voi-python-2.gif)
 
 Bạn cũng có thể chơi thử ở [đây](https://replit.com/@diemthanhthanh/Hangman-Demo) nè. 
 
@@ -51,7 +51,7 @@ Bạn có thể tham khảo một sơ đồ logic như dưới đây để có t
 
 ### Sơ đồ mẫu
 
-![](assets/images/2021/10/2021-10-06-lam-game-hangman-voi-python-3.webp)
+![](/assets/images/2021/10/2021-10-06-lam-game-hangman-voi-python-3.webp)
 
 ### Mô tả logic game
 
@@ -83,7 +83,7 @@ Bạn có thể tham khảo một sơ đồ logic như dưới đây để có t
 
 Còn đây là sơ đồ mình vẽ:
 
-![](assets/images/2021/10/2021-10-06-lam-game-hangman-voi-python-4.webp)
+![](/assets/images/2021/10/2021-10-06-lam-game-hangman-voi-python-4.webp)
 
 ## Bước 2: Làm phiên bản đơn giản
 
@@ -108,7 +108,7 @@ Tại đây sẽ có một vài lưu ý để giúp chương trình đơn giản
 
 ### Bước 2.1: Chọn từ, đoán chữ và thay thế chữ đúng vào dấu _
 
-![](assets/images/2021/10/2021-10-06-lam-game-hangman-voi-python-5.webp)
+![](/assets/images/2021/10/2021-10-06-lam-game-hangman-voi-python-5.webp)
 
 Ở đoạn code trên mình đã sử dụng hàm **random.choice()** để chọn một phần tử từ một sequence(đó có thể là danh sách, set, …), dùng một danh sách để chứa các dấu **_** và sẽ thay thế nó bởi vị trí của ký tự được đoán nằm trong từ.
 
@@ -119,13 +119,13 @@ Tại đây sẽ có một vài lưu ý để giúp chương trình đơn giản
 
 Khi nào không còn ký tự **_** nào trong danh sách display của mình nữa mình sẽ thay đổi biến **end_game** thành **True** để thoát khỏi vòng lặp.
 
-![](assets/images/2021/10/2021-10-06-lam-game-hangman-voi-python-6.gif)
+![](/assets/images/2021/10/2021-10-06-lam-game-hangman-voi-python-6.gif)
 
 ### Bước 2.3: Giả sử đoán sai cả 6 lượt, người chơi thua
 
 Gọi một biến tên **lives** có giá trị ban đầu là 6. Mỗi lần người chơi đoán sai thì **lives** sẽ bị trừ đi **1**. Và người chơi sẽ thua khi lives về **0**.
 
-![](assets/images/2021/10/2021-10-2021-10-06-lam-game-hangman-voi-python-7.gif)
+![](/assets/images/2021/10/2021-10-2021-10-06-lam-game-hangman-voi-python-7.gif)
 
 Vậy là mình đã cùng nhau hoàn thành logic cơ bản của trò chơi rồi. 
 
@@ -136,7 +136,7 @@ Tiếp theo hãy cũng nâng cấp trò chơi này với một danh sách từ t
 ### Bước 3.1: Lưu danh sách từ dài ở mô-đun
 Hãy chọn một danh sách các từ tiếng Anh bạn muốn học và lưu vào một file tên là **words.py** với biến **word_list**. Khi đó, bạn có thể nạp danh sách này vào file main chương trình chính.
 
-![](assets/images/2021/10/2021-10-assets-images-2021-10-2021-10-06-lam-game-hangman-voi-python-8.gif)
+![](/assets/images/2021/10/2021-10-assets-images-2021-10-2021-10-06-lam-game-hangman-voi-python-8.gif)
 
 ### Bước 3.2: Chọn ascii trang trí cho trò chơi
 
@@ -149,7 +149,7 @@ Cuối cùng là mình sử dụng hàm **clear** của replit để có thể x
 
 Cùng xem kết quả cuối cùng nhé! 
 
-![](assets/images/2021/10/2021-10-06-lam-game-hangman-voi-python-9.gif)
+![](/assets/images/2021/10/2021-10-06-lam-game-hangman-voi-python-9.gif)
 
 ---
 Vậy là tụi mình đã cùng nhau làm một game Hangman đơn giản với các kiến thức Python vô cùng cơ bản rồi. 

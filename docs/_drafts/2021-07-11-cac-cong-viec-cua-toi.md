@@ -7,7 +7,7 @@ tags:
   - random
 ---
 
-![](assets/images/2021/11/2021-07-cac-cong-viec-cua-toi.webp)
+![](/assets/images/2021/11/2021-07-cac-cong-viec-cua-toi.webp)
 
 Hôm nay rãnh rỗi tự dưng nhớ ra mình từng làm quá trời nghề. Hết hồn luôn! Nên tranh thủ ngồi review phát những công việc mình từng làm qua, chỉ với mục đích giải trí là chính thôi hehe.
 

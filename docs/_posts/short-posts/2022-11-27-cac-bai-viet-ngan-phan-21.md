@@ -3,36 +3,15 @@ title: "Các bài viết ngắn - phần 21"
 categories:
   - Short Posts
 tags:
-  - short-post
+  - short-posts
+  - concepts
+  - aws
+  - career-development
+  - css
+  - javascript
 ---
-![](assets/images/2022/11/2022-11-27-cac-bai-viet-ngan-phan-21-1.webpg)
 
-## BeautyOnCode sharing fun news
-Chào bạn, mình muốn chia sẻ với bạn một số thông tin vui của mình tuần này:
-
-1. BeautyOnCode đã viết được hơn 100 bài viết ngắn về tech trên Careerly, và cám ơn hơn 3,600 bạn đã theo dõi (https://lnkd.in/gE8hxhbY)
-
-2. Chỉ còn 2 bài viết nữa thôi là số lượng bài viết trên blog BeautyOnCode (https://beautyoncode.com/) đạt đến con số 100.
-
-3. Kênh YouTube BeautyOnCode (https://lnkd.in/gv4Ua6ra) đã được ra mắt với 30 bạn subscribers đầu tiên (Cám ơn nha! Subscribe channel giúp mình nhé!)
-
-Và 3 videos đầu tiên đã ra mắt:
-
-a. Giới thiệu về blog BeautyOnCode (https://lnkd.in/g3Zg4CS4)
-
-b. Series UI/UX dành cho lập trình viên
-
-  i. Tập 1: Giới thiệu nội dung (https://lnkd.in/g9-ZcKc7)
-
-  ii. Tập 2: UI vs. UX và các giai đoạn phát triển phần mềm (https://lnkd.in/gRsbgGmB) Các video sắp ra mắt:
-
-  iii. Tập 3: Graphic Design – Colors (https://www.youtube.com/watch?v=ivkJhpGpi9U) (sẽ ra mắt vào thứ 4 tuần sau).
-
-  iv. Tập 4: Graphic Design – Fonts & Icons (coming soon).
-
-  v. Tập 5: UX Design (coming soon).
-
-Cám ơn các bạn đã luôn ủng hộ các sản phẩm của mình!
+![](/assets/images/2022/11/2022-11-27-cac-bai-viet-ngan-phan-21-cover.webp)
 
 ## SOLID là gì?
 
@@ -58,7 +37,6 @@ D: Dependency Inversion Principle chỉ ra hai nguyên tắc chính là:
 2. Lớp trừu tượng nên độc lập với các loại thực thi
 
 Đọc khó hiểu thế mà nhìn ví dụ là bạn hiểu hơn ấy, mời bạn đọc [bài này](https://www.freecodecamp.org/news/solid-principles-for-programming-and-software-design/) mà ngâm cứu thêm hí
-
 
 ## AWS Certified Developer Associate
 Hiện nay, dịch vụ AWS được sử dụng rộng khắp toàn cầu. Việc lấy chứng chỉ “AWS Certified Developer Associate” được nhiều lập trình viên ưu tiên vì là bằng chứng dễ thấy nhất để khẳng định khả năng có thể làm việc với các dịch vụ điện toán đám mây của AWS (Cloud Computing and AWS services)
@@ -117,7 +95,7 @@ Bạn ghé đọc chi tiết ở [bài này](https://css-tricks.com/the-new-css-
 
 Scope liên quan trực tiếp bởi Lexical Environment bởi scope liên quan đến phạm vi truy cập của biến.
 
-Mời bạn ghé đọc bài viết Lexical Environment (https://beautyoncode.com/lexical-environment-trong-javascript/) trước nếu bạn chưa có dịp đọc nha.
+Mời bạn ghé đọc bài viết [Lexical Environment][lexical-environment-trong-javascript] trước nếu bạn chưa có dịp đọc nha.
 
 Scope (tiếng Việt là “phạm vi”) là phạm vi được xác định nơi mà bạn có thể truy cập vào biến.
 Scope determines the variables accessibility (visibility)
@@ -131,8 +109,12 @@ Có 3 loại scope trong JavaScript:
 – Scope của function gọi là Function Scope
 – Scope bên ngoài function gọi là Global Scope, tương ứng với khai báo biến với var
 
-Ở `ES6`, JavaScript giới thiệu thêm hai cách khai báo biến với let, const (đọc thêm về var, let, const mình ở đây https://beautyoncode.com/khai-bao-bien-voi-var-let-va-const-trong-javascript/) đi kèm đó là một loại scope mới – `block scope`.
+Ở `ES6`, JavaScript giới thiệu thêm hai cách khai báo biến với let, const (đọc thêm về var, let, const mình ở [đây][khai-bao-bien-voi-var-let-va-const-trong-javascript] đi kèm đó là một loại scope mới – `block scope`.
 
 Khi bạn khai báo một biến với `let`, `const` trong một `block`, được hiểu là bọc trong một cặp `{}` , thì biến này nằm trong `block scope` đó.
 
-Bạn ghé xem thêm ví dụ ở [bài viết này](https://beautyoncode.com/scope-trong-javascript/)
+Bạn ghé xem thêm ví dụ ở [bài viết này][scope-trong-javascript]
+
+[scope-trong-javascript]: {{ "" | relative_url }}{% post_url js/2022-11-11-scope-trong-javascript %}
+[khai-bao-bien-voi-var-let-va-const-trong-javascript]: {{ "" | relative_url }}{% post_url js/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript %}
+[lexical-environment-trong-javascript]: {{ "" | relative_url }}{% post_url js/2022-11-03-lexical-environment-trong-javascript %}

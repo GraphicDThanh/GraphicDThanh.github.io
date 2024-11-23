@@ -7,7 +7,7 @@ tags:
   - random
 ---
 
-![](assets/images/2020/03/2020-03-dang-sau-anh-hao-quang-cua-21km-chay-bo.webp)
+![](/assets/images/2020/03/2020-03-dang-sau-anh-hao-quang-cua-21km-chay-bo.webp)
 
 Hôm nớ là một ngày đặt biệt, ngày 29/2, cái ngày mà đứa nào sinh trúng thì chỉ có nước khóc ròng, thằng bạn hồi cấp hai của tôi là một trong số đó. Bởi vì sao, vì ngày ni bốn năm mới có một lần, cứ bốn năm nó mới được sinh nhật một lần biểu chi không khóc, học chung cả cấp hai nó mới được sinh nhật một lần, tội thiệt.
 

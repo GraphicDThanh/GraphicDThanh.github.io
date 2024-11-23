@@ -3,10 +3,14 @@ title: "Các bài viết ngắn - phần 4"
 categories:
   - Short Posts
 tags:
-  - git
+  - short-posts
+  - news
+  - soft-skills
+  - career-path
+  - debug
 ---
 
-![](assets/images/2022/07/2022-07-21-cac-bai-viet-ngan-phan-4.webp)
+![](/assets/images/2022/07/2022-07-21-cac-bai-viet-ngan-phan-4.webp)
 
 ## StackOverflow Survey Result 2022
 StackOverflow vừa gửi đến cộng đồng lập trình viên kết quả của cuộc khảo sát với hơn 70,000 lập trình viên(LTV) trên toàn thế giới tham gia.

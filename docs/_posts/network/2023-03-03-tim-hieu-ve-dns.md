@@ -17,7 +17,7 @@ DNS (Domain Name System) là hệ thống đứng trung gian để dịch từ t
 
 Dễ hình dung nhất là DNS giống như cuốn danh bạ điện thoại vậy, tên là domain còn số địện thoại là địa chỉ IP cần tìm.
 
-![](assets/images/2023/03/2023-03-03-tim-hieu-ve-dns-1.webp)
+![](/assets/images/2023/03/2023-03-03-tim-hieu-ve-dns-1.webp)
 
 DNS sử dụng cấu trúc phân cấp theo tên:
 
@@ -68,12 +68,12 @@ Có 4 loại DNS servers liên quan trong quá trình tìm kiếm địa chỉ I
 – **Authoritative nameserver**: là máy chủ cuối cùng nơi chứa địa chỉ IP của tên miền.
   Có thể hình dung nó như một cuốn từ điển trên giá sách, nơi bạn có thể tra nghĩa của một từ.
   
-  ![](assets/images/2023/03/2023-03-03-tim-hieu-ve-dns-2.webp)
+  ![](/assets/images/2023/03/2023-03-03-tim-hieu-ve-dns-2.webp)
   (image from cloudflare)
   
 **Cùng xem cách DNS hoạt động qua ví dụ sau:**
 
-![](assets/images/2023/03/2023-03-03-tim-hieu-ve-dns-3.webp)
+![](/assets/images/2023/03/2023-03-03-tim-hieu-ve-dns-3.webp)
 
 Khi người dùng gõ một url vào trình duyệt, ví dụ gõ google.com:
 
@@ -106,7 +106,7 @@ Khi người dùng gõ một url vào trình duyệt, ví dụ gõ google.com:
 – SLD DNS Server là Authoritative nameserver
 
 ## Bản ghi DNS (DNS Record)
-![](assets/images/2023/03/2023-03-03-tim-hieu-ve-dns-4.webp)
+![](/assets/images/2023/03/2023-03-03-tim-hieu-ve-dns-4.webp)
 
 Bản ghi DNS là cách bạn cấu hình các lưu lượng gửi đến domain
 

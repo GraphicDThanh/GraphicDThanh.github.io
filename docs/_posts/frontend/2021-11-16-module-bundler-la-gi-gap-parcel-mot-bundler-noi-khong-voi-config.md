@@ -44,7 +44,7 @@ Và thế là, <script> tags trong cái body hay header hay cả hai bắt đầ
 ```
 Thêm nữa nếu mấy cái script ở trên mà phụ thuộc vào nhau, không được sắp đúng vị trí thì bạn sẽ gặp các lỗi dạng như “Uncaught ReferenceError: $ is not defined“
     
-![](assets/images/2021/11/2021-11-16-module-bundler-la-gi-gap-parcel-mot-bundler-noi-khong-voi-config-1.webp)
+![](/assets/images/2021/11/2021-11-16-module-bundler-la-gi-gap-parcel-mot-bundler-noi-khong-voi-config-1.webp)
     
 Lỗi này xảy ra khi bạn viết code jquery trong file script-header.js mà load script jQuery ở sau file này. Thì lúc trình duyệt đọc đến file script-header.js nó sẽ báo lỗi là không tìm thấy jQuery.
 
@@ -56,7 +56,7 @@ Cám ơn tui đi =))
 
 Nhiệm vụ chính của tui là gom hết tất cả các loại script lại cùng nhau theo thứ tự ưu tiên mà bạn đặt cho tụi nó và cho ra một file script duy nhất.
     
-![](assets/images/2021/11/2021-11-16-module-bundler-la-gi-gap-parcel-mot-bundler-noi-khong-voi-config-2.webp)
+![](/assets/images/2021/11/2021-11-16-module-bundler-la-gi-gap-parcel-mot-bundler-noi-khong-voi-config-2.webp)
 **Chưa kể, nếu bạn:**
 – không muốn xài javascript nữa, mà muốn xài typescript? Tui ok luôn
 
@@ -65,7 +65,7 @@ Nhiệm vụ chính của tui là gom hết tất cả các loại script lại 
 – không muốn xài CSS mà xài SASS? Tui cũng ok luôn
 
 Chưa hết, tui còn bao trọn gói các loại modules khác như là lodash, firebase, …
-![](assets/images/2021/11/2021-11-16-module-bundler-la-gi-gap-parcel-mot-bundler-noi-khong-voi-config-3.webp)
+![](/assets/images/2021/11/2021-11-16-module-bundler-la-gi-gap-parcel-mot-bundler-noi-khong-voi-config-3.webp)
 Yên tâm, tui sẽ giúp bạn build hết mấy cái đứa ở trên đó về HTML, CSS, JS cho browser có thể hiểu và dựng trang web của bạn lên được.
 
 Quá ngon rồi đúng chưa 😊 

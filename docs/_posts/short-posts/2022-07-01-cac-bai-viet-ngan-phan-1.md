@@ -3,10 +3,13 @@ title: "Các bài viết ngắn - phần 1"
 categories:
   - Short Posts
 tags:
+  - short-posts
   - git
+  - database
+  - website
+  - career
+  - life
 ---
-
-
 
 ![](/assets/images/2022/07/2022-07-01-cac-bai-viet-ngan-phan-1.webp)
 

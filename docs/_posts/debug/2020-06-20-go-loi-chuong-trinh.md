@@ -31,7 +31,7 @@ Tiếp theo sẽ là một số **mẹo và kỹ thuật** để nhận dạng b
 Đôi khi có những vấn đề đơn giản chỉ cần bạn mô tả và kiểm tra vài thông tin liên quan là có thể sửa được rồi.
 
 **Ví dụ**: Thực hiện in ra một danh sách các số từ 1 đến 5 với đoạn code Python sau:
-![](assets/images/2020/06/2020-06-20-go-loi-chuong-trinh-1.webp)
+![](/assets/images/2020/06/2020-06-20-go-loi-chuong-trinh-1.webp)
 
 **Mô tả vấn đề:**
 
@@ -53,13 +53,13 @@ Rất nhiều khi bug chỉ thỉnh thoảng xuất hiện. Để fix được n
 Giả sử bạn có một danh sách: `numbers = [1, 2, 3, 4, 5, 6]`. Bạn muốn chọn ngẫu nhiên một số trong 6 số ở trên. 
 Gọi `choice = randint(1, 6)` để chọn số từ 1 đến 6 và kết quả chọn được sẽ là `numbers[choice]`
 
-![](assets/images/2020/06/2020-06-20-go-loi-chuong-trinh-2.webp)
+![](/assets/images/2020/06/2020-06-20-go-loi-chuong-trinh-2.webp)
 
 Khi chạy chương trình, bạn sẽ thấy chương trình chạy ổn. 
 
 Tuy nhiên nếu chạy nhiều lần thì sẽ có một lỗi như thế này xuất hiện:
 
-![](assets/images/2020/06/2020-06-20-go-loi-chuong-trinh-3.webp)
+![](/assets/images/2020/06/2020-06-20-go-loi-chuong-trinh-3.webp)
 
 Vậy làm sao có thể tái tạo lại lỗi này nhỉ?
 
@@ -69,13 +69,13 @@ Vậy làm sao có thể tái tạo lại lỗi này nhỉ?
 
 Bạn có thể thử nghiệm bằng cách gán giá trị từ 1 đến 6 cho biến choice để thấy được là khi `choice = 6` thì sẽ có lỗi trên xuất hiện.
 
-![](assets/images/2020/06/2020-06-20-go-loi-chuong-trinh-4.webp)
+![](/assets/images/2020/06/2020-06-20-go-loi-chuong-trinh-4.webp)
 
 **Sửa lỗi:**
 
 Như vậy ở đây lỗi sẽ xảy ra với số 6 vì `numbers` có 6 phần tử với index đếm từ 0 đến 5. Do đó lỗi này sẽ được sửa với `choice = randint(1, 5)`
 
-![](assets/images/2020/06/2020-06-20-go-loi-chuong-trinh-5.webp)
+![](/assets/images/2020/06/2020-06-20-go-loi-chuong-trinh-5.webp)
 
 ## 💻 Thử đóng vai là máy tính(play computer)
 Với một chương trình phức tạp như có logic với nhiều điều kiện rẽ nhánh, hay gọi nhiều hàm khác nhau, thì việc sửa lỗi sẽ càng khoai hơn. 
@@ -86,7 +86,7 @@ Lúc này bạn cần tưởng tượng mình là máy tính, và bạn tự ki�
 
 **Mô tả vấn đề:** khi nhập 16 tuổi thì lại không in ra gì cả.
 
-![](assets/images/2020/06/2020-06-20-go-loi-chuong-trinh-6.webp)
+![](/assets/images/2020/06/2020-06-20-go-loi-chuong-trinh-6.webp)
 
 **Play computer:** 
 Để sửa được lỗi này, mình sẽ áp dụng Play computer như sau:
@@ -106,14 +106,14 @@ Lúc này bạn cần tưởng tượng mình là máy tính, và bạn tự ki�
 **Vậy kết quả là không in gì ra hết.**
 
 **Sửa lỗi:** Vì 16 không có điều kiện đúng ở đâu cả, nên mình cần làm 16 trả về `True` để có thể chơi game, tức là thay vì `year_old > 16` sẽ là `year_old >= 16`
-![](assets/images/2020/06/2020-06-20-go-loi-chuong-trinh-7.webpg)
+![](/assets/images/2020/06/2020-06-20-go-loi-chuong-trinh-7.webpg)
 
 ## 🏹 Sửa lỗi(fix the errors)
 Khi bạn viết chương trình, nếu trình soạn thảo(editor) hiển thị các lỗi(như hiện gạch đỏ ở nơi có lỗi)
 
 Khi bạn chạy chương trình, nếu có lỗi hiển thị các lỗi thì bạn cũng cần sửa chúng. Bạn có thể đọc thông tin của lỗi hiện ra, và cũng có thể dùng thông tin đó tìm trên mạng(StackOverflow).
 
-![](assets/images/2020/06/2020-06-20-go-loi-chuong-trinh-8.webp)
+![](/assets/images/2020/06/2020-06-20-go-loi-chuong-trinh-8.webp)
 
 Và cũng có những lỗi mà không có bất cứ thông tin hay lỗi nào thực sự xuất hiện.
 
@@ -121,11 +121,11 @@ Ví dụ bạn viết:
 
 `print("Hello {name}")` thì kết quả sẽ là `Hello {name}`, chỉ đơn giản là nó không đúng với cái bạn mong đợi Hello Thanh với name ở đây là Thanh.
 
-![](assets/images/2020/06/2020-06-20-go-loi-chuong-trinh-9.webp)
+![](/assets/images/2020/06/2020-06-20-go-loi-chuong-trinh-9.webp)
 
 Để sửa lỗi này, bạn cần phải xem lại các kiến thức mình đã học, cụ thể ở đây là dùng một biến trong chuỗi ký tự thì sẽ cần có **f-strings**, nên sửa lại là `print(f"Hello {name}")`
 
-![](assets/images/2020/06/2020-06-20-go-loi-chuong-trinh-10.webp)
+![](/assets/images/2020/06/2020-06-20-go-loi-chuong-trinh-10.webp)
 
 ## 🛠 Dùng các công cụ hỗ trợ kiểm tra lỗi(print, log, debugger)
 Cuối cùng, để kiểm tra chính xác từng kết quả khi chương trình thực thi, bạn có thể dùng các câu lệnh in ra màn hình(print) để kiểm tra các tham số, kết quả hay chỉ là chương trình đã chạy đến dòng nào đó hay chưa. Như chương trình if/else với year_old ở trên là chưa in ra các câu tức là chương trình chưa chạy vào đó.
@@ -133,7 +133,7 @@ Cuối cùng, để kiểm tra chính xác từng kết quả khi chương trìn
 Debugger là một công cụ mạnh mẽ hơn cả print, nó giúp bạn đi qua từng dòng code và xem chương trình thực thi ra sao(với Python bạn có thể dùng [pythontutor](https://pythontutor.com/) hay [Thony](https://thonny.org/), [VSCode Debugger)](https://code.visualstudio.com/docs/python/debugging)
 
 Đây là một ví dụ mình thực hiện debug với pythontutor.com:
-![](assets/images/2020/06/2020-06-20-go-loi-chuong-trinh-11.webp)
+![](/assets/images/2020/06/2020-06-20-go-loi-chuong-trinh-11.webp)
 
 ## 😌 Nghỉ tay tí đã
 Mọi chuyện đều từ từ sẽ giải quyết được(hoặc không giải quyết được 🥲) , quan trọng là *“Ăn miếng bánh, uống miếng nước”* cái đã, chứ ngồi chu hu vô cái máy tính, nhìn chằm chằm vô code thì cũng không vì thế mà bug nó tự hết được. 

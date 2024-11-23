@@ -8,7 +8,7 @@ tags:
   - non-tech
 ---
 
-![](assets/images/2022/02/2022-02-dao-cua-warren-buffet.webp)
+![](/assets/images/2022/02/2022-02-dao-cua-warren-buffet.webp)
 
 
 “The Tao of Warren Buffet” – “Đạo của Warren Buffet” là một cuốn sách mỏng chứa những lời thông thái của ông được người con dâu Mary Buffet và những người kề cận ghi lại.

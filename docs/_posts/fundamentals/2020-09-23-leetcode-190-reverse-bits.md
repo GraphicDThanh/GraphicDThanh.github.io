@@ -55,11 +55,11 @@ n = 00000010100101000001111010011100 thì đảo ngược của
 
 n ở dạng bit từ sau ra trước là: **0011100101111000001010010100000**
 
-![](assets/images/2020/09/2020-09-23-leetcode-190-reverse-bits-1.webp)
+![](/assets/images/2020/09/2020-09-23-leetcode-190-reverse-bits-1.webp)
 
 Sau khi đã có được số đảo ngược, thì kết quả chính là số đảo ngược đó ở dạng số nguyên, là 3221225471
 
-![](assets/images/2020/09/2020-09-23-leetcode-190-reverse-bits-2.webp)
+![](/assets/images/2020/09/2020-09-23-leetcode-190-reverse-bits-2.webp)
 
 Và kết quả đúng chính là 3221225471
 
@@ -80,7 +80,7 @@ Và kết quả đúng chính là 3221225471
 Ở cách này, mình lần lượt chia số đó cho 2 và nhận được kết quả là x và số dư là 0 nếu chia hết cho 2, hoặc 1 nếu chia không hết cho hai. Tiếp tục lấy x chia với 2 cho đến khi nhận kết quả cuối cùng là 0. Khi đó, số binary sẽ được lấy theo thứ tự từ dưới lên trên.
 
 Cách làm này được mô tả như sau:
-![](assets/images/2020/09/2020-09-23-leetcode-190-reverse-bits-3.webp)
+![](/assets/images/2020/09/2020-09-23-leetcode-190-reverse-bits-3.webp)
 
 Trong code sẽ mô tả là:
 
@@ -96,7 +96,7 @@ Code mô tả cho công việc này mình có làm [ở đây](https://replit.co
 #### Chuyển số nguyên về số binary bằng cách nhân cho 2
 Ngược lại, để chuyển từ số binary về số nguyên mình cần thực hiện nhân cho 2 và cộng dồn kết quả với các số dư, chính là các số binary 0 hay 1.
 
-![](assets/images/2020/09/2020-09-23-leetcode-190-reverse-bits-4.webp)
+![](/assets/images/2020/09/2020-09-23-leetcode-190-reverse-bits-4.webp)
 
 Như mô tả trên hình, thì mình sẽ lặp qua từng số trong số binary, rồi thực hiện nhân kết quả đang có cho 2 và cộng với số dư chính là số binary ở thời điểm hiện tại. 
 

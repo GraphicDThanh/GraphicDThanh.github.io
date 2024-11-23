@@ -3,9 +3,13 @@ title: "Các bài viết ngắn - phần 15"
 categories:
   - Short Posts
 tags:
-  - short-post
+  - short-posts
+  - concepts
+  - git
+  - linux
+  - tools
 ---
-![](assets/images/2022/10/2022-10-16-cac-bai-viet-ngan-phan-15-1.webp)
+![](/assets/images/2022/10/2022-10-16-cac-bai-viet-ngan-phan-15-1.webp)
 
 ## Authorization là gì ?
 
@@ -39,7 +43,7 @@ Thực ra copy / paste code thì cũng không có gì sai trái, nhưng DRY bên
 
 Vì thế DRY không chỉ là giảm code lặp. Mà bạn đang chia nhỏ một quá trình phức tạp ra thành từng đoạn công việc nhỏ có tên và nhiệm vụ riêng. Từ đó, việc định nghĩa tên hàm, các biến, giá trị trả về, viết document cho hàm cũng trở nên quan trọng, giúp bạn self-document code base của mình.
 
-https://benwilhelm.com/articles/beyond-dry.html
+[đọc thêm](https://benwilhelm.com/articles/beyond-dry.html)
 
 ## Bộ sưu tập git alias
 **git alias là gì ?**
@@ -123,6 +127,5 @@ Nếu bạn quen thuộc với Vue bạn có thể viết các component bằng 
 
 Có thể xuất slide ra dạng PNG, PDF hay host một SPA (Single-page Application)
 
-Các bạn dev thử dùng xem bạn này cool như thế nào nhé. Chỉ việc viết markdown và xài npm có thể quản lý với git thôi là mình đã yêu bạn ý rồi ^^
+Các bạn dev thử dùng xem [bạn này](https://sli.dev/) cool như thế nào nhé. Chỉ việc viết markdown và xài npm có thể quản lý với git thôi là mình đã yêu bạn ý rồi ^^
 
-https://sli.dev/
