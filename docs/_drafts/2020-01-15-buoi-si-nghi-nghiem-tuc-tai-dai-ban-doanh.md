@@ -7,7 +7,7 @@ tags:
   - random
 ---
 
-![](assets/images/2020/01/2020-01-buoi-si-nghi-nghiem-tuc-tai-dai-ban-doanh.jpg)
+![](/assets/images/2020/01/2020-01-buoi-si-nghi-nghiem-tuc-tai-dai-ban-doanh.jpg)
 
 Vào một buổi chiều se lạnh của cuối tháng 12, sau khi code sml về, con thì có chồng đón giúp, mình ghé “Đại Bản Doanh” quen thuộc của mình để uống chà sữa :))
 

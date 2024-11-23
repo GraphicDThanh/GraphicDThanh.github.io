@@ -49,7 +49,7 @@ Tiếp theo nhấn nút **Visualize Execution** để bắt đầu xem code th�
 
 Hình minh họa:
 
-![](assets/images/2022/08/2022-08-28-truc-quan-hoa-khi-chay-ma-chuong-trinh-1.webp)
+![](/assets/images/2022/08/2022-08-28-truc-quan-hoa-khi-chay-ma-chuong-trinh-1.webp)
 
 Nửa màn hình bên trái chứa code, các nút bấm để di chuyển đến bước tiếp theo **Next**, bước trước đó **Prev**, bước cuối cùng **Last** và bước đầu tiên **First**
 
@@ -67,17 +67,17 @@ Nửa màn hình bên phải là visualize code thực thi
 
 Sau khi quan sát từng bước thì mình phát hiện bước này có giá trị `l` và `r` đều là `0` dẫn đến thoát khỏi vòng lặp
 
-![](assets/images/2022/08/2022-08-28-truc-quan-hoa-khi-chay-ma-chuong-trinh-2.webp)
+![](/assets/images/2022/08/2022-08-28-truc-quan-hoa-khi-chay-ma-chuong-trinh-2.webp)
 
 Và giá trị trả về là `l`, tức `0`
 
-![](assets/images/2022/08/2022-08-28-truc-quan-hoa-khi-chay-ma-chuong-trinh-3.webp)
+![](/assets/images/2022/08/2022-08-28-truc-quan-hoa-khi-chay-ma-chuong-trinh-3.webp)
 
 Vậy vấn đề ở đây là nếu `l` và `r` đều có giá trị bằng nhau thì vẫn cần nằm trong vòng lặp `while` để có thể xác định vị trí của `l` là `m+1` nếu giá trị này nhỏ hơn target.
 
 Cập nhật điều kiện `while (l <= r)` và thử lại ta thấy `l` ở dòng 9 sẽ bằng `m+1` tức 0+1 là 1
 
-![](assets/images/2022/08/2022-08-28-truc-quan-hoa-khi-chay-ma-chuong-trinh-4.webp)
+![](/assets/images/2022/08/2022-08-28-truc-quan-hoa-khi-chay-ma-chuong-trinh-4.webp)
 
 Khi đó `l` là `1` không nhỏ hơn `r` là `0` nên thoát ra khỏi vòng lặp và trả về `1` là kết quả đúng.
 

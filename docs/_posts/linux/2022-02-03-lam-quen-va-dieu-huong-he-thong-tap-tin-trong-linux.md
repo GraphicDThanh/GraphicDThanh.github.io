@@ -27,7 +27,7 @@ Tới công chiện rồi, vào thôi! Chúc các bạn đọc nội dung vui v�
 Một câu lệnh sẽ bao gồm 3 phần: 
 **<tên câu lệnh> <các lựa chọn> <các đối số>**
 
-![](assets/images/2022/02/2022-02-03-lam-quen-va-dieu-huong-he-thong-tap-tin-trong-linux-1.webp)
+![](/assets/images/2022/02/2022-02-03-lam-quen-va-dieu-huong-he-thong-tap-tin-trong-linux-1.webp)
 
 Các options ở đây là các giá trị được định nghĩa sẵn sẽ thay đổi cách là việc của câu lệnh. 
 
@@ -41,7 +41,7 @@ Ví dụ:  Xem document của câu lệnh ls với man.
 
 Kết quả là một document của ls xuất hiện trên màn hình.
 
-![](assets/images/2022/02/2022-02-03-lam-quen-va-dieu-huong-he-thong-tap-tin-trong-linux-2.webp)
+![](/assets/images/2022/02/2022-02-03-lam-quen-va-dieu-huong-he-thong-tap-tin-trong-linux-2.webp)
 
 Để đọc document này, ngoài cách dùng chuột kéo xuống xem nội dung thì mình còn có thể sử dụng các cách như:
 
@@ -67,7 +67,7 @@ Dù mục đích khi học về Linux của bạn là gì đi nữa, thì việc
     
 Linux có cấu trúc thư mục không phân chia theo ổ đĩa(C, D, …) như Windows mà có một thư mục gốc gọi là thư mục root(thường viết là /). 
     
-![](assets/images/2022/02/2022-02-03-lam-quen-va-dieu-huong-he-thong-tap-tin-trong-linux-3.webp)
+![](/assets/images/2022/02/2022-02-03-lam-quen-va-dieu-huong-he-thong-tap-tin-trong-linux-3.webp)
 
 Từ / sẽ phân chia thành nhiều loại thư mục có mục đích dùng khác nhau. 
 
@@ -109,7 +109,7 @@ Khi sử dụng môi trường command-line, thường bạn sẽ cần truy c�
 
 Khi mở terminal lên(hoặc chương trình shell nào đấy, ví dụ iTerm chẳng hạn), thì bạn con trỏ sẽ tự động được đứng ở thư mục home của người dùng.
 
-![](assets/images/2022/02/2022-02-03-lam-quen-va-dieu-huong-he-thong-tap-tin-trong-linux-4.webp)
+![](/assets/images/2022/02/2022-02-03-lam-quen-va-dieu-huong-he-thong-tap-tin-trong-linux-4.webp)
     
 > Câu lệnh **pwd** giúp kiểm tra vị trí hiện tại của thư mục. 
 
@@ -161,13 +161,13 @@ Ví dụ mình muốn di chuyển từ /Users/thanhnguyen đến /usr/bin
   – sau đó truy cập vào `usr/bin` 
 
 Nên `cd ../../user/bin` sẽ giúp mình chuyển từ thư mục hiện tại sang thư mục `user/bin`.
-![](assets/images/2022/02/2022-02-03-lam-quen-va-dieu-huong-he-thong-tap-tin-trong-linux-5.webp)
+![](/assets/images/2022/02/2022-02-03-lam-quen-va-dieu-huong-he-thong-tap-tin-trong-linux-5.webp)
     
 ### Điều hướng absolute path
 
 **Cách làm**: thư mục bin nằm trong folder usr, và folder usr nằm trong folder root `/`, nên absolute path sẽ là `cd /usr/bin`
 
-![](assets/images/2022/02/2022-02-03-lam-quen-va-dieu-huong-he-thong-tap-tin-trong-linux-6.webp)
+![](/assets/images/2022/02/2022-02-03-lam-quen-va-dieu-huong-he-thong-tap-tin-trong-linux-6.webp)
     
 ---
 

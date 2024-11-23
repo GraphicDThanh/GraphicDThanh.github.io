@@ -7,7 +7,7 @@ tags:
   - js
 ---
 
-![](assets/images/2022/04/2022-04-17-chien-luoc-tai-thuc-thi-code-javascript-cover.webp)
+![](/assets/images/2022/04/2022-04-17-chien-luoc-tai-thuc-thi-code-javascript-cover.webp)
 
 Ba thành phần chính cấu tạo nên một trang web là **HTML**, **CSS** và **JavaScript**. 
 

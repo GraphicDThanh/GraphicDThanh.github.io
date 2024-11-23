@@ -40,7 +40,7 @@ Output: [1,2]
 
 Ở ví dụ 1, cây nhị phân có giá trị là root = [1,null,2,3]
 
-![](assets/images/2021/08/2021-08-25-leetcode-94-binary-tree-inorder-traversal-1.webp)
+![](/assets/images/2021/08/2021-08-25-leetcode-94-binary-tree-inorder-traversal-1.webp)
 
 Cây được mô tả như hình bên với 1 là nút gốc, null là nút trái, 2 là nút phải, sau 2 còn giá trị là 3 nên 3 là nút trái của cây con có gốc là 2.
 
@@ -66,7 +66,7 @@ root.right.left = TreeNode(3)
 
 Khi mình thực hiện print(root) là mình nhận được đối tượng ấy:
 
-![](assets/images/2021/08/2021-08-25-leetcode-94-binary-tree-inorder-traversal-2.webp)
+![](/assets/images/2021/08/2021-08-25-leetcode-94-binary-tree-inorder-traversal-2.webp)
 
 ### Inorder traversal
 
@@ -90,7 +90,7 @@ Khi mình thực hiện print(root) là mình nhận được đối tượng �
 
 Để duyệt cây trên với thứ tự Left – Root – Right thì mình sẽ thực hiện như hình dưới và bỏ qua các giá trị null mình nhận được kết quả là `[1, 3, 2]`
 
-![](assets/images/2021/08/2021-08-25-leetcode-94-binary-tree-inorder-traversal-3.webp)
+![](/assets/images/2021/08/2021-08-25-leetcode-94-binary-tree-inorder-traversal-3.webp)
 
 Nếu để ý bạn có thể thấy tại vị trí số 2, chính là duyệt Left – Root – Right cho cây con từ vị trí này, và đây chính là công việc được lặp lại.
 
@@ -114,7 +114,7 @@ def recursive_inorder_traversal(root):
 
 Khi đó kết quả có được là:
 
-![](assets/images/2021/08/2021-08-25-leetcode-94-binary-tree-inorder-traversal-4.webp)
+![](/assets/images/2021/08/2021-08-25-leetcode-94-binary-tree-inorder-traversal-4.webp)
 
 Ví dụ về cách tạo cây và hàm đệ quy duyệt cây theo inorder traversal [ở đây](https://replit.com/@diemthanhthanh/inorder-traversa), nếu thích bạn có thể fork về repl.it xem thử.
 
@@ -184,7 +184,7 @@ Bạn có thắc mắc vì sao bài toán này có thể giải với ngăn xế
 
 Đơn giản là ngăn xếp có thể giúp mình chứa các nút theo thứ tự và mình có thể lấy ra với thứ tự từ trên xuống dưới, thứ tự này tương tự như khi mình lấy từ lá đến gốc 
 
-![](assets/images/2021/08/2021-08-25-leetcode-94-binary-tree-inorder-traversal-5.webp)
+![](/assets/images/2021/08/2021-08-25-leetcode-94-binary-tree-inorder-traversal-5.webp)
 
 *Còn điều kiện để lấy một phần tử ra khỏi ngăn xếp là gì?*
 
@@ -206,13 +206,13 @@ Mình sẽ dùng một biến **curr** để lưu nút hiện tại đang duyệ
 
 Cùng xem qua sơ đồ mình vẽ cho bài toán này nhé:
 
-![](assets/images/2021/08/2021-08-25-leetcode-94-binary-tree-inorder-traversal-6-1.webp)
-![](assets/images/2021/08/2021-08-25-leetcode-94-binary-tree-inorder-traversal-6-2.webp)
-![](assets/images/2021/08/2021-08-25-leetcode-94-binary-tree-inorder-traversal-6-3.webp)
-![](assets/images/2021/08/2021-08-25-leetcode-94-binary-tree-inorder-traversal-6-4.webp)
-![](assets/images/2021/08/2021-08-25-leetcode-94-binary-tree-inorder-traversal-6-5.webp)
-![](assets/images/2021/08/2021-08-25-leetcode-94-binary-tree-inorder-traversal-6-6.webp)
-![](assets/images/2021/08/2021-08-25-leetcode-94-binary-tree-inorder-traversal-6-7.webp)
+![](/assets/images/2021/08/2021-08-25-leetcode-94-binary-tree-inorder-traversal-6-1.webp)
+![](/assets/images/2021/08/2021-08-25-leetcode-94-binary-tree-inorder-traversal-6-2.webp)
+![](/assets/images/2021/08/2021-08-25-leetcode-94-binary-tree-inorder-traversal-6-3.webp)
+![](/assets/images/2021/08/2021-08-25-leetcode-94-binary-tree-inorder-traversal-6-4.webp)
+![](/assets/images/2021/08/2021-08-25-leetcode-94-binary-tree-inorder-traversal-6-5.webp)
+![](/assets/images/2021/08/2021-08-25-leetcode-94-binary-tree-inorder-traversal-6-6.webp)
+![](/assets/images/2021/08/2021-08-25-leetcode-94-binary-tree-inorder-traversal-6-7.webp)
 
 Như vậy, mình có thể thấy là ban đầu biến curr có giá trị là root, tiến hành bỏ nút curr này vào stack, sau đó nó thay đổi thành curr.left và cứ tiếp tục bỏ vào stack cho đến khi curr.left là null, tức là đã đến nút lá cuối cùng của cây ở phía bên trái, thì nó sẽ bắt đầu tiến hành lấy từ ngăn xếp ra, đặt kết quả nút trái cuối cùng vào sau đó lại qua phía bên phải. 
 

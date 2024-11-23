@@ -3,14 +3,18 @@ title: "Các bài viết ngắn - phần 31"
 categories:
   - Short Posts
 tags:
-  - short-post
+  - short-posts
+  - django
+  - blog
+  - devops
+  - learning-resources
+  - frontend
 ---
 
-![](assets/images/2023/04/2023-04-05-cac-bai-viet-ngan-phan-31-1.webp)
+![](/assets/images/2023/04/2023-04-05-cac-bai-viet-ngan-phan-31-1.webp)
 
 ## Blog từ tiết kiệm đến miễn phí
-Chia sẻ kinh nghiệm viết blog t
-ừ tiết kiệm đến miễn phí
+Chia sẻ kinh nghiệm viết blog từ tiết kiệm đến miễn phí
 
 Khi bắt đầu tập viết blog cá nhân, bạn sẽ cần có nơi host trang web và domain riêng của trang, hoặc bạn sẽ được giới thiệu, hướng dẫn nên làm như thế ^^
 
@@ -36,7 +40,7 @@ Tuy nhiên, github page sẽ chưa phù hợp nếu bạn:
 
 Nếu bạn đã có dự định viết gì đó lại hoàn toàn miễn phí thì lựa chọn này rất đáng cân nhắc nha.
 Ghé thăm trang thử nghiệm mình mới làm ở đây
-https://beautyoncode.online/
+https://beautyoncode.com/
 
 ## Xuất file docx trong Django
 Việc xuất các loại file là một tính năng thường được sử dụng cho phép người dùng lấy lại dữ liệu của mình.
@@ -53,9 +57,9 @@ Bên cạnh việc xây dựng một docx file cơ bản, bài viết giới thi
 
 Cuối cùng, việc viết unit test cho code là quan trọng để đảm bảo chất lượng code đúng, mình giới thiệu unit test gồm hai phần: test view response và test nội dung document.
 
-Bạn ghé đọc nội dung bài viết này ở blog nha, có code ví dụ và các hình ảnh minh hoạt rất chi tiết.
+Bạn ghé đọc nội dung [bài viết này][export-docx-file-with-python-docx-in-django-app] ở blog nha, có code ví dụ và các hình ảnh minh hoạt rất chi tiết.
 
-https://beautyoncode.com/export-docx-file-with-python-docx-in-django-app/
+[export-docx-file-with-python-docx-in-django-app]: {{ "" | relative_url }}{% post_url django/2023-03-25-export-docx-in-django %}
 
 ## Tìm hiểu về DNS
 Người dùng sử dụng web thông qua các tên miền (domain) của trang web như beautyoncode.com. Các trình duyệt web thì lại tương tác bằng địa chỉ IP.
@@ -86,11 +90,11 @@ Khi đó, trang web của bạn đã chuyển từ account.github.io sang domain
 
 – Alias giúp gắn domain của bạn đến các nguồn tài nguyên khác như AWS ALB, và có thể sử dụng với apex domain. Loại record thường sử dụng cho alias là A và không gán TTL.
 
-DNS hoạt động như thế nào? (mời bạn xem sơ đồ minh hoạ trong bài viết ở blog nhé)
+DNS hoạt động như thế nào? (mời bạn xem sơ đồ minh hoạ trong [bài viết ở blog][tim-hieu-ve-dns] nhé)
 
-https://beautyoncode.com/tim-hieu-ve-dns/
+[tim-hieu-ve-dns]: {{ "" | relative_url }}{% post_url network/2023-03-03-tim-hieu-ve-dns %}
 
-## Learning by doing với exercism.org
+## Learning by doing với [exercism.org](https://exercism.org/)
 Exercism hỗ trợ học với hơn 67 ngôn ngữ lập trình thông qua các bài học coding thực hành.
 
 Nền tảng này phù hợp với những người học lập trình với nhiều trình độ khác nhau (junior, mid-level, senior).
@@ -104,8 +108,6 @@ Mỗi ngôn ngữ sẽ có một track gồm các bài tập theo chủ để c�
 Bạn cũng có thể thử với vai trò mentor cho những người khác để giúp cộng đồng ngày càng lớn mạnh.
 
 Nền tảng này có giao diện cực đẹp nha, enjoy your learning!
-
-https://exercism.org/
 
 ## Liệu ngày tàn frontend đã đến?
 Chủ đề về chat GPT được mọi người bàn luận sôi nổi trên tất cả các kênh. Mình đã chọn im lặng và mua thêm vào con bot để xài (ChatGPT, Copilot) rồi học dần về AI ^^
@@ -129,4 +131,4 @@ AI sẽ giúp nâng hiệu suất công việc lên, và sẽ càng có nhiều 
 
 Chat-GPT giúp bạn học và làm nhanh hơn. Nhưng lưu ý cần kiểm tra đầu ra cẩn thận, hỏi thêm câu hỏi đến giải thích các phần liên quan, không copy code mù quáng, chắc chắn bạn hiểu rồi mới sử dụng và kiểm tra kết quả đầu ra.
 
-Đọc thêm ở: https://www.joshwcomeau.com/blog/the-end-of-frontend-development/
+Đọc thêm ở [đây](https://www.joshwcomeau.com/blog/the-end-of-frontend-development/)

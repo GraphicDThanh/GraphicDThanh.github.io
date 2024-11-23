@@ -3,9 +3,15 @@ title: "Các bài viết ngắn - phần 25"
 categories:
   - Short Posts
 tags:
-  - short-post
+  - short-posts
+  - database-design
+  - javascript
+  - documentation
+  - career-development
+  - concepts
 ---
-![](assets/images/2023/02/2023-02-13-cac-bai-viet-ngan-phan-25-1.webp)
+
+![](/assets/images/2023/02/2023-02-13-cac-bai-viet-ngan-phan-25-1.webp)
 ## Chọn id cho khóa chính CSDL
 Một trong các công việc đầu tiên khi thiết kế database schema là việc chọn loại khóa chính cần sử dụng.
 
@@ -91,8 +97,7 @@ Ngoài ra, cũng có một thư viện giúp tạo unique ID tương tự uuid l
 
 Bạn có đang sử dụng cách nào khác nữa thì chia sẻ với mình nhé.
 —
-Gửi bạn thêm một bài viết mà mình đọc về uuid và serial khá hay và chi tiết
-https://devforth.io/blog/why-your-software-should-use-uuids/
+Gửi bạn thêm [một bài viết](https://devforth.io/blog/why-your-software-should-use-uuids/) mà mình đọc về uuid và serial khá hay và chi tiết.
 
 ## Bốn bước để học và viết
 
@@ -111,9 +116,7 @@ Việc cập nhật các kiến thức mới hàng ngày sẽ giúp bạn khác 
 Suy cho cùng, bạn hay mình đều dành 8 tiếng làm việc nơi công sở, hay ở nhà thì cũng trên máy tính. Học tập và làm việc, đi chơi là cuộc sống của tụi mình.
 Nếu không yêu nó thì mình sống kiểu gì mới được, đúng không? ^^
 
-Hi vọng một số bước này có thể gợi ý thêm cho bạn nha, ghé bài viết dưới đây mình có vẻ infographic minh hoạ dễ thương tặng bạn ý.
-
-https://beautyoncode.com/bon-buoc-de-hoc-va-viet-trong-thoi-gian-dai/
+Hi vọng một số bước này có thể gợi ý thêm cho bạn nha, ghé [bài viết][bon-buoc-de-hoc-va-viet-trong-thoi-gian-dai] này mình có vẽ infographic minh hoạ dễ thương tặng bạn ý.
 
 ## SOLID với ví dụ cùng Python
 
@@ -128,17 +131,15 @@ L: Liskov Substitution Principle (LSP)
 I: Interface Segregation Principle (ISP)
 D: Dependency Inversion Principle (DIP)
 
-Mình từng chia sẻ qua về SOLID với các ví dụ dành cho JS qua [bài viết này](https://careerly.vn/comments/4974?utm_campaign=self-share).
+Mình từng chia sẻ qua về SOLID.
 
 Tiếp tục tìm hiểu kỹ hơn về SOLID, và thực hành cùng Python
 Bài viết dưới đây đưa ra một ứng dụng Python đơn giản và chia mỗi nguyên tắc thành các nội dung cụ thể gồm:
 – Giới thiệu nội dung của nguyên tắc
 – Thực hành: bao gồm giải thích lý do vi phạm, và hướng cải thiện cụ thể trên code.
 
-Bạn ghé blog đọc thêm chi tiết nha.
+Bạn [ghé blog][solid-trong-oop-voi-python] đọc thêm chi tiết nha.
 Bài viết hơi dài nhưng mình tin là bạn sẽ thích vì nó vô cùng hữu ích phù hợp với thực tiễn trong dự án
-
-https://beautyoncode.com/solid-trong-oop-voi-python
 
 ## Phát huy thế mạnh thay vì cải thiện điểm yếu
 
@@ -168,6 +169,5 @@ Hành trình tìm ra những thế mạnh này không dễ dàng, đôi lúc mì
 Nếu bạn còn thấy lạc lối thì có thể thử cách mình làm này nhé.
 Chúc mọi người luôn làm những điều mình thoả mái nhất và đạt nhiều thành công vang dội nhất.
 
-—
-Đầu năm kể chuyện tìm đường – BeautyOnCode
-https://beautyoncode.com/phat-huy-diem-manh-thay-vi-khac-phuc-diem-yeu/
+[bon-buoc-de-hoc-va-viet-trong-thoi-gian-dai]: {{ "" | relative_url }}{% post_url non-tech/2022-12-27-bon-buoc-de-hoc-va-viet-trong-thoi-gian-dai %}
+[solid-trong-oop-voi-python]: {{ "" | relative_url }}{% post_url oop/2022-12-12-solid-trong-oop-voi-python %}

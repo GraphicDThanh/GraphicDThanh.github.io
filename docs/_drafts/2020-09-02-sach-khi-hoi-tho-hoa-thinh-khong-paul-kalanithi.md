@@ -7,7 +7,7 @@ tags:
   - random
 ---
 
-![](assets/images/2020/09/2020-09-02-sach-khi-hoi-tho-hoa-thinh-khong-paul-kalanithi.webp)
+![](/assets/images/2020/09/2020-09-02-sach-khi-hoi-tho-hoa-thinh-khong-paul-kalanithi.webp)
 
 “Khi hơi thở hoá thinh không” là một cuốn sách kỳ lạ, viết về một đề tài thật khó mà hiểu được nếu bản thân chưa hề có kinh nghiệm trải qua chuyện tương tự trong đời –  cái CHẾT. Một chủ đề hiếm khi được nhắc đến trong thế giới đầy màu sắc ngoài kia ở những năm trước đây. Gần đây thì mọi người nói nhiều hơn về nó với một nỗi hoang mang lo sợ về Covid19.
 

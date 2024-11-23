@@ -9,7 +9,7 @@ tags:
 ---
 
 
-![](assets/images/2022/10/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript-1.webp)
+![](/assets/images/2022/10/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript-1.webp)
 
 Ba cách giúp bạn khai báo biến trong JavaScript là sử dụng từ khóa `var`, `let`, `const`.
 
@@ -60,7 +60,7 @@ console.log(b);
 let b = 3;
 ```
 
-![](assets/images/2022/10/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript-2.webp)
+![](/assets/images/2022/10/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript-2.webp)
 
 ở đây chương trình sẽ bị lỗi `ReferenceError` không thể truy cập `b` trước khi được khởi tạo
 
@@ -68,7 +68,7 @@ Và biến được khai báo với `let` sẽ nằm trong `block scoped`
 
 Ví dụ biến b dưới đây nằm trong một `block scoped` của `if` với `{}` và không thể sử dụng ở bên ngoài.
 
-![](assets/images/2022/10/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript-3.webp)
+![](/assets/images/2022/10/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript-3.webp)
 
 ---
 
@@ -76,11 +76,11 @@ Một điểm khác nhau nữa của `var` và `let` nữa là việc khai báo 
 
 Có thể khai báo hai biến cùng tên với `var`:
 
-![](assets/images/2022/10/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript-4.webp)
+![](/assets/images/2022/10/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript-4.webp)
 
 Nhưng với `let` sẽ báo lỗi `Syntax Error` và không cho phép chương trình thực thi.
 
-![](assets/images/2022/10/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript-5.webp)
+![](/assets/images/2022/10/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript-5.webp)
 
 ## let, var và const
 
@@ -95,13 +95,13 @@ const c = 1;
 ```
 
 Nếu không có giá trị khởi tạo cho const bạn sẽ bị lỗi `SyntaxError`. 
-![](assets/images/2022/10/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript-6.webp)
+![](/assets/images/2022/10/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript-6.webp)
 
 Thêm nữa, bạn có thể thay đổi giá trị cho biến khai báo với `let` hay `var`, nhưng bạn không thể thay đổi giá trị cho biến khai báo với `const`.
 
 Nếu bạn gán giá trị cho một biến khai báo với const bạn sẽ bị lỗi `TypeError`
 
-![](assets/images/2022/10/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript-7.webp)
+![](/assets/images/2022/10/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript-7.webp)
 
 **Cuối cùng let và const là cú pháp của ES6.**
 

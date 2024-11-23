@@ -3,9 +3,13 @@ title: "Các bài viết ngắn - phần 10"
 categories:
   - Short Posts
 tags:
-  - short-post
+  - short-posts
+  - git
+  - documentation
+  - news
+  - career-development
 ---
-![](assets/images/2022/09/2022-09-01-cac-bai-viet-ngan-phan-10-1.webp)
+![](/assets/images/2022/09/2022-09-01-cac-bai-viet-ngan-phan-10-1.webp)
 
 ## Viết commit message, dễ mà khó
 

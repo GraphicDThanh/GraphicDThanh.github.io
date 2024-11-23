@@ -3,9 +3,13 @@ title: "Các bài viết ngắn - phần 26"
 categories:
   - Short Posts
 tags:
-  - short-post
+  - short-posts
+  - concepts
+  - linux
+  - documentation
+  - django
 ---
-![](assets/images/2023/02/2023-02-21-cac-bai-viet-ngan-phan-26-1.webp)
+![](/assets/images/2023/02/2023-02-21-cac-bai-viet-ngan-phan-26-1.webp)
 
 ## Don't repeat yourself hay DRY
 Bạn có nghĩ giai đoạn bảo trì (maintenance) là sau khi chương trình được phát hành (release)? Và trong giai đoạn này là các công việc như fix bugs, hay cải thiện các tính năng?
@@ -81,7 +85,7 @@ Loose coupling ý chỉ giữa các thành phần nên có ít khớp nối. N�
 
 Tập thói quen quan sát và cân nhắc code của bạn, tìm cách để cải thiện cấu trúc và tăng tính trực giao.
 
-Đọc thêm về cặp đôi hủy diệt code xấu DRY và Orthogonality ở [bài viết sau](https://beautyoncode.com/cap-doi-huy-diet-code-xau-dry-va-orthogonality/)
+Đọc thêm về cặp đôi hủy diệt code xấu DRY và Orthogonality ở [bài viết sau][cap-doi-huy-diet-code-xau-dry-va-orthogonality]
 
 ## Bạn biết bao nhiêu Linux command?
 
@@ -184,6 +188,7 @@ Cái nào cần làm, cái nào đang làm, đã làm cần review, đã merge c
 Cuối cùng là mình có được cái cảm giác an tâm, dù công việc chưa xong, nhưng ít nhất là mình biết mình đã và cần sẽ làm gì ^^
 
 Bạn tham khảo xem nếu thích thì thử nghen, chúc bạn quản lý công việc ngày càng tốt hơn.
+
 ([Ref link setup obsidian daily job](https://heymichellemac.com/obsidian-daily-note-2022))
 
 ## Django model permission, object permission
@@ -216,3 +221,6 @@ Một số video sau giới thiệu và thực hành hands-on giúp bạn nắm 
 1. [Django Permissions | Model Level Permissions | Admin Site ](https://www.youtube.com/watch?v=wlYaUvfXJD)
 2. [Django Guardian | Object Level Permissions | Admin Site](https://www.youtube.com/watch?v=2jhQyWeEVHc)
 3. [Django Guardian | Object Level | View and Templates](https://www.youtube.com/watch?v=KpuDBudtSrg)
+
+
+[cap-doi-huy-diet-code-xau-dry-va-orthogonality]: {{ "" | relative_url }}{% post_url principles/2023-01-01-cap-doi-huy-diet-code-xau-dry-va-orthogonality %}

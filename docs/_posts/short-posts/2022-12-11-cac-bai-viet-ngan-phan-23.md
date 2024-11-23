@@ -3,30 +3,12 @@ title: "Các bài viết ngắn - phần 23"
 categories:
   - Short Posts
 tags:
-  - short-post
+  - short-posts
+  - devops
+  - css
+  - learning-resources
 ---
-![](assets/images/2022/12/2022-12-11-cac-bai-viet-ngan-phan-23-1.webp)
-
-## UI/UX cơ bản dành cho dev
-Kiến thức cơ bản về Graphic Design dành cho web developer sẽ giúp bạn, một người web developer:
-– hiểu về sản phẩm, hiểu về người dùng
-– hợp tác tốt với các team designer, đưa ra các phương án vừa tốt cho người dùng cũng vừa phù hợp để lập trình
-– có kiến thức cơ bản để tự xây dựng sản phẩm của mình
-
-Các video giúp bạn trả lời các câu hỏi như:
-– Màu sắc và fonts chữ sẽ tác động lên não người và sinh ra các cảm xúc tương ứng ra sao?
-– RGB, CMYK là gì và được sử dụng khi nào?
-– Màu ấm, màu lạnh là gì?
-– Font serif và sans serif khác nhau ra sao?
-– Làm sao chọn hai fonts chữ đi cùng nhau?
-
-Ngoài ra, mình còn giới thiệu đến bạn các quy trình phát triển phần mềm cơ bản và các nguồn vô cùng hữu dụng trong việc:
-– Giúp bạn lựa chọn màu sắc đang được yêu thích nhất (trending)
-– Giúp bạn xem và chọn fonts vô cùng tiện lợi
-
-Vì giải thuật của Youtube sẽ ưu tiên cho các video có nhiều like nên nếu bạn thấy [video này](https://youtu.be/Ktb33USxsZA?list=PL53G8L1GDrrmz1BFI8baHwJOyMZvTv2vI) hữu ích thì hãy giúp mình like nhé!
-
-Bấm theo dõi kênh để là người đầu tiên xem các video mới nhất.
+![](/assets/images/2022/12/2022-12-11-cac-bai-viet-ngan-phan-23-1.webp)
 
 ## Giới thiệu Microservices
 Kiến trúc Microservices cho phép xây dựng các ứng dụng có thể mở rộng.
@@ -37,11 +19,12 @@ Kiến trúc Microservices bao gồm nhiều service tách rời nhau.
 Mỗi service có nhiệm vụ riêng tách biệt nhau trong một hệ thống lớn thường xuyên được mở rộng.
 
 Ví dụ:
+```
 Shopping cart -> shopping domain
 Billing -> billing domain
 User Profile -> user domain
 Push Notification -> push domain
-
+```
 Tất cả các nhóm nhiệm vụ riêng ở trên đều có thể là một service tách rời nhau, thường gọi là domain.
 
 Microservices giao tiếp với nhau ra sao?
@@ -100,7 +83,7 @@ Các khái niệm chính của flexbox bao gồm:
 – Giãn và co (grow and shrink)
 – Gap
 
-[Cùng mình tìm hiểu thêm ở bài viết này nha](https://beautyoncode.com/hoc-ve-flexbox/)
+[Cùng mình tìm hiểu thêm ở bài viết này nha][hoc-ve-flexbox]
 
 ## Điều gì xảy ra khi bạn enter url?
 Điều gì xảy ra khi bạn gõ một đường dẫn (URL) vào trình duyệt và bấm enter?
@@ -108,7 +91,9 @@ Các khái niệm chính của flexbox bao gồm:
 Đầu tiên, URL là gì?
 URL là Universal Resource Locator.
 Ví dụ:
+
 http://example.com/product/electric/phone
+
 1 2 3 4
 
 URL có 4 phần:
@@ -179,3 +164,6 @@ Quá tuyệt vời đúng không! Cám ơn team Google nhiều <3
 
 Và bộ này đang được cập nhật thường xuyên nhé!
 [Lưu ngay để dùng khi cần nha.](https://web.dev/patterns/components/)
+
+
+[hoc-ve-flexbox]: {{ "" | relative_url }}{% post_url css/2022-12-09-hoc-ve-flexbox %}

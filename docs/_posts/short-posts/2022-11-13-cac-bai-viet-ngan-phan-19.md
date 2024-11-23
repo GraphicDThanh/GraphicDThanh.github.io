@@ -3,9 +3,15 @@ title: "Các bài viết ngắn - phần 19"
 categories:
   - Short Posts
 tags:
-  - short-post
+  - short-posts
+  - state-machine
+  - clean-code
+  - javascript
+  - documentation
+  - career-path
+  - aws
 ---
-![](assets/images/2022/11/2022-11-13-cac-bai-viet-ngan-phan-19-1.webp)
+![](/assets/images/2022/11/2022-11-13-cac-bai-viet-ngan-phan-19-1.webp)
 
 ## Giới thiệu về XState
 Hôm nay công ty có bài giới thiệu về XState cực thú vị, nên mình muốn giới thiệu đến bạn qua bài viết nhỏ này.
@@ -48,7 +54,7 @@ thì nên viết if (data?playload?name == ‘Anna’)
 
 7. Comment code cho những nội dung cần thiết, tránh comment để giải thích source code.
 
-https://dev.to/alexomeyer/8-must-know-tips-for-writing-clean-code-with-javascript-i4
+[đọc thêm](https://dev.to/alexomeyer/8-must-know-tips-for-writing-clean-code-with-javascript-i4)
 
 ## Lexical Environment trong JS
 Sau khi đã nắm rõ về execution context cùng hai giai đoạn của nó (memory creation và code execution) và call stack (các execution context được push / pop trong stack), mình sẽ cùng tìm hiểu về một khái niệm nền tảng nữa của JavaScrip, đó là lexical environment.
@@ -67,7 +73,7 @@ Còn scope chain liên quan đến lexical environment như thế nào?
 
 Scope Chain chính là chuỗi nối của các Lexical Environment.
 
-Mời bạn ghé đọc [bài viết này](https://beautyoncode.com/lexical-environment-trong-javascript/) với các hình ảnh minh hoạ các khái niệm nền tảng này nhé!
+Mời bạn ghé đọc [bài viết này][lexical-environment-trong-javascript] với các hình ảnh minh hoạ các khái niệm nền tảng này nhé!
 
 
 ## Take note for view với Obsidian
@@ -138,3 +144,6 @@ Data Engineer
 – Lake Infomation
 
 Bạn có thể xem tác giả giới thiệu cụ thể hơn trong [video](https://youtu.be/N8lcedBPmE8) nhé
+
+
+[lexical-environment-trong-javascript]: {{ "" | relative_url }}{% post_url js/2022-11-03-lexical-environment-trong-javascript %}

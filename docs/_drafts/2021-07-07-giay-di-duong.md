@@ -7,7 +7,7 @@ tags:
   - random
 ---
 
-![](assets/images/2021/07/2021-07-giay-di-duong.webp)
+![](/assets/images/2021/07/2021-07-giay-di-duong.webp)
 
 
 Trong lúc tình hình dịch bệnh đang diễn biến căng thẳng ở khắp các nơi trên đất nước, và lệnh giới nghiêm được ban hành ở nhiều nơi, thì ở nhà chính là biện pháp an toàn nhất.

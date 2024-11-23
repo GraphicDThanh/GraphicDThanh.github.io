@@ -3,9 +3,14 @@ title: "Các bài viết ngắn - phần 13"
 categories:
   - Short Posts
 tags:
-  - short-post
+  - short-posts
+  - debug
+  - news
+  - javascript
+  - career-development
 ---
-![](assets/images/2022/10/2022-10-02-cac-bai-viet-ngan-phan-13-1.webp)
+
+![](/assets/images/2022/10/2022-10-02-cac-bai-viet-ngan-phan-13-1.webp)
 
 ## Trực quan hóa dữ liệu JSON
 Khi làm việc với dữ liệu (data), bạn có thể làm việc với một file JSON lớn tới vài trăm dòng là chuyện bình thường. Tệ hơn nữa là dữ liệu JSON của bạn ở dạng thu gọn (minify) thì thường sẽ cần chuyển sang định dạng đẹp hơn (beautify json) để dễ đọc.
@@ -43,7 +48,7 @@ Thuộc tính `inert` cho phép hiển thị form như ở trạng thái không 
 Bạn có thể xem các ví dụ minh họa ở bài viết [này](https://css-tricks.com/whats-new-with-forms-in-2022/)
 
 ## Stack overflow trong JS
-Như đã nói ở bài [“Điều gì xảy ra khi chạy một chương trình JavaScript ?”](https://beautyoncode.com/dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript/), mỗi khi một chương trình JS chạy sẽ có một global execution context được khởi tạo, mỗi hàm được thực thi sẽ có một execution context của hàm đó được khởi tạo.
+Như đã nói ở bài [“Điều gì xảy ra khi chạy một chương trình JavaScript ?”][dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript], mỗi khi một chương trình JS chạy sẽ có một global execution context được khởi tạo, mỗi hàm được thực thi sẽ có một execution context của hàm đó được khởi tạo.
 
 Execution context chứa toàn bộ các biến, hàm và các đối số truyền vào ở global hoặc ở hàm được thực thi.
 
@@ -113,3 +118,5 @@ So sánh giá trị với mảng không cho phép, ví dụ `arr === []`
 Không cho phép import / export types trong file JavaScript nữa
 
 Chi tiết mời bạn đọc thêm ở [link](https://devblogs.microsoft.com/typescript/announcing-typescript-4-8/)
+
+[dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript]: {{ "" | relative_url }}{% post_url js/2022-08-30-dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript %}

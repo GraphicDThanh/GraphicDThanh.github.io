@@ -20,15 +20,15 @@ Hôm ni, mình học tiếp về bạn “Lỗi và ngoại lệ”, bài blog t
 Nếu bạn đọc từ đầu sê-ri đến đây, hẳn là bạn có thấy vài đoạn code mình cố tình ví dụ cho nó xuất hiện lỗi, trong bài “I/O trong Python”][input-output-trong-python]
 :
 
-![](assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-1.webp)
-![](assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-2.webp)
+![](/assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-1.webp)
+![](/assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-2.webp)
 
 Hình trên cho mình thấy có hai loại lỗi có thể phân biệt được, đó là: **“lỗi cú pháp”** và **“ngoại lệ“**.
 
 ## Lỗi cú pháp
 
 Lỗi cú pháp là lỗi xảy ra khi phân tích cú pháp, là loại lỗi mình hay gặp nhất.
-![](assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-3.webp)
+![](/assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-3.webp)
 Trình phân tích cú pháp sẽ lặp lại dòng bị lỗi và hiển thị một dấu mũi tên nhỏ tạo vị trí là thời điểm sớm nhất trong dòng nơi lỗi được phát hiện.
 
 Ở ví dụ trên thể hiện lỗi được phát hiện tại vị trí hàm print được gọi, lý do là bị thiếu dấu “:”
@@ -39,7 +39,7 @@ Trình phân tích cú pháp sẽ lặp lại dòng bị lỗi và hiển thị 
 
 Ngay cả khi cú pháp đã đúng, mã vẫn có thể gây ra lỗi trong quá trình thực thi. Những lỗi phát hiện trong quá trình thực thi code được gọi là các ngoại lệ.
 
-![](assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-4.webp)
+![](/assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-4.webp)
 
 Như bạn thấy ở trên thì ngoại lệ có nhiều loại khác nhau và sẽ được in kèm thông tin của lỗi.
 
@@ -49,7 +49,7 @@ Như bạn thấy ở trên thì ngoại lệ có nhiều loại khác nhau và 
 
 Khi viết chương trình với Python, đôi khi mình sẽ cố tình để ngoại lễ xảy ra để xử lý chúng. Như ở ví dụ dưới đây, đầu vào được nhập từ phía người dùng có thể gây ngoại lệ “*ValueErrror*” và mình đi xử lý bằng cách gửi thông tin cho người dùng biết họ đã nhập sai.
 
-![](assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-5.webp)
+![](/assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-5.webp)
 
 Ở ví dụ trên đã dùng nhóm lệnh “**try … except**” để bắt và sử lý ngoại lệ.
 
@@ -75,7 +75,7 @@ Có hai đoạn code như hai hình dưới đây, cùng đoán thứ tự in ra
 
 Lưu ý là “RotDH_NV1” được extend từ class Exception
 
-![](assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-6.webp)
+![](/assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-6.webp)
 
 Bạn nghiên cứu kỹ chưa, đã đoán được thứ tự in ra ở hai ví dụ là gì chưa nhỉ?
 
@@ -218,7 +218,7 @@ Nếu bạn muốn thì nó được. Thật á!
 
 Đây là ví dụ cho sự đổ lỗi, hay gọi hoa mỹ hơn là các ngoại lệ được xâu chuỗi với nhau, mời bạn xem đoạn code này:
 
-![](assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-7.webp)
+![](/assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-7.webp)
 
 Ở trên, rõ là exception IOError được bắt, nhưng mình cố tình đổi lỗi thành RuntimeError bằng cách sử dụng “**from**”, cú pháp giúp mình có thể xâu chuỗi lỗi IOError qua lỗi RuntimeError và in cả hai bạn này ra màn hình như trên.
 
@@ -226,7 +226,7 @@ Nhưng nếu bạn chỉ muốn in lỗi “RuntimError” thôi, và không mu�
 
 Khi đó nó sẽ làm việc như thế này:
 
-![](assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-8.webp)
+![](/assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-8.webp)
 
 Yeah, vậy là tụi mình có thể đổi lỗi trắng trợn mà không truy được nguồn gốc luôn(trừ khi nhìn vô code).
 
@@ -246,7 +246,7 @@ Thường thường, người ta hay tạo một base exception kế thừa tr�
 
 Mọi người cùng dòm qua ví dụ nha:
 
-![](assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-9.webp)
+![](/assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-9.webp)
 
 #### Làm cho tôi điều này bất cứ giá nào(Do it no matter what)
 
@@ -258,7 +258,7 @@ Tức là đoạn code ở finally này thể nào cũng phải làm, họ gọi
 
 Mời bạn xem ví dụ nha:
 
-![](assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-10.webp)
+![](/assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-10.webp)
 
 Bạn có thắc mắc vì sao gặp exception mà đoạn print vẫn in được không?
 
@@ -330,7 +330,7 @@ Thường thì khi mình mở một file mình sẽ dùng **open(“filename.txt
 Với lệnh “**with**” cho phép những object như là file có thể đảm bảo việc bộ nhớ sẽ được giải phóng mỗi khi thực thi xong đoạn code nằm trong nhóm lệnh này. Do đó đảm bảo tài nguyên được thu hồi kịp thời và chính xác.
 
 Hãy nhớ ví dụ này nha, và luôn dùng bạn ấy khi mở file như là best practice.
-![](assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-11.webp)
+![](/assets/images/2020/08/2020-08-12-dbd-loi-va-xu-ly-ngoai-le-python-11.webp)
 
 Hôm nay mình đã biết thêm ít kiến thức về lỗi và các ngoại lệ rồi.
 

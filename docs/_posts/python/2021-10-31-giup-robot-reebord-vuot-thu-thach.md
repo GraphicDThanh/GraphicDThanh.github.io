@@ -23,7 +23,7 @@ Trong bài blog này, mình sẽ dẫn bạn robot của mình đi dạo với 2
 Để vượt qua các thử thách này, bạn hãy đọc kỹ đề ở “World Info” và xem các gợi ý về cú pháp Python cũng như các hàm điều kiện cho sẵn để có thể gọi cho robot di chuyển, ví dụ là: turn_left() để rẽ trái hay move() để đi thẳng.
 
 ## Thử thách "Hurdle 4" vượt chướng ngại vật
-![](assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-1.webp)
+![](/assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-1.webp)
 
 ### Phân tích thử thách
 Reeborg đang ở trong một cuộc đua vượt rào. Trò chơi yêu cầu bạn ấy cần di chuyển theo các đường mũi trên đang được hiển thị để có thể vượt rào thành công. 
@@ -32,7 +32,7 @@ Một lưu ý là các vị trí cũng như độ cao của rào sẽ thay đổ
 
 ### Reeborg's basic keyboard
 Đầu tiên, bạn hãy click vào “Reeborg’s basic keyboard” sẽ thấy cửa sổ hướng dẫn sau:
-![](assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-2.webp)
+![](/assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-2.webp)
 
 Có 5 tabs là:
 
@@ -53,7 +53,7 @@ Nhưng rõ là mình sẽ cần rẽ phải, cho nên mình cần viết một h
 Giả sử Reeborg của mình đang hướng lên phía trên theo chiều mũi tên như trong hình, thì việc rẽ phải sẽ là xoay qua trái 3 lần. 
 
 Bạn nhớ hồi xưa mình đi học hay có học quay trái, quay phải như thực hành nghi thức Đội không? Đây chính là một kiểu như thế ấy, “Bên trái, quay!” ba lần như thế là thành sang bên phải.
-![](assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-3.webp)
+![](/assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-3.webp)
 Vậy là mình viết được hàm rẽ phải, nó chỉ đơn giản là như thế này:
 ```python
 def turn_right():
@@ -76,7 +76,7 @@ Nếu bên phải trống thì bạn ấy có thể rẽ phải, nếu không tr
 **Bước 3:** Tiếp theo sau khi đã rẽ sang phải rồi, vì rào chỉ bằng 1 lần di chuyển, cho nên chỉ cần di chuyển 1 lần nữa và tiếp tục rẽ phải để có thể hướng robot xuống phía dưới.
 
 **Bước 4:** Reeborg sẽ tiếp tục tiến về phía trước theo hướng mặt đất cho đến khi nào gặp mặt đất thì rẽ trái để quay về hướng sẵn sàng cho lần di chuyển tiếp theo.
-![](assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-4.webp)
+![](/assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-4.webp)
 
 Dựa vào cách di chuyển để Reeborg có thể vượt rào ở trên, hàm jump() được viết là:
 
@@ -109,16 +109,16 @@ while not at_goal():
         move()
 ```
 Cùng xem kết quả cuối cùng của thử thách vượt rào nhé.
-![](assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-5.webp)
+![](/assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-5.webp)
 
-![](assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-6.webp)
+![](/assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-6.webp)
 
 ## Thử thách "Maze" vượt mê cung
 Vừa vượt rào xong đến đích thì Reeborg tưởng đâu là đã về đến rồi. Thế nhưng thì ra là bạn ấy đã vô tình bị lọt tiếp vào ngay trong mê cung 😱 🥲
 
 Giờ làm sao có thể thoát ra khỏi mê cung này và về nhà đây, chúng mình cùng giúp bạn ấy nhé!
 
-![](assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-7.webp)
+![](/assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-7.webp)
 
 ### Phân tích thử thách
 
@@ -137,7 +137,7 @@ Hẳn là nếu bên phải trống thì mình sẽ cho phép bạn ấy rẽ ph
 Hình dưới mô tả việc kiểm tra bên phải phía trước, từ đó quyết định cho robot hành động rẽ phải hoặc đi thẳng. 
 
 Việc kiểm tra này có thể dùng các hàm **right_is_clear()** và **front_is_clear()**.
-![](assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-8.webp)
+![](/assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-8.webp)
 
 Thế khi robot đâm vào ngõ cụt thì sao? 
 
@@ -145,7 +145,7 @@ Khi đó bên phải không trống, phía trước cũng không trống, bạn 
 
 Lúc này, là lúc mình cần cho bạn ấy rẽ trái để phía bên phải sẽ trống khi mình xoay đến hướng ngược lại của ngõ cụt.
 
-![](assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-9.webp)
+![](/assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-9.webp)
 
 ```python
 def turn_right():
@@ -166,12 +166,12 @@ while not at_goal():
 
 <hr/>
 Và đây là kết quả của cách “Right-Hand Rule”, cùng xem bạn robot có đi khỏi mê cung không nhé.
-![](assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-10.webp)
+![](/assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-10.webp)
 
 Trên đây là kết quả bạn ấy đã thoát khỏi được mê cung rồi, dù hơi đi vòng vèo một tẹo hihi.
 
 Tuy nhiên, trong lúc thử nghiệm mình cũng thấy đôi khi bạn robot của mình bị bế tắc khi đi thành hình vuông mãi vậy á, cùng tìm hiểu thêm trường hợp đặc biệt đó ở mục tiếp theo hen.
-![](assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-11.webp)
+![](/assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-11.webp)
 
 
 ### Vấn đề: đi xà quần bất tận
@@ -183,10 +183,10 @@ Reeborg’s world cho phép mình đổi vị trí của robot và lưu thành m
 Chọn “Additional Options” > tại “World: creation, edition, …” chọn “Edit world” > Chọn “Robot” và chọn “Position” để có thể bắt đầu sửa vị trí robot.
 
 Click chọn vào robot để bỏ chọn vị trí đang đứng, và chọn lại vị trí như sau. 
-![](assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-12.webp)
+![](/assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-12.webp)
 
 Tiếp theo, chọn “Onload” để nó chuyển thành dấu x để chương trình không tự động load vị trí ngẫu nhiêu của robot nữa.
-![](assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-13.webp)
+![](/assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-13.webp)
 
 Cuối cùng chọn “Save world in browser” và đặt tên cho thử thách, có thể là “maze-problem”. 
 
@@ -214,8 +214,8 @@ Nếu bên phải luôn trống sẽ sinh vấn đề thì có cách nào bạn 
 
 Cùng xem mô phỏng của cách di chuyển này ở hình bên dưới:
 
-![](assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-14.webp)
-![](assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-15.webp)
+![](/assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-14.webp)
+![](/assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-15.webp)
 
 Công việc này được thực hiện bằng cách kiểm tra và di chuyển robot về vị trí phù hợp ngay trước khi bắt đầu tìm đường ra khỏi mê cung, để đảm bảo bên phải bạn ấy luôn là tường. 
 
@@ -252,7 +252,7 @@ while not at_goal():
 ```
 Cùng xem thành quả của Reeborg vượt mê cung thành công trong trường hợp khó nhằn này 🥳
 
-![](assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-16.webp)
+![](/assets/images/2021/10/2021-10-31-giup-robot-reebord-vuot-thu-thach-16.webp)
 
 <hr/>
 Vậy là tụi mình đã cùng dẫn robot đi dạo và cũng giúp bạn ấy vượt qua các chướng ngại vật và thoát khỏi mê cung rồi. Thật là thú vị phải không 🥰 

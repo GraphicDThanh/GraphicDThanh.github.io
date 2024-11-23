@@ -7,7 +7,7 @@ tags:
   - random
 ---
 
-![](assets/images/2020/07/2020-07-07-me-toi-van-dang-hoc-moi-ngay.webp)
+![](/assets/images/2020/07/2020-07-07-me-toi-van-dang-hoc-moi-ngay.webp)
 
 Trưa nay tôi ghé mẹ ăn ké, sau khi chạy lên thăm con nhỏ bạn thân.
 

@@ -7,7 +7,7 @@ tags:
   - soft-skills
 ---
 
-![](assets/images/2022/12/2022-12-bon-buoc-de-hoc-va-viet-trong-thoi-gian-dai.webp)
+![](/assets/images/2022/12/2022-12-bon-buoc-de-hoc-va-viet-trong-thoi-gian-dai.webp)
 
 Hàng ngày, ngoài viết code, lập trình sẽ viết tài liệu dự án, viết nội dung ticket, viết mô tả cho pull request / merge request, viết mô tả yêu cầu của khách hàng, các loại báo cáo, … Do đó, việc rèn luyện kỹ năng tự học và kỹ năng viết là vô cùng quan trọng để có thể phát triển trong nghề.
 
@@ -15,7 +15,7 @@ Trong bài blog này, mình muốn gửi đến **4 bước** mình đã làm đ
 
 ## 01. Làm tốt công việc của bạn
 
-![](assets/images/2022/12/2022-12-27-bon-buoc-de-hoc-va-viet-trong-thoi-gian-dai-1.webp)
+![](/assets/images/2022/12/2022-12-27-bon-buoc-de-hoc-va-viet-trong-thoi-gian-dai-1.webp)
 
 Thành thật mà nói, khi bắt đầu blog mình viết không tốt lắm. Nếu bạn theo dõi mình lâu bạn sẽ thấy điều này, ban đầu mình hay viết cho mình nhiều hơn. Và khi viết, mình không biết viết gì cả, nên đã chọn cách vừa học vừa viết.
 
@@ -27,7 +27,7 @@ Mỗi ngày, khi làm việc, tập ghi chép lại, chắc chắc sẽ có nhi�
 
 ## 02. Hỗ trợ đồng nghiệp, chia sẻ kiến thức
 
-![](assets/images/2022/12/2022-12-27-bon-buoc-de-hoc-va-viet-trong-thoi-gian-dai-2.webp)
+![](/assets/images/2022/12/2022-12-27-bon-buoc-de-hoc-va-viet-trong-thoi-gian-dai-2.webp)
 
 Có một câu nói rất thú vị về chia sẻ:
 
@@ -47,7 +47,7 @@ Bạn sẽ nhận ra học và hướng dẫn là hai công việc hoàn toàn k
 
 ## 03. Đọc, học hàng ngày, hàng tuần
 
-![](assets/images/2022/12/2022-12-27-bon-buoc-de-hoc-va-viet-trong-thoi-gian-dai-3.webp)
+![](/assets/images/2022/12/2022-12-27-bon-buoc-de-hoc-va-viet-trong-thoi-gian-dai-3.webp)
 
 Đặc điểm của ngành là thay đổi chóng mặt. 
 
@@ -66,7 +66,7 @@ Một số cách mình đang dùng và thấy khá hiệu quả:
 
 ## 04. Yêu thích công việc bạn làm và cứ thoải mái thôi (take it easy)
 
-![](assets/images/2022/12/2022-12-27-bon-buoc-de-hoc-va-viet-trong-thoi-gian-dai-4.webp)
+![](/assets/images/2022/12/2022-12-27-bon-buoc-de-hoc-va-viet-trong-thoi-gian-dai-4.webp)
 
 Cuối cùng, lại là một bước rất là quen thuộc trong các cuốn sách self-help 😂
 
@@ -94,4 +94,4 @@ Hi vọng một số bước này có thể gợi ý thêm cho bạn nha, mình 
 
 Đây là infographic mình làm để mô tả các bước này, bạn có thể lưu về để xem lại nhé.
 
-![](assets/images/2022/12/2022-12-27-bon-buoc-de-hoc-va-viet-trong-thoi-gian-dai-5.webp)
+![](/assets/images/2022/12/2022-12-27-bon-buoc-de-hoc-va-viet-trong-thoi-gian-dai-5.webp)

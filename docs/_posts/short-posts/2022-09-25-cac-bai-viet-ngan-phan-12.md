@@ -3,9 +3,13 @@ title: "Các bài viết ngắn - phần 12"
 categories:
   - Short Posts
 tags:
-  - short-post
+  - short-posts
+  - javascript
+  - blog
+  - debug
+  - css
 ---
-![](assets/images/2022/09/2022-09-25-cac-bai-viet-ngan-phan-12-1.webp)
+![](/assets/images/2022/09/2022-09-25-cac-bai-viet-ngan-phan-12-1.webp)
 
 ## Mảng trong JavaScript
 Có hai cách để tạo mảng trong JavaScript là tạo đối tượng của lớp Array: `let arr = new Array(1, 2)`  hay sử dụng cú pháp mảng []: `let arr1 = [3, 4]`
@@ -70,19 +74,7 @@ Top 5 bài viết trên một ngàn lượt xem về tech:
 
 [“Làm quen câu lệnh và hệ thống tập tin trong Linux”][lam-quen-cau-lenh-va-he-thong-tap-tin-trong-linux] với 1304 lượt xem
 
-Nay bạn có thể xem các bài viết này bằng cách bấm vào [“XEM NHIỀU NHẤT”](https://beautyoncode.com/docs/most-views/)  ở thanh điều hướng chính của blog nhé.
-
 Bật mí nhỏ là đây chỉ mới là lượt xem trực tiếp trên blog cá nhân, bên cạnh đó còn hơn 30 ngàn lượt xem trên viblo, kipalog nữa.
-
-Nhân đây mình cũng gửi lời cám ơn đến tất cả mọi người đã ủng hộ blog trong suốt 3 năm vừa qua với hơn 40 ngàn lượt xem trên blog BeautyOnCode hơn 35 ngàn lượt xem trên Viblo, Kipalog.
-
-Cám ơn sự tin tưởng của 1164 bạn theo dõi trên Careerly, hơn 600 bạn theo dõi trên fanpage BeatyOnCode, gần 700 người theo dõi trên Linkedin, 300 bạn theo dõi trên Kipalog, gần 50 bạn theo dõi trên Viblo.
-
-Cám ơn sự tin tưởng và đồng hành của mọi người, đây chính là nguồn động lực giúp mình chăm học hơn mỗi ngày.
-
-Hi vọng có thể mang đến nhiều bài viết thú vị và bổ ích cho mọi người.
-
-Thank you.
 
 ## Kỹ năng debug
 Khi gặp bug, hẳn bạn sẽ chăm chăm vào con bug và tìm cách sửa chúng. Tuy nhiên việc fix được một con bug chưa quan trọng bằng việc tìm hiểu nguyên nhân vì sao chúng lại xảy ra và làm sao tránh sinh thêm bug tương tự trong tương lai.
@@ -152,7 +144,7 @@ Những ưu và nhược điểm khi sử dụng CSS-in-JS
 
 – Hiệu suất không tốt bằng CSS bình thường do tăng code base
 
-Bạn tìm hiểu thêm ở [link](https://beautyoncode.com/css-trong-js-la-gi/)
+Bạn tìm hiểu thêm ở [link][css-trong-js-la-gi]
 
 ## Vì sao nên gán min-width cho button?
 Một vấn đề phổ biến khi tạo một nút bấm (button) là để chiều rộng của nút tùy vào nội dung của nút (text content) cộng với khoảng cách hai bên (padding).
@@ -182,3 +174,4 @@ sẽ được gán `min-width` là 95px và sẽ hiển thị tốt cho cả ng�
 [kham-pha-dai-ban-doanh-python-series-overview]: {{ "" | relative_url }}{% post_url python/2020-07-01-dbd-dai-ban-doanh-python-series-overview %}
 [lop-trong-python]: {{ "" | relative_url }}{% post_url python/2021-06-30-dbd-lop-trong-python %}
 [iterable-iterator-va-generator-trong-python]: {{ "" | relative_url }}{% post_url python/2020-09-09-dbd-iterator-va-generator-trong-python %}
+[css-trong-js-la-gi]: {{ "" | relative_url }}{% post_url js/2022-09-14-css-trong-js-la-gi %}
