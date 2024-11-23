@@ -30,7 +30,7 @@ Here is a list of all English-language articles available on the blog:
 [drf-serializer-relation-fields-post]: {{ "" | relative_url }}{% post_url django/2023-10-24-relation-fields-in-drf-serializer %}
 [django-export-docx]: {{ "" | relative_url }}{% post_url django/2023-03-25-export-docx-in-django %}
 [django-export-zip-contains-csv]: {{ "" | relative_url }}{% post_url django/2023-04-01-export-multiple-csv-to-zip-django %}
-[basic-knowledges-about-redis]{{ "" | relative_url }}{% post_url database/2022-05-28-basic-knowledges-about-redis %}
+[basic-knowledges-about-redis]:{{ "" | relative_url }}{% post_url database/2022-05-28-basic-knowledges-about-redis %}
 
 ## Coming Soon: More English Content
 I plan to continue adding more English posts, focusing on topics that have received the most interest and engagement. Stay tuned for updates, or feel free to subscribe to the newsletter to receive notifications about new English-language content.

@@ -8,7 +8,7 @@ tags:
   - drf
   - serializer
   - fields
-  - ENGLISH
+  - english
 ---
 
 

@@ -4,7 +4,8 @@ excerpt_separator: <!--more-->
 categories:
   - js
 tags:
-  - js, hoisting
+  - js
+  - hoisting
 ---
 
 ![](assets/images/2022/09/2022-09-07-hoisting-trong-javascript-1.webp)
