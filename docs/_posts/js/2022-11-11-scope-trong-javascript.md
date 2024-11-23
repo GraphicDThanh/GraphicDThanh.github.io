@@ -62,7 +62,7 @@ x() // 10
 
 Hình bên dưới minh họa hai loại scope này:
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/11/scope-es5.png)
+![](assets/images/2022/11/2022-11-11-scope-trong-javascript-1.webp)
 
 Chiếc khung màu đen thể hiện phạm vi của từng loại scope.
 
@@ -96,18 +96,21 @@ x();
 
 Thử đặt một breakpoint và quan sát trên debugger:
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/11/check-scope.png)
+![](assets/images/2022/11/2022-11-11-scope-trong-javascript-2.webp)
 
 Ở Global có a là 5, Local có c là 15, Block có d là 0 tương ứng với 3 scopes mình đã đề cập.
 
 Vậy b đang ở đâu? Bạn có thấy b đang thuộc một nơi gọi là Script ?
 
-Thực ra thì b vẫn đang thuộc global scope. Chỉ là vì nó được khai báo với let và được nằm trong một vùng nhớ riêng gọi là [Temporary Dead Zone (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz) nên được mô tả khác trên debugger ở một tab gọi là Script. (đọc thêm ở [blog này](https://beautyoncode.com/hoisting-trong-javascript/))
+Thực ra thì b vẫn đang thuộc global scope. Chỉ là vì nó được khai báo với let và được nằm trong một vùng nhớ riêng gọi là [Temporary Dead Zone (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz) nên được mô tả khác trên debugger ở một tab gọi là Script. (đọc thêm ở [blog này][hoisting-trong-js]
+
+[hoisting-trong-js]: {{ "" | relative_url }}{% post_url js/2022-09-07-hoisting-trong-javascript %}
+
 
 Bạn có thể chứng minh được b vẫn thuộc global scope vì tại dòng được debug, vẫn có thể truy cập vào b được. Tuy nhiên bạn không thể truy cập vào b từ window , ví dụ window.b
 
 
 Hình bên dưới minh họa ba loại scope ở ví dụ trên:
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/11/scope-js-now.png)
+![](assets/images/2022/11/2022-11-11-scope-trong-javascript-3.webp)
 

@@ -5,7 +5,7 @@ categories:
 tags:
   - short-post
 ---
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/12/Short-posts-09.png)
+![](assets/images/2022/08/2022-08-25-cac-bai-viet-ngan-phan-9-1.webp)
 
 ## danang.fyi và repo danang-cuisine
 Bạn nghĩ sao về việc contribute cho một dự án open source mà không có code? Khi trước mình cứ nghĩ là contributors thì phải code cho dự án cơ, mà thực ra hiểu vậy là sai quá sai. Có rất nhiều dự án open source mà không cần code một dòng nào cả.

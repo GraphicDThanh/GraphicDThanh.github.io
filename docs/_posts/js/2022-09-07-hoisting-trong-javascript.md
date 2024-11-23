@@ -7,7 +7,7 @@ tags:
   - js, hoisting
 ---
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/09/thread-246742_1280.jpeg?w=1280&ssl=1)
+![](assets/images/2022/09/2022-09-07-hoisting-trong-javascript-1.webp)
 
 Điều khiến JavaScript khó hiểu với những người mới hay chuyển từ ngôn ngữ khác qua chính là JavaScript cho phép sử dụng biến và hàm ngay cả trước cả khi bạn khai báo chúng.
 
@@ -37,7 +37,9 @@ Vậy điều gì đã khiến bạn có thể truy cập vào các biến và h
 
 Vậy cụ thể thì `hoisting` là như thế nào?
 
-Bạn có nhớ hai giai đoạn của một `“Execution Context”` là `Memory Creation` và `Code Execution` đã được giới thiệu trong bài [“Điều gì xảy ra khi chạy một chương trình JavaScript”](https://beautyoncode.com/dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript/) không? 
+Bạn có nhớ hai giai đoạn của một `“Execution Context”` là `Memory Creation` và `Code Execution` đã được giới thiệu trong bài [Điều gì xảy ra khi chạy một chương trình JavaScript?][dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript] không? 
+
+[dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript]: {{ "" | relative_url }}{% post_url js/2022-08-30-dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript %}
 
 **Hoisting** trong JavaScript được thực hiện trong giai đoạn cấp phát bộ nhớ – **Memory Creation**. Các biến và hàm sẽ được cấp bộ nhớ trước khi code được thực thi, biến được cấp bộ nhớ với giá trị `undefined` , còn hàm thì sẽ được cấp bộ nhớ cho toàn bộ nội dung bên trong hàm `f aFunction()`. 
 
@@ -49,7 +51,7 @@ Bạn có thể kiểm tra trực tiếp trên **devTools** bằng cách đặt 
 
 Khi chương trình chạy, gặp **breakpoint** dừng lại, hãy kiểm tra tab **Global** và tìm `a` , `aFunction` , tại đây tìm thấy biến `a` và hàm `aFunction` đã được cấp phát bộ nhớ và sẵn sàng để sử dụng.
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/09/hoisting.png)
+![](assets/images/2022/09/2022-09-07-hoisting-trong-javascript-2.webp)
 
 Một lưu ý ở đây, nếu aFunction được khai báo ở dạng biểu thức dưới tên một biến
 

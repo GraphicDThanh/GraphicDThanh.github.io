@@ -94,7 +94,7 @@ ByteByteGo là newsletter rất chỉnh chu về mặt nội dung cũng như hì
 
 ### Ví dụ subscribe newsletter
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2023/03/subscribe-josh.gif)
+![](assets/images/2023/03/subscribe-josh.gif)
 
 ### Vấn đề khi quản lý nhiều email
 
@@ -116,7 +116,7 @@ Các bước giúp quản lý newsletter:
 ### Bước 1: Tạo label mới dành cho newsletters
 Trong Gmail, chọn dấu + bên phải của “Labels” để tạo một nhãn mới, đặt tên “Newsletters”
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2023/03/create-new-label.gif)
+![](assets/images/2023/03/create-new-label.gif)
 
 Nếu bạn cần tạo thêm nhiều labels bên dưới “NewsLetters” để quản lý theo loại như “Frontend”, “Backend” thì có thể tạo thêm.
 
@@ -134,18 +134,18 @@ Chọn **“Create filter”**, sau đó chọn:
 
 – Apply the label `“NewsLetters”`: lựa chọn này giúp email gửi đến sẽ vào label “NewsLetter”
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2023/03/create-filter.gif)
+![](assets/images/2023/03/create-filter.gif)
 
 ### Cách 2: Tạo bộ lọc từ cài đặt "Manage labels"
 Một cách tạo bộ lọc khác là sử dụng cài đặt **“Manage labels”**, sau đó chọn tab **“Filters and Blocked Addresses”**.
 
 Tiếp tục chọn vào link **“Create a new filter”** để tạo một filter với nội dung tương tự ở trên.
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2023/03/create-filter-manager.gif)
+![]assets/images/2023/03/create-filter-manager.gif)
 
 Sau khi filter được tạo, email gửi đến sẽ tự động chuyển vào “NewsLetters”. Mỗi khi có thời gian như khi cafe hoặc giờ nghỉ bạn có thể vào mục này để đọc tin.
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2023/03/label-newsletters.gif)
+![](assets/images/2023/03/label-newsletters.gif)
 
 ## Vấn đề khi quản lý nhiều filters của newsletters
 Nếu bạn chỉ đăng ký dưới 5 newsletters thì cách ở trên đã đủ để bạn quản lý tốt rồi.
@@ -160,7 +160,7 @@ Có nha, đây là cách mình sẽ giới thiệu tiếp sau:
 
 Ví dụ: `{me@joshwcomeau.com, bytebytego@substack.com}`
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2023/03/filter-multiple-from.gif)
+![](assets/images/2023/03/filter-multiple-from.gif)
 
 Nếu bạn để ý hình sẽ thấy mình thực hiện search trước để xem kết quả có đúng ý không rồi mới tạo filter.
 

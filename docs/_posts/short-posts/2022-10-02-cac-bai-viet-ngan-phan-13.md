@@ -5,7 +5,7 @@ categories:
 tags:
   - short-post
 ---
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/10/Short-posts-13.png)
+![](assets/images/2022/10/2022-10-02-cac-bai-viet-ngan-phan-13-1.webp)
 
 ## Trực quan hóa dữ liệu JSON
 Khi làm việc với dữ liệu (data), bạn có thể làm việc với một file JSON lớn tới vài trăm dòng là chuyện bình thường. Tệ hơn nữa là dữ liệu JSON của bạn ở dạng thu gọn (minify) thì thường sẽ cần chuyển sang định dạng đẹp hơn (beautify json) để dễ đọc.

@@ -5,7 +5,7 @@ categories:
 tags:
   - short-post
 ---
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/12/Short-posts-22.png)
+![](assets/images/2022/12/2022-12-04-cac-bai-viet-ngan-phan-22-1.webp)
 
 ## Giới thiệu CS50 free video youtube
 Bạn có từng nghe về khoá CS50, một khoá học nền tảng dành cho bất cứ ai muốn bắt đầu với lĩnh vực khoa học máy tính ?

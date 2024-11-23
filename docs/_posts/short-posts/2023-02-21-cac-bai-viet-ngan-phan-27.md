@@ -5,7 +5,7 @@ categories:
 tags:
   - short-post
 ---
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2023/02/beautyoncode-short-post-27.png)
+![](assets/images/2023/02/2023-02-21-cac-bai-viet-ngan-phan-27-1.webp)
 
 ## What we look for in resume?
 Đầu năm mình muốn giới thiệu đến bạn một bài viết rất hay của chị Huyền Chip (tác giả cuốn sách Designing Machine Learning Systems - Amazon #1 bestseller in AI).
@@ -140,7 +140,7 @@ platypus có 4 thành phần chính phân từ tổng quát đến chi tiết:
 5. pdfgen.canvas
 
 Hình ảnh đính kèm mô tả các khái niệm PageTemplates, Frames, Flowables của platypus.
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2023/02/reportlab.jpeg)
+![](assets/images/2023/02/2023-02-21-cac-bai-viet-ngan-phan-27-2.webp)
 
 Còn DocTemplates là bao gồm nhiều PageTemplates.
 Flowables chỉ các thành phần nội dung động sẽ được thêm vào trên trang theo flow của trang.

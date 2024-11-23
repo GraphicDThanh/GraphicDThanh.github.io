@@ -51,7 +51,7 @@ Cài nodejs trên máy (thường sẽ có sẵn vì dev thường sử dụng n
 
 Chạy lệnh `node <filename>.js` ở command line để thực thi
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/10/node-run-js.png?w=1280&ssl=1)
+![](assets/images/2022/10/2022-10-18-choi-cung-javascript-1.webp)
 
 Cách này sẽ tiện hơn nếu muốn chạy một chương trình JS nhỏ không liên quan đến DOM. 
 
@@ -61,7 +61,7 @@ Chạy câu lệnh: `npx nodemon example.js` để vừa cài gói `nodemon` v�
 
 Bạn sẽ thấy dòng `“Hello nodemon”` bên dưới là code thực thi sau khi code trong file `example.js` của mình thay đối.
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/10/nodemon-auto-reload.png?w=713&ssl=1)
+![](assets/images/2022/10/2022-10-18-choi-cung-javascript-2.webp)
 
 ## Cách 3: Sử dụng tab "Console" trên trình duyệt Chrome
 Sử dụng browser `Chrome`, mở `Console` tab và thử nghiệm trực tiếp trên đó. 
@@ -70,14 +70,14 @@ Cách này sẽ rất tiện khi mình muốn kiểm tra nhanh hay demo nhanh c�
 
 Đặc biệt bạn có thể chơi với [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API) như DOM, … 
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/10/console-chrome.png?w=1008&ssl=1)
+![](assets/images/2022/10/2022-10-18-choi-cung-javascript-3.webp)
 
 ## Cách 4: Sử dụng snippets
 Nhờ một comment trên Viblo post, nhắc mình mới nhớ đến bạn này. 
 
 Snippets dành cho JavaScript trên Chrome là một công cụ mạnh mẽ giúp bạn lưu một đoạn code JS và chạy trên bất cứ trang nào mà không bị mất code khi reload như khi mình viết ở Console.
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/10/snippets-js.png)
+![](assets/images/2022/10/2022-10-18-choi-cung-javascript-4.webp)
 
 Bạn có thể tạo một snippets bằng cách vào Sources > Snippets và chọn “+ New snippet”. Để chạy chương trình, bấm Cmd + Enter hoặc nút Run như trên hình.
 
@@ -88,12 +88,12 @@ Tương tự cách 1 tuy nhiên có thể thực hiện trên [w3schools.com](ht
 
 Dù công cụ này không được hiện đại lắm nhưng việc ôn nhanh kiến thức cơ bản và thử nghiệm ngay tức thì trên trang này cũng rất hữu ích.
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/10/w3schools-editor.png?w=1198&ssl=1)
+![](assets/images/2022/10/2022-10-18-choi-cung-javascript-5.webp)
 
 ## Cách 6: Sử dụng javascript.makeup
 [javascript.markup](https://javascript.makeup/) cũng là một cách để có thể chơi với JS và kết quả cũng khá dễ nhìn.
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/10/js-markup-1.png?w=748&ssl=1)
+![](assets/images/2022/10/2022-10-18-choi-cung-javascript-6.webp)
 
 ## Cách 7: Các công cụ online giúp viết và chia sẻ chương trình
 Một số công cụ online như: JSBin, JSFiddle, Repl.it 
@@ -103,23 +103,23 @@ Các công cụ này thường yêu cầu tài khoản để lưu và chia sẻ 
 ### JSBin
 https://jsbin.com/ 
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/10/jsbin.png?w=1280&ssl=1)
+![](assets/images/2022/10/2022-10-18-choi-cung-javascript-7.webp)
 
 ### JSField
 https://jsfiddle.net/
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/10/jsfield.png?w=1280&ssl=1)
+![](assets/images/2022/10/2022-10-18-choi-cung-javascript-8.webp)
 
 ### Replit
 https://replit.com/
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/10/replit.png?w=1280&ssl=1)
+![](assets/images/2022/10/2022-10-18-choi-cung-javascript-9.webp)
 
 
 ### Playcode.io
 https://playcode.io/
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/10/play.io_.png?w=1280&ssl=1)
+![](assets/images/2022/10/2022-10-18-choi-cung-javascript-10.webp)
 
 ---
 

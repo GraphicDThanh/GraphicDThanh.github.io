@@ -1,106 +1,129 @@
 ---
-title: "Trực quan hóa khi chạy mã chương trình"
+title: "Chiến lược tải và thực thi code JavaScript"
 excerpt_separator: <!--more-->
 categories:
-  - debug
+  - JavaScript
 tags:
-  - debug
+  - js
 ---
 
+![](assets/images/2022/04/2022-04-17-chien-luoc-tai-thuc-thi-code-javascript-cover.webp)
 
-Giả sử bạn cần giải một bài toán [**35. Search Insert Position**](https://leetcode.com/problems/search-insert-position/), tìm giá trị index của target trong một mảng được sắp xếp theo thứ tự tăng dần, nếu không có thì trả về giá trị index cần chèn target vào.
+Ba thành phần chính cấu tạo nên một trang web là **HTML**, **CSS** và **JavaScript**. 
 
-Sau khi tìm hiểu về binary search, bạn đưa ra một đoạn mã sau:
+**HTML** là ngôn ngữ đánh dấu giúp cấu trúc cho nội dung trang. 
+
+**CSS** là ngôn ngữ về các kiểu áp dụng vào nội dung HTML để làm đẹp cho trang
+
+**JavaScript(JS)** là ngôn ngữ kịch bản cho phép tạo một trang web với nội dung cập nhật, hình ảnh động, …
+
+---
+
+Trong bài viết này, mình sẽ cùng bạn tìm hiểu về *các cách thêm code JS vào trang web cùng các chiến lược tải, thực thi code JS*.
+
+## Các cách thêm code JavaScript vào trang web
+Để thêm code JS vào một trang web, có ba cách sau:
+
+### Internal JS
+
+Internal JS có thể dịch nôm na là code JS được tải nội bộ, tức là đặt bên trong thẻ <script></script>
 
 ```js
-function searchInsert(nums, target) {
-    let l = 0, r = nums.length - 1;
-    while(l < r) {
-        let m = l + (r - l) % 2;
-        if (nums[m] == target) {
-            return m;
-        }
-        if (nums[m] < target) {
-            l = m + 1;
-        } else {
-            r = m - 1;
-        }
-    }
-    return l  
-};
+<script>code here</script>
 ```
 
-Giả sử mảng được truyền vào là `[1,3,5,6]` và target là `5`, gọi `searchInsert([1,3,5,6], 5)` trả về kết quả là `2` , là giá trị index đúng của `5`
 
-Tuy nhiên, cũng với mảng trên, target là `2` , tức gọi `searchInsert([1,3,5,6], 2)`, trả về `0` là sai. Kết quả mong đợi là `1`.
+### External JS với src
 
-**Vậy làm sao để debug đoạn mã trên?**
+External JS sẽ ngược với Internal JS, code JS bây giờ không được đặt bên trong thẻ `<script></script>` nữa mà được đặt ở một nơi khác, và sẽ được tải thông qua đường dẫn được bỏ vào thuộc tính src của thẻ `<script>`
 
-Giới thiệu đến bạn một công cụ Visualize Code Running có tên là [pythontutor.com](http://pythontutor.com/) giúp bạn xem được từng bước được mô tả một cách trực quan. Dù là pythontutor nhưng công cụ này hỗ trợ nhiều loại ngôn ngữ như Python, JavaScript, C, C++, and Java.
+```js
+<script src=”script.js”></script>
+```
 
-Bạn vào trang [pythontutor.com](http://pythontutor.com/) sau đó chọn **Start writing** and **visualizing code now** và chọn ngôn ngữ muốn viết.
+Ví dụ bên trên thể hiện việc tải file script.js nằm cùng thư mục với file chứa code HTML. Đường dẫn này có thể là tuyệt đối hoặc tương đối. 
 
-Ở đây mình chọn **JavaScript** và copy/paste đoạn mã trên vào. Lưu ý là nhớ gọi `searchInsert([1,3,5,6], 2)` để hàm có thể thực thi nhé.
+(Bạn có thể đọc thêm về đường dẫn ở bài viết [này](https://beautyoncode.com/lam-quen-cau-lenh-va-he-thong-tap-tin-trong-linux/).)
 
-Tiếp theo nhấn nút **Visualize Execution** để bắt đầu xem code thực thi ra sao. Bấm **Next** để di chuyển đến bước tiếp theo.
+### Inline JS
 
-Hình minh họa:
+Inline JS là code JS được đặt luôn vào các thẻ HTML. Ví dụ:
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/08/visual-1.png)
+```js
+<button onclick=”createParagraph()”> Click me!</button>
+```
 
-Nửa màn hình bên trái chứa code, các nút bấm để di chuyển đến bước tiếp theo **Next**, bước trước đó **Prev**, bước cuối cùng **Last** và bước đầu tiên **First**
+**Lưu ý:** cách này là **BAD PRACTICE** nên bạn xem cho biết chứ hạn chế dùng nhé. Lý do là vì không nên viết code JS chung với code HTML mà nên tách riêng là ngoài. Có thể sử dụng external JS và sử dụng event handler như dưới đây.
 
-– Mũi tên xanh lá câu nhạt chỉ dòng vừa mới thực thi
+```js
+conts button = document.querySelectorAll("button");
+for (const button of buttons) {
+  button.addEventListener("click", createParagraph);
+}
+```
 
-– Mũi tên đỏ chỉ dòng sẽ thực thi tiếp theo
+Dù là có nhiều cách để thêm code **JS** vào như thế, nhưng trong dự án thực tế bạn sẽ thường thấy JS được thêm vào với kiểu **“External JS“**, tức là code JS sẽ được viết ở file riêng, tải vào bằng src. Việc này sẽ giúp dự án dễ mở rộng và sửa lỗi.
 
-Nửa màn hình bên phải là visualize code thực thi
+Còn nếu bạn muốn kiểm tra nhanh một đoạn code JS nhỏ thì bạn có thể sử dụng các cách còn lại nếu thấy thuận tiện hơn.
 
-– `Global Frame` chứa hàm `searchInsert`
+## Các chiến lược tải code JavaScript
 
-– Khung màu xanh nhạt chứa các thông tin khi gọi hàm`searchInsert` như `nums, target, l, r, m`
+Trước khi tìm hiểu liệu việc tải code JavaScript có thể nảy sinh vấn đề gì và cách giải quyết các vấn đề đó, thì việc đầu tiên là bạn cần biết qua *cách một trang web được dựng lên như thế nào?*
 
-– Từ nums có mũi tên trỏ xuống mảng màu vàng chính là giá trị của danh sách `nums`
+### Trang web được dựng lên như thế nào?
 
-Sau khi quan sát từng bước thì mình phát hiện bước này có giá trị `l` và `r` đều là `0` dẫn đến thoát khỏi vòng lặp
+Khi bạn gõ đường dẫn vào trình duyệt và nhấn enter, một yêu cầu được gửi đến máy chủ và file HTML được tải về. 
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/08/visual-2.png)
+Do đó, trình duyệt sẽ phân tích **HTML** đầu tiên, theo thứ tự từ trên xuống dưới. Trong file này chứa `<link>` để tải tiếp **CSS** và `<script>` để tải tiếp tệp **JavaScript**.
 
-Và giá trị trả về là `l`, tức `0`
+Trong khi phân tích **HTML**, trình duyệt tạo cây **DOM**, tạo cấu trúc **CSSOM** với nội dung **CSS** đồng thời cũng biên dịch và thực thi **JavaScript**.
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/08/visual-3.png)
+Quá trình này diễn ra đồng thời, trang web được vẽ lên màn hình và bạn thấy trang web được hiển thị.
+    
+### Vấn đề thường gặp khi tải code JavaScript
 
-Vậy vấn đề ở đây là nếu `l` và `r` đều có giá trị bằng nhau thì vẫn cần nằm trong vòng lặp `while` để có thể xác định vị trí của `l` là `m+1` nếu giá trị này nhỏ hơn target.
+Vậy là nội dung trang web trong file HTML được phân tích và dựng lên theo thứ tự từ trên xuống dưới. 
 
-Cập nhật điều kiện `while (l <= r)` và thử lại ta thấy `l` ở dòng 9 sẽ bằng `m+1` tức 0+1 là 1
+Và nếu bạn sử dụng JavaScript để thay đổi một thành phần nào đó của trang(một DOM là thẻ `<h2>` nào đó chẳng hạn), thì code sẽ không thể chạy nếu code JavaScript được tải và thực thi trước khi HTML dựng cái DOM(thẻ h2) mà bạn cần thay đổi lên.
+    
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/08/visual-4.png)
+### Giải quyết vấn đề
 
-Khi đó `l` là `1` không nhỏ hơn `r` là `0` nên thoát ra khỏi vòng lặp và trả về `1` là kết quả đúng.
+Để giải quyết vấn đề trên, có một số cách sau:
 
----
+#### Dùng internal JS với **DOMContentLoaded**
 
-Trên đây là một ví dụ cụ thể về cách bạn có thể sử dụng pythontutor để debug một đoạn logic và xem từng bước chạy như thế nào.
+*Giả sử bạn đang sử dụng internal JS, và đặt thẻ `<script>` ở `<header>`. *
 
-Thay vì đi `console.log` mọi nơi thì cách này xịn xò hơn hẳn phải không?
+Để đảm bảo tất cả DOM được dựng lên trước khi code JS thực thi, bạn có thể bọc tất cả code JS vào một sự kiện(event) có tên là `DOMContentLoaded`. 
 
-Lại chúc mọi người debug vui vẻ và giải thêm được nhiều bài toán thú vị nhé.
+Sự kiện này sẽ lắng nghe khi nào HTML được tải và dựng xong, thì khi đó mới thực thi code JS ở bên trong, do đó sẽ đảm bảo có đủ DOM để thực hiện code JS mà không gây lỗi.
+    
+```js
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+     const button = document.querySelectorAll("button");  
+  }
+</script>
+```
+   
 
-[Bài viết gốc](https://beautyoncode.com/truc-quan-hoa-khi-chay-ma-chuong-trinh/) nằm ở blog cá nhân của mình, mời bạn ghé chơi.
+### Dùng external JavaScript với defer
+    
+*Giả sử bạn đang sử dụng external JS, và đặt thẻ `<script>` ở `<header>`.*
 
----
+Để đảm bảo tất cả DOM được dựng lên trước khi code JS thực thi, bạn có thể sử dụng một thuộc tính là defer
 
-If you think these contents are helpful, you could send me an encouraging by:
-- Support me
-  - [☕️ Buy me a coffee](https://ko-fi.com/beautyoncode)
-  - [😇 Send a hi on Momo](https://me.momo.vn/beautyoncode)
-  - [👀 Visit support page](beautyoncode.com/support/)
-- Visit my blog at [beautyoncode.com](beautyoncode.com)
-- Follow me on:
-  - [Careerly](https://careerly.vn/profiles/1140)
-  - [fanpage](facebook.com/beautyoncode)
-  - [linkedin](https://www.linkedin.com/in/graphicdthanh/)
+Thuộc tính defer sẽ giúp cho trình duyệt biết là sẽ tiếp tục tải và dựng HTML dù cho nó có đọc thấy thẻ `<script>`. Tức là quá trình dựng DOM sẽ không bị ngắt quãng, đồng thời code JS vẫn được tải về, nhưng chưa được thực thi. Code JS sẽ thực thi một khi quá trình dựng DOM hoàn thành.
 
-🤘 Chat with me 🤘 
+```js
+<script src="script.js" defer></script>
+```
 
-See you around, friends!
+#### Đặt code JavaScript load ngay trước thẻ `</body>`
+
+Vì đã hiểu được lý do là DOM chưa dựng lên đủ để code JS thực thi mà không gây ra lỗi, nên có thể đảm bảo điều này bằng cách đặt `<script>` ngay trước thẻ `</body>`. Tức là code JS sẽ là code được tải và thực thi sau khi đã dựng xong DOM. 
+
+Tuy nhiên, cũng có một vài vấn đề cho giải pháp này là code JS sẽ load cuối cùng dẫn đến nếu code JS nặng thì sẽ tạo nên vấn đề lớn về hiệu suất tải trang, làm chậm trang web. 
+
+Cách này trước đây được sử dụng nhiều, khi mà chưa có `async/defer` ra đời. Tuy nhiên, nay thì nó đã khá lỗi thời nên ít được dùng đến vì hiệu quả không cao.

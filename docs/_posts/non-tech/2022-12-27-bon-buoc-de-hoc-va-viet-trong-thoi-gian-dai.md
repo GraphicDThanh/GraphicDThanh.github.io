@@ -15,7 +15,7 @@ Trong bài blog này, mình muốn gửi đến **4 bước** mình đã làm đ
 
 ## 01. Làm tốt công việc của bạn
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/12/01-4steps-learn-and-write.png?w=1280&ssl=1)
+![](assets/images/2022/12/2022-12-27-bon-buoc-de-hoc-va-viet-trong-thoi-gian-dai-1.webp)
 
 Thành thật mà nói, khi bắt đầu blog mình viết không tốt lắm. Nếu bạn theo dõi mình lâu bạn sẽ thấy điều này, ban đầu mình hay viết cho mình nhiều hơn. Và khi viết, mình không biết viết gì cả, nên đã chọn cách vừa học vừa viết.
 
@@ -27,7 +27,7 @@ Mỗi ngày, khi làm việc, tập ghi chép lại, chắc chắc sẽ có nhi�
 
 ## 02. Hỗ trợ đồng nghiệp, chia sẻ kiến thức
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/12/02-4steps-learn-and-write.png?w=1280&ssl=1)
+![](assets/images/2022/12/2022-12-27-bon-buoc-de-hoc-va-viet-trong-thoi-gian-dai-2.webp)
 
 Có một câu nói rất thú vị về chia sẻ:
 
@@ -47,7 +47,7 @@ Bạn sẽ nhận ra học và hướng dẫn là hai công việc hoàn toàn k
 
 ## 03. Đọc, học hàng ngày, hàng tuần
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/12/03-4steps-learn-and-write.png?w=1280&ssl=1)
+![](assets/images/2022/12/2022-12-27-bon-buoc-de-hoc-va-viet-trong-thoi-gian-dai-3.webp)
 
 Đặc điểm của ngành là thay đổi chóng mặt. 
 
@@ -63,13 +63,10 @@ Một số cách mình đang dùng và thấy khá hiệu quả:
 
 – tham gia các nhóm, theo dõi các fanpage chuyên cập nhật công nghệ, tham gia các nhóm slack, …
 
-Mình thích chủ động theo dõi các nội dung chất lượng, nên mình đã chọn đăng ký các newletters và gom tất cả vào một nơi để có thể đọc mỗi khi có thời gian.
-
-([Một số newletters dành cho web developers](https://careerly.vn/comments/3040?utm_campaign=self-share))
 
 ## 04. Yêu thích công việc bạn làm và cứ thoải mái thôi (take it easy)
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/12/04-4steps-learn-and-write.png?w=1280&ssl=1)
+![](assets/images/2022/12/2022-12-27-bon-buoc-de-hoc-va-viet-trong-thoi-gian-dai-4.webp)
 
 Cuối cùng, lại là một bước rất là quen thuộc trong các cuốn sách self-help 😂
 
@@ -89,11 +86,12 @@ Khi nào muốn bỏ thì nhớ lại xem **vì sao lại bắt đầu**?
 
 Bạn nào muốn bắt đầu blog thì hãy viết đi nha, tập viết note hàng ngày nhé. 
 
-Có thể tham khảo bài viết [“Viết lách dành cho lập trình viên”](https://careerly.vn/comments/4518?utm_campaign=self-share).
+Có thể tham khảo bài viết [“Viết lách dành cho lập trình viên”][viet-lach-danh-cho-lap-trinh-vien]
+
+[viet-lach-danh-cho-lap-trinh-vien]: {{ "" | relative_url }}{% post_url non-tech/2022-12-28-viet-lach-danh-cho-lap-trinh-vien %}
 
 Hi vọng một số bước này có thể gợi ý thêm cho bạn nha, mình vẫn đang cứ thong thả mà đi ạ ^^.
 
-
 Đây là infographic mình làm để mô tả các bước này, bạn có thể lưu về để xem lại nhé.
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/12/The-Four-Steps-to-learn-and-write-1.png?w=800&ssl=1)
+![](assets/images/2022/12/2022-12-27-bon-buoc-de-hoc-va-viet-trong-thoi-gian-dai-5.webp)

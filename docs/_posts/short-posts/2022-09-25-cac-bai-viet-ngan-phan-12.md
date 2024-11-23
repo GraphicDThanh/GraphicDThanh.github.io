@@ -5,7 +5,7 @@ categories:
 tags:
   - short-post
 ---
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/09/Short-posts-12.png)
+![](assets/images/2022/09/2022-09-25-cac-bai-viet-ngan-phan-12-1.webp)
 
 ## Mảng trong JavaScript
 Có hai cách để tạo mảng trong JavaScript là tạo đối tượng của lớp Array: `let arr = new Array(1, 2)`  hay sử dụng cú pháp mảng []: `let arr1 = [3, 4]`
@@ -60,25 +60,17 @@ Sau khi lướt qua lượt xem nhìn nhận ra có nhiều bài viết đạt s
 
 Top 5 bài viết trên một ngàn lượt xem về tech:
 
-[“Giới thiệu về Linux”](https://beautyoncode.com/gioi-thieu-ve-linux/) đạt 2252 lượt xem
+[“Giới thiệu về Linux”][gioi-thieu-ve-linux] đạt 2252 lượt xem
 
-[“Khám phá đại bản doanh Python series overview”](https://beautyoncode.com/dai-ban-doanh-python-series-overview/) đạt 1517 lượt xem
+[“Khám phá đại bản doanh Python series overview”][kham-pha-dai-ban-doanh-python-series-overview] đạt 1517 lượt xem
 
-[“Lớp trong Python”](https://beautyoncode.com/lop-trong-python/) với 1405 lượt xem
+[“Lớp trong Python”][lop-trong-python] với 1405 lượt xem
 
-[“Iterable, iterator và generator trong Python”](https://beautyoncode.com/iterator-va-generator-trong-python/) với 1369 lượt xem
+[“Iterable, iterator và generator trong Python”][iterable-iterator-va-generator-trong-python] với 1369 lượt xem
 
-[“Làm quen câu lệnh và hệ thống tập tin trong Linux”](https://beautyoncode.com/lam-quen-cau-lenh-va-he-thong-tap-tin-trong-linux/) với 1304 lượt xem
+[“Làm quen câu lệnh và hệ thống tập tin trong Linux”][lam-quen-cau-lenh-va-he-thong-tap-tin-trong-linux] với 1304 lượt xem
 
-Thêm vào đó, một số bài viết non-tech cũng được bạn đọc quan tâm:
-
-[danang.fyi and repo danang-cuisine](https://beautyoncode.com/danang-fyi-va-repo-danang-cusine/) với 955 lượt xem
-
-[“Giáo dục và ý nghĩa cuộc sống”](https://beautyoncode.com/sach-giao-duc-va-y-nghia-cuoc-song-j-krishnamurti/) với 730 lượt xem
-
-[“Nữ giới trong lĩnh vực STEAM”](https://beautyoncode.com/nu-gioi-trong-linh-vuc-stem/) với 665 lượt xem
-
-Nay bạn có thể xem các bài viết này bằng cách bấm vào [“XEM NHIỀU NHẤT”](https://beautyoncode.com/category/most-views/)  ở thanh điều hướng chính của blog nhé.
+Nay bạn có thể xem các bài viết này bằng cách bấm vào [“XEM NHIỀU NHẤT”](https://beautyoncode.com/docs/most-views/)  ở thanh điều hướng chính của blog nhé.
 
 Bật mí nhỏ là đây chỉ mới là lượt xem trực tiếp trên blog cá nhân, bên cạnh đó còn hơn 30 ngàn lượt xem trên viblo, kipalog nữa.
 
@@ -183,3 +175,10 @@ sẽ được gán `min-width` là 95px và sẽ hiển thị tốt cho cả ng�
 }
 ```
 [Link ref](https://defensivecss.dev/tip/button-min-width/)
+
+
+[gioi-thieu-ve-linux]: {{ "" | relative_url }}{% post_url linux/2022-01-30-gioi-thieu-ve-linux %}
+[lam-quen-cau-lenh-va-he-thong-tap-tin-trong-linux]: {{ "" | relative_url }}{% post_url linux/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux %}
+[kham-pha-dai-ban-doanh-python-series-overview]: {{ "" | relative_url }}{% post_url python/2020-07-01-dbd-dai-ban-doanh-python-series-overview %}
+[lop-trong-python]: {{ "" | relative_url }}{% post_url python/2021-06-30-dbd-lop-trong-python %}
+[iterable-iterator-va-generator-trong-python]: {{ "" | relative_url }}{% post_url python/2020-09-09-dbd-iterator-va-generator-trong-python %}

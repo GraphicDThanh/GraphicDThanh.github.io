@@ -5,7 +5,7 @@ categories:
 tags:
   - short-post
 ---
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/10/Short-posts-15.png)
+![](assets/images/2022/10/2022-10-16-cac-bai-viet-ngan-phan-15-1.webp)
 
 ## Authorization là gì ?
 

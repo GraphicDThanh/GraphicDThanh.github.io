@@ -5,7 +5,7 @@ categories:
 tags:
   - short-post
 ---
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/10/Short-posts-17.png)
+![](assets/images/2022/10/2022-10-23-cac-bai-viet-ngan-phan-16-1.webp)
 
 ## var, let, const
 

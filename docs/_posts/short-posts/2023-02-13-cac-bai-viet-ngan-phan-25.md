@@ -5,7 +5,7 @@ categories:
 tags:
   - short-post
 ---
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2023/01/25.png)
+![](assets/images/2023/02/2023-02-13-cac-bai-viet-ngan-phan-25-1.webp)
 ## Chọn id cho khóa chính CSDL
 Một trong các công việc đầu tiên khi thiết kế database schema là việc chọn loại khóa chính cần sử dụng.
 

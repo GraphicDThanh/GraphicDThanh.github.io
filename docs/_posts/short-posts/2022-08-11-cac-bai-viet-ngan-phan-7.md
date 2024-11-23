@@ -6,7 +6,7 @@ tags:
   - git
 ---
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/12/Short-posts-07.png)
+![](assets/images/2022/08/2022-08-11-cac-bai-viet-ngan-phan-7-1.webp)
 
 ## Trực quan hóa khi chạy mã chương trình
 Giả sử bạn đang giả một bài toán nhưng gặp bug, thì bạn sẽ làm gì?

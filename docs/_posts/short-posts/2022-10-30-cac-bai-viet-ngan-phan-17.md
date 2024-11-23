@@ -5,7 +5,7 @@ categories:
 tags:
   - short-post
 ---
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/10/Short-posts-17.png)
+![](assets/images/2022/10/2022-10-30-cac-bai-viet-ngan-phan-17-1.webp)
 
 ## Thuật toán là gì?
 Thuật toán hay giải thuật là một khái niệm quan trọng trong toán học và khoa học máy tính.

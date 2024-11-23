@@ -5,7 +5,7 @@ categories:
 tags:
   - short-post
 ---
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/12/Short-posts-18.png)
+![](assets/images/2022/10/2022-11-06-cac-bai-viet-ngan-phan-18-1.webp)
 
 ## UI/UX cơ bản dành cho dev
 Nếu bạn nghĩ làm web developer chỉ cần biết code, ai đưa gì làm nấy thì đó mà mindset chưa đúng.

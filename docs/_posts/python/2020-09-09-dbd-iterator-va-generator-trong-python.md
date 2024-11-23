@@ -163,7 +163,7 @@ Bạn đã thấy sự khác nhau chưa, vậy là điểm chung duy nhất củ
 
 Tuy nhiên, số lượng phần tử trong iterable có thể là hữu hạn hoặc vô hạn, ở các ví dụ trên rõ là chúng nó có số lượng hữu hạn. Giờ thì cũng đi qua một ví dụ với số lượng phần tử vô hạn nhé.
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2021/05/count-iterable.gif?fit=640%2C430&ssl=1)
+![](assets/images/2020/09/2020-09-09-dbd-iterator-va-generator-trong-python-1.webp)
 
 Trong ví dụ này, mình sử dụng hàm **count** từ [itertools](https://docs.python.org/3/library/itertools.html) để tạo một bộ đếm là bội của 3.
 
@@ -238,7 +238,7 @@ Ra vậy, để lặp qua một iterable vô hạn, như cái ví dụ bội s�
 
 Cùng xem cách mình đã lặp qua “*multiplesofthree*” dùng iterator thay cho for nhé:
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2021/05/iterator-example-unlimit.gif?fit=640%2C616&ssl=1)
+![](assets/images/2020/09/2020-09-09-dbd-iterator-va-generator-trong-python-5.gif)
 
 Thật thú vị đúng không nào, mình không dùng for mà vẫn lặp qua các đối tượng của một iterable đấy.
 
@@ -309,7 +309,7 @@ class BlogPost:
 
 Ở trên, lớp BlogPost có thể tạo ra các đối tượng là iterable đó, cùng thử nghiệm nha:
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2021/05/custom-iterable-run.gif?fit=640%2C357&ssl=1)
+![](assets/images/2020/09/2020-09-09-dbd-iterator-va-generator-trong-python-6.gif)
 
 Mình có thực hành và giải thích ở trên [video này](https://youtu.be/nEIV8lXn1Hs) nè
 

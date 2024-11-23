@@ -8,7 +8,7 @@ tags:
 ---
 
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/10/var-let-const.png?w=1280&ssl=1)
+![](assets/images/2022/10/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript-1.webp)
 
 Ba cách giúp bạn khai báo biến trong JavaScript là sử dụng từ khóa `var`, `let`, `const`.
 
@@ -31,7 +31,10 @@ let b = 2:
 
 Khi khai báo với `var`, biến của bạn sẽ được `hoisting` trước khi gán giá trị, tức là biến này được định nghĩa ngay trước khi chương trình thực thi, trong giai đoạn `Memory Creation` trong ngữ cảnh thực thi. 
 
-Nếu chưa rõ bạn có thể đọc bài ["Điều gì xảy ra khi chạy chương trình JS"](https://beautyoncode.com/dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript/) và bài [“Hoisting trong JavaScript”](https://beautyoncode.com/hoisting-trong-javascript/)
+Nếu chưa rõ bạn có thể đọc bài [Điều gì xảy ra khi chạy một chương trình JavaScript?][dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript] và bài [Hoisting trong JavaScript][hoisting-trong-js]
+
+[dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript]: {{ "" | relative_url }}{% post_url js/2022-08-30-dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript %}
+[hoisting-trong-js]: {{ "" | relative_url }}{% post_url js/2022-09-07-hoisting-trong-javascript %}
 
 ```js
 1. console.log(a);
@@ -56,7 +59,7 @@ console.log(b);
 let b = 3;
 ```
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/10/let-error-access-tdz-1.png?w=1280&ssl=1)
+![](assets/images/2022/10/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript-2.webp)
 
 ở đây chương trình sẽ bị lỗi `ReferenceError` không thể truy cập `b` trước khi được khởi tạo
 
@@ -64,7 +67,7 @@ Và biến được khai báo với `let` sẽ nằm trong `block scoped`
 
 Ví dụ biến b dưới đây nằm trong một `block scoped` của `if` với `{}` và không thể sử dụng ở bên ngoài.
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/10/let-block-scope.png?w=1280&ssl=1)
+![](assets/images/2022/10/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript-3.webp)
 
 ---
 
@@ -72,11 +75,11 @@ Một điểm khác nhau nữa của `var` và `let` nữa là việc khai báo 
 
 Có thể khai báo hai biến cùng tên với `var`:
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/elementor/thumbs/var-re-declare-pw401gsly8iz6e0wwpugd8kqtcsupaxplvqapagwmg.png?w=640&ssl=1)
+![](assets/images/2022/10/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript-4.webp)
 
 Nhưng với `let` sẽ báo lỗi `Syntax Error` và không cho phép chương trình thực thi.
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2022/10/re-declare-let.png?w=1280&ssl=1)
+![](assets/images/2022/10/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript-5.webp)
 
 ## let, var và const
 
@@ -91,13 +94,13 @@ const c = 1;
 ```
 
 Nếu không có giá trị khởi tạo cho const bạn sẽ bị lỗi `SyntaxError`. 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/elementor/thumbs/const-missing-init-pw409hd2uavxrdsh53o9x79fie691bdkopk13gk65w.png?w=640&ssl=1)
+![](assets/images/2022/10/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript-6.webp)
 
 Thêm nữa, bạn có thể thay đổi giá trị cho biến khai báo với `let` hay `var`, nhưng bạn không thể thay đổi giá trị cho biến khai báo với `const`.
 
 Nếu bạn gán giá trị cho một biến khai báo với const bạn sẽ bị lỗi `TypeError`
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/elementor/thumbs/const-assign-val-pw40dmtf0ykj1drdwe9yfnjpynpm16uw99a8egekyk.png?w=640&ssl=1)
+![](assets/images/2022/10/2022-10-12-khai-bao-bien-voi-var-let-va-const-trong-javascript-7.webp)
 
 **Cuối cùng let và const là cú pháp của ES6.**
 

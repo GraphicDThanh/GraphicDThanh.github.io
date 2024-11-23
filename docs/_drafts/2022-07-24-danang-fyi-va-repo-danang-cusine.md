@@ -20,7 +20,7 @@ Vì cớ sự như vậy và có thêm một hội bạn bè ở Đà Nẵng n�
 
 Repo này ở https://github.com/GraphicDThanh/danang-cuisine 
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/07/repo-danang-cuisine.png?w=1280&ssl=1)
+![](assets/images/2022/07/2022-07-24-danang-fyi-va-repo-danang-cusine-1.webp)
 
 Repo này tạo cách đây 10 ngày(14/07/2022), nhận được 57 stars, 7 contributors, 9 forks. 
 
@@ -33,7 +33,7 @@ Dự án này nội dung chính nằm ở file README.md, gồm 2 phần chính:
 
 2. Danh mục chính bao gồm đồ ăn, cafe, quán bar/pub, spa/massage và đi dạo
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/07/outline-danang-cuisine.png?w=1280&ssl=1)
+![](assets/images/2022/07/2022-07-24-danang-fyi-va-repo-danang-cusine-2.webp)
 
 Nếu thấy yêu thích nội dung này hãy star để ủng hộ dự án nha.
 

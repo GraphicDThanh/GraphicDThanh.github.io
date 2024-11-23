@@ -21,7 +21,7 @@ Bài trước, mình đã học thêm về “Cấu trúc dữ liệu trong Pyth
 
 Khi thoát khỏi PI, các dự liệu(biến, hàm, …) được khai báo trước đây sẽ bị mất như ví dụ sau:
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2020/06/pi-not-keep-data.gif?fit=654%2C504&ssl=1)
+![](assets/images/2020/04/2020-04-29-dbd-module-and-package-in-python-1.webp)
 
 Do đó, cần chuẩn bị đầu vào cho trình thông dịch để có thể dùng được bất cứ khi nào mình cần, các file chứa những đoạn mã như vậy được gọi là các script
 
@@ -33,7 +33,7 @@ Tên của mô-đun được lưu dưới biến __name__ của chính mô-đun 
 
 > Mô-đun là tệp chứa các định nghĩa và các câu lệnh Python
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/06/calculator.gif?fit=908%2C678&ssl=1)
+![](assets/images/2020/04/2020-04-29-dbd-module-and-package-in-python-2.webp)
 
 Trên đây là cách dùng một mô-đun trong PI, mình cần nạp nó vào bằng lệnh “import”.
 
@@ -72,13 +72,13 @@ Có nhiều cách nạp mô-đun và các thành phần của nó:
 #### Có hai cách cập nhật nội dung của mô-đun:
 
 **Cách 1: thoát PI và tải lại mô-đun đó**
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2020/06/reloadPI.gif?fit=908%2C678&ssl=1)
+![](assets/images/2020/04/2020-04-29-dbd-module-and-package-in-python-3.webp)
 
 **Cách 2: gọi đến mô-đun importlib và gọi lệnh để reload mô-đun mình cần**
 
 >   import importlib; importlib.reload(<mô-đun>)
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2020/06/reload-inside-PI.gif?fit=910%2C678&ssl=1)
+![](assets/images/2020/04/2020-04-29-dbd-module-and-package-in-python-4.webp)
 
 #### Thực thi một mô-đun như là một script
 
@@ -86,7 +86,7 @@ Ngoài cách vào trình thông dịch PI, nạp mô-đun mà gọi lệnh thự
 
 Để thực thi một mô đun trong PI, bạn dùng từ khoá “python”:
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2020/06/Screen-Shot-2020-06-27-at-11.04.24-PM.png?w=810&ssl=1)
+![](assets/images/2020/04/2020-04-29-dbd-module-and-package-in-python-5.webp)
 
 > python calculator.py
 
@@ -116,11 +116,11 @@ Bạn thấy chỗ ni hay hông? Mình thấy siêu hay luôn, vì khúc ni trư
 
 Khi làm việc với mô-đun, bạn có thể sẽ gặp lỗi không tìm thấy mô-đun như thế này.
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2020/06/Screen-Shot-2020-06-17-at-6.32.15-PM.png?w=1288&ssl=1)
+![](assets/images/2020/04/2020-04-29-dbd-module-and-package-in-python-6.webp)
 
 Khi một mô-đun nạp đúng, bạn có để ý PI biết chính xác mô-đun của bạn đang ở đâu.
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2020/06/Screen-Shot-2020-06-17-at-6.32.41-PM.png?resize=1024%2C133&ssl=1)
+![](assets/images/2020/04/2020-04-29-dbd-module-and-package-in-python-7.webp)
 
 **Vậy thì PI đã tìm mô-đun ở những nơi nào?**
 
@@ -146,7 +146,7 @@ Quy ước đặt tên này cho phép Python có thể biên dịch lại từ c
 
 Ví dụ dưới đây thể hiện version python 3.8 mình đang sử dụng
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2020/06/Screen-Shot-2020-06-24-at-5.26.41-AM.png?resize=1024%2C379&ssl=1)
+![](assets/images/2020/04/2020-04-29-dbd-module-and-package-in-python-8.webp)
 
 ## Các mô-đun chuẩn
 
@@ -172,15 +172,15 @@ Các mô-đun này có thể khác nhau tuỳ theo nền tảng chạy Python, v
 
 Nhìn một mô-đun mình chẳng biết nó có gì cả, bạn **dir()** này như kiểu chụp X-quang cắt lớp xem cái mô-đun của mình chứa những biến gì, những hàm nào, nhưng ở dạng rất sơ khai, là một mảng các tên được sắp xếp theo thứ tự A đến Z.
 
-![](https://i2.wp.com/beautyoncode.com/wp-content/uploads/2020/06/Screen-Shot-2020-06-24-at-5.41.57-AM.png?resize=1024%2C127&ssl=1)
+![](assets/images/2020/04/2020-04-29-dbd-module-and-package-in-python-9.webp)
 
 Chưa hết, gọi dir() không có giá trị truyền vào trong PI sẽ thấy được những biến, hàm có thể sử dụng ở PI hiện tại:
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/06/Screen-Shot-2020-06-24-at-5.43.37-AM.png?resize=1024%2C98&ssl=1)
+![](assets/images/2020/04/2020-04-29-dbd-module-and-package-in-python-10.webp)
 
 Lưu ý nhỏ là dir() không list ra được những hàm và giá trị được dựng sẵn(mấy bạn built-ins). Muốn xem mấy bạn này, mình phải dùng cái gọi là **dir(builtins)**
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/06/Screen-Shot-2020-06-24-at-5.46.08-AM.png?w=1280&ssl=1)
+![](assets/images/2020/04/2020-04-29-dbd-module-and-package-in-python-11.webp)
 
 ## Gói
 
@@ -190,7 +190,7 @@ Một gói cũng có thể chứa nhiều gói con khác nằm bên trong nó.
 
 Ví dụ mình muốn thiết kế một gói tên là “calculators” chứa hai gói con là máy tính “casio_fx115” và “casio_fx9750” đồng thời chứa các mô-đun “utils” thì sẽ có cấu trúc thư mục là:
 
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2020/06/package-in-python.png?w=1280&ssl=1)
+![](assets/images/2020/04/2020-04-29-dbd-module-and-package-in-python-12.webp)
 
 ### Nạp gói, mô-đun và các lưu ý
 

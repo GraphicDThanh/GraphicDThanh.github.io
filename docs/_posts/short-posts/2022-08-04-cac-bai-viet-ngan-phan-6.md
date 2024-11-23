@@ -6,8 +6,6 @@ tags:
   - git
 ---
 
-![](https://i1.wp.com/beautyoncode.com/wp-content/uploads/2022/08/300564461_1907773462761636_9203102184756819095_n.jpeg)
-
 ## Public APIs
 Bạn muốn làm một dự án chỉ với kiến thức frontend, và đang tìm những API được public để có sử dụng cho dự án của mình? Đó có thể là một trang web hiển thị các bạn mèo, cốc cà phê yêu thích hay một trang về anime, games, …
 
@@ -77,4 +75,4 @@ Sau khi cài đặt và kết nối đến github với repo có sẵn hay repo 
 Đây là [repo](https://github.com/GraphicDThanh/leetcode) mình thử nghiệm submit leetcode gần đây.
 
 Giao diện LeetHub hiển thị:
-![](https://i0.wp.com/beautyoncode.com/wp-content/uploads/2022/09/leethub.png)
+![](assets/images/2022/08/2022-08-04-cac-bai-viet-ngan-phan-6-1.webp)
