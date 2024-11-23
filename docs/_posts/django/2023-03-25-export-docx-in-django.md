@@ -6,7 +6,7 @@ tags:
   - django
   - export
   - docx
-  - ENGLISH
+  - english
 ---
 
 

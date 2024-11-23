@@ -4,7 +4,9 @@ excerpt_separator: <!--more-->
 categories:
   - js
 tags:
-  - css, js, css-in-js
+  - css
+  - js
+  - css-in-js
 ---
 
 ![](/assets/images/2022/09/2022-09-css-trong-js-la-gi.webp)

@@ -4,7 +4,8 @@ excerpt_separator: <!--more-->
 categories:
   - js
 tags:
-  - js, var, let, const, declaration
+  - js
+  - declaration
 ---
 
 
