@@ -3,10 +3,15 @@ title: "Các bài viết ngắn - phần 3"
 categories:
   - Short Posts
 tags:
-  - git
+  - short-posts
+  - life
+  - news
+  - code-review
+  - learn-english
 ---
 
-![](assets/images/2022/07/2022-07-14-cac-bai-viet-ngan-phan-3.webp)
+![](/assets/images/2022/07/2022-07-14-cac-bai-viet-ngan-phan-3.webp)
+
 ## Đạo của Warren Buffet
 “The Tao of Warren Buffet” – “Đạo của Warren Buffet” là một cuốn sách mỏng chứa những lời thông thái của ông được người con dâu Mary Buffet và những người kề cận ghi lại.
 
@@ -27,9 +32,6 @@ Dưới đây là 6 câu nói mà mình tâm đắc nhất:
 6️⃣ “Quản lý sự nghiệp bản thân cũng giống như đầu tư – mức độ khó khăn không được tính đến. Vì vậy bạn có thể tiết kiệm được tiền bạc và công sức bằng cách chọn đúng chuyến tàu cần lên.”
 —
 Còn bạn thì sao? Bạn thích câu nói nào của nhà đầu tư vĩ đại này?
-(Hãy đọc link tóm tắt các câu nói ở link bên dưới 👇)
-
-https://beautyoncode.com/dao-cua-warren-buffet/ 
 
 ## Goodbye IE
 
@@ -47,7 +49,7 @@ Việc IE bị khai tử đã làm Nhật Bản khá đau đầu vì khá nhiề
 
 Các trình duyệt được sử dụng nhiều nhất hiện nay là Google Chrome, Microsoft Edge, Firefox, Opera.
 
-(https://www.kcra.com/article/say-goodbye-internet-explorer-is-officially-retiring-heres-when/40292245) 
+([đọc thêm](https://www.kcra.com/article/say-goodbye-internet-explorer-is-officially-retiring-heres-when/40292245))
 
 ## Code review là một phần tất yếu của dự án
 Code review nên là một phần tất yếu của dự án 😅
@@ -107,5 +109,3 @@ Nhưng con đường học tiếng Anh của người Việt sao mà khổ trăm
 2. ✅  Quên ngữ pháp đi Vì phản xạ mà đợi ráp ngữ pháp cho đúng chắc tới … chiều, chưa kể các sách dạy ngữ pháp hay ngoại ngữ đa phần là lỗi thời.
 
 3. ✅  Chỉ cần nói tiếng anh thôi, đừng quan tâm tới giọng(accent) Cái này nghe có vẻ ngược đời, vì hầu như mọi người đều cổ xúy chuyện phát âm cho chuẩn giọng Anh, Mỹ. Cái này chỉ là quảng cáo ở các trung tâm Anh ngữ để dễ lấy tiền hơn thôi bạn à. Tất nhiên là nếu bạn nói chuẩn thì quá tốt rồi, nhưng nếu không thì cũng không sao đâu. Tự tin quan trọng hơn ấy. Khi cần, bạn chỉ cần nói tiếng Anh là được, giọng Việt Nam hay giọng Ấn gì cũng được tuốt, lúc đó người ta quan tâm tới thông tin bạn cung cấp chứ ai hơi đâu mà để ý cái giọng, chưa kể người bản sứ họ biết rõ và tự điều chỉnh giọng họ chậm lại cho phù hợp với bạn nữa.
-
-Mình có đọc hai bài về chuyện tiếng anh dưới góc nhìn của các dev Việt ở nước ngoài ở đây, mời bạn ghé nghe nhé.

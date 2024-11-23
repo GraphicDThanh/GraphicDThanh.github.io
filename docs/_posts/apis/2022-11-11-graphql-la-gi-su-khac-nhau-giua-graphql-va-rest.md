@@ -7,7 +7,7 @@ tags:
   - api-design
 ---
 
-![](assets/images/2022/11/2022-11-graphql-la-gi-su-khac-nhau-giua-graphql-va-rest.webp)
+![](/assets/images/2022/11/2022-11-graphql-la-gi-su-khac-nhau-giua-graphql-va-rest.webp)
 
 ## GraphQL là gì ?
 GraphQL là query language dành cho API được phát triển bởi Meta.

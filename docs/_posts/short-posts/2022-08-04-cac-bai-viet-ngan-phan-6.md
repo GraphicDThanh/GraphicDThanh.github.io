@@ -3,8 +3,15 @@ title: "Các bài viết ngắn - phần 6"
 categories:
   - Short Posts
 tags:
-  - git
+  - short-posts
+  - learning-resources
+  - javascript
+  - algorithms
+  - extensions
+  - leetcode
 ---
+
+![](/assets/images/2022/08/2022-08-04-cac-bai-viet-ngan-phan-6.png)
 
 ## Public APIs
 Bạn muốn làm một dự án chỉ với kiến thức frontend, và đang tìm những API được public để có sử dụng cho dự án của mình? Đó có thể là một trang web hiển thị các bạn mèo, cốc cà phê yêu thích hay một trang về anime, games, …
@@ -45,7 +52,9 @@ Một số vấn đề thường gặp khi giải bài toán binary search:
 
 – Làm sao để khởi tạo và cập nhật biên bên trái (left), biên bên phải (right)?
 
-[Bài viết sau](https://beautyoncode.com/tim-kiem-nhi-phanbinary-search/) giới thiệu một bản mẫu tổng quát về cách giải binary search sẽ giúp bạn hình dung về cách giải bài toán này dễ dàng hơn.
+[Bài viết sau][tim-kiem-nhi-phanbinary-search] giới thiệu một bản mẫu tổng quát về cách giải binary search sẽ giúp bạn hình dung về cách giải bài toán này dễ dàng hơn.
+
+[tim-kiem-nhi-phanbinary-search]: {{ "" | relative_url }}{% post_url fundamentals/2022-08-02-tim-kiem-nhi-phan-binary-search %}
 
 ## Useful extensions for FE Developer
 Là một Frontend Developer, một trong những bộ công cụ hữu dụng chính là những extensions(phần mở rộng) được cài đặt trên trình duyệt Chrome.
@@ -60,7 +69,10 @@ Giới thiệu đến bạn 4 extensions sẽ mang đến cho bạn thêm năng 
 
 4. **Live Editor CSS** – Sửa style của trang web ngay trên màn hình và có thể sử dụng những đoạn mã này nhanh chóng
 
-Ghé [blog này](https://beautyoncode.com/chrome-extensions-huu-ich-danh-cho-frontend-developer/) để đọc thêm chi tiết với hình minh hoạ và link để cài đặt những extensions này nhé.
+Ghé [blog này][chrome-extensions-huu-ich-danh-cho-frontend-developer] để đọc thêm chi tiết với hình minh hoạ và link để cài đặt những extensions này nhé.
+
+[chrome-extensions-huu-ich-danh-cho-frontend-developer]: {{ "" | relative_url }}{% post_url tools/2022-08-07-chrome-extensions-huu-ich-danh-cho-frontend-developer %}
+
 ## Tự động push code giải leetcode bằng Leethub extensions
 Bạn đã bắt đầu giải [leetcode.com](http://leetcode.com/) hàng ngày để rèn luyện tư duy logic cũng như học thêm về cấu trúc dữ liệu và thuật toán chưa?
 
@@ -75,4 +87,4 @@ Sau khi cài đặt và kết nối đến github với repo có sẵn hay repo 
 Đây là [repo](https://github.com/GraphicDThanh/leetcode) mình thử nghiệm submit leetcode gần đây.
 
 Giao diện LeetHub hiển thị:
-![](assets/images/2022/08/2022-08-04-cac-bai-viet-ngan-phan-6-1.webp)
+![](/assets/images/2022/08/2022-08-04-cac-bai-viet-ngan-phan-6-1.webp)

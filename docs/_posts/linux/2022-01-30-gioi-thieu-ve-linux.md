@@ -75,7 +75,7 @@ Nếu phần mềm của bạn là open source(mã nguồn mở) thì nó sẽ b
 
 – **Freedom 3**: Tự do phân phối các bản sao của chương trình bạn đã chỉnh sửa cho người khác. Để làm được điều này tất nhiên bạn cần có quyền truy cập vào source code trước.
 
-![](assets/images/2022/11/2022-01-30-gioi-thieu-ve-linux-1.webp)
+![](/assets/images/2022/11/2022-01-30-gioi-thieu-ve-linux-1.webp)
 
 Sơ đồ bên trên mô tả quyền tự do sửa đổi, phân phối và sử dụng của phần mềm open source. 
 
@@ -107,7 +107,7 @@ Thực tế thì, tập hợp các phần mềm tạo nên hệ điều hành c�
 ### Cài đặt và sử dụng Linux
 Ở phần này, mình sẽ không giới thiệu chi tiết cách cài đặt distro hay gì, mình sẽ gợi ý một số cách bạn có thể bắt đầu truy cập và sử dụng Linux trên máy tính:
 
-– **MacOS**: Hệ điều hành MacOS có nhân là UNIX-based(cụ thể là NeXTSTEP operating system). Linux cũng có nhân là UNIX-based(cụ thể là GNU) do đó nếu bạn dùng máy Mac thì rất đơn giản, gõ vào thanh tìm kiếm “Terminal” và mở phần mềm này lên. (xem thêm ở [hình minh họa](assets/images/2022/11/2022-01-30-gioi-thieu-ve-linux-2.png))
+– **MacOS**: Hệ điều hành MacOS có nhân là UNIX-based(cụ thể là NeXTSTEP operating system). Linux cũng có nhân là UNIX-based(cụ thể là GNU) do đó nếu bạn dùng máy Mac thì rất đơn giản, gõ vào thanh tìm kiếm “Terminal” và mở phần mềm này lên. (xem thêm ở [hình minh họa](/assets/images/2022/11/2022-01-30-gioi-thieu-ve-linux-2.png))
 
 – **Windows**: Với máy windows, trước đây thì cần cài máy ảo(virtual machine – VM) với Virtualbox để có thể sử dụng hệ điều hành khác trên máy ảo. Tuy nhiên, cách này đã cũ rồi, hiện nay nếu bạn dùng windows thì có thể cài và sử dụng [“Windows Subsystem for Linux(WSL)“](https://docs.microsoft.com/en-us/windows/wsl/)
 

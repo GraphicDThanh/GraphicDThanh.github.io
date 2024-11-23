@@ -7,7 +7,7 @@ tags:
   - random
 ---
 
-![](assets/images/2019/12/2019-12-minh-da-tro-thanh-lap-trinh-vien-nhu-vay-do.jpg)
+![](/assets/images/2019/12/2019-12-minh-da-tro-thanh-lap-trinh-vien-nhu-vay-do.jpg)
 
 Mình cũng không biết có hay ho lắm không, nhưng con đường từ designer qua developer cũng thú vị lắm, có lẽ bài này mình sẽ viết về điều đó.
 
@@ -31,7 +31,7 @@ Mình có đi học khoá Vẽ Kể Chuyện, nơi mình gặp gỡ được nh�
 
 Giờ có ai gặp lại, hỏi mình có tiếc không, có tiếc nghề thiết kế không, cũng sắp vào nghề, cũng sắp … Nhưng không bạn ơi, mình chẳng hề tiếc gì, vì con đường mình chọn nó quá vui để đi về, thì mình còn tiếc gì nữa. Không những vậy, mình hiểu được hội hoạ là cuộc sống, nếu là đam mê thì thích thì mình vẽ thôi, mình vẽ hình cho con, vẽ bậy bạ lúc stress, vui và cũng đủ đầy.
 
-![](assets/images/2019/12/2019-12-minh-da-tro-thanh-lap-trinh-vien-nhu-vay-do.jpg)
+![](/assets/images/2019/12/2019-12-minh-da-tro-thanh-lap-trinh-vien-nhu-vay-do.jpg)
 
 Con đường mình chọn, trở thành lập trình viên, may sao nó quá hợp với mình, như là một định mệnh, nghề chọn người, thật là may.
 

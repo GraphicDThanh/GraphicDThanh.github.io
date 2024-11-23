@@ -27,7 +27,7 @@ Tiếp theo trong bài này, tụi mình sẽ **làm quen CLI và một số câ
 ## Giới thiệu về CLI (Command Line Interface)
 Trong những bài viết trước đây, chúng ta đã cùng làm quen với Linux và thực hành một số câu lệnh trên môi trường dòng lệnh(đã được mình giới thiệu ở bài [“Giới thiệu về Linux”](https://beautyoncode.com/gioi-thieu-ve-linux/)), bạn này đây:
 
-![](assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-1.webp)
+![](/assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-1.webp)
 
 Môi trường này có tên đầy đủ là Command Line Interface(CLI), nơi cung cấp rất nhiều câu lệnh có thể dùng(khoảng 10,000). 
 
@@ -58,7 +58,7 @@ Có nhiều loại định dạng như text, code, database, …
 
 > Lệnh **file** giúp xem kiểu định dạng của file
 
-![](assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-2.webp)
+![](/assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-2.webp)
 
 Trong ví dụ trên là một số kiểu định dạng khác nhau của file: zip, directory, ASCII text.
 
@@ -68,17 +68,17 @@ Những tập tin có kết quả trả về từ câu lệnh “file” có ch�
 
 > Lệnh **cat** giúp xem nội dung của một file.
 
-![](assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-3.webp)
+![](/assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-3.webp)
 
 Nếu muốn hiển thị số dòng, bạn có thể sử dụng thêm lựa chọn **-n**
 
-![](assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-4.webp)
+![](/assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-4.webp)
 
 Lệnh “cat” sẽ thường được dùng để mở một file nhỏ, vì khi mở file với cat thì nếu file lớn quá sẽ có thanh kéo hiện lên và để xem hết file thì bạn cần scroll ngược lên trên để xem nội dung(hình bên dưới).
 
 Do đó, với file có kích thước lớn, việc chia trang để xem với hai câu lệnh more, less sẽ tiện hơn.
 
-![](assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-5.webp)
+![](/assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-5.webp)
 
 
 ### Lệnh "more" và "less"
@@ -92,7 +92,7 @@ Dành cho ai có thắc mắc này thì câu lệnh **less** là phiên bản n�
 Bên cạnh đó, câu lệnh more hoạt động như thế nào thì mời bạn có thể xem lại nội dung trong bài [“Chuyển hướng câu lệnh trong Linux”](https://beautyoncode.com/chuyen-huong-cau-lenh-trong-linux/) để hiểu rõ hơn nhé.
 
 Dưới đây là kết quả của câu lệnh *cat text.txt | more*
-![](assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-6.webp)
+![](/assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-6.webp)
 
 Bên trên giúp mình xem nội dung với chế độ phân trang với more, less. 
 
@@ -105,27 +105,27 @@ Ngoài ra, bạn có thể sử dụng các câu lệnh để điều khiển vi
 Mỗi phần nội dung mặc định là 10 dòng. Nếu muốn điều chính số dòng, sử dụng lựa chọn -n.
 
 Ví dụ: Giả sử đây là toàn bị nội dung của file text.txt
-![](assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-7.webp)
+![](/assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-7.webp)
 
 ### "head"
 > Lệnh **head** giúp hiển thị phần đầu nội dung của file
 
-![](assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-8.webp)
+![](/assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-8.webp)
 ### "tail"
 > Lệnh **tail** giúp hiển thị phần cuối nội dung của file
 
-![](assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-9.webp)
+![](/assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-9.webp)
 
 #### hiển thị với số dòng với -n
 Muốn hiển thị với số dòng cụ thể nào đó, có thể sử dụng kết hợp với option **-n**
 
-![](assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-10.webp)
+![](/assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-10.webp)
 
 ### Lệnh "wc"
 
 > Lệnh **wc** giúp hiển thị các thông tin thống kê của nội dung file, như số dòng, số từ, số ký tự
 
-![](assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-11.webp)
+![](/assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-11.webp)
 
 
 Kết quả của lệnh wc text.txt ở trên là file có 34 dòng, 249 từ và 898 ký tự
@@ -158,11 +158,11 @@ Nếu bạn còn tò mò nữa thì cơ sở dữ liệu này nằm ở “/var/
 
 Ví dụ mình muốn tìm cuốn sách của mình với “Developers.pdf”
 
-![](assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-12.webp)
+![](/assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-12.webp)
 
 Câu lệnh locate sẽ trả về đường dẫn tuyệt đối. Bạn cũng có thể dùng option “**-c**” để đếm số file được tìm thấy trong database
 
-![](assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-13.webp)
+![](/assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-13.webp)
 
 Với câu lệnh **locate**, kết quả được trả ra khá nhanh chóng do bạn ấy tìm trên một cơ sở dữ liệu có sẵn. 
 
@@ -171,7 +171,7 @@ Tuy nhiên, locate có nhược điểm lớn đó là **“Data đôi khi sẽ 
 #### Lý do 1: 
 khi tìm kiếm với locate, user đi tìm sẽ là “nobody”, điều này đồng nghĩa với nó không thể tìm kiếm được những nơi mà user nobody hay group nobody không có quyền đọc thì những files này sẽ không được tìm thấy. 
 
-![](assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-14.webp)
+![](/assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-14.webp)
 
 **Ví dụ:** Ở hình trên, thực hiện tìm “cli-interface.png” trong folder  “example-linux/file-formats”, và locate không thể tìm ra file này, lý do là vì nobody không có quyền đọc file này. 
 
@@ -186,12 +186,12 @@ Lúc này cần phải cập nhật lại cơ sở dữ liệu bằng tay với 
 Ví dụ: Mình muốn tìm file hello-training.sh ngay trong thư mục mình vừa mới tạo.
 
 
-![](assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-15.webp)
+![](/assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-15.webp)
 
 Kết quả là không tìm thấy dù cho nobody có quyền thực thi như ở trên hình. Lý do mình đã nói ở trên là do những file này được tạo sau nên trong cơ sở dữ liệu của locate chưa có data, do đó tìm không thấy.
 
 Thực hiện cập nhật cơ sở dữ liệu(chạy hơi lâu, vì là của toàn hệ thống), rồi thì tìm lại mới có thể tìm thấy được.
-![](assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-16.webp)
+![](/assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-16.webp)
 
 Vì cái sự bất tiện của locate như thế, nên đã đến lúc bạn cần biết thêm về câu lệnh tìm kiếm chủ động hơn, là **find**
 
@@ -204,7 +204,7 @@ Cú pháp:
 
 Ví dụ: Mình tìm file text.txt ở thư mục hiện tại với câu lệnh find
 
-![](assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-17.webp)
+![](/assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-17.webp)
 
 #### Một vài gợi ý để việc tìm với find nhanh hơn:
 **1. Hạn chế tìm từ root /**, hoặc folder có số lượng file quá lớn, khoanh vùng phạm vi tìm kiếm càng hẹp càng đỡ tốn thời gian.
@@ -213,7 +213,7 @@ Ví dụ: Mình tìm file text.txt ở thư mục hiện tại với câu lệnh
 
 Ví dụ:
 
-![](assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-18.webp)
+![](/assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-18.webp)
 
 Về **black hole /dev/null**, nó là một null device của unix-system, hay còn gọi là black hole hay bit bucket nơi tất cả các data đều được ghi thành công tuy nhiên sẽ không có dữ liệu nào được ghi lại. Bạn có thể tưởng tượng nó như một cái hố sâu không đáy vậy(đọc thêm ở [đây](https://www.codercrunch.com/post/2031971524/what-is-devnull)).
 
@@ -235,7 +235,7 @@ Những lựa chọn của find là:
 
 Ví dụ:
 
-![](assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-19.webp)
+![](/assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-19.webp)
 
 
 ## Các lệnh sử dụng để so sánh file
@@ -248,12 +248,12 @@ Nếu chỉ muốn xem hai file có khác nhau không, thì câu lệnh **cmp** 
 
 Nếu hai file hoàn toàn giống nhau, câu lệnh trả về rỗng, nếu khác nhau sẽ trả về một số thông tin về sự khác nhau này.
 
-![](assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-20.webp)
+![](/assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-20.webp)
 
 ### Lệnh "diff"
 Nếu muốn xem sự khác nhau giữa hai file là gì, sử dụng câu lệnh **diff**
 
-![](assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-21.webp)
+![](/assets/images/2022/06/2022-06-14-gioi-thieu-ve-cli-va-mot-so-cau-lenh-lam-viec-voi-file-trong-linux-21.webp)
 
 Kết quả ở trên ý nói: “Nếu bạn thay đổi dòng test.txt ở file list.txt thành test2.txt thì kết quả sẽ file text2.txt”
 

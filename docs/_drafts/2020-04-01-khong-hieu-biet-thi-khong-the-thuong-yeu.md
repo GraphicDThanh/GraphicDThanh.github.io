@@ -7,7 +7,7 @@ tags:
   - random
 ---
 
-![](assets/images/2020/04/2020-04-01-khong-hieu-biet-thi-khong-the-thuong-yeu.webp)
+![](/assets/images/2020/04/2020-04-01-khong-hieu-biet-thi-khong-the-thuong-yeu.webp)
 
 Dưới đây là một đoạn hội thoại giữa Bụt và vua Pasenadi về “tình yêu”:
 

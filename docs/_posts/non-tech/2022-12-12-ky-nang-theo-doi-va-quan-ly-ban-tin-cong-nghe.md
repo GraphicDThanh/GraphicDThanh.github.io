@@ -11,7 +11,7 @@ tags:
 last_modified_at: 2023-04-29T15:12:19-04:00
 ---
 
-![](assets/images/2022/12/2022-12-ky-nang-tim-kiem-thong-tin-cover.webp)
+![](/assets/images/2022/12/2022-12-ky-nang-tim-kiem-thong-tin-cover.webp)
 
 Hôm nay mình và các bạn có thảo luận về kỹ năng tìm kiếm (research) thông tin.
 

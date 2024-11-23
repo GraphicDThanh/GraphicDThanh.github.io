@@ -7,7 +7,7 @@ tags:
   - random
 ---
 
-![](assets/images/2021/08/2021-08-mon-qua-tu-bien.webp)
+![](/assets/images/2021/08/2021-08-mon-qua-tu-bien.webp)
 
 Nhà tớ gần biển, chỉ cách biển tầm 2km thôi, trên đường gần nhà còn có tấm biển cột mốc biên giới biển gì đấy nữa cơ. 
 
@@ -15,7 +15,7 @@ Nhà tớ gần biển, chỉ cách biển tầm 2km thôi, trên đường gầ
 
 Đây là biển gần nhà tớ trong một tấm hình ở lượm trên internet:
 
-![](assets/images/2021/08/2021-08-08-mon-qua-tu-bien-1.webp)
+![](/assets/images/2021/08/2021-08-08-mon-qua-tu-bien-1.webp)
 
 Chồng của tớ rất yêu biển, một tình yêu mà tớ không làm sao diễn tả bằng lời được. 
 
@@ -31,7 +31,7 @@ Biển trong tớ là những ngày mới tập thể dục thể thao ngoài tr
 
 Biển trong tớ là những buổi sáng chạy dọc ven bờ, xem mọi người bắt đầu ngày mới bằng các hoạt động thể dục thể thao, thử thách bản thân mình với 3km rồi 5km rồi 8km rồi 16km chạy bộ. Vừa chạy vừa ngắm biển thật tuyệt, biển rộng lớn bao la và tĩnh lặng.
 
-![](assets/images/2021/08/2021-08-08-mon-qua-tu-bien-2.webp)
+![](/assets/images/2021/08/2021-08-08-mon-qua-tu-bien-2.webp)
 
 Biển trong tớ còn là những chiều đi làm về quá mệt, cảm giác như kiệt sức đến nơi rồi, tớ sẽ bảo chồng em mệt quá cần ra ngoài một tí, rồi tớ thơ thẩn lê lếch ra biển, ngồi đó, im lặng và nhìn biển, nhìn trời, nhìn mọi người xung quanh, để rồi tự đặt những câu hỏi lớn cho chính bản thân mình. 
 
@@ -58,7 +58,7 @@ Nào là ông mặt trời lên chiếu ánh nắng chói chang làm nước b�
 
 Cứ thế, kể từ trời chiều đến trời gần tối, phải dụ ông mặt trời đi ngủ rồi mình phải về thôi mới kết thúc trò chơi tuần hoàn đấy.
 
-![](assets/images/2021/08/2021-08-08-mon-qua-tu-bien-3.webp)
+![](/assets/images/2021/08/2021-08-08-mon-qua-tu-bien-3.webp)
 
 
 Cứ xuống biển, là mỗi người tự đi dạo, tự có tự do của mình. Đôi khi bạn nhỏ đuổi theo một con cua nước chạy vào hang, đôi khi sẽ reo lên khi tìm thấy một vỏ nghêu hay vỏ ốc hay cả san hô nữa. 
@@ -67,15 +67,15 @@ Những buổi chiều như vậy bạn nhỏ sẽ tha hồ được khám phá,
 
 Chicken cũng được biển ưu đãi lắm nha, đôi khi bạn ấy còn lượm được cả những chiếc xe đồ chơi người ta để quên, hoặc lượm được cây củi để vẽ hình trái tim trên cát, hay là vỏ sò siêu to làm xe múc nữa cơ.
 
-![](assets/images/2021/08/2021-08-08-mon-qua-tu-bien-3.webp)
+![](/assets/images/2021/08/2021-08-08-mon-qua-tu-bien-3.webp)
 
 Vì thường xuyên đi biển, nên dần dần bộ sưu tập vỏ ốc, vỏ sò cũng bắt đầu nhiều lên. Ba Chicken lấy hủ chai nước yến của ông Thầy(là ông nội Chicken) rồi bỏ các vỏ này vào, làm thầy bộ sưu tập nho nhỏ và đặt ngay ngắn trên kệ sách. Anh còn cho tớ một hủ mang lên văn phòng trang trí nữa ấy. 
 
-![](assets/images/2021/08/2021-08-08-mon-qua-tu-bien-4.webp)
+![](/assets/images/2021/08/2021-08-08-mon-qua-tu-bien-4.webp)
 
 Mỗi lúc lấy vỏ ốc ra chơi, tớ hay bảo con đó là “món quà của biển”, mình cùng nhau chơi thật cẩn thận rồi cất lại nhé, đầu tiên là xếp các loại khác nhau nè, sau đó là đếm rồi bỏ vào hủ nè, nhìn đơn giản vậy chứ chơi cả buổi đó nghe =)) 
 
-![](assets/images/2021/08/2021-08-08-mon-qua-tu-bien-5.webp)
+![](/assets/images/2021/08/2021-08-08-mon-qua-tu-bien-5.webp)
 Lần đầu tiên bạn ấy được tớ bày áp vỏ ốc vào tai nghe tiếng của biển, bạn ấy đã rất hạnh phúc, gương mặt tươi rói và luôn miệng nói: “Mẹ ơi, trong vỏ ốc có biển nè mẹ”. 
 
 Tớ chỉ cười rồi ừ nhẹ hỏi: “Chicken có thích không, Chicken có thể nghe thấy biển mà không cần đi biển luôn nè, hay chưa!”. 

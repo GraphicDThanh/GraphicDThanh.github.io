@@ -3,9 +3,14 @@ title: "Các bài viết ngắn - phần 17"
 categories:
   - Short Posts
 tags:
-  - short-post
+  - short-posts
+  - algorithms
+  - javascript
+  - learning-resources
+  - clean-code
+  - python
 ---
-![](assets/images/2022/10/2022-10-30-cac-bai-viet-ngan-phan-17-1.webp)
+![](/assets/images/2022/10/2022-10-30-cac-bai-viet-ngan-phan-17-1.webp)
 
 ## Thuật toán là gì?
 Thuật toán hay giải thuật là một khái niệm quan trọng trong toán học và khoa học máy tính.
@@ -60,7 +65,7 @@ Mỗi execution context bị xóa sẽ được lấy ra khỏi(pop) ngăn xếp
 
 Đây chính là cách JS Engine thực thi code.
 
-Mời bạn đọc chi tiết về quá trình này kèm ví dụ và hình ảnh minh họa ở [blog post này](https://beautyoncode.com/dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript/) nhé
+Mời bạn đọc chi tiết về quá trình này kèm ví dụ và hình ảnh minh họa ở [blog post này][dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript] nhé
 
 ## Nguồn tài liệu video khoa học máy tính
 Bạn là sinh viên ngành CNTT hay đã là lập trình viên nhưng các kiến thức nền tảng về khoa học máy tính còn lủng nhiều chỗ như mình?
@@ -176,4 +181,8 @@ Hàm là một first-class object nên sẽ có các đặc điểm cụ thể s
 – Hàm có thể truy cập các biến cục bộ (hay gọi là lexical closures hoặc closures)
 – Đối tượng có thể có hành vi giống hàm
 
-Bạn ghé đọc thêm các ví dụ cho từng đặc điểm ở [bài viết sau](https://beautyoncode.com/ham-trong-python-la-first-class-object/) nhé
+Bạn ghé đọc thêm các ví dụ cho từng đặc điểm ở [bài viết sau][ham-trong-python-la-first-class-object] nhé
+
+
+[dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript]: {{ "" | relative_url }}{% post_url js/2022-08-30-dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript %}
+[ham-trong-python-la-first-class-object]: {{ "" | relative_url }}{% post_url python/2022-10-10-ham-trong-python-la-first-class-object %}

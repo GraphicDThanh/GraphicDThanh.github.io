@@ -3,9 +3,13 @@ title: "Các bài viết ngắn - phần 29"
 categories:
   - Short Posts
 tags:
-  - short-post
+  - short-posts
+  - devops
+  - javascript
+  - learning-resources
+  - soft-skills
 ---
-![](assets/images/2023/02/2023-02-21-cac-bai-viet-ngan-phan-29-1.webp)
+![](/assets/images/2023/02/2023-02-21-cac-bai-viet-ngan-phan-29-1.webp)
 
 ## 90 ngày học devops
 Nếu bạn muốn học devops mà chưa biết bắt đầu từ đâu thì repo này có thể là tín hiệu vũ trụ gửi đến bạn 😉
@@ -228,4 +232,6 @@ Nội dung này mình có hướng dẫn chi tiết kèm minh họa rất dễ h
 
 Sau khi đã có bộ newsletters của mình rồi thì cứ mỗi ngày đọc một ít để cập nhật thông tin công nghệ nhé bạn. Đừng quên luôn mà tội các bạn ý :3
 
-https://beautyoncode.com/huong-dan-quan-ly-ban-tin-newsletters/
+[đọc thêm][huong-dan-quan-ly-ban-tin-newsletters]
+
+[huong-dan-quan-ly-ban-tin-newsletters]: {{ "" | relative_url }}{% post_url non-tech/2023-03-03-huong-dan-quan-ly-ban-tin-newsletters %}

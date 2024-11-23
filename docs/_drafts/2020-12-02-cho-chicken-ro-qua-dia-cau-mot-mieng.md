@@ -7,7 +7,7 @@ tags:
   - random
 ---
 
-![](assets/images/2020/12/2020-12-02-cho-chicken-ro-qua-dia-cau-mot-mieng.webp)
+![](/assets/images/2020/12/2020-12-02-cho-chicken-ro-qua-dia-cau-mot-mieng.webp)
 
 Bên cạnh nhà tớ là quán tạp hoá “Nam Thành”, sáng nào 6g là đã thấy mở cửa rồi.
 

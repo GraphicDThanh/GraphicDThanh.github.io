@@ -9,7 +9,7 @@ tags:
   - non-tech
 ---
 
-![](assets/images/2023/02/2023-02-dau-nam-ke-chuyen-tim-duong-cover.webp)
+![](/assets/images/2023/02/2023-02-dau-nam-ke-chuyen-tim-duong-cover.webp)
 
 Mình bắt đầu đọc cuốn “The Pragmatic Programmer”, gợi ý đầu tiên mình đọc được là:
 

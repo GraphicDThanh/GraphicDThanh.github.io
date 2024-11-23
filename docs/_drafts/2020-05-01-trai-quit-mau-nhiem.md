@@ -7,7 +7,7 @@ tags:
   - random
 ---
 
-![](assets/images/2020/05/2020-05-01-trai-quit-mau-nhiem.webp)
+![](/assets/images/2020/05/2020-05-01-trai-quit-mau-nhiem.webp)
 
 Dưới đây là trích đoạn trong chương 19 “Trái quýt chánh niệm” thuộc tác phẩm “Đường Xưa Mây Trắng” của sư ông Thích Nhất Hạnh.
 

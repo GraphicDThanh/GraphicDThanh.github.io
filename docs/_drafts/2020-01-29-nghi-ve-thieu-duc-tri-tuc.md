@@ -7,7 +7,7 @@ tags:
   - random
 ---
 
-![](assets/images/2020/01/2020-01-nghi-ve-thieu-duc-tri-tuc.webp)
+![](/assets/images/2020/01/2020-01-nghi-ve-thieu-duc-tri-tuc.webp)
 
 Hôm nay là ngày thứ 7, bạn con vẫn đi học như bình thường để bố mẹ được ở bên nhau và làm một tá các công việc khác.
 

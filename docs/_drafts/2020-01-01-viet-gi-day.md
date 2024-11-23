@@ -7,7 +7,7 @@ tags:
   - random
 ---
 
-![](assets/images/2020/01/2020-01-01-viet-gi-day.jpg)
+![](/assets/images/2020/01/2020-01-01-viet-gi-day.jpg)
 
 Tui chơi blog lâu rồi, mà đa số là vụt đến rồi vụt đi, kiểu như vào thả tí cảm xúc rồi lại biến mất
 

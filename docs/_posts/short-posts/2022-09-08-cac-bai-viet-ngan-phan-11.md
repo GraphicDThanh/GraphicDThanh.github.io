@@ -3,9 +3,13 @@ title: "Các bài viết ngắn - phần 11"
 categories:
   - Short Posts
 tags:
-  - short-post
+  - short-posts
+  - react
+  - tools
+  - javascript
+  - concepts
 ---
-![](assets/images/2022/09/2022-09-08-cac-bai-viet-ngan-phan-11-cover.webp)
+![](/assets/images/2022/09/2022-09-08-cac-bai-viet-ngan-phan-11-cover.webp)
 ## Hook Pattern
 
 Hook pattern giúp sử dụng function để tái sử dụng các trạng thái(state) xuyên suốt nhiều components trong app.
@@ -75,8 +79,9 @@ Mỗi execution context bị xóa sẽ được lấy ra khỏi(**pop**) ngăn x
 
 Đây chính là cách JS Engine thực thi code.
 
-Mời bạn đọc chi tiết về quá trình này kèm ví dụ và hình ảnh minh họa ở [blog post này](https://beautyoncode.com/dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript/) nhé.
+Mời bạn đọc chi tiết về quá trình này kèm ví dụ và hình ảnh minh họa ở [blog post này][dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript] nhé.
 
+[dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript]: {{ "" | relative_url }}{% post_url js/2022-08-30-dieu-gi-xay-ra-khi-chay-mot-chuong-trinh-javascript %}
 
 ## MVC là gì?
 
@@ -98,7 +103,7 @@ Các thành phần:
 
 Trong mô hình này, Model và View sẽ không tương tác với nhau, chỉ có Controller là nói chuyện với cả Model và View.
 
-![](assets/images/2022/09/2022-09-08-cac-bai-viet-ngan-phan-11-1.webp)
+![](/assets/images/2022/09/2022-09-08-cac-bai-viet-ngan-phan-11-1.webp)
 
 [Read more here](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)
 
@@ -114,4 +119,6 @@ Hoisting trong JavaScript chính là sau giai đoạn Memory Creation, các bi�
 
 Hoisting trong JS sẽ dễ gây hiểu nhầm nếu bạn không hiểu về JavaScript Engine nên bạn cần tìm hiểu cơ chế này để dễ debug chương trình của mình nhé.
 
-Mời bạn đọc thêm chi tiết ở [bài blog này](https://beautyoncode.com/hoisting-trong-javascript/).
+Mời bạn đọc thêm chi tiết ở [bài blog này][hoisting-trong-javascript].
+
+[hoisting-trong-javascript]: {{ "" | relative_url }}{% post_url js/2022-09-07-hoisting-trong-javascript %}
