@@ -47,4 +47,8 @@ $ bundle install
 
 ## Theme
 - https://mmistakes.github.io/minimal-mistakes/docs/structure/
--
+
+## Upload indexing to Algolia
+```
+ALGOLIA_API_KEY=xxx bundle exec jekyll algolia
+```

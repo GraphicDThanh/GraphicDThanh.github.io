@@ -40,7 +40,7 @@ feature_row:
     url: "/categories/#short-posts/"
     btn_class: "btn--primary"
     btn_label: "Learn more"
-  - image_path: /assets/images/thumbnails/career-development.png
+  - image_path: /assets/images/thumbnails/career-development.jpg
     alt: "Soft Skills"
     title: "Soft Skills"
     excerpt: "Articles on career development in the tech industry. Whether you’re looking to break into the tech industry or advance your career, these articles are aimed at providing actionable advice to help you achieve your goals."
