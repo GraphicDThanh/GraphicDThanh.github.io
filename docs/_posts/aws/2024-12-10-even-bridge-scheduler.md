@@ -119,3 +119,10 @@ Khi lập lịch công việc định kỳ với AWS EventBridge, bạn cần c�
 - Sự khác biệt về số ngày giữa các tháng.
 
 Hy vọng bài viết này giúp bạn hiểu rõ hơn cách dùng EventBridge Scheduler và cách chọn schedule type phù hợp với bài toán của mình.
+
+
+**Đọc thêm:**
+- [Amazon Event Bridge](https://aws.amazon.com/eventbridge/)
+- [Schedule types in EventBridge Scheduler](https://docs.aws.amazon.com/scheduler/latest/UserGuide/schedule-types.html)
+- [Stripe - Prorations](https://docs.stripe.com/billing/subscriptions/prorations#when-prorations-are-applied)
+- [Stripe - Checkout Session](https://docs.stripe.com/api/checkout/sessions)
