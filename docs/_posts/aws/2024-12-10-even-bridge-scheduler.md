@@ -77,7 +77,7 @@ Giả sử bạn cần tự động thực hiện tác vụ trên (tặng $10 v�
   - Nếu người dùng mua gói vào ngày **31**, cron sẽ *không thể* trigger trong các tháng không có ngày 31 (tháng 2, 4, 6, 9, 11).
   - Tương tự cho các ngày 29, 30 thì tháng 2 sẽ bị thiếu trigger.
 
-![](/images/2024/12/2024-12-10-even-bridge-scheduler-cron.png)
+![](/assets/images/2024/12/2024-12-10-even-bridge-scheduler-cron.png)
 
 ## Giải Pháp Xử Lý Cron-based Schedule
 ### 1: Sử Dụng Ngày Đầu Tháng Tiếp Theo
