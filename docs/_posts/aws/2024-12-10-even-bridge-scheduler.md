@@ -17,6 +17,8 @@ Với AWS, có hai giải pháp phổ biến để giải quyết bài toán nà
 Để bạn dễ hình dung bài toán, dưới đây là [**Subscription-Based Payment Flow with AWS EventBridge and Stripe**](https://drive.google.com/file/d/1zsuc1sh_sLDmxJxjsJRunB42yioDdwdm/view?usp=drive_link):
 ![](/assets/images/2024/12/2024-12-10-even-bridge-scheduler-flow-1.png)
 
+Mô tả flow:
+
 - (1) Người dùng muốn mua gói **subscription Premium** theo hình thức thanh toán **hàng năm**
 - (2) Ứng dụng Frontend gọi đến Backend để lấy thông tin phiên checkout của Stripe
 - (3) Ứng dụng FE nhận được URL phiên checkout và chuyển hướng người dùng đến giao diện Stripe để bắt đầu thanh toán
@@ -72,7 +74,7 @@ Giả sử bạn cần tự động thực hiện tác vụ trên (tặng $10 v�
 
 ### Cron-based Schedule
 - **Cron expression**: `cron(0 0 x * ? *)`
-  - trigger event mỗi tháng vào ngày `x` là ngày mua Premium subcription.
+  - trigger event mỗi tháng vào ngày `x` là ngày mua Premium subscription.
 - **Hạn chế**:
   - Nếu người dùng mua gói vào ngày **31**, cron sẽ *không thể* trigger trong các tháng không có ngày 31 (tháng 2, 4, 6, 9, 11).
   - Tương tự cho các ngày 29, 30 thì tháng 2 sẽ bị thiếu trigger.
@@ -97,4 +99,4 @@ Khi lập lịch công việc định kỳ với AWS EventBridge, bạn cần c�
 - Các tháng không có đủ số ngày trong cron expression.
 - Sự khác biệt về số ngày giữa các tháng.
 
-Hy vọng bài viết này giúp bạn hiểu rõ hơn cách dùng EventBridge Scheduler và cách chọn shedule type phù hợp với bài toán của mình.
+Hy vọng bài viết này giúp bạn hiểu rõ hơn cách dùng EventBridge Scheduler và cách chọn schedule type phù hợp với bài toán của mình.
