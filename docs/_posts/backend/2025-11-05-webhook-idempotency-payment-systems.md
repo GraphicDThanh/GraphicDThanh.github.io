@@ -13,6 +13,18 @@ tags:
 
 ![](/assets/images/2026/05/2026-05-19-webhook-idempotency-cover.webp)
 
+## Table of Contents
+
+- [The Production Incident](#the-production-incident)
+- [Understanding Webhook Delivery Guarantees](#understanding-webhook-delivery-guarantees)
+- [What is Idempotency?](#what-is-idempotency)
+- [Implementation: 3 Patterns](#implementation-3-patterns-for-idempotency)
+- [Webhook Security](#critical-webhook-security)
+- [Testing Idempotency](#testing-idempotency)
+- [Best Practices](#best-practices-checklist)
+
+---
+
 ## The 3 AM Wake-Up Call
 
 *Phone buzzes at 3 AM.*
@@ -381,105 +393,60 @@ Second webhook arrives (duplicate):
 
 ### Pattern #2: Redis Distributed Lock
 
-For systems that need more control over concurrent webhook processing:
+> **⚠️ Warning:** This pattern is more complex than Pattern #1. Only use it if you have specific requirements.
+
+**When you might need this:**
+- You're processing webhooks on multiple servers simultaneously
+- Webhook processing takes >5 seconds (long operations)
+- You want to wait for first request to finish instead of failing fast
+
+**Core concept:**
 
 ```typescript
-@Injectable()
-export class PayoutFeeService {
-  constructor(
-    private readonly redis: Redis,
-    private readonly feeRepository: FeeRepository,
-    private readonly logger: Logger
-  ) {}
+async chargePayoutFee(payoutId: string, amount: number, idempotencyKey: string) {
+  const lockKey = `lock:payout-fee:${idempotencyKey}`;
 
-  async chargePayoutFee(
-    payoutId: string,
-    amount: number,
-    idempotencyKey: string
-  ): Promise<PayoutFee> {
-    const lockKey = `lock:payout-fee:${idempotencyKey}`;
-    const lockTTL = 30; // seconds
+  // Try to acquire lock
+  const lockAcquired = await redis.set(lockKey, '1', 'EX', 30, 'NX');
 
-    // Try to acquire distributed lock
-    const lockAcquired = await this.redis.set(
-      lockKey,
-      'processing',
-      'EX', lockTTL,
-      'NX' // Only set if not exists
-    );
-
-    if (!lockAcquired) {
-      // Another server is processing this webhook
-      this.logger.log(`Duplicate webhook, waiting for completion`);
-
-      // Wait for first process to finish
-      await this.waitForLockRelease(lockKey, 30);
-
-      // Return existing fee
-      return this.feeRepository.findOne({ idempotencyKey });
-    }
-
-    try {
-      // Check if already processed (for late arrivals)
-      const existing = await this.feeRepository.findOne({
-        idempotencyKey
-      });
-      if (existing) {
-        this.logger.log('Fee already exists, returning it');
-        return existing;
-      }
-
-      // Process fee charge
-      const fee = await this.feeRepository.create({
-        payoutId,
-        amount,
-        idempotencyKey
-      });
-
-      this.logger.log(`Fee charged: ${fee.id}`);
-      return fee;
-
-    } finally {
-      // Always release lock
-      await this.redis.del(lockKey);
-    }
+  if (!lockAcquired) {
+    // Another server is processing, wait for it to finish
+    await this.waitForCompletion(lockKey);
+    return this.feeRepository.findOne({ idempotencyKey });
   }
 
-  private async waitForLockRelease(
-    lockKey: string,
-    maxWaitSeconds: number
-  ): Promise<void> {
-    for (let i = 0; i < maxWaitSeconds; i++) {
-      const exists = await this.redis.exists(lockKey);
-      if (!exists) return;
+  try {
+    // We got the lock - check if already processed
+    const existing = await this.feeRepository.findOne({ idempotencyKey });
+    if (existing) return existing;
 
-      await this.sleep(1000); // Wait 1 second
-    }
+    // Process fee
+    return await this.feeRepository.create({ payoutId, amount, idempotencyKey });
 
-    throw new Error(`Lock timeout after ${maxWaitSeconds}s`);
-  }
-
-  private sleep(ms: number): Promise<void> {
-    return new Promise(resolve => setTimeout(resolve, ms));
+  } finally {
+    // Always release lock
+    await redis.del(lockKey);
   }
 }
 ```
 
 **Pros:**
 ```
-✅ Handles concurrent requests elegantly
+✅ Handles concurrent requests across multiple servers
 ✅ Prevents race conditions completely
-✅ Works in distributed systems (multiple servers)
-✅ Flexible lock timeout configuration
+✅ Second request waits instead of failing
 ```
 
 **Cons:**
 ```
-❌ More complex than Pattern #1
+❌ Significantly more complex than Pattern #1
 ❌ Requires Redis (external dependency)
+❌ What if Redis goes down? (need fallback)
 ❌ Lock timeout needs careful tuning
-❌ What if Redis goes down?
+❌ Waiting logic can be tricky
 ```
+
+**Reality check:** Pattern #1 (unique constraint) is enough for 95% of use cases. Only implement Redis locks if you have a proven need.
 
 ---
 
@@ -670,40 +637,74 @@ async processPayoutWebhook(event: PayoutWebhookEvent) {
 
 **Question:** How long should we keep idempotency keys?
 
+**Recommended: 24-72 hours**
+
 ```
-Too short (1 hour):
-❌ Webhook retries after 2 hours → not recognized
-❌ Risk of processing duplicate event
-
-Too long (forever):
-❌ Database bloat
-❌ Performance degradation
-❌ Index size grows indefinitely
-
-Recommended: 24-72 hours
-✅ Long enough for all retry scenarios
-✅ Clean up old keys regularly
+Why 24-72 hours?
+✅ Long enough for all webhook retry scenarios
+✅ Most providers stop retrying after 24 hours
+✅ Prevents database bloat from old keys
 ```
 
-**Clean-up Strategy:**
+**Clean up old keys with a cron job:**
 
 ```typescript
 @Cron('0 0 * * *') // Daily at midnight
 async cleanupOldIdempotencyKeys() {
-  const threeDaysAgo = new Date();
-  threeDaysAgo.setDate(threeDaysAgo.getDate() - 3);
+  const threeDaysAgo = subDays(new Date(), 3);
 
-  const result = await this.db.query(`
+  await this.db.query(`
     DELETE FROM payout_fees
     WHERE created_at < $1
-      AND idempotency_key IS NOT NULL
   `, [threeDaysAgo]);
-
-  this.logger.log(`Cleaned up ${result.rowCount} old idempotency keys`);
 }
 ```
 
+Most payment providers (Stripe, PayPal) stop retrying webhooks after 3 days, so this window is safe.
+
 ## Testing Idempotency
+
+### Local Testing: Simulate Webhooks with curl
+
+Before writing automated tests, verify your implementation works locally:
+
+```bash
+# Step 1: Start your server locally
+npm run dev
+
+# Step 2: Send the same webhook 5 times concurrently
+for i in {1..5}; do
+  curl -X POST http://localhost:3000/webhooks/payout \
+    -H "Content-Type: application/json" \
+    -H "x-webhook-signature: test_signature" \
+    -d '{
+      "id": "evt_test_duplicate",
+      "payoutId": "payout_123",
+      "amount": 10000,
+      "status": "completed"
+    }' &
+done
+wait
+
+# Step 3: Check database - should have only 1 fee
+psql -d mydb -c "SELECT COUNT(*) FROM payout_fees WHERE idempotency_key = 'evt_test_duplicate';"
+# Expected: 1 (not 5!)
+```
+
+**Testing with a real payment provider:**
+
+```bash
+# Use ngrok to expose local server
+ngrok http 3000
+
+# Update webhook URL in payment provider dashboard to:
+https://your-ngrok-url.ngrok.io/webhooks/payout
+
+# Trigger test webhook from provider dashboard
+# Then check your logs and database
+```
+
+---
 
 ### Unit Test: Duplicate Webhooks
 
